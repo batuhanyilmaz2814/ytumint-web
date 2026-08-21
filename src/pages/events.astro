@@ -1,0 +1,329 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Etkinliklerimiz — YTU MINT"
+  description="YTU MINT etkinlikleri: hackathonlar, atölyeler, konferanslar ve matematik olimpiyatları. Yaklaşan etkinliklere katılmak için kayıt ol."
+>
+
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <h1 class="page-hero-title">Etkinliklerimiz</h1>
+          <p class="page-hero-desc">
+            Hackathonlar, atölyeler, seminerler ve olimpiyatlar — her dönem dolu dolu bir etkinlik takvimi.
+            Topluluğumuzla birlikte öğren, geliştir ve büyü.
+          </p>
+        </div>
+        <div class="page-hero-stats">
+          <div class="stat-card">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Yıllık Etkinlik</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Katılımcı</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="events-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label">Yaklaşan Etkinlikler</h2>
+        <p class="section-description">
+          Takvimimizdeki yaklaşan etkinliklere şimdiden kayıt ol, yer ayırt.
+        </p>
+      </div>
+
+      <div class="events-list">
+
+        <div class="event-item event-item--featured">
+          <div class="event-date-badge">
+            <span class="event-day">14</span>
+            <span class="event-month">Eyl</span>
+          </div>
+          <div class="event-info">
+            <div class="event-tags">
+              <span class="event-tag event-tag--green">Hackathon</span>
+              <span class="event-tag">48 Saat</span>
+              <span class="event-tag">Yüz Yüze</span>
+            </div>
+            <h3 class="event-title">MINT Hackathon 2024</h3>
+            <p class="event-desc">
+              48 saatlik kesintisiz kodlama maratonu! Bu yılki tema: "Sürdürülebilir Teknoloji".
+              Ekibinle katıl, ürününü geliştir ve 30.000 TL ödül havuzundan payını al.
+            </p>
+            <div class="event-meta">
+              <span>📍 YTU Davutpaşa Kampüsü, B Blok</span>
+              <span>👥 Maks. 20 takım</span>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn-dark event-cta">Kayıt Ol →</a>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-badge">
+            <span class="event-day">21</span>
+            <span class="event-month">Eyl</span>
+          </div>
+          <div class="event-info">
+            <div class="event-tags">
+              <span class="event-tag event-tag--green">Atölye</span>
+              <span class="event-tag">3 Saat</span>
+              <span class="event-tag">Online</span>
+            </div>
+            <h3 class="event-title">Python ile Makine Öğrenmesi — Başlangıç Atölyesi</h3>
+            <p class="event-desc">
+              Sıfırdan makine öğrenmesi: veri ön işleme, model eğitimi ve değerlendirme.
+              Scikit-learn ve Pandas ile uygulamalı örnekler.
+            </p>
+            <div class="event-meta">
+              <span>📍 Zoom (kayıt sonrası link gönderilir)</span>
+              <span>👥 Sınırsız katılım</span>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn-outline event-cta">Kayıt Ol →</a>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-badge">
+            <span class="event-day">28</span>
+            <span class="event-month">Eyl</span>
+          </div>
+          <div class="event-info">
+            <div class="event-tags">
+              <span class="event-tag event-tag--green">Seminer</span>
+              <span class="event-tag">2 Saat</span>
+              <span class="event-tag">Yüz Yüze</span>
+            </div>
+            <h3 class="event-title">Kariyer Günleri: Teknoloji Sektörüne Giriş</h3>
+            <p class="event-desc">
+              Sektörden misafir konuşmacılar ve MINT mezunlarıyla buluşma. CV hazırlama, mülakat teknikleri
+              ve staj başvuruları üzerine pratik ipuçları.
+            </p>
+            <div class="event-meta">
+              <span>📍 YTU Davutpaşa, Konferans Salonu</span>
+              <span>👥 Maks. 100 kişi</span>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn-outline event-cta">Kayıt Ol →</a>
+        </div>
+
+        <div class="event-item">
+          <div class="event-date-badge">
+            <span class="event-day">05</span>
+            <span class="event-month">Eki</span>
+          </div>
+          <div class="event-info">
+            <div class="event-tags">
+              <span class="event-tag event-tag--green">Olimpiyat</span>
+              <span class="event-tag">Seçme Sınavı</span>
+              <span class="event-tag">Yüz Yüze</span>
+            </div>
+            <h3 class="event-title">Ulusal Matematik Olimpiyatı Seçme Sınavı</h3>
+            <p class="event-desc">
+              Ulusal Matematik Olimpiyatı'na katılacak MINT temsilcilerini belirleme sınavı.
+              Kazananlar aylık olimpiyat hazırlık programına dahil edilecek.
+            </p>
+            <div class="event-meta">
+              <span>📍 YTU Matematik Mühendisliği Bölümü</span>
+              <span>👥 Açık kayıt</span>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn-outline event-cta">Kayıt Ol →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events -->
+  <section class="past-events-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label">Geçmiş Etkinlikler</h2>
+        <p class="section-description">
+          Daha önce gerçekleştirdiğimiz etkinlikler ve elde ettiğimiz başarılar.
+        </p>
+      </div>
+
+      <div class="past-events-grid">
+
+        <div class="past-event-card past-event-card--dark">
+          <div class="past-event-badge">🏆 1. Ödül</div>
+          <h3 class="past-event-title">YTU Hackathon 2023</h3>
+          <p class="past-event-desc">"Sağlık için Yapay Zeka" projesiyle birincilik ve 15.000 TL ödül.</p>
+          <div class="past-event-meta">Mart 2023 • 48 Saat • 50+ Takım</div>
+        </div>
+
+        <div class="past-event-card past-event-card--green">
+          <div class="past-event-badge">🎓 5 Finalist</div>
+          <h3 class="past-event-title">Ulusal Matematik Olimpiyatı 2023</h3>
+          <p class="past-event-desc">5 üyemiz finale kaldı, 2'si birincilik ödülü kazandı.</p>
+          <div class="past-event-meta">Mayıs 2023 • Ankara</div>
+        </div>
+
+        <div class="past-event-card past-event-card--light">
+          <div class="past-event-badge">📦 1200+ ⭐</div>
+          <h3 class="past-event-title">Açık Kaynak Proje</h3>
+          <p class="past-event-desc">MINT bünyesinde geliştirilen proje GitHub'da 1200+ yıldız topladı.</p>
+          <div class="past-event-meta">2022–2023 • 50+ Katkıcı</div>
+        </div>
+
+        <div class="past-event-card past-event-card--light">
+          <div class="past-event-badge">🎤 200+ Katılımcı</div>
+          <h3 class="past-event-title">MINT Tech Talk Serisi</h3>
+          <p class="past-event-desc">Sektör profesyonelleriyle 6 haftalık seminer serisi.</p>
+          <div class="past-event-meta">Ocak – Şubat 2023</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero {
+    padding: 80px 0 60px;
+    background: var(--gray);
+    border-bottom: 1px solid var(--dark);
+  }
+  .page-hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  .page-hero-title {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: var(--green);
+    display: inline-block;
+    padding: 0 10px;
+    border-radius: 8px;
+  }
+  .page-hero-desc { font-size: 18px; line-height: 1.7; color: #555; max-width: 560px; }
+  .page-hero-stats { display: flex; gap: 24px; flex-shrink: 0; }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--dark);
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--dark);
+  }
+  .stat-number { font-size: 42px; font-weight: 700; color: var(--dark); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 14px; color: #666; }
+
+  /* Events section */
+  .events-section { padding: 80px 0 40px; }
+  .events-list { display: flex; flex-direction: column; gap: 24px; }
+
+  .event-item {
+    border: 1px solid var(--dark);
+    border-radius: 28px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    box-shadow: 4px 4px 0 var(--dark);
+    background: var(--white);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .event-item:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--dark); }
+  .event-item--featured { background: var(--dark); }
+
+  .event-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--green);
+    border-radius: 16px;
+    padding: 14px 18px;
+    flex-shrink: 0;
+    min-width: 70px;
+  }
+  .event-day { font-size: 32px; font-weight: 700; color: var(--dark); line-height: 1; }
+  .event-month { font-size: 14px; font-weight: 600; color: var(--dark); text-transform: uppercase; }
+
+  .event-info { flex: 1; }
+  .event-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .event-tag {
+    font-size: 13px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(25,26,35,0.25);
+    color: var(--dark);
+    background: var(--gray);
+  }
+  .event-item--featured .event-tag { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.08); }
+  .event-tag--green { background: var(--green) !important; border-color: var(--green) !important; color: var(--dark) !important; font-weight: 600; }
+
+  .event-title { font-size: 22px; font-weight: 600; margin-bottom: 10px; color: var(--dark); }
+  .event-item--featured .event-title { color: var(--white); }
+  .event-desc { font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 12px; }
+  .event-item--featured .event-desc { color: rgba(255,255,255,0.7); }
+  .event-meta { display: flex; gap: 20px; font-size: 14px; color: #777; flex-wrap: wrap; }
+  .event-item--featured .event-meta { color: rgba(255,255,255,0.5); }
+
+  .event-cta { flex-shrink: 0; white-space: nowrap; }
+  .event-item--featured .event-cta { background: var(--green); color: var(--dark); border-color: var(--green); }
+  .event-item--featured .event-cta:hover { background: var(--white); border-color: var(--white); }
+
+  /* Past events */
+  .past-events-section { padding: 40px 0 80px; }
+  .past-events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+  .past-event-card {
+    border: 1px solid var(--dark);
+    border-radius: 28px;
+    padding: 36px 30px;
+    box-shadow: 4px 4px 0 var(--dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .past-event-card:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--dark); }
+  .past-event-card--dark  { background: var(--dark); }
+  .past-event-card--green { background: var(--green); }
+  .past-event-card--light { background: var(--gray); }
+
+  .past-event-badge {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    background: var(--green);
+    color: var(--dark);
+  }
+  .past-event-card--green .past-event-badge { background: var(--white); }
+
+  .past-event-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: var(--dark); }
+  .past-event-card--dark .past-event-title { color: var(--white); }
+  .past-event-desc { font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 16px; }
+  .past-event-card--dark .past-event-desc { color: rgba(255,255,255,0.7); }
+  .past-event-meta { font-size: 13px; color: #888; }
+  .past-event-card--dark .past-event-meta { color: rgba(255,255,255,0.4); }
+
+  @media (max-width: 1024px) {
+    .past-events-grid { grid-template-columns: repeat(2, 1fr); }
+    .event-item { flex-direction: column; align-items: flex-start; }
+    .event-cta { width: 100%; text-align: center; }
+    .page-hero-stats { gap: 16px; }
+  }
+  @media (max-width: 640px) {
+    .past-events-grid { grid-template-columns: 1fr; }
+    .page-hero-inner { flex-direction: column; }
+    .page-hero-stats { width: 100%; }
+  }
+</style>

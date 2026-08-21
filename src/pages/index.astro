@@ -1,17 +1,394 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="YTU MINT — Matematik & Bilişim Topluluğu"
+  description="YTU MINT — Yıldız Teknik Üniversitesi Matematik ve Bilişim Topluluğu. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk."
+>
+
+  <!-- =============================================
+       HERO
+       ============================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Matematiğin Gücüyle<br />Teknolojiyi Şekillendiriyoruz
+          </h1>
+          <p class="hero-desc">
+            YTU MINT, Yıldız Teknik Üniversitesi'nde matematik, bilişim ve yazılım alanlarında öğrencileri bir araya getiren dinamik bir topluluktur. Projeler, etkinlikler ve eğitimlerle kariyer yolculuğuna güçlü bir başlangıç yap.
+          </p>
+          <div style="display:flex;gap:20px;flex-wrap:wrap;">
+            <a href="/events" class="btn btn-dark">Etkinliklerimiz</a>
+            <a href="/communities" class="btn btn-outline">Topluluklarımız</a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-illustration">
+            <svg viewBox="0 0 560 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="560" height="400" rx="30" fill="#F3F3F3"/>
+              <g opacity="0.15">
+                {Array.from({length: 8}).map((_, row) =>
+                  Array.from({length: 12}).map((_, col) => (
+                    <circle cx={(col * 50) + 25} cy={(row * 50) + 25} r="2" fill="#191A23"/>
+                  ))
+                )}
+              </g>
+              <rect x="60" y="60" width="120" height="120" rx="20" fill="#B9FF66" opacity="0.9"/>
+              <text x="120" y="135" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="48" font-weight="700" fill="#191A23">∑</text>
+              <circle cx="380" cy="120" r="70" fill="#191A23"/>
+              <text x="380" y="138" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" fill="#B9FF66">π</text>
+              <rect x="200" y="220" width="160" height="80" rx="15" fill="#191A23"/>
+              <text x="280" y="268" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="500" fill="#B9FF66">YTU MINT</text>
+              <circle cx="100" cy="300" r="40" fill="#B9FF66" opacity="0.7"/>
+              <text x="100" y="313" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700" fill="#191A23">∞</text>
+              <polygon points="440,240 480,320 400,320" fill="#B9FF66" opacity="0.8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       PARTNERS MARQUEE
+       ============================================= -->
+  <div class="partners">
+    <div class="partners-track">
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Matematik Olimpiyatları
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Kodlama Atölyeleri
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Yapay Zeka Projeleri
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Veri Bilimi
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Topluluk Etkinlikleri
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Hackathon
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Staj & Kariyer
+      </span>
+      <!-- duplicate for seamless loop -->
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Matematik Olimpiyatları
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Kodlama Atölyeleri
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Yapay Zeka Projeleri
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Veri Bilimi
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Topluluk Etkinlikleri
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Hackathon
+      </span>
+      <span class="partner-item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Staj & Kariyer
+      </span>
+    </div>
+  </div>
+
+  <!-- =============================================
+       CASE STUDIES / BAŞARI HİKAYELERİ
+       ============================================= -->
+  <section style="padding: 0 0 70px;">
+    <div class="container">
+      <div class="case-studies">
+        <div class="section-header">
+          <h2 class="section-label">Başarı Hikayeleri</h2>
+          <p class="section-description">
+            Topluluğumuzun gerçekleştirdiği projeler ve elde ettiğimiz başarılar.
+          </p>
+        </div>
+
+        <div class="case-studies-grid">
+          <div class="case-study-item">
+            <p class="case-study-desc">
+              Ulusal Matematik Yarışması'nda topluluğumuzun 5 üyesi finalist oldu ve 2'si birincilik ödülü kazandı.
+            </p>
+            <a href="/events" class="case-study-link">
+              Detayları Gör
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="case-study-item">
+            <p class="case-study-desc">
+              YTU Hackathon'da ekibimiz "Sağlık için Yapay Zeka" projesiyle birinci olarak 15.000 TL ödül kazandı.
+            </p>
+            <a href="/events" class="case-study-link">
+              Detayları Gör
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="case-study-item">
+            <p class="case-study-desc">
+              MINT bünyesinde geliştirilen açık kaynak proje GitHub'da 1200+ yıldız topladı ve 50+ katkıcıya ulaştı.
+            </p>
+            <a href="/communities" class="case-study-link">
+              Detayları Gör
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       WORKING PROCESS
+       ============================================= -->
+  <section class="process" id="hakkimizda">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label">Nasıl Çalışıyoruz</h2>
+        <p class="section-description">
+          Topluluğumuza katıldığında seni bekleyen süreç ve fırsatlar.
+        </p>
+      </div>
+
+      <div class="process-list" id="processList">
+        <div class="process-item active" data-index="0">
+          <div class="process-item-header">
+            <span class="process-number">01</span>
+            <h3 class="process-title">Topluluğa Katıl</h3>
+            <button class="process-toggle" aria-label="Aç/Kapat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="process-body">
+            Kayıt formunu doldurarak topluluğumuza ücretsiz katıl. Oryantasyon etkinliğimizde diğer üyelerle tanış ve ilgi alanına göre çalışma gruplarına dahil ol. Her dönem başında yeni üye kabulü gerçekleştirilmektedir.
+          </div>
+        </div>
+
+        <div class="process-item" data-index="1">
+          <div class="process-item-header">
+            <span class="process-number">02</span>
+            <h3 class="process-title">Çalışma Gruplarına Katıl</h3>
+            <button class="process-toggle" aria-label="Aç/Kapat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="process-body">
+            Yapay Zeka, Veri Bilimi, Web Geliştirme, Algoritma ve Matematik olmak üzere 5 farklı çalışma grubumuza katılabilirsin. Haftalık toplantılar ve öğrenme seanslarıyla hızlı ilerleme kaydedersin.
+          </div>
+        </div>
+
+        <div class="process-item" data-index="2">
+          <div class="process-item-header">
+            <span class="process-number">03</span>
+            <h3 class="process-title">Proje Geliştir</h3>
+            <button class="process-toggle" aria-label="Aç/Kapat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="process-body">
+            Ekip arkadaşlarınla birlikte gerçek dünya problemlerini çözen projeler geliştir. Projelerini GitHub'da yayınla, konferanslarda sun ve portföyünü zenginleştir. Mentörlerimiz her adımda sana rehberlik eder.
+          </div>
+        </div>
+
+        <div class="process-item" data-index="3">
+          <div class="process-item-header">
+            <span class="process-number">04</span>
+            <h3 class="process-title">Yarışmalara Katıl</h3>
+            <button class="process-toggle" aria-label="Aç/Kapat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="process-body">
+            Ulusal ve uluslararası matematik olimpiyatları, hackathonlar ve yazılım yarışmalarında topluluğumuz adına yer al. Geçmiş yarışma deneyimlerimiz ve hazırlık materyallerimizle rekabetçi avantaj kazan.
+          </div>
+        </div>
+
+        <div class="process-item" data-index="4">
+          <div class="process-item-header">
+            <span class="process-number">05</span>
+            <h3 class="process-title">Kariyerinde İlerle</h3>
+            <button class="process-toggle" aria-label="Aç/Kapat">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="process-body">
+            Sektördeki şirketler ve mezunlarımızla bağlantı kur. Kariyer günlerimize katıl, staj fırsatlarından haberdar ol ve MINT alumni ağı sayesinde ilk işine daha kolay adım at.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       TESTIMONIALS
+       ============================================= -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label">Üyelerimiz Ne Diyor</h2>
+        <p class="section-description">
+          MINT topluluğunun hayatlarına kattığı değerleri kendi ağızlarından dinleyin.
+        </p>
+      </div>
+
+      <div class="testimonials-track-container">
+        <div class="testimonials-slider" id="testimonialSlider">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "MINT'e katıldıktan sonra hem teknik bilgim hem de iletişim becerilerim inanılmaz derecede gelişti. Burada edindiğim bağlantılar sayesinde 3. sınıfta Google'da staj yaptım."
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">🚀</div>
+              <div>
+                <div class="testimonial-name">Burak Yıldız</div>
+                <div class="testimonial-role">Bilgisayar Mühendisliği Mezunu</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "Algoritma atölyelerinde öğrendiklerim sayesinde LeetCode'da top %5'e girdim. MINT'in yapılandırılmış öğrenme yolu gerçekten işe yarıyor. Herkese tavsiye ederim."
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">💡</div>
+              <div>
+                <div class="testimonial-name">Deniz Çelik</div>
+                <div class="testimonial-role">Matematik Mühendisliği 3. Sınıf</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "Veri Bilimi çalışma grubunda Python ve makine öğrenmesi öğrendim. Ardından MINT hackathonunda ekibimle birincilik kazandık. Bu deneyim CV'min en parlak kısmı oldu."
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">📊</div>
+              <div>
+                <div class="testimonial-name">Merve Koç</div>
+                <div class="testimonial-role">Endüstri Mühendisliği Mezunu</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "1. sınıfta hiçbir şey bilmiyordum. MINT sayesinde 2. sınıfta açık kaynak projelere katkıda bulunmaya başladım ve şimdi kendi projemi yönetiyorum. Topluluk olağanüstü."
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">⭐</div>
+              <div>
+                <div class="testimonial-name">Emre Aktaş</div>
+                <div class="testimonial-role">Bilgisayar Mühendisliği 3. Sınıf</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-nav">
+          <button class="nav-btn" id="prevBtn" aria-label="Önceki">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dots" id="navDots">
+            <div class="nav-dot active" data-index="0"></div>
+            <div class="nav-dot" data-index="1"></div>
+            <div class="nav-dot" data-index="2"></div>
+            <div class="nav-dot" data-index="3"></div>
+          </div>
+          <button class="nav-btn" id="nextBtn" aria-label="Sonraki">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Process accordion
+    const processItems = document.querySelectorAll('.process-item');
+    processItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        processItems.forEach(el => {
+          el.classList.remove('active');
+          const icon = el.querySelector('.toggle-icon');
+          if (icon) icon.setAttribute('stroke', '#191A23');
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          const icon = item.querySelector('.toggle-icon');
+          if (icon) icon.setAttribute('stroke', 'white');
+        }
+      });
+    });
+    const firstToggleIcon = document.querySelector('.process-item.active .toggle-icon');
+    if (firstToggleIcon) firstToggleIcon.setAttribute('stroke', 'white');
+
+    // Testimonials slider
+    const slider = document.getElementById('testimonialSlider');
+    const dots = document.querySelectorAll('.nav-dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let current = 0;
+    const total = document.querySelectorAll('.testimonial-card').length;
+
+    function goTo(index: number) {
+      current = (index + total) % total;
+      if (slider) slider.style.transform = `translateX(calc(-${current * 100}% - ${current * 60}px))`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(parseInt((d as HTMLElement).dataset.index || '0'))));
+    setInterval(() => goTo(current + 1), 5000);
+  </script>
+
+</Layout>
