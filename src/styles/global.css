@@ -21,8 +21,8 @@
   --white: #FFFFFF;
   
   /* Brand Accent: Sophisticated Mint */
-  --green: #10B981;
-  --green-hover: #059669;
+  --green: #61a95d;
+  --green-hover: #7fce71;
   --green-light: #ECFDF5;
   --green-border: #A7F3D0;
   --green-text: #065F46;
@@ -578,6 +578,48 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
 
 .footer-copy {
   color: #64748B;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+
+.footer-crafted {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-heart {
+  color: var(--green);
+  display: inline-block;
+  vertical-align: middle;
+  transform-origin: center;
+  animation: footerHeartBeat 2s infinite ease-in-out;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-crafted:hover .footer-heart {
+  color: var(--green-hover);
+  transform: scale(1.3);
+}
+
+@keyframes footerHeartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.2);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(1);
+  }
 }
 
 .footer-policy {

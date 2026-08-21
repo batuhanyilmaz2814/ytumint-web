@@ -4,7 +4,7 @@ import { pastEvents } from "../data/events";
 ---
 
 <Layout
-  title="YTÜ MİNT — Multisipliner İnovasyon Teknolojileri Kulübü"
+  title="YTÜ MİNT Kulübü"
   description="YTU MINT — Yıldız Teknik Üniversitesi Matematik ve Bilişim Topluluğu. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk."
 >
   <!-- =============================================
@@ -740,7 +740,7 @@ import { pastEvents } from "../data/events";
       )?.value.trim();
       if (!name || !email || !subject || !message) return;
       submitBtn.textContent = "✓ Mesajınız iletildi!";
-      submitBtn.style.background = "#10B981";
+      submitBtn.style.background = "#61a95d";
       setTimeout(() => {
         submitBtn.textContent = "Mesajı Gönder →";
         submitBtn.style.background = "";
