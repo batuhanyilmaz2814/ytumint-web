@@ -1,44 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { pastEvents } from "../data/events";
-
-const teamMembers = [
-  {
-    ad: "Zeynep Cemre Çebitürk",
-    unvan: "Başkan",
-    emoji: "👩‍💼",
-  },
-  {
-    ad: "Melike Nur Bakırcı",
-    unvan: "Başkan Yardımcısı",
-    emoji: "👩‍💻",
-  },
-  {
-    ad: "Ceren Şengüler",
-    unvan: "Sekreter - Org. Koordinatörü",
-    emoji: "👩‍🏫",
-  },
-  {
-    ad: "Batuhan Yılmaz",
-    unvan: "Sayman",
-    emoji: "👨‍💻",
-  },
-  {
-    ad: "Duygu Tunç",
-    unvan: "Sponsorluk Koordinatörü",
-    emoji: "👩‍💼",
-  },
-  {
-    ad: "Arda Türk",
-    unvan: "Sosyal Medya Koordinatörü",
-    emoji: "🧑‍🎨",
-  },
-  {
-    ad: "Nisa Hamarat",
-    unvan: "Sosyal Medya Koord. Yrd.",
-    emoji: "👩‍🎨",
-  },
-];
 ---
 
 <Layout
@@ -68,7 +30,8 @@ const teamMembers = [
         YTÜ Multidisipliner İnovasyon Teknolojileri Kulübü
       </p>
       <h1 class="hero-video__title">
-        May Be MİNT<br /><span class="hero-video__title-accent">With You!</span>
+        May the <span class="hero-video__title-accent">MİNT</span><br />be with
+        you!
       </h1>
       <div class="hero-video__btns">
         <a href="/events" class="btn btn-green">Etkinliklerimiz</a>
@@ -746,11 +709,12 @@ const teamMembers = [
           <span class="section-chip">Arkasındaki İnsanlar</span>
           <h2 class="section-title-lg">Ekibimiz</h2>
           <p class="team-home-desc">
-            YTU MINT'i yöneten, etkinlikleri planlayan ve topluluğu büyüten bir
-            ekip var arkasında. Hepsini tanımak ister misin?
+            YTU MINT'i yöneten, etkinlikleri planlayan ve topluluğu büyüten
+            harika bir ekip var arkasında. Ekibimizi daha yakından tanımak ister
+            misiniz?
           </p>
           <a href="/team" class="btn btn-dark team-home-cta">
-            Bizi Tanıyın
+            Tüm Ekibi Gör
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path
                 d="M5 12H19M19 12L13 6M19 12L13 18"
@@ -762,16 +726,13 @@ const teamMembers = [
           </a>
         </div>
 
-        <div class="team-home-grid">
-          {
-            teamMembers.map((m) => (
-              <div class="team-home-card">
-                <div class="team-home-avatar">{m.emoji}</div>
-                <div class="team-home-name">{m.ad}</div>
-                <div class="team-home-role">{m.unvan}</div>
-              </div>
-            ))
-          }
+        <div class="team-home-photo-wrap">
+          <img
+            src="/mint-ekip.jpg"
+            alt="YTÜ MİNT Ekibi"
+            class="team-home-photo"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -993,6 +954,7 @@ const teamMembers = [
     height: 100%;
     object-fit: cover;
     object-position: center;
+    filter: brightness(0.85);
     z-index: 0;
   }
 
@@ -1001,9 +963,9 @@ const teamMembers = [
     inset: 0;
     background: linear-gradient(
       160deg,
-      rgba(25, 26, 35, 0.72) 0%,
-      rgba(25, 26, 35, 0.55) 50%,
-      rgba(25, 26, 35, 0.68) 100%
+      rgba(15, 16, 22, 0.88) 0%,
+      rgba(15, 16, 22, 0.75) 50%,
+      rgba(15, 16, 22, 0.9) 100%
     );
     z-index: 1;
   }
@@ -1620,8 +1582,8 @@ const teamMembers = [
 
   .team-home-inner {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 64px;
     align-items: center;
   }
 
@@ -1638,67 +1600,26 @@ const teamMembers = [
     gap: 10px;
   }
 
-  .team-home-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .team-home-card {
-    background: var(--white);
+  .team-home-photo-wrap {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
     border: 1px solid var(--dark);
-    border-radius: 20px;
-    padding: 24px 20px;
-    text-align: center;
-    box-shadow: 3px 3px 0 var(--dark);
-    transition:
-      transform 0.2s,
-      box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    box-shadow: 6px 6px 0 var(--dark);
+    background: var(--white);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .team-home-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 var(--dark);
-  }
-  .team-home-card--featured {
-    background: var(--dark);
+  .team-home-photo-wrap:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--dark);
   }
 
-  .team-home-avatar {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: var(--gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    border: 2px solid var(--dark);
-    margin-bottom: 4px;
-  }
-  .team-home-card--featured .team-home-avatar {
-    background: rgba(127, 206, 113, 0.12);
-    border-color: var(--green);
-  }
-
-  .team-home-name {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--dark);
-  }
-  .team-home-card--featured .team-home-name {
-    color: var(--white);
-  }
-
-  .team-home-role {
-    font-size: 13px;
-    color: #888;
-  }
-  .team-home-card--featured .team-home-role {
-    color: var(--green);
+  .team-home-photo {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
@@ -1708,10 +1629,7 @@ const teamMembers = [
     }
     .team-home-inner {
       grid-template-columns: 1fr;
-      gap: 48px;
-    }
-    .team-home-grid {
-      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
     }
   }
 
@@ -1725,9 +1643,6 @@ const teamMembers = [
   @media (max-width: 640px) {
     .communities-home-grid {
       grid-template-columns: 1fr;
-    }
-    .team-home-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
     .about-stats {
       flex-direction: column;
