@@ -1,5 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const teamMembers = [
+  {
+    ad: "Zeynep Cemre Çebitürk",
+    unvan: "Başkan",
+    emoji: "👩‍💼",
+  },
+  {
+    ad: "Melike Nur Bakırcı",
+    unvan: "Başkan Yardımcısı",
+    emoji: "👩‍💻",
+  },
+  {
+    ad: "Ceren Şengüler",
+    unvan: "Sekreter - Org. Koordinatörü",
+    emoji: "👩‍🏫",
+  },
+  {
+    ad: "Batuhan Yılmaz",
+    unvan: "Sayman",
+    emoji: "👨‍💻",
+  },
+  {
+    ad: "Duygu Tunç",
+    unvan: "Sponsorluk Koordinatörü",
+    emoji: "👩‍💼",
+  },
+  {
+    ad: "Arda Türk",
+    unvan: "Sosyal Medya Koordinatörü",
+    emoji: "🧑‍🎨",
+  },
+  {
+    ad: "Nisa Hamarat",
+    unvan: "Sosyal Medya Koord. Yrd.",
+    emoji: "👩‍🎨",
+  },
+];
 ---
 
 <Layout
@@ -450,36 +488,13 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div class="team-home-grid">
-          <div class="team-home-card team-home-card--featured">
-            <div class="team-home-avatar">👨‍💻</div>
-            <div class="team-home-name">Ahmet Yılmaz</div>
-            <div class="team-home-role">Başkan</div>
-          </div>
-          <div class="team-home-card">
-            <div class="team-home-avatar">👩‍🔬</div>
-            <div class="team-home-name">Zeynep Kara</div>
-            <div class="team-home-role">Teknik Lider</div>
-          </div>
-          <div class="team-home-card">
-            <div class="team-home-avatar">🧑‍🎓</div>
-            <div class="team-home-name">Mert Demir</div>
-            <div class="team-home-role">Etkinlik Koordinatörü</div>
-          </div>
-          <div class="team-home-card">
-            <div class="team-home-avatar">👩‍💻</div>
-            <div class="team-home-name">Elif Şahin</div>
-            <div class="team-home-role">Web Geliştirme Lideri</div>
-          </div>
-          <div class="team-home-card">
-            <div class="team-home-avatar">🧑‍💼</div>
-            <div class="team-home-name">Can Özkan</div>
-            <div class="team-home-role">Kariyer & Sponsorluk</div>
-          </div>
-          <div class="team-home-card">
-            <div class="team-home-avatar">👩‍🏫</div>
-            <div class="team-home-name">Selin Arslan</div>
-            <div class="team-home-role">Matematik Lideri</div>
-          </div>
+          {teamMembers.map((m) => (
+            <div class="team-home-card">
+              <div class="team-home-avatar">{m.emoji}</div>
+              <div class="team-home-name">{m.ad}</div>
+              <div class="team-home-role">{m.unvan}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

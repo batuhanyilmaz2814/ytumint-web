@@ -3,79 +3,87 @@ import Layout from '../layouts/Layout.astro';
 
 const yonetimKurulu = [
   {
-    ad: "Ahmet Yılmaz",
+    ad: "Zeynep Cemre Çebitürk",
     unvan: "Başkan",
-    bolum: "Bilgisayar Mühendisliği",
-    sinif: "4. Sınıf",
-    linkedin: "#",
-    emoji: "👨‍💻",
-  },
-  {
-    ad: "Zeynep Kara",
-    unvan: "Genel Sekreter",
-    bolum: "Matematik Mühendisliği",
+    bolum: "İstatistik",
     sinif: "3. Sınıf",
-    linkedin: "#",
-    emoji: "👩‍🔬",
+    linkedin: "https://www.linkedin.com/in/zeynep-cemre-çebitürk",
+    emoji: "👩‍💼",
   },
   {
-    ad: "Mert Demir",
-    unvan: "Etkinlik Koordinatörü",
-    bolum: "Endüstri Mühendisliği",
+    ad: "Melike Nur Bakırcı",
+    unvan: "Başkan Yardımcısı",
+    bolum: "İstatistik",
     sinif: "3. Sınıf",
-    linkedin: "#",
-    emoji: "🧑‍🎓",
-  },
-  {
-    ad: "Elif Şahin",
-    unvan: "Teknik Lider",
-    bolum: "Bilgisayar Mühendisliği",
-    sinif: "2. Sınıf",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/melike-bakirci/",
     emoji: "👩‍💻",
   },
   {
-    ad: "Can Özkan",
-    unvan: "Kariyer & Sponsorluk",
-    bolum: "İşletme Mühendisliği",
-    sinif: "4. Sınıf",
-    linkedin: "#",
-    emoji: "🧑‍💼",
+    ad: "Ceren Şengüler",
+    unvan: "Sekreter - Organizasyon Birimi Koordinatörü",
+    bolum: "İstatistik",
+    sinif: "2. Sınıf",
+    linkedin: "https://www.linkedin.com/in/ceren-şengüler",
+    emoji: "👩‍🏫",
   },
   {
-    ad: "Selin Arslan",
-    unvan: "Matematik Lideri",
-    bolum: "Matematik Mühendisliği",
-    sinif: "4. Sınıf",
-    linkedin: "#",
-    emoji: "👩‍🏫",
+    ad: "Batuhan Yılmaz",
+    unvan: "Sayman",
+    bolum: "Bilgisayar Mühendisliği",
+    sinif: "2. Sınıf",
+    linkedin: "https://www.linkedin.com/in/batuhan-yılmaz-5a4027324/",
+    emoji: "👨‍💻",
+  },
+  {
+    ad: "Duygu Tunç",
+    unvan: "Sponsorluk Koordinatörü",
+    bolum: "İstatistik",
+    sinif: "2. Sınıf",
+    linkedin: "https://www.linkedin.com/in/duygu-tunç-4bb190278",
+    emoji: "👩‍💼",
+  },
+  {
+    ad: "Arda Türk",
+    unvan: "Sosyal Medya Koordinatörü",
+    bolum: "İktisat",
+    sinif: "2. Sınıf",
+    linkedin: "https://www.linkedin.com/in/arda-türk-32482523a",
+    emoji: "🧑‍🎨",
+  },
+  {
+    ad: "Nisa Hamarat",
+    unvan: "Sosyal Medya Koordinatör Yardımcısı",
+    bolum: "İstatistik",
+    sinif: "2. Sınıf",
+    linkedin: "https://www.linkedin.com/in/nisa-hamarat-246792361",
+    emoji: "👩‍🎨",
   },
 ];
 
 const denetimKurulu = [
   {
-    ad: "Emre Yıldız",
+    ad: "Sude Naz Akkaya",
     unvan: "Denetim Kurulu Başkanı",
-    bolum: "Matematik Mühendisliği",
-    sinif: "4. Sınıf",
-    linkedin: "#",
-    emoji: "🧑‍⚖️",
+    bolum: "İstatistik",
+    sinif: "3. Sınıf",
+    linkedin: "https://www.linkedin.com/in/sudenazakkaya/",
+    emoji: "👩‍⚖️",
   },
   {
-    ad: "Ayşe Güneş",
-    unvan: "Denetim Kurulu Üyesi",
-    bolum: "Bilgisayar Mühendisliği",
-    sinif: "3. Sınıf",
-    linkedin: "#",
+    ad: "Nisanur Koçak",
+    unvan: "Denetim Kurulu Başkan Yardımcısı",
+    bolum: "Endüstri Mühendisliği",
+    sinif: "",
+    linkedin: "https://www.linkedin.com/in/nisanur-koçak-9b0328285/",
     emoji: "👩‍💼",
   },
   {
-    ad: "Burak Çetin",
+    ad: "Zehra Nur Özmen",
     unvan: "Denetim Kurulu Üyesi",
-    bolum: "Endüstri Mühendisliği",
-    sinif: "3. Sınıf",
-    linkedin: "#",
-    emoji: "👨‍💼",
+    bolum: "İşletme",
+    sinif: "",
+    linkedin: "https://www.linkedin.com/in/zehranurozmen/",
+    emoji: "👩‍💼",
   },
 ];
 ---
@@ -98,11 +106,11 @@ const denetimKurulu = [
         </div>
         <div class="page-hero-stats">
           <div class="stat-card">
-            <div class="stat-number">9</div>
+            <div class="stat-number">10</div>
             <div class="stat-label">Ekip Üyesi</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">6</div>
+            <div class="stat-number">7</div>
             <div class="stat-label">Yönetim Kurulu</div>
           </div>
           <div class="stat-card">
@@ -128,8 +136,8 @@ const denetimKurulu = [
       </div>
 
       <div class="team-grid">
-        {yonetimKurulu.map((uye, i) => (
-          <div class:list={["team-card", { "team-card--featured": i === 0 }]}>
+        {yonetimKurulu.map((uye) => (
+          <div class="team-card">
             <div class="team-card-header">
               <div class="team-avatar">{uye.emoji}</div>
               <a href={uye.linkedin} class="team-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
@@ -144,20 +152,26 @@ const denetimKurulu = [
               <div class="team-name">{uye.ad}</div>
               <div class="team-role">{uye.unvan}</div>
             </div>
-            <div class="team-meta">
-              <span class="team-meta-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
-                {uye.bolum}
-              </span>
-              <span class="team-meta-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                {uye.sinif}
-              </span>
-            </div>
+            {(uye.bolum || uye.sinif) && (
+              <div class="team-meta">
+                {uye.bolum && (
+                  <span class="team-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    {uye.bolum}
+                  </span>
+                )}
+                {uye.sinif && (
+                  <span class="team-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    {uye.sinif}
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -178,8 +192,8 @@ const denetimKurulu = [
       </div>
 
       <div class="team-grid team-grid--audit">
-        {denetimKurulu.map((uye, i) => (
-          <div class:list={["team-card team-card--audit", { "team-card--audit-featured": i === 0 }]}>
+        {denetimKurulu.map((uye) => (
+          <div class="team-card team-card--audit">
             <div class="team-card-header">
               <div class="team-avatar">{uye.emoji}</div>
               <a href={uye.linkedin} class="team-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
@@ -194,20 +208,26 @@ const denetimKurulu = [
               <div class="team-name">{uye.ad}</div>
               <div class="team-role">{uye.unvan}</div>
             </div>
-            <div class="team-meta">
-              <span class="team-meta-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
-                {uye.bolum}
-              </span>
-              <span class="team-meta-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                {uye.sinif}
-              </span>
-            </div>
+            {(uye.bolum || uye.sinif) && (
+              <div class="team-meta">
+                {uye.bolum && (
+                  <span class="team-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    {uye.bolum}
+                  </span>
+                )}
+                {uye.sinif && (
+                  <span class="team-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    {uye.sinif}
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         ))}
       </div>
