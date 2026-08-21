@@ -120,21 +120,38 @@ const isHome = currentPath === "/" || currentPath === "";
       <div class="container">
         <div class="footer-main">
           <div class="footer-brand">
-            <a href="/" class="footer-logo logo">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <div class="footer-logos">
+              <a href="/" class="footer-logo logo">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="18" cy="18" r="18" fill="#61a95d"></circle>
+                  <path
+                    d="M18 6L20.5 15.5L30 18L20.5 20.5L18 30L15.5 20.5L6 18L15.5 15.5L18 6Z"
+                    fill="#0F172A"></path>
+                </svg>
+                <span class="logo-text">YTÜ MİNT</span>
+              </a>
+              <span class="footer-logo-divider" aria-hidden="true"></span>
+              <a
+                href="https://www.yildiz.edu.tr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-partner-logo"
+                title="Yıldız Teknik Üniversitesi"
+                aria-label="Yıldız Teknik Üniversitesi"
               >
-                <circle cx="18" cy="18" r="18" fill="#61a95d"></circle>
-                <path
-                  d="M18 6L20.5 15.5L30 18L20.5 20.5L18 30L15.5 20.5L6 18L15.5 15.5L18 6Z"
-                  fill="#0F172A"></path>
-              </svg>
-              <span class="logo-text">YTÜ MİNT</span>
-            </a>
+                <img
+                  src="/ytu-logo.png"
+                  alt="Yıldız Teknik Üniversitesi"
+                  class="footer-ytu-img"
+                />
+              </a>
+            </div>
             <p class="footer-tagline">
               Yıldız Teknik Üniversitesi Multidisipliner İnovasyon Teknolojileri
               Kulübü

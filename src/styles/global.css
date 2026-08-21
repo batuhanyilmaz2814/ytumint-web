@@ -509,12 +509,44 @@ p {
   max-width: 380px;
 }
 
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .footer-logo {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
   width: fit-content;
+}
+
+.footer-logo-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.footer-partner-logo {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-partner-logo:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.footer-ytu-img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-logo .logo-text {
