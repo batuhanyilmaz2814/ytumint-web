@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 const yonetimKurulu = [
   {
@@ -92,15 +92,15 @@ const denetimKurulu = [
   title="Ekibimiz — YTU MINT"
   description="YTU MINT ekibini tanıyın — yönetim kurulu ve denetim kurulu olarak topluluğumuzu yöneten öğrenci liderler."
 >
-
   <!-- Page Header -->
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-inner">
         <div>
-          <h1 class="page-hero-title">Topluluk Liderlerimiz</h1>
+          <h1 class="page-hero-title">Ekibimiz</h1>
           <p class="page-hero-desc">
-            YTU MINT'i yöneten, projeleri hayata geçiren ve topluluğu büyüten öğrenci liderlerimizle tanışın.
+            YTU MINT'i yöneten, projeleri hayata geçiren ve topluluğu büyüten
+            öğrenci liderlerimizle tanışın.
           </p>
         </div>
         <div class="page-hero-stats">
@@ -127,49 +127,88 @@ const denetimKurulu = [
       <div class="section-header">
         <h2 class="section-title">Yönetim Kurulu</h2>
         <p class="section-description">
-          Topluluğumuzun stratejik yönetiminden ve günlük operasyonlarından sorumlu liderler.
+          Topluluğumuzun stratejik yönetiminden ve günlük operasyonlarından
+          sorumlu liderler.
         </p>
       </div>
 
       <div class="team-grid">
-        {yonetimKurulu.map((uye) => (
-          <div class="team-card">
-            <div class="team-card-header">
-              <div class="team-avatar">{uye.emoji}</div>
-              <a href={uye.linkedin} class="team-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-            </div>
-            <div class="team-info-block">
-              <h3 class="team-name">{uye.ad}</h3>
-              <div class="team-role">{uye.unvan}</div>
-            </div>
-            {(uye.bolum || uye.sinif) && (
-              <div class="team-meta">
-                {uye.bolum && (
-                  <span class="team-meta-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                    </svg>
-                    {uye.bolum}
-                  </span>
-                )}
-                {uye.sinif && (
-                  <span class="team-meta-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                    {uye.sinif}
-                  </span>
-                )}
+        {
+          yonetimKurulu.map((uye) => (
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar">{uye.emoji}</div>
+                <a
+                  href={uye.linkedin}
+                  class="team-linkedin"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
               </div>
-            )}
-          </div>
-        ))}
+              <div class="team-info-block">
+                <h3 class="team-name">{uye.ad}</h3>
+                <div class="team-role">{uye.unvan}</div>
+              </div>
+              {(uye.bolum || uye.sinif) && (
+                <div class="team-meta">
+                  {uye.bolum && (
+                    <span class="team-meta-item">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                      </svg>
+                      {uye.bolum}
+                    </span>
+                  )}
+                  {uye.sinif && (
+                    <span class="team-meta-item">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <rect
+                          x="3"
+                          y="4"
+                          width="18"
+                          height="18"
+                          rx="2"
+                          ry="2"
+                        />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      {uye.sinif}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -180,49 +219,88 @@ const denetimKurulu = [
       <div class="section-header">
         <h2 class="section-title">Denetim Kurulu</h2>
         <p class="section-description">
-          Topluluğumuzun faaliyetlerini ve mali şeffaflığını denetleyen bağımsız kurul üyelerimiz.
+          Topluluğumuzun faaliyetlerini ve mali şeffaflığını denetleyen bağımsız
+          kurul üyelerimiz.
         </p>
       </div>
 
       <div class="team-grid team-grid--audit">
-        {denetimKurulu.map((uye) => (
-          <div class="team-card">
-            <div class="team-card-header">
-              <div class="team-avatar">{uye.emoji}</div>
-              <a href={uye.linkedin} class="team-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-            </div>
-            <div class="team-info-block">
-              <h3 class="team-name">{uye.ad}</h3>
-              <div class="team-role">{uye.unvan}</div>
-            </div>
-            {(uye.bolum || uye.sinif) && (
-              <div class="team-meta">
-                {uye.bolum && (
-                  <span class="team-meta-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                    </svg>
-                    {uye.bolum}
-                  </span>
-                )}
-                {uye.sinif && (
-                  <span class="team-meta-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                    {uye.sinif}
-                  </span>
-                )}
+        {
+          denetimKurulu.map((uye) => (
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-avatar">{uye.emoji}</div>
+                <a
+                  href={uye.linkedin}
+                  class="team-linkedin"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
               </div>
-            )}
-          </div>
-        ))}
+              <div class="team-info-block">
+                <h3 class="team-name">{uye.ad}</h3>
+                <div class="team-role">{uye.unvan}</div>
+              </div>
+              {(uye.bolum || uye.sinif) && (
+                <div class="team-meta">
+                  {uye.bolum && (
+                    <span class="team-meta-item">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                      </svg>
+                      {uye.bolum}
+                    </span>
+                  )}
+                  {uye.sinif && (
+                    <span class="team-meta-item">
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <rect
+                          x="3"
+                          y="4"
+                          width="18"
+                          height="18"
+                          rx="2"
+                          ry="2"
+                        />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                      {uye.sinif}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -234,15 +312,15 @@ const denetimKurulu = [
         <div>
           <h2 class="join-title">Sen de Ekibe Katıl</h2>
           <p class="join-desc">
-            Yeni dönem kurul ve koordinatörlük başvuruları dönem başında açılıyor.
-            Liderlik deneyimi kazanmak ve MINT'i birlikte büyütmek istiyorsan aramıza katıl.
+            Yeni dönem kurul ve koordinatörlük başvuruları dönem başında
+            açılıyor. Liderlik deneyimi kazanmak ve MINT'i birlikte büyütmek
+            istiyorsan aramıza katıl.
           </p>
         </div>
         <a href="/contact" class="btn btn-green join-btn">Başvur →</a>
       </div>
     </div>
   </section>
-
 </Layout>
 
 <style>
@@ -328,7 +406,10 @@ const denetimKurulu = [
     flex-direction: column;
     gap: 14px;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
   }
   .team-section--audit .team-card {
     background: var(--bg-main);
@@ -373,9 +454,9 @@ const denetimKurulu = [
     flex-shrink: 0;
   }
   .team-linkedin:hover {
-    background: #0077B5;
+    background: #0077b5;
     color: var(--white);
-    border-color: #0077B5;
+    border-color: #0077b5;
     transform: translateY(-1px);
   }
 
@@ -432,7 +513,7 @@ const denetimKurulu = [
   }
   .join-desc {
     font-size: 15.5px;
-    color: #94A3B8;
+    color: #94a3b8;
     line-height: 1.6;
     max-width: 520px;
   }
@@ -442,14 +523,33 @@ const denetimKurulu = [
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
-    .team-grid, .team-grid--audit { grid-template-columns: repeat(2, 1fr); }
-    .join-inner { flex-direction: column; padding: 40px 32px; text-align: center; }
-    .page-hero-stats { gap: 12px; }
+    .team-grid,
+    .team-grid--audit {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .join-inner {
+      flex-direction: column;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .page-hero-stats {
+      gap: 12px;
+    }
   }
   @media (max-width: 640px) {
-    .team-grid, .team-grid--audit { grid-template-columns: 1fr; }
-    .page-hero-inner { flex-direction: column; }
-    .page-hero-stats { width: 100%; justify-content: space-between; }
-    .join-inner { padding: 32px 24px; }
+    .team-grid,
+    .team-grid--audit {
+      grid-template-columns: 1fr;
+    }
+    .page-hero-inner {
+      flex-direction: column;
+    }
+    .page-hero-stats {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .join-inner {
+      padding: 32px 24px;
+    }
   }
 </style>

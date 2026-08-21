@@ -49,11 +49,6 @@ import { pastEvents } from '../data/events';
             <span class="event-month">Ekim</span>
           </div>
           <div class="event-info">
-            <div class="event-tags">
-              <span class="event-tag event-tag--green">Case Study</span>
-              <span class="event-tag">1 Gün</span>
-              <span class="event-tag">Yüz Yüze</span>
-            </div>
             <h3 class="event-title">Akbank Case Study</h3>
             <p class="event-desc">
               1 günlük inovatif fikirleri paylaşma ve finansal teknoloji çözümleri geliştirme günü — 35.000 TL ödül havuzu.
@@ -81,7 +76,6 @@ import { pastEvents } from '../data/events';
       <div class="past-events-grid">
         {pastEvents.map((event) => (
           <div class="past-event-card">
-            <div class="past-event-badge">{event.badge}</div>
             <h3 class="past-event-title">{event.title}</h3>
             <p class="past-event-desc">{event.desc}</p>
             <div class="past-event-meta">
@@ -206,27 +200,7 @@ import { pastEvents } from '../data/events';
   .event-info {
     flex: 1;
   }
-  .event-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
-  }
-  .event-tag {
-    font-size: 12px;
-    font-weight: 500;
-    padding: 3px 10px;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    background: var(--bg-main);
-  }
-  .event-tag--green {
-    background: var(--green-light);
-    border-color: var(--green-border);
-    color: var(--green-text);
-    font-weight: 600;
-  }
+
 
   .event-title {
     font-size: 20px;
@@ -278,18 +252,7 @@ import { pastEvents } from '../data/events';
     box-shadow: var(--shadow-hover);
   }
 
-  .past-event-badge {
-    display: inline-block;
-    align-self: flex-start;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: var(--radius-full);
-    margin-bottom: 14px;
-    background: var(--green-light);
-    color: var(--green-text);
-    border: 1px solid var(--green-border);
-  }
+
 
   .past-event-title {
     font-size: 18px;
