@@ -1,6 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { pastEvents } from "../data/events";
+
+function parseEventDate(dateStr: string) {
+  const parts = dateStr.trim().split(" ");
+  if (parts.length >= 2) {
+    return { day: parts[0], month: parts.slice(1).join(" ") };
+  }
+  return { day: "", month: dateStr };
+}
 ---
 
 <Layout
@@ -519,14 +527,55 @@ import { pastEvents } from "../data/events";
         </a>
       </div>
 
-      <!-- Tabs -->
-      <div class="events-tabs">
-        <button class="events-tab active" id="tabUpcoming" data-tab="upcoming">
-          Yaklaşan Etkinlikler
-        </button>
-        <button class="events-tab" id="tabPast" data-tab="past">
-          Geçmiş Etkinlikler
-        </button>
+      <!-- Tabs & Slider Navigation -->
+      <div class="events-tabs-row">
+        <div class="events-tabs">
+          <button
+            class="events-tab active"
+            id="tabUpcoming"
+            data-tab="upcoming"
+          >
+            Yaklaşan Etkinlikler
+          </button>
+          <button class="events-tab" id="tabPast" data-tab="past">
+            Geçmiş Etkinlikler
+          </button>
+        </div>
+
+        <div class="events-slider-nav hidden" id="homePastNav">
+          <button
+            class="slider-nav-btn prev"
+            id="homePastPrev"
+            aria-label="Önceki etkinlikler"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <button
+            class="slider-nav-btn next"
+            id="homePastNext"
+            aria-label="Sonraki etkinlikler"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- Upcoming Events Slider -->
@@ -538,12 +587,6 @@ import { pastEvents } from "../data/events";
                 <div class="event-home-date">
                   <span class="event-home-day">23</span>
                   <span class="event-home-month">Ekim</span>
-                </div>
-                <div class="event-home-tags">
-                  <span class="event-tag-pill">Case Study</span>
-                  <span class="event-tag-pill event-tag-pill--subtle"
-                    >1 Gün</span
-                  >
                 </div>
               </div>
               <h3 class="event-home-title">Akbank Case Study</h3>
@@ -579,19 +622,39 @@ import { pastEvents } from "../data/events";
       <!-- Past Events Slider -->
       <div class="events-slider-wrapper hidden" id="panelPast">
         <div class="events-slider-container">
-          <div class="past-events-home-grid">
+          <div class="past-events-home-track" id="homePastTrack">
             {
-              pastEvents.slice(0, 4).map((event) => (
-                <div class="past-event-home-card">
-                  <div class="past-event-badge-pill">{event.badge}</div>
-                  <h3 class="past-event-home-title">{event.title}</h3>
-                  <p class="past-event-home-desc">{event.desc}</p>
-                  <div class="past-event-home-meta">
-                    <span>📅 {event.date}</span>
-                    <span>📍 {event.location}</span>
+              pastEvents.map((event) => {
+                const { day, month } = parseEventDate(event.date);
+                return (
+                  <div class="event-home-card past-slider-card">
+                    <div class="event-home-header">
+                      <div class="event-home-date">
+                        <span class="event-home-day">{day}</span>
+                        <span class="event-home-month">{month}</span>
+                      </div>
+                    </div>
+                    <h3 class="event-home-title">{event.title}</h3>
+                    <p class="event-home-desc">{event.desc}</p>
+                    <div class="event-home-footer">
+                      <div class="event-home-meta">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        {event.location}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             }
           </div>
         </div>
@@ -697,10 +760,11 @@ import { pastEvents } from "../data/events";
   </section>
 
   <script>
-    // Tab switching
+    // Tab switching & Slider
     const tabs = document.querySelectorAll(".events-tab");
     const panelUpcoming = document.getElementById("panelUpcoming");
     const panelPast = document.getElementById("panelPast");
+    const homePastNav = document.getElementById("homePastNav");
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
@@ -710,12 +774,45 @@ import { pastEvents } from "../data/events";
         if (which === "upcoming") {
           panelUpcoming?.classList.remove("hidden");
           panelPast?.classList.add("hidden");
+          homePastNav?.classList.add("hidden");
         } else {
           panelUpcoming?.classList.add("hidden");
           panelPast?.classList.remove("hidden");
+          homePastNav?.classList.remove("hidden");
+          updateHomePastButtons();
         }
       });
     });
+
+    // Home past events slider buttons
+    const homePastTrack = document.getElementById("homePastTrack");
+    const homePastPrev = document.getElementById("homePastPrev") as HTMLButtonElement;
+    const homePastNext = document.getElementById("homePastNext") as HTMLButtonElement;
+
+    function updateHomePastButtons() {
+      if (!homePastTrack || !homePastPrev || !homePastNext) return;
+      homePastPrev.disabled = homePastTrack.scrollLeft <= 10;
+      homePastNext.disabled =
+        homePastTrack.scrollLeft + homePastTrack.clientWidth >=
+        homePastTrack.scrollWidth - 10;
+    }
+
+    homePastPrev?.addEventListener("click", () => {
+      if (!homePastTrack) return;
+      const card = homePastTrack.querySelector(".past-slider-card") as HTMLElement;
+      const step = (card ? card.offsetWidth + 20 : 360);
+      homePastTrack.scrollBy({ left: -step, behavior: "smooth" });
+    });
+
+    homePastNext?.addEventListener("click", () => {
+      if (!homePastTrack) return;
+      const card = homePastTrack.querySelector(".past-slider-card") as HTMLElement;
+      const step = (card ? card.offsetWidth + 20 : 360);
+      homePastTrack.scrollBy({ left: step, behavior: "smooth" });
+    });
+
+    homePastTrack?.addEventListener("scroll", updateHomePastButtons, { passive: true });
+    window.addEventListener("resize", updateHomePastButtons);
 
     // Contact form feedback
     const contactForm = document.getElementById(
@@ -1104,14 +1201,87 @@ import { pastEvents } from "../data/events";
     background: var(--bg-main);
   }
 
+  .events-tabs-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+  }
+
   .events-tabs {
     display: flex;
     gap: 8px;
-    margin-bottom: 28px;
     background: var(--bg-muted);
     padding: 4px;
     border-radius: var(--radius-full);
     width: fit-content;
+  }
+
+  .events-slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .events-slider-nav.hidden {
+    display: none;
+  }
+
+  .slider-nav-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .slider-nav-btn:hover:not(:disabled) {
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .slider-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .past-events-home-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 6px 4px 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .past-events-home-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .past-slider-card {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 320px;
+    scroll-snap-align: start;
+  }
+
+  @media (max-width: 768px) {
+    .past-slider-card {
+      flex: 0 0 100%;
+      min-width: 260px;
+    }
   }
 
   .events-tab {
@@ -1181,27 +1351,6 @@ import { pastEvents } from "../data/events";
     color: var(--dark);
   }
 
-  .event-home-tags {
-    display: flex;
-    gap: 8px;
-  }
-
-  .event-tag-pill {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: var(--radius-full);
-    background: var(--green-light);
-    color: var(--green-text);
-    border: 1px solid var(--green-border);
-  }
-
-  .event-tag-pill--subtle {
-    background: var(--bg-muted);
-    color: var(--text-muted);
-    border-color: var(--border);
-  }
-
   .event-home-title {
     font-size: 22px;
     font-weight: 700;
@@ -1214,6 +1363,7 @@ import { pastEvents } from "../data/events";
     color: var(--text-muted);
     line-height: 1.6;
     margin: 0;
+    flex-grow: 1;
   }
 
   .event-home-footer {
@@ -1238,58 +1388,6 @@ import { pastEvents } from "../data/events";
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  }
-
-  .past-event-home-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .past-event-home-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .past-event-badge-pill {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: var(--radius-full);
-    background: var(--bg-muted);
-    color: var(--text-muted);
-    width: fit-content;
-  }
-
-  .past-event-home-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--dark);
-    margin: 0;
-  }
-
-  .past-event-home-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.55;
-    margin: 0;
-    flex: 1;
-  }
-
-  .past-event-home-meta {
-    font-size: 12.5px;
-    color: var(--text-subtle);
-    display: flex;
-    gap: 14px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border-subtle);
   }
 
   /* ── Ekibimiz Section ───────────────────────────────────────── */

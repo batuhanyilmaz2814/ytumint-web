@@ -1,6 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { pastEvents } from "../data/events";
+
+function parseEventDate(dateStr: string) {
+  const parts = dateStr.trim().split(" ");
+  if (parts.length >= 2) {
+    return { day: parts[0], month: parts.slice(1).join(" ") };
+  }
+  return { day: "", month: dateStr };
+}
 ---
 
 <Layout
@@ -44,7 +52,18 @@ import { pastEvents } from "../data/events";
               çözümleri geliştirme günü | 35.000 TL ödül havuzu.
             </p>
             <div class="event-meta">
-              <span>📍 Sabancı Center Akbank Genel Müdürlük</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Sabancı Center Akbank Genel Müdürlük
             </div>
           </div>
           <a href="/contact" class="btn btn-green event-cta">Kayıt Ol →</a>
@@ -56,30 +75,118 @@ import { pastEvents } from "../data/events";
   <!-- Past Events -->
   <section class="past-events-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Geçmiş Etkinlikler</h2>
-        <p class="section-description">
-          Daha önce gerçekleştirdiğimiz şirket gezileri, atölyeler, zirveler ve
-          topluluk buluşmaları.
-        </p>
+      <div class="section-header-row">
+        <div class="section-header">
+          <h2 class="section-title">Geçmiş Etkinlikler</h2>
+          <p class="section-description">
+            Daha önce gerçekleştirdiğimiz şirket gezileri, atölyeler, zirveler ve
+            topluluk buluşmaları.
+          </p>
+        </div>
+        <div class="slider-nav">
+          <button
+            class="slider-nav-btn prev"
+            id="pastEventsPrev"
+            aria-label="Önceki etkinlikler"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <button
+            class="slider-nav-btn next"
+            id="pastEventsNext"
+            aria-label="Sonraki etkinlikler"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <div class="past-events-grid">
+      <div class="past-events-slider-track" id="pastEventsSlider">
         {
-          pastEvents.map((event) => (
-            <div class="past-event-card">
-              <h3 class="past-event-title">{event.title}</h3>
-              <p class="past-event-desc">{event.desc}</p>
-              <div class="past-event-meta">
-                <span class="meta-date">📅 {event.date}</span>
-                <span class="meta-location">📍 {event.location}</span>
+          pastEvents.map((event) => {
+            const { day, month } = parseEventDate(event.date);
+            return (
+              <div class="past-event-card">
+                <div class="past-event-header">
+                  <div class="past-event-date">
+                    <span class="past-event-day">{day}</span>
+                    <span class="past-event-month">{month}</span>
+                  </div>
+                </div>
+                <h3 class="past-event-title">{event.title}</h3>
+                <p class="past-event-desc">{event.desc}</p>
+                <div class="past-event-footer">
+                  <div class="past-event-meta">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {event.location}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))
+            );
+          })
         }
       </div>
     </div>
   </section>
+
+  <script>
+    const slider = document.getElementById("pastEventsSlider");
+    const prevBtn = document.getElementById("pastEventsPrev") as HTMLButtonElement;
+    const nextBtn = document.getElementById("pastEventsNext") as HTMLButtonElement;
+
+    function updateButtons() {
+      if (!slider || !prevBtn || !nextBtn) return;
+      prevBtn.disabled = slider.scrollLeft <= 10;
+      nextBtn.disabled =
+        slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10;
+    }
+
+    prevBtn?.addEventListener("click", () => {
+      if (!slider) return;
+      const card = slider.querySelector(".past-event-card") as HTMLElement;
+      const step = (card ? card.offsetWidth + 20 : 360);
+      slider.scrollBy({ left: -step, behavior: "smooth" });
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      if (!slider) return;
+      const card = slider.querySelector(".past-event-card") as HTMLElement;
+      const step = (card ? card.offsetWidth + 20 : 360);
+      slider.scrollBy({ left: step, behavior: "smooth" });
+    });
+
+    slider?.addEventListener("scroll", updateButtons, { passive: true });
+    window.addEventListener("resize", updateButtons);
+    updateButtons();
+  </script>
 </Layout>
 
 <style>
@@ -181,6 +288,9 @@ import { pastEvents } from "../data/events";
   .event-meta {
     font-size: 13.5px;
     color: var(--text-subtle);
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .event-cta {
@@ -194,16 +304,73 @@ import { pastEvents } from "../data/events";
     padding: 40px 0 90px;
     background: var(--bg-main);
   }
-  .past-events-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+  .section-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 24px;
     gap: 20px;
   }
 
+  .slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .slider-nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .slider-nav-btn:hover:not(:disabled) {
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .slider-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .past-events-slider-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 6px 4px 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .past-events-slider-track::-webkit-scrollbar {
+    display: none;
+  }
+
   .past-event-card {
+    flex: 0 0 calc(33.333% - 14px);
+    min-width: 300px;
+    max-width: 380px;
+    scroll-snap-align: start;
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: 28px 24px;
     box-shadow: var(--shadow-sm);
     transition:
@@ -212,6 +379,7 @@ import { pastEvents } from "../data/events";
       border-color 0.2s ease;
     display: flex;
     flex-direction: column;
+    gap: 14px;
   }
   .past-event-card:hover {
     transform: translateY(-3px);
@@ -219,40 +387,62 @@ import { pastEvents } from "../data/events";
     box-shadow: var(--shadow-hover);
   }
 
+  .past-event-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .past-event-date {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .past-event-day {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .past-event-month {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
   .past-event-title {
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin: 0;
     color: var(--dark);
   }
   .past-event-desc {
     font-size: 14px;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 18px;
+    margin: 0;
     flex-grow: 1;
   }
 
-  .past-event-meta {
-    font-size: 12.5px;
-    color: var(--text-subtle);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  .past-event-footer {
     padding-top: 14px;
     border-top: 1px solid var(--border-subtle);
   }
-  .meta-date {
-    font-weight: 500;
+
+  .past-event-meta {
+    font-size: 13px;
     color: var(--text-muted);
-  }
-  .meta-location {
-    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   @media (max-width: 1024px) {
-    .past-events-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .past-event-card {
+      flex: 0 0 calc(50% - 10px);
+      min-width: 280px;
     }
     .event-item {
       flex-direction: column;
@@ -265,8 +455,14 @@ import { pastEvents } from "../data/events";
     }
   }
   @media (max-width: 640px) {
-    .past-events-grid {
-      grid-template-columns: 1fr;
+    .past-event-card {
+      flex: 0 0 100%;
+      min-width: 260px;
+    }
+    .section-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
     }
     .event-item {
       padding: 24px 20px;
