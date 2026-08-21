@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* =============================================
-   MINIMALIST DESIGN SYSTEM — YTU MINT
+   MINIMALIST DESIGN SYSTEM | YTÜ MİNT
    ============================================= */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -15,40 +17,40 @@
   --bg-card: #FFFFFF;
   --bg-muted: #F1F5F9;
   --bg-subtle: #F8FAFC;
-  
+
   --dark: #0F172A;
   --dark-surface: #1E293B;
   --white: #FFFFFF;
-  
+
   /* Brand Accent: Sophisticated Mint */
   --green: #61a95d;
   --green-hover: #7fce71;
   --green-light: #ECFDF5;
   --green-border: #A7F3D0;
   --green-text: #065F46;
-  
+
   /* Typography */
   --text: #0F172A;
   --text-muted: #64748B;
   --text-subtle: #94A3B8;
-  
+
   /* Borders */
   --border: rgba(15, 23, 42, 0.08);
   --border-subtle: rgba(15, 23, 42, 0.05);
   --border-dark: rgba(255, 255, 255, 0.12);
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
   --shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
   --shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.07), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
   --shadow-hover: 0 14px 36px -4px rgba(16, 185, 129, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
-  
+
   /* Radii */
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
-  
+
   --font: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -78,7 +80,11 @@ section {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font);
   font-weight: 600;
   line-height: 1.25;
@@ -86,10 +92,23 @@ h1, h2, h3, h4, h5 {
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(36px, 4.5vw, 56px); }
-h2 { font-size: clamp(28px, 3.2vw, 38px); }
-h3 { font-size: clamp(20px, 2.2vw, 24px); }
-p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
+h1 {
+  font-size: clamp(36px, 4.5vw, 56px);
+}
+
+h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+}
+
+h3 {
+  font-size: clamp(20px, 2.2vw, 24px);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
 
 /* Minimalist Section Header */
 .section-header {
@@ -174,6 +193,7 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
   color: var(--white);
   border-color: var(--dark);
 }
+
 .btn-dark:hover {
   background-color: #1E293B;
   border-color: #1E293B;
@@ -186,6 +206,7 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
   color: var(--white);
   border-color: var(--green);
 }
+
 .btn-green:hover {
   background-color: var(--green-hover);
   border-color: var(--green-hover);
@@ -199,6 +220,7 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
   border: 1px solid var(--border);
   box-shadow: none;
 }
+
 .btn-outline:hover {
   background-color: var(--white);
   border-color: rgba(15, 23, 42, 0.2);
@@ -212,6 +234,7 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: none;
 }
+
 .btn-outline-white:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.6);
@@ -271,6 +294,7 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
+
 .logo:hover {
   opacity: 0.85;
 }
@@ -433,8 +457,13 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .partner-item {
@@ -594,18 +623,24 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
 }
 
 @keyframes footerHeartBeat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   14% {
     transform: scale(1.2);
   }
+
   28% {
     transform: scale(1);
   }
+
   42% {
     transform: scale(1.15);
   }
+
   70% {
     transform: scale(1);
   }
@@ -628,7 +663,10 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
    RESPONSIVE BASE
    ============================================= */
 @media (max-width: 1024px) {
-  .container { padding: 0 24px; }
+  .container {
+    padding: 0 24px;
+  }
+
   .footer-main {
     flex-direction: column;
     align-items: flex-start;
@@ -637,21 +675,34 @@ p { font-size: 16px; line-height: 1.65; color: var(--text-muted); }
 }
 
 @media (max-width: 768px) {
-  section { padding: 60px 0; }
-  .nav-links, .navbar-cta { display: none; }
-  .hamburger { display: flex; }
+  section {
+    padding: 60px 0;
+  }
+
+  .nav-links,
+  .navbar-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
   .footer-brand {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
+
   .footer-tagline {
     border-left: none;
     padding-left: 0;
   }
+
   .footer-nav {
     gap: 12px 18px;
   }
+
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
