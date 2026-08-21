@@ -125,28 +125,44 @@ function parseEventDate(dateStr: string) {
             const { day, month } = parseEventDate(event.date);
             return (
               <div class="past-event-card">
-                <div class="past-event-header">
-                  <div class="past-event-date">
-                    <span class="past-event-day">{day}</span>
-                    <span class="past-event-month">{month}</span>
-                  </div>
+                <div class="past-event-img-wrap">
+                  {event.image ? (
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      class="past-event-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="past-event-img-placeholder">
+                      <span class="placeholder-tag">{event.badge || "YTÜ MİNT"}</span>
+                    </div>
+                  )}
                 </div>
-                <h3 class="past-event-title">{event.title}</h3>
-                <p class="past-event-desc">{event.desc}</p>
-                <div class="past-event-footer">
-                  <div class="past-event-meta">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    {event.location}
+                <div class="past-event-body">
+                  <div class="past-event-header">
+                    <div class="past-event-date">
+                      <span class="past-event-day">{day}</span>
+                      <span class="past-event-month">{month}</span>
+                    </div>
+                  </div>
+                  <h3 class="past-event-title">{event.title}</h3>
+                  <p class="past-event-desc">{event.desc}</p>
+                  <div class="past-event-footer">
+                    <div class="past-event-meta">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      {event.location}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -171,16 +187,12 @@ function parseEventDate(dateStr: string) {
 
     prevBtn?.addEventListener("click", () => {
       if (!slider) return;
-      const card = slider.querySelector(".past-event-card") as HTMLElement;
-      const step = (card ? card.offsetWidth + 20 : 360);
-      slider.scrollBy({ left: -step, behavior: "smooth" });
+      slider.scrollBy({ left: -slider.clientWidth, behavior: "smooth" });
     });
 
     nextBtn?.addEventListener("click", () => {
       if (!slider) return;
-      const card = slider.querySelector(".past-event-card") as HTMLElement;
-      const step = (card ? card.offsetWidth + 20 : 360);
-      slider.scrollBy({ left: step, behavior: "smooth" });
+      slider.scrollBy({ left: slider.clientWidth, behavior: "smooth" });
     });
 
     slider?.addEventListener("scroll", updateButtons, { passive: true });
@@ -371,20 +383,67 @@ function parseEventDate(dateStr: string) {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 28px 24px;
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
     display: flex;
     flex-direction: column;
-    gap: 14px;
   }
   .past-event-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-4px);
+    border-color: rgba(16, 185, 129, 0.35);
     box-shadow: var(--shadow-hover);
+  }
+
+  .past-event-img-wrap {
+    width: 100%;
+    height: 185px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  }
+
+  .past-event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .past-event-card:hover .past-event-img {
+    transform: scale(1.06);
+  }
+
+  .past-event-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(97, 169, 93, 0.12) 0%, rgba(15, 23, 42, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-text);
+    background: var(--green-light);
+    border: 1px solid var(--green-border);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+  }
+
+  .past-event-body {
+    padding: 22px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
   }
 
   .past-event-header {
