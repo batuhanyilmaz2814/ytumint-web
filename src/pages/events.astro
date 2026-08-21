@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { pastEvents } from '../data/events';
 ---
 
 <Layout
   title="Etkinliklerimiz — YTU MINT"
-  description="YTU MINT etkinlikleri: hackathonlar, atölyeler, konferanslar ve matematik olimpiyatları. Yaklaşan etkinliklere katılmak için kayıt ol."
+  description="YTU MINT etkinlikleri: hackathonlar, şirket gezileri, atölyeler, quiz geceleri ve zirveler. Topluluğumuzla birlikte öğren, geliştir ve büyü."
 >
 
   <!-- Page Header -->
@@ -14,14 +15,14 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <h1 class="page-hero-title">Etkinliklerimiz</h1>
           <p class="page-hero-desc">
-            Hackathonlar, atölyeler, seminerler ve olimpiyatlar — her dönem dolu dolu bir etkinlik takvimi.
-            Topluluğumuzla birlikte öğren, geliştir ve büyü.
+            Şirket gezileri, atölyeler, tematik quiz geceleri ve zirveler — her dönem dopdolu bir etkinlik takvimi.
+            Topluluğumuzla birlikte öğren, geliştir ve sosyalleş.
           </p>
         </div>
         <div class="page-hero-stats">
           <div class="stat-card">
-            <div class="stat-number">30+</div>
-            <div class="stat-label">Yıllık Etkinlik</div>
+            <div class="stat-number">{pastEvents.length}+</div>
+            <div class="stat-label">Geçmiş Etkinlik</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">500+</div>
@@ -46,98 +47,24 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="event-item event-item--featured">
           <div class="event-date-badge">
-            <span class="event-day">14</span>
-            <span class="event-month">Eyl</span>
-          </div>
-          <div class="event-info">
-            <div class="event-tags">
-              <span class="event-tag event-tag--green">Hackathon</span>
-              <span class="event-tag">48 Saat</span>
-              <span class="event-tag">Yüz Yüze</span>
-            </div>
-            <h3 class="event-title">MINT Hackathon 2024</h3>
-            <p class="event-desc">
-              48 saatlik kesintisiz kodlama maratonu! Bu yılki tema: "Sürdürülebilir Teknoloji".
-              Ekibinle katıl, ürününü geliştir ve 30.000 TL ödül havuzundan payını al.
-            </p>
-            <div class="event-meta">
-              <span>📍 YTU Davutpaşa Kampüsü, B Blok</span>
-              <span>👥 Maks. 20 takım</span>
-            </div>
-          </div>
-          <a href="/contact" class="btn btn-dark event-cta">Kayıt Ol →</a>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-day">21</span>
-            <span class="event-month">Eyl</span>
-          </div>
-          <div class="event-info">
-            <div class="event-tags">
-              <span class="event-tag event-tag--green">Atölye</span>
-              <span class="event-tag">3 Saat</span>
-              <span class="event-tag">Online</span>
-            </div>
-            <h3 class="event-title">Python ile Makine Öğrenmesi — Başlangıç Atölyesi</h3>
-            <p class="event-desc">
-              Sıfırdan makine öğrenmesi: veri ön işleme, model eğitimi ve değerlendirme.
-              Scikit-learn ve Pandas ile uygulamalı örnekler.
-            </p>
-            <div class="event-meta">
-              <span>📍 Zoom (kayıt sonrası link gönderilir)</span>
-              <span>👥 Sınırsız katılım</span>
-            </div>
-          </div>
-          <a href="/contact" class="btn btn-outline event-cta">Kayıt Ol →</a>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-day">28</span>
-            <span class="event-month">Eyl</span>
-          </div>
-          <div class="event-info">
-            <div class="event-tags">
-              <span class="event-tag event-tag--green">Seminer</span>
-              <span class="event-tag">2 Saat</span>
-              <span class="event-tag">Yüz Yüze</span>
-            </div>
-            <h3 class="event-title">Kariyer Günleri: Teknoloji Sektörüne Giriş</h3>
-            <p class="event-desc">
-              Sektörden misafir konuşmacılar ve MINT mezunlarıyla buluşma. CV hazırlama, mülakat teknikleri
-              ve staj başvuruları üzerine pratik ipuçları.
-            </p>
-            <div class="event-meta">
-              <span>📍 YTU Davutpaşa, Konferans Salonu</span>
-              <span>👥 Maks. 100 kişi</span>
-            </div>
-          </div>
-          <a href="/contact" class="btn btn-outline event-cta">Kayıt Ol →</a>
-        </div>
-
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-day">05</span>
+            <span class="event-day">23</span>
             <span class="event-month">Eki</span>
           </div>
           <div class="event-info">
             <div class="event-tags">
-              <span class="event-tag event-tag--green">Olimpiyat</span>
-              <span class="event-tag">Seçme Sınavı</span>
+              <span class="event-tag event-tag--green">Case Study</span>
+              <span class="event-tag">1 Gün</span>
               <span class="event-tag">Yüz Yüze</span>
             </div>
-            <h3 class="event-title">Ulusal Matematik Olimpiyatı Seçme Sınavı</h3>
+            <h3 class="event-title">Akbank Case Study</h3>
             <p class="event-desc">
-              Ulusal Matematik Olimpiyatı'na katılacak MINT temsilcilerini belirleme sınavı.
-              Kazananlar aylık olimpiyat hazırlık programına dahil edilecek.
+              1 günlük fikirleri paylaşma günü — 35.000 TL ödül havuzu.
             </p>
             <div class="event-meta">
-              <span>📍 YTU Matematik Mühendisliği Bölümü</span>
-              <span>👥 Açık kayıt</span>
+              <span>📍 Sabancı Center Akbank Genel Müdürlük</span>
             </div>
           </div>
-          <a href="/contact" class="btn btn-outline event-cta">Kayıt Ol →</a>
+          <a href="/contact" class="btn btn-dark event-cta">Kayıt Ol →</a>
         </div>
 
       </div>
@@ -150,40 +77,22 @@ import Layout from '../layouts/Layout.astro';
       <div class="section-header">
         <h2 class="section-label">Geçmiş Etkinlikler</h2>
         <p class="section-description">
-          Daha önce gerçekleştirdiğimiz etkinlikler ve elde ettiğimiz başarılar.
+          Daha önce gerçekleştirdiğimiz şirket gezileri, atölyeler, zirveler ve eğlenceli quiz geceleri.
         </p>
       </div>
 
       <div class="past-events-grid">
-
-        <div class="past-event-card past-event-card--dark">
-          <div class="past-event-badge">🏆 1. Ödül</div>
-          <h3 class="past-event-title">YTU Hackathon 2023</h3>
-          <p class="past-event-desc">"Sağlık için Yapay Zeka" projesiyle birincilik ve 15.000 TL ödül.</p>
-          <div class="past-event-meta">Mart 2023 • 48 Saat • 50+ Takım</div>
-        </div>
-
-        <div class="past-event-card past-event-card--green">
-          <div class="past-event-badge">🎓 5 Finalist</div>
-          <h3 class="past-event-title">Ulusal Matematik Olimpiyatı 2023</h3>
-          <p class="past-event-desc">5 üyemiz finale kaldı, 2'si birincilik ödülü kazandı.</p>
-          <div class="past-event-meta">Mayıs 2023 • Ankara</div>
-        </div>
-
-        <div class="past-event-card past-event-card--light">
-          <div class="past-event-badge">📦 1200+ ⭐</div>
-          <h3 class="past-event-title">Açık Kaynak Proje</h3>
-          <p class="past-event-desc">MINT bünyesinde geliştirilen proje GitHub'da 1200+ yıldız topladı.</p>
-          <div class="past-event-meta">2022–2023 • 50+ Katkıcı</div>
-        </div>
-
-        <div class="past-event-card past-event-card--light">
-          <div class="past-event-badge">🎤 200+ Katılımcı</div>
-          <h3 class="past-event-title">MINT Tech Talk Serisi</h3>
-          <p class="past-event-desc">Sektör profesyonelleriyle 6 haftalık seminer serisi.</p>
-          <div class="past-event-meta">Ocak – Şubat 2023</div>
-        </div>
-
+        {pastEvents.map((event) => (
+          <div class={`past-event-card past-event-card--${event.theme || 'light'}`}>
+            <div class="past-event-badge">{event.badge}</div>
+            <h3 class="past-event-title">{event.title}</h3>
+            <p class="past-event-desc">{event.desc}</p>
+            <div class="past-event-meta">
+              <span class="meta-date">📅 {event.date}</span>
+              <span class="meta-location">📍 {event.location}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -282,14 +191,20 @@ import Layout from '../layouts/Layout.astro';
 
   /* Past events */
   .past-events-section { padding: 40px 0 80px; }
-  .past-events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .past-events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
 
   .past-event-card {
     border: 1px solid var(--dark);
     border-radius: 28px;
-    padding: 36px 30px;
+    padding: 32px 28px;
     box-shadow: 4px 4px 0 var(--dark);
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
   }
   .past-event-card:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--dark); }
   .past-event-card--dark  { background: var(--dark); }
@@ -298,22 +213,51 @@ import Layout from '../layouts/Layout.astro';
 
   .past-event-badge {
     display: inline-block;
-    font-size: 14px;
+    align-self: flex-start;
+    font-size: 13px;
     font-weight: 600;
     padding: 4px 12px;
     border-radius: 20px;
     margin-bottom: 16px;
     background: var(--green);
     color: var(--dark);
+    border: 1px solid rgba(25, 26, 35, 0.15);
   }
-  .past-event-card--green .past-event-badge { background: var(--white); }
+  .past-event-card--green .past-event-badge {
+    background: var(--white);
+    border-color: rgba(25, 26, 35, 0.15);
+  }
+  .past-event-card--dark .past-event-badge {
+    background: rgba(185, 255, 102, 0.2);
+    color: var(--green);
+    border-color: rgba(185, 255, 102, 0.3);
+  }
 
-  .past-event-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: var(--dark); }
+  .past-event-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
   .past-event-card--dark .past-event-title { color: var(--white); }
-  .past-event-desc { font-size: 15px; color: #555; line-height: 1.6; margin-bottom: 16px; }
-  .past-event-card--dark .past-event-desc { color: rgba(255,255,255,0.7); }
-  .past-event-meta { font-size: 13px; color: #888; }
-  .past-event-card--dark .past-event-meta { color: rgba(255,255,255,0.4); }
+  .past-event-desc { font-size: 14.5px; color: #555; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+  .past-event-card--dark .past-event-desc { color: rgba(255,255,255,0.75); }
+  .past-event-card--green .past-event-desc { color: rgba(25, 26, 35, 0.85); }
+
+  .past-event-meta {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(25, 26, 35, 0.1);
+  }
+  .past-event-card--dark .past-event-meta {
+    color: rgba(255, 255, 255, 0.6);
+    border-top-color: rgba(255, 255, 255, 0.15);
+  }
+  .past-event-card--green .past-event-meta {
+    color: rgba(25, 26, 35, 0.75);
+    border-top-color: rgba(25, 26, 35, 0.15);
+  }
+  .meta-date { font-weight: 600; }
+  .meta-location { opacity: 0.9; }
 
   @media (max-width: 1024px) {
     .past-events-grid { grid-template-columns: repeat(2, 1fr); }
@@ -327,3 +271,4 @@ import Layout from '../layouts/Layout.astro';
     .page-hero-stats { width: 100%; }
   }
 </style>
+

@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { pastEvents } from "../data/events";
 
 const teamMembers = [
   {
@@ -41,10 +42,9 @@ const teamMembers = [
 ---
 
 <Layout
-  title="YTU MINT — Matematik & Bilişim Topluluğu"
+  title="YTÜ MİNT Kulübü"
   description="YTU MINT — Yıldız Teknik Üniversitesi Matematik ve Bilişim Topluluğu. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk."
 >
-
   <!-- =============================================
        HERO
        ============================================= -->
@@ -57,16 +57,19 @@ const teamMembers = [
       loop
       muted
       playsinline
-      preload="auto"
-    ></video>
+      preload="auto"></video>
 
     <!-- Gradient overlay -->
     <div class="hero-video__overlay"></div>
 
     <!-- Content -->
     <div class="hero-video__content">
-      <p class="hero-video__sub">YTÜ Multidisipliner İnovasyon Teknolojileri Kulübü</p>
-      <h1 class="hero-video__title">May Be MİNT<br /><span class="hero-video__title-accent">With You!</span></h1>
+      <p class="hero-video__sub">
+        YTÜ Multidisipliner İnovasyon Teknolojileri Kulübü
+      </p>
+      <h1 class="hero-video__title">
+        May Be MİNT<br /><span class="hero-video__title-accent">With You!</span>
+      </h1>
       <div class="hero-video__btns">
         <a href="/events" class="btn btn-green">Etkinliklerimiz</a>
         <a href="/communities" class="btn btn-outline-white">Topluluklarımız</a>
@@ -80,60 +83,200 @@ const teamMembers = [
   <div class="partners">
     <div class="partners-track">
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+          ><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+          ></path></svg
+        >
         Matematik Olimpiyatları
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><rect x="3" y="3" width="7" height="7"></rect><rect
+            x="14"
+            y="3"
+            width="7"
+            height="7"></rect><rect x="14" y="14" width="7" height="7"
+          ></rect><rect x="3" y="14" width="7" height="7"></rect></svg
+        >
         Kodlama Atölyeleri
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><circle cx="12" cy="12" r="10"></circle><line
+            x1="12"
+            y1="8"
+            x2="12"
+            y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg
+        >
         Yapay Zeka Projeleri
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg
+        >
         Veri Bilimi
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
+            cx="9"
+            cy="7"
+            r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
+            d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg
+        >
         Topluluk Etkinlikleri
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line
+            x1="8"
+            y1="21"
+            x2="16"
+            y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg
+        >
         Hackathon
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+          ></polygon></svg
+        >
         Staj & Kariyer
       </span>
       <!-- duplicate for seamless loop -->
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+          ><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+          ></path></svg
+        >
         Matematik Olimpiyatları
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><rect x="3" y="3" width="7" height="7"></rect><rect
+            x="14"
+            y="3"
+            width="7"
+            height="7"></rect><rect x="14" y="14" width="7" height="7"
+          ></rect><rect x="3" y="14" width="7" height="7"></rect></svg
+        >
         Kodlama Atölyeleri
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><circle cx="12" cy="12" r="10"></circle><line
+            x1="12"
+            y1="8"
+            x2="12"
+            y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg
+        >
         Yapay Zeka Projeleri
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg
+        >
         Veri Bilimi
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle
+            cx="9"
+            cy="7"
+            r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path
+            d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg
+        >
         Topluluk Etkinlikleri
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line
+            x1="8"
+            y1="21"
+            x2="16"
+            y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg
+        >
         Hackathon
       </span>
       <span class="partner-item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          ><polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+          ></polygon></svg
+        >
         Staj & Kariyer
       </span>
     </div>
@@ -152,10 +295,14 @@ const teamMembers = [
             <span class="about-title-highlight">birlikte keşfediyoruz</span>
           </h2>
           <p class="about-text">
-            YTU MINT; Yıldız Teknik Üniversitesi'nde matematik, bilişim ve teknoloji alanlarında ilgi duyan öğrencilerin bir araya geldiği bir öğrenci topluluğudur.
+            YTU MINT; Yıldız Teknik Üniversitesi'nde matematik, bilişim ve
+            teknoloji alanlarında ilgi duyan öğrencilerin bir araya geldiği bir
+            öğrenci topluluğudur.
           </p>
           <p class="about-text">
-            Akademik bilgiyi pratiğe dökmek, birlikte projeler geliştirmek ve birbirimizden öğrenmek için buradayız. Ne bir dernek ciddiyeti ne de sıradan bir grup sohbeti — sadece ortak tutkuyu paylaşan insanlar.
+            Akademik bilgiyi pratiğe dökmek, birlikte projeler geliştirmek ve
+            birbirimizden öğrenmek için buradayız. Ne bir dernek ciddiyeti ne de
+            sıradan bir grup sohbeti — sadece ortak tutkuyu paylaşan insanlar.
           </p>
           <div class="about-stats">
             <div class="about-stat">
@@ -207,33 +354,75 @@ const teamMembers = [
         <a href="/communities" class="btn btn-outline see-more-btn">
           Daha Fazla
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M5 12H19M19 12L13 6M19 12L13 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
           </svg>
         </a>
       </div>
 
       <div class="communities-home-grid">
-
         <!-- YTÜ Blockchain -->
         <div class="community-home-card community-home-card--dark">
           <div class="community-home-logo-box">
-            <img src="/bc-logo.png" alt="YTÜ Blockchain" class="community-home-logo" />
+            <img
+              src="/bc-logo.png"
+              alt="YTÜ Blockchain"
+              class="community-home-logo"
+            />
           </div>
           <h3 class="community-home-name">YTÜ Blockchain</h3>
           <div class="community-home-links">
-            <a href="https://www.instagram.com/ytu_blockchain/" target="_blank" rel="noopener noreferrer" class="community-link-btn" aria-label="YTÜ Blockchain Instagram">
+            <a
+              href="https://www.instagram.com/ytu_blockchain/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="community-link-btn"
+              aria-label="YTÜ Blockchain Instagram"
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  ry="5"
+                  stroke="currentColor"
+                  stroke-width="2"></rect>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="2"></circle>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
               </svg>
               Instagram
             </a>
-            <a href="https://ytublockchain.com/tr" target="_blank" rel="noopener noreferrer" class="community-link-btn community-link-btn--dark-outline" aria-label="YTÜ Blockchain Web Sitesi">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            <a
+              href="https://ytublockchain.com/tr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="community-link-btn community-link-btn--dark-outline"
+              aria-label="YTÜ Blockchain Web Sitesi"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
               </svg>
               Web Sitesi
             </a>
@@ -243,15 +432,38 @@ const teamMembers = [
         <!-- Yıldız Siber -->
         <div class="community-home-card community-home-card--green">
           <div class="community-home-logo-box">
-            <img src="/yildiz-siber.png" alt="Yıldız Siber" class="community-home-logo" />
+            <img
+              src="/yildiz-siber.png"
+              alt="Yıldız Siber"
+              class="community-home-logo"
+            />
           </div>
           <h3 class="community-home-name">Yıldız Siber</h3>
           <div class="community-home-links">
-            <a href="https://www.instagram.com/yildizsiber/" target="_blank" rel="noopener noreferrer" class="community-link-btn community-link-btn--dark" aria-label="Yıldız Siber Instagram">
+            <a
+              href="https://www.instagram.com/yildizsiber/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="community-link-btn community-link-btn--dark"
+              aria-label="Yıldız Siber Instagram"
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  ry="5"
+                  stroke="currentColor"
+                  stroke-width="2"></rect>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="2"></circle>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
               </svg>
               Instagram
             </a>
@@ -261,15 +473,38 @@ const teamMembers = [
         <!-- YTÜ Huawei Student Developers -->
         <div class="community-home-card community-home-card--light">
           <div class="community-home-logo-box">
-            <img src="/hsd-logo.png" alt="YTÜ Huawei Student Developers" class="community-home-logo" />
+            <img
+              src="/hsd-logo.png"
+              alt="YTÜ Huawei Student Developers"
+              class="community-home-logo"
+            />
           </div>
           <h3 class="community-home-name">YTÜ Huawei Student Developers</h3>
           <div class="community-home-links">
-            <a href="https://www.instagram.com/hsd.ytu/" target="_blank" rel="noopener noreferrer" class="community-link-btn community-link-btn--outline" aria-label="YTÜ Huawei Student Developers Instagram">
+            <a
+              href="https://www.instagram.com/hsd.ytu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="community-link-btn community-link-btn--outline"
+              aria-label="YTÜ Huawei Student Developers Instagram"
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  ry="5"
+                  stroke="currentColor"
+                  stroke-width="2"></rect>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="2"></circle>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
               </svg>
               Instagram
             </a>
@@ -279,29 +514,66 @@ const teamMembers = [
         <!-- YTÜ Deptron -->
         <div class="community-home-card community-home-card--light">
           <div class="community-home-logo-box">
-            <img src="/deptron-logo.jpg" alt="YTÜ Deptron" class="community-home-logo" />
+            <img
+              src="/deptron-logo.jpg"
+              alt="YTÜ Deptron"
+              class="community-home-logo"
+            />
           </div>
           <h3 class="community-home-name">YTÜ Deptron</h3>
           <div class="community-home-links">
-            <a href="https://www.instagram.com/deptron_robotics/" target="_blank" rel="noopener noreferrer" class="community-link-btn community-link-btn--outline" aria-label="YTÜ Deptron Instagram">
+            <a
+              href="https://www.instagram.com/deptron_robotics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="community-link-btn community-link-btn--outline"
+              aria-label="YTÜ Deptron Instagram"
+            >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  ry="5"
+                  stroke="currentColor"
+                  stroke-width="2"></rect>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="2"></circle>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
               </svg>
               Instagram
             </a>
-            <a href="https://deptronrobotics.com/" target="_blank" rel="noopener noreferrer" class="community-link-btn community-link-btn--outline" aria-label="YTÜ Deptron Web Sitesi">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            <a
+              href="https://deptronrobotics.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="community-link-btn community-link-btn--outline"
+              aria-label="YTÜ Deptron Web Sitesi"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
               </svg>
               Web Sitesi
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -319,88 +591,75 @@ const teamMembers = [
         <a href="/events" class="btn btn-outline see-more-btn">
           Tümünü Gör
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M5 12H19M19 12L13 6M19 12L13 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
           </svg>
         </a>
       </div>
 
       <!-- Tabs -->
       <div class="events-tabs">
-        <button class="events-tab active" id="tabUpcoming" data-tab="upcoming">Yaklaşan Etkinlikler</button>
-        <button class="events-tab" id="tabPast" data-tab="past">Geçmiş Etkinlikler</button>
+        <button class="events-tab active" id="tabUpcoming" data-tab="upcoming"
+          >Yaklaşan Etkinlikler</button
+        >
+        <button class="events-tab" id="tabPast" data-tab="past"
+          >Geçmiş Etkinlikler</button
+        >
       </div>
 
       <!-- Upcoming Events Slider -->
       <div class="events-slider-wrapper" id="panelUpcoming">
         <div class="events-slider-container">
           <div class="events-slider" id="eventsSlider">
-
             <div class="event-home-card event-home-card--featured">
               <div class="event-home-date">
-                <span class="event-home-day">14</span>
-                <span class="event-home-month">Eyl</span>
-              </div>
-              <div class="event-home-tag">Hackathon</div>
-              <h3 class="event-home-title">MINT Hackathon 2024</h3>
-              <p class="event-home-desc">48 saatlik kodlama maratonu — tema: "Sürdürülebilir Teknoloji". 30.000 TL ödül havuzu.</p>
-              <div class="event-home-meta">📍 YTU Davutpaşa Kampüsü</div>
-              <a href="/events" class="btn btn-green event-home-cta">Kayıt Ol →</a>
-            </div>
-
-            <div class="event-home-card">
-              <div class="event-home-date">
-                <span class="event-home-day">21</span>
-                <span class="event-home-month">Eyl</span>
-              </div>
-              <div class="event-home-tag event-home-tag--light">Atölye</div>
-              <h3 class="event-home-title">Python ile Makine Öğrenmesi</h3>
-              <p class="event-home-desc">Sıfırdan makine öğrenmesi: veri ön işleme, model eğitimi ve değerlendirme.</p>
-              <div class="event-home-meta">📍 Online (Zoom)</div>
-              <a href="/events" class="btn btn-outline event-home-cta">Detaylar →</a>
-            </div>
-
-            <div class="event-home-card">
-              <div class="event-home-date">
-                <span class="event-home-day">28</span>
-                <span class="event-home-month">Eyl</span>
-              </div>
-              <div class="event-home-tag event-home-tag--light">Seminer</div>
-              <h3 class="event-home-title">Kariyer Günleri 2024</h3>
-              <p class="event-home-desc">Sektörden konuşmacılar ve MINT mezunlarıyla buluşma — CV, mülakat, staj ipuçları.</p>
-              <div class="event-home-meta">📍 YTU Konferans Salonu</div>
-              <a href="/events" class="btn btn-outline event-home-cta">Detaylar →</a>
-            </div>
-
-            <div class="event-home-card">
-              <div class="event-home-date">
-                <span class="event-home-day">05</span>
+                <span class="event-home-day">23</span>
                 <span class="event-home-month">Eki</span>
               </div>
-              <div class="event-home-tag event-home-tag--light">Olimpiyat</div>
-              <h3 class="event-home-title">Ulusal Matematik Olimpiyatı Seçme Sınavı</h3>
-              <p class="event-home-desc">MINT temsilcilerini belirleyecek seçme sınavı. Kazananlar aylık hazırlık programına dahil edilecek.</p>
-              <div class="event-home-meta">📍 YTU Matematik Mühendisliği</div>
-              <a href="/events" class="btn btn-outline event-home-cta">Detaylar →</a>
+              <div class="event-home-tag">Case Study</div>
+              <h3 class="event-home-title">Akbank Case Study</h3>
+              <p class="event-home-desc">
+                1 günlük fikirleri paylaşma günü — 35.000 TL ödül havuzu.
+              </p>
+              <div class="event-home-meta">
+                📍 Sabancı Center Akbank Genel Müdürlük
+              </div>
+              <a href="/events" class="btn btn-green event-home-cta"
+                >Kayıt Ol →</a
+              >
             </div>
-
           </div>
         </div>
 
-        <div class="slider-nav">
+        <div class="slider-nav" style="display: none;">
           <button class="slider-btn" id="eventPrev" aria-label="Önceki">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M19 12H5M5 12L11 18M5 12L11 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </button>
           <div class="slider-dots" id="eventDots">
-            <button class="slider-dot active" data-index="0" aria-label="1. etkinlik"></button>
-            <button class="slider-dot" data-index="1" aria-label="2. etkinlik"></button>
-            <button class="slider-dot" data-index="2" aria-label="3. etkinlik"></button>
-            <button class="slider-dot" data-index="3" aria-label="4. etkinlik"></button>
+            <button
+              class="slider-dot active"
+              data-index="0"
+              aria-label="1. etkinlik"></button>
           </div>
           <button class="slider-btn" id="eventNext" aria-label="Sonraki">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M5 12H19M19 12L13 6M19 12L13 18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </button>
         </div>
@@ -410,58 +669,70 @@ const teamMembers = [
       <div class="events-slider-wrapper hidden" id="panelPast">
         <div class="events-slider-container">
           <div class="events-slider" id="pastEventsSlider">
-
-            <div class="event-home-card event-home-card--dark">
-              <div class="past-event-badge">🏆 1. Ödül</div>
-              <h3 class="event-home-title">YTU Hackathon 2023</h3>
-              <p class="event-home-desc">"Sağlık için Yapay Zeka" projesiyle birincilik ve 15.000 TL ödül kazandık.</p>
-              <div class="event-home-meta" style="color:rgba(255,255,255,0.5)">Mart 2023 • 48 Saat • 50+ Takım</div>
-            </div>
-
-            <div class="event-home-card event-home-card--green">
-              <div class="past-event-badge past-event-badge--white">🎓 5 Finalist</div>
-              <h3 class="event-home-title">Ulusal Matematik Olimpiyatı 2023</h3>
-              <p class="event-home-desc">5 üyemiz finale kaldı, 2'si birincilik ödülü kazandı.</p>
-              <div class="event-home-meta">Mayıs 2023 • Ankara</div>
-            </div>
-
-            <div class="event-home-card">
-              <div class="past-event-badge past-event-badge--dark">📦 1200+ ⭐</div>
-              <h3 class="event-home-title">Açık Kaynak Proje</h3>
-              <p class="event-home-desc">MINT bünyesinde geliştirilen proje GitHub'da 1200+ yıldız topladı.</p>
-              <div class="event-home-meta">2022–2023 • 50+ Katkıcı</div>
-            </div>
-
-            <div class="event-home-card">
-              <div class="past-event-badge past-event-badge--dark">🎤 200+ Katılımcı</div>
-              <h3 class="event-home-title">MINT Tech Talk Serisi</h3>
-              <p class="event-home-desc">Sektör profesyonelleriyle 6 haftalık seminer serisi.</p>
-              <div class="event-home-meta">Ocak – Şubat 2023</div>
-            </div>
-
+            {
+              pastEvents.slice(0, 6).map((event) => (
+                <div
+                  class={`event-home-card ${event.theme === "dark" ? "event-home-card--dark" : event.theme === "green" ? "event-home-card--green" : ""}`}
+                >
+                  <div
+                    class={`past-event-badge ${event.theme === "green" ? "past-event-badge--white" : event.theme !== "dark" ? "past-event-badge--dark" : ""}`}
+                  >
+                    {event.badge}
+                  </div>
+                  <h3 class="event-home-title">{event.title}</h3>
+                  <p class="event-home-desc">{event.desc}</p>
+                  <div
+                    class="event-home-meta"
+                    style={
+                      event.theme === "dark"
+                        ? "color:rgba(255,255,255,0.6)"
+                        : ""
+                    }
+                  >
+                    📅 {event.date} • 📍 {event.location}
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
 
         <div class="slider-nav">
           <button class="slider-btn" id="pastPrev" aria-label="Önceki">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M19 12H5M5 12L11 18M5 12L11 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </button>
           <div class="slider-dots" id="pastDots">
-            <button class="slider-dot active" data-index="0" aria-label="1. etkinlik"></button>
-            <button class="slider-dot" data-index="1" aria-label="2. etkinlik"></button>
-            <button class="slider-dot" data-index="2" aria-label="3. etkinlik"></button>
-            <button class="slider-dot" data-index="3" aria-label="4. etkinlik"></button>
+            {
+              pastEvents
+                .slice(0, 6)
+                .map((_, i) => (
+                  <button
+                    class={`slider-dot ${i === 0 ? "active" : ""}`}
+                    data-index={i}
+                    aria-label={`${i + 1}. etkinlik`}
+                  />
+                ))
+            }
           </div>
           <button class="slider-btn" id="pastNext" aria-label="Sonraki">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M5 12H19M19 12L13 6M19 12L13 18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </button>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -475,25 +746,32 @@ const teamMembers = [
           <span class="section-chip">Arkasındaki İnsanlar</span>
           <h2 class="section-title-lg">Ekibimiz</h2>
           <p class="team-home-desc">
-            YTU MINT'i yöneten, etkinlikleri planlayan ve topluluğu büyüten bir ekip var arkasında.
-            Hepsini tanımak ister misin?
+            YTU MINT'i yöneten, etkinlikleri planlayan ve topluluğu büyüten bir
+            ekip var arkasında. Hepsini tanımak ister misin?
           </p>
           <a href="/team" class="btn btn-dark team-home-cta">
             Bizi Tanıyın
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M5 12H19M19 12L13 6M19 12L13 18"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </a>
         </div>
 
         <div class="team-home-grid">
-          {teamMembers.map((m) => (
-            <div class="team-home-card">
-              <div class="team-home-avatar">{m.emoji}</div>
-              <div class="team-home-name">{m.ad}</div>
-              <div class="team-home-role">{m.unvan}</div>
-            </div>
-          ))}
+          {
+            teamMembers.map((m) => (
+              <div class="team-home-card">
+                <div class="team-home-avatar">{m.emoji}</div>
+                <div class="team-home-name">{m.ad}</div>
+                <div class="team-home-role">{m.unvan}</div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -508,8 +786,9 @@ const teamMembers = [
         <div>
           <h2 class="contact-title">Bize Ulaşın</h2>
           <p class="contact-desc">
-            Sormak istediğin bir şey mi var? Topluluğumuza katılmak mı istiyorsun?
-            Ya da sadece merhaba demek mi? Mesajını bırak, en kısa sürede geri döneceğiz.
+            Sormak istediğin bir şey mi var? Topluluğumuza katılmak mı
+            istiyorsun? Ya da sadece merhaba demek mi? Mesajını bırak, en kısa
+            sürede geri döneceğiz.
           </p>
         </div>
         <form class="contact-form" id="homeContactForm" novalidate>
@@ -546,9 +825,13 @@ const teamMembers = [
             placeholder="Mesajınız..."
             id="homeMessage"
             rows="5"
-            required
-          ></textarea>
-          <button type="submit" class="btn btn-dark" id="homeSubmitBtn" style="width:fit-content;">
+            required></textarea>
+          <button
+            type="submit"
+            class="btn btn-dark"
+            id="homeSubmitBtn"
+            style="width:fit-content;"
+          >
             Gönder →
           </button>
         </form>
@@ -558,89 +841,136 @@ const teamMembers = [
 
   <script>
     // ── Events Tab switching ──────────────────────────────────────────────────
-    const tabs = document.querySelectorAll('.events-tab');
-    const panels = { upcoming: document.getElementById('panelUpcoming'), past: document.getElementById('panelPast') };
+    const tabs = document.querySelectorAll(".events-tab");
+    const panels = {
+      upcoming: document.getElementById("panelUpcoming"),
+      past: document.getElementById("panelPast"),
+    };
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const which = (tab as HTMLElement).dataset.tab as 'upcoming' | 'past';
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const which = (tab as HTMLElement).dataset.tab as "upcoming" | "past";
         Object.entries(panels).forEach(([key, el]) => {
-          el?.classList.toggle('hidden', key !== which);
+          el?.classList.toggle("hidden", key !== which);
         });
         // reset sliders on switch
         upcomingCurrent = 0;
         pastCurrent = 0;
-        updateSlider(document.getElementById('eventsSlider'), upcomingCurrent, document.querySelectorAll('#eventDots .slider-dot'));
-        updateSlider(document.getElementById('pastEventsSlider'), pastCurrent, document.querySelectorAll('#pastDots .slider-dot'));
+        updateSlider(
+          document.getElementById("eventsSlider"),
+          upcomingCurrent,
+          document.querySelectorAll("#eventDots .slider-dot"),
+        );
+        updateSlider(
+          document.getElementById("pastEventsSlider"),
+          pastCurrent,
+          document.querySelectorAll("#pastDots .slider-dot"),
+        );
       });
     });
 
     // ── Slider helper ─────────────────────────────────────────────────────────
-    function updateSlider(slider: HTMLElement | null, index: number, dots: NodeListOf<Element>) {
+    function updateSlider(
+      slider: HTMLElement | null,
+      index: number,
+      dots: NodeListOf<Element>,
+    ) {
       if (!slider) return;
-      const cards = slider.querySelectorAll('.event-home-card');
+      const cards = slider.querySelectorAll(".event-home-card");
       const gap = 30;
-      const cardWidth = (slider.parentElement as HTMLElement)?.offsetWidth || 400;
+      const cardWidth =
+        (slider.parentElement as HTMLElement)?.offsetWidth || 400;
       slider.style.transform = `translateX(calc(-${index} * (${cardWidth}px + ${gap}px)))`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle("active", i === index));
     }
 
     // ── Upcoming slider ───────────────────────────────────────────────────────
     let upcomingCurrent = 0;
-    const upcomingTotal = 4;
-    const upcomingSlider = document.getElementById('eventsSlider');
-    const upcomingDots = document.querySelectorAll('#eventDots .slider-dot');
+    const upcomingSlider = document.getElementById("eventsSlider");
+    const upcomingDots = document.querySelectorAll("#eventDots .slider-dot");
+    const upcomingTotal =
+      upcomingSlider?.querySelectorAll(".event-home-card").length || 1;
 
     function goUpcoming(index: number) {
+      if (upcomingTotal <= 1) return;
       upcomingCurrent = (index + upcomingTotal) % upcomingTotal;
       updateSlider(upcomingSlider, upcomingCurrent, upcomingDots);
     }
 
-    document.getElementById('eventPrev')?.addEventListener('click', () => goUpcoming(upcomingCurrent - 1));
-    document.getElementById('eventNext')?.addEventListener('click', () => goUpcoming(upcomingCurrent + 1));
-    upcomingDots.forEach(d => d.addEventListener('click', () => goUpcoming(parseInt((d as HTMLElement).dataset.index || '0'))));
-    const upcomingAuto = setInterval(() => goUpcoming(upcomingCurrent + 1), 5000);
+    document
+      .getElementById("eventPrev")
+      ?.addEventListener("click", () => goUpcoming(upcomingCurrent - 1));
+    document
+      .getElementById("eventNext")
+      ?.addEventListener("click", () => goUpcoming(upcomingCurrent + 1));
+    upcomingDots.forEach((d) =>
+      d.addEventListener("click", () =>
+        goUpcoming(parseInt((d as HTMLElement).dataset.index || "0")),
+      ),
+    );
+    if (upcomingTotal > 1) {
+      setInterval(() => goUpcoming(upcomingCurrent + 1), 5000);
+    }
 
     // ── Past slider ───────────────────────────────────────────────────────────
     let pastCurrent = 0;
-    const pastTotal = 4;
-    const pastSlider = document.getElementById('pastEventsSlider');
-    const pastDots = document.querySelectorAll('#pastDots .slider-dot');
+    const pastSlider = document.getElementById("pastEventsSlider");
+    const pastDots = document.querySelectorAll("#pastDots .slider-dot");
+    const pastTotal =
+      pastSlider?.querySelectorAll(".event-home-card").length || 1;
 
     function goPast(index: number) {
+      if (pastTotal <= 1) return;
       pastCurrent = (index + pastTotal) % pastTotal;
       updateSlider(pastSlider, pastCurrent, pastDots);
     }
 
-    document.getElementById('pastPrev')?.addEventListener('click', () => goPast(pastCurrent - 1));
-    document.getElementById('pastNext')?.addEventListener('click', () => goPast(pastCurrent + 1));
-    pastDots.forEach(d => d.addEventListener('click', () => goPast(parseInt((d as HTMLElement).dataset.index || '0'))));
+    document
+      .getElementById("pastPrev")
+      ?.addEventListener("click", () => goPast(pastCurrent - 1));
+    document
+      .getElementById("pastNext")
+      ?.addEventListener("click", () => goPast(pastCurrent + 1));
+    pastDots.forEach((d) =>
+      d.addEventListener("click", () =>
+        goPast(parseInt((d as HTMLElement).dataset.index || "0")),
+      ),
+    );
 
     // ── Contact form ──────────────────────────────────────────────────────────
-    const contactForm = document.getElementById('homeContactForm') as HTMLFormElement;
-    const submitBtn = document.getElementById('homeSubmitBtn') as HTMLButtonElement;
-    contactForm?.addEventListener('submit', (e) => {
+    const contactForm = document.getElementById(
+      "homeContactForm",
+    ) as HTMLFormElement;
+    const submitBtn = document.getElementById(
+      "homeSubmitBtn",
+    ) as HTMLButtonElement;
+    contactForm?.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = (document.getElementById('homeName') as HTMLInputElement)?.value.trim();
-      const email = (document.getElementById('homeEmail') as HTMLInputElement)?.value.trim();
-      const message = (document.getElementById('homeMessage') as HTMLTextAreaElement)?.value.trim();
+      const name = (
+        document.getElementById("homeName") as HTMLInputElement
+      )?.value.trim();
+      const email = (
+        document.getElementById("homeEmail") as HTMLInputElement
+      )?.value.trim();
+      const message = (
+        document.getElementById("homeMessage") as HTMLTextAreaElement
+      )?.value.trim();
       if (!name || !email || !message) return;
-      submitBtn.textContent = '✓ Mesajınız iletildi!';
-      submitBtn.style.background = '#B9FF66';
-      submitBtn.style.color = '#191A23';
-      submitBtn.style.borderColor = '#B9FF66';
+      submitBtn.textContent = "✓ Mesajınız iletildi!";
+      submitBtn.style.background = "#B9FF66";
+      submitBtn.style.color = "#191A23";
+      submitBtn.style.borderColor = "#B9FF66";
       setTimeout(() => {
-        submitBtn.textContent = 'Gönder →';
-        submitBtn.style.background = '';
-        submitBtn.style.color = '';
-        submitBtn.style.borderColor = '';
+        submitBtn.textContent = "Gönder →";
+        submitBtn.style.background = "";
+        submitBtn.style.color = "";
+        submitBtn.style.borderColor = "";
         contactForm.reset();
       }, 3500);
     });
   </script>
-
 </Layout>
 
 <style>
@@ -688,8 +1018,14 @@ const teamMembers = [
   }
 
   @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(36px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(36px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-video__sub {
@@ -867,7 +1203,9 @@ const teamMembers = [
     box-shadow: 6px 6px 0 var(--dark);
     overflow: hidden;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .about-photo-wrapper:hover {
@@ -882,7 +1220,9 @@ const teamMembers = [
     object-position: center;
     display: block;
     filter: brightness(0.96) contrast(1.06) saturate(1.05);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+      filter 0.5s ease;
   }
 
   .about-photo-wrapper:hover .about-photo-img {
@@ -894,7 +1234,11 @@ const teamMembers = [
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(25, 26, 35, 0) 55%, rgba(25, 26, 35, 0.45) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(25, 26, 35, 0) 55%,
+      rgba(25, 26, 35, 0.45) 100%
+    );
     border-radius: 26px;
   }
 
@@ -943,7 +1287,9 @@ const teamMembers = [
     align-items: flex-start;
     gap: 18px;
     box-shadow: 4px 4px 0 var(--dark);
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease;
     min-height: 220px;
   }
 
@@ -952,9 +1298,15 @@ const teamMembers = [
     box-shadow: 7px 7px 0 var(--dark);
   }
 
-  .community-home-card--dark  { background: var(--dark); }
-  .community-home-card--green { background: var(--green); }
-  .community-home-card--light { background: var(--white); }
+  .community-home-card--dark {
+    background: var(--dark);
+  }
+  .community-home-card--green {
+    background: var(--green);
+  }
+  .community-home-card--light {
+    background: var(--white);
+  }
 
   .community-home-logo-box {
     width: 64px;
@@ -984,7 +1336,9 @@ const teamMembers = [
     line-height: 1.3;
     margin: 0;
   }
-  .community-home-card--dark .community-home-name { color: var(--white); }
+  .community-home-card--dark .community-home-name {
+    color: var(--white);
+  }
 
   .community-home-links {
     display: flex;
@@ -1005,14 +1359,19 @@ const teamMembers = [
     padding: 6px 10px;
     border-radius: 16px;
     text-decoration: none;
-    transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+    transition:
+      opacity 0.2s,
+      background-color 0.2s,
+      color 0.2s;
     background: var(--green);
     color: var(--dark);
     border: 1px solid var(--dark);
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .community-link-btn:hover { opacity: 0.75; }
+  .community-link-btn:hover {
+    opacity: 0.75;
+  }
   .community-link-btn--dark {
     background: var(--dark);
     color: var(--white);
@@ -1057,7 +1416,9 @@ const teamMembers = [
     font-weight: 600;
     color: #888;
     cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
     font-family: inherit;
   }
 
@@ -1102,17 +1463,33 @@ const teamMembers = [
     min-height: 280px;
   }
 
-  .event-home-card--featured { background: var(--dark); }
-  .event-home-card--dark    { background: var(--dark); }
-  .event-home-card--green   { background: var(--green); }
+  .event-home-card--featured {
+    background: var(--dark);
+  }
+  .event-home-card--dark {
+    background: var(--dark);
+  }
+  .event-home-card--green {
+    background: var(--green);
+  }
 
   .event-home-date {
     display: flex;
     align-items: baseline;
     gap: 6px;
   }
-  .event-home-day  { font-size: 40px; font-weight: 700; color: var(--green); line-height: 1; }
-  .event-home-month { font-size: 18px; font-weight: 600; color: var(--green); text-transform: uppercase; }
+  .event-home-day {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+  .event-home-month {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+  }
 
   .event-home-tag {
     display: inline-block;
@@ -1139,7 +1516,9 @@ const teamMembers = [
     margin: 0;
   }
   .event-home-card--featured .event-home-title,
-  .event-home-card--dark    .event-home-title { color: var(--white); }
+  .event-home-card--dark .event-home-title {
+    color: var(--white);
+  }
 
   .event-home-desc {
     font-size: 16px;
@@ -1149,14 +1528,18 @@ const teamMembers = [
     flex: 1;
   }
   .event-home-card--featured .event-home-desc,
-  .event-home-card--dark    .event-home-desc { color: rgba(255,255,255,0.7); }
+  .event-home-card--dark .event-home-desc {
+    color: rgba(255, 255, 255, 0.7);
+  }
 
   .event-home-meta {
     font-size: 14px;
     color: #999;
   }
 
-  .event-home-cta { width: fit-content; }
+  .event-home-cta {
+    width: fit-content;
+  }
 
   .past-event-badge {
     display: inline-block;
@@ -1168,8 +1551,15 @@ const teamMembers = [
     color: var(--dark);
     width: fit-content;
   }
-  .past-event-badge--white { background: var(--white); color: var(--dark); }
-  .past-event-badge--dark  { background: rgba(25,26,35,0.1); color: var(--dark); border: 1px solid rgba(25,26,35,0.15); }
+  .past-event-badge--white {
+    background: var(--white);
+    color: var(--dark);
+  }
+  .past-event-badge--dark {
+    background: rgba(25, 26, 35, 0.1);
+    color: var(--dark);
+    border: 1px solid rgba(25, 26, 35, 0.15);
+  }
 
   .slider-nav {
     display: flex;
@@ -1189,10 +1579,15 @@ const teamMembers = [
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition:
+      background 0.2s,
+      color 0.2s;
     color: var(--dark);
   }
-  .slider-btn:hover { background: var(--dark); color: var(--white); }
+  .slider-btn:hover {
+    background: var(--dark);
+    color: var(--white);
+  }
 
   .slider-dots {
     display: flex;
@@ -1207,7 +1602,9 @@ const teamMembers = [
     border: 1.5px solid var(--dark);
     background: transparent;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
+    transition:
+      background 0.2s,
+      transform 0.2s;
     padding: 0;
   }
   .slider-dot.active {
@@ -1254,14 +1651,21 @@ const teamMembers = [
     padding: 24px 20px;
     text-align: center;
     box-shadow: 3px 3px 0 var(--dark);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
   }
-  .team-home-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--dark); }
-  .team-home-card--featured { background: var(--dark); }
+  .team-home-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--dark);
+  }
+  .team-home-card--featured {
+    background: var(--dark);
+  }
 
   .team-home-avatar {
     width: 64px;
@@ -1276,7 +1680,7 @@ const teamMembers = [
     margin-bottom: 4px;
   }
   .team-home-card--featured .team-home-avatar {
-    background: rgba(185,255,102,0.12);
+    background: rgba(185, 255, 102, 0.12);
     border-color: var(--green);
   }
 
@@ -1285,31 +1689,60 @@ const teamMembers = [
     font-weight: 700;
     color: var(--dark);
   }
-  .team-home-card--featured .team-home-name { color: var(--white); }
+  .team-home-card--featured .team-home-name {
+    color: var(--white);
+  }
 
   .team-home-role {
     font-size: 13px;
     color: #888;
   }
-  .team-home-card--featured .team-home-role { color: var(--green); }
+  .team-home-card--featured .team-home-role {
+    color: var(--green);
+  }
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1100px) {
-    .communities-home-grid { grid-template-columns: repeat(2, 1fr); }
-    .team-home-inner { grid-template-columns: 1fr; gap: 48px; }
-    .team-home-grid { grid-template-columns: repeat(3, 1fr); }
+    .communities-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .team-home-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .team-home-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   @media (max-width: 900px) {
-    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
   }
 
   @media (max-width: 640px) {
-    .communities-home-grid { grid-template-columns: 1fr; }
-    .team-home-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-stats { flex-direction: column; gap: 16px; }
-    .about-stat-divider { width: 80%; height: 1px; }
-    .event-home-card { padding: 28px 24px; }
-    .section-header-row { flex-direction: column; align-items: flex-start; }
+    .communities-home-grid {
+      grid-template-columns: 1fr;
+    }
+    .team-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .about-stats {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .about-stat-divider {
+      width: 80%;
+      height: 1px;
+    }
+    .event-home-card {
+      padding: 28px 24px;
+    }
+    .section-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 </style>
