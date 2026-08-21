@@ -119,142 +119,55 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <!-- =============================================
-       CASE STUDIES / BAŞARI HİKAYELERİ
+       BİZ KİMİZ
        ============================================= -->
-  <section style="padding: 0 0 70px;">
+  <section class="about-section" id="biz-kimiz">
     <div class="container">
-      <div class="case-studies">
-        <div class="section-header">
-          <h2 class="section-label">Başarı Hikayeleri</h2>
-          <p class="section-description">
-            Topluluğumuzun gerçekleştirdiği projeler ve elde ettiğimiz başarılar.
+      <div class="about-inner">
+        <div class="about-content">
+          <span class="section-chip">Biz Kimiz?</span>
+          <h2 class="about-title">
+            Matematiği ve teknolojiyi<br />
+            <span class="about-title-highlight">birlikte keşfediyoruz</span>
+          </h2>
+          <p class="about-text">
+            YTU MINT; Yıldız Teknik Üniversitesi'nde matematik, bilişim ve teknoloji alanlarında ilgi duyan öğrencilerin bir araya geldiği bir öğrenci topluluğudur.
           </p>
-        </div>
-
-        <div class="case-studies-grid">
-          <div class="case-study-item">
-            <p class="case-study-desc">
-              Ulusal Matematik Yarışması'nda topluluğumuzun 5 üyesi finalist oldu ve 2'si birincilik ödülü kazandı.
-            </p>
-            <a href="/events" class="case-study-link">
-              Detayları Gör
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-          <div class="case-study-item">
-            <p class="case-study-desc">
-              YTU Hackathon'da ekibimiz "Sağlık için Yapay Zeka" projesiyle birinci olarak 15.000 TL ödül kazandı.
-            </p>
-            <a href="/events" class="case-study-link">
-              Detayları Gör
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-          <div class="case-study-item">
-            <p class="case-study-desc">
-              MINT bünyesinde geliştirilen açık kaynak proje GitHub'da 1200+ yıldız topladı ve 50+ katkıcıya ulaştı.
-            </p>
-            <a href="/communities" class="case-study-link">
-              Detayları Gör
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =============================================
-       WORKING PROCESS
-       ============================================= -->
-  <section class="process" id="hakkimizda">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-label">Nasıl Çalışıyoruz</h2>
-        <p class="section-description">
-          Topluluğumuza katıldığında seni bekleyen süreç ve fırsatlar.
-        </p>
-      </div>
-
-      <div class="process-list" id="processList">
-        <div class="process-item active" data-index="0">
-          <div class="process-item-header">
-            <span class="process-number">01</span>
-            <h3 class="process-title">Topluluğa Katıl</h3>
-            <button class="process-toggle" aria-label="Aç/Kapat">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div class="process-body">
-            Kayıt formunu doldurarak topluluğumuza ücretsiz katıl. Oryantasyon etkinliğimizde diğer üyelerle tanış ve ilgi alanına göre çalışma gruplarına dahil ol. Her dönem başında yeni üye kabulü gerçekleştirilmektedir.
+          <p class="about-text">
+            Akademik bilgiyi pratiğe dökmek, birlikte projeler geliştirmek ve birbirimizden öğrenmek için buradayız. Ne bir dernek ciddiyeti ne de sıradan bir grup sohbeti — sadece ortak tutkuyu paylaşan insanlar.
+          </p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="about-stat-number">200+</span>
+              <span class="about-stat-label">Aktif Üye</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-number">4</span>
+              <span class="about-stat-label">Alt Topluluk</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-number">30+</span>
+              <span class="about-stat-label">Yıllık Etkinlik</span>
+            </div>
           </div>
         </div>
 
-        <div class="process-item" data-index="1">
-          <div class="process-item-header">
-            <span class="process-number">02</span>
-            <h3 class="process-title">Çalışma Gruplarına Katıl</h3>
-            <button class="process-toggle" aria-label="Aç/Kapat">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
+        <div class="about-photo">
+          <div class="about-photo-placeholder">
+            <div class="photo-placeholder-inner">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#191A23" stroke-width="1.5" opacity="0.3">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
               </svg>
-            </button>
+              <p class="photo-placeholder-text">Etkinlik fotoğrafı<br/>yakında eklenecek</p>
+            </div>
           </div>
-          <div class="process-body">
-            Yapay Zeka, Veri Bilimi, Web Geliştirme, Algoritma ve Matematik olmak üzere 5 farklı çalışma grubumuza katılabilirsin. Haftalık toplantılar ve öğrenme seanslarıyla hızlı ilerleme kaydedersin.
-          </div>
-        </div>
-
-        <div class="process-item" data-index="2">
-          <div class="process-item-header">
-            <span class="process-number">03</span>
-            <h3 class="process-title">Proje Geliştir</h3>
-            <button class="process-toggle" aria-label="Aç/Kapat">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div class="process-body">
-            Ekip arkadaşlarınla birlikte gerçek dünya problemlerini çözen projeler geliştir. Projelerini GitHub'da yayınla, konferanslarda sun ve portföyünü zenginleştir. Mentörlerimiz her adımda sana rehberlik eder.
-          </div>
-        </div>
-
-        <div class="process-item" data-index="3">
-          <div class="process-item-header">
-            <span class="process-number">04</span>
-            <h3 class="process-title">Yarışmalara Katıl</h3>
-            <button class="process-toggle" aria-label="Aç/Kapat">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div class="process-body">
-            Ulusal ve uluslararası matematik olimpiyatları, hackathonlar ve yazılım yarışmalarında topluluğumuz adına yer al. Geçmiş yarışma deneyimlerimiz ve hazırlık materyallerimizle rekabetçi avantaj kazan.
-          </div>
-        </div>
-
-        <div class="process-item" data-index="4">
-          <div class="process-item-header">
-            <span class="process-number">05</span>
-            <h3 class="process-title">Kariyerinde İlerle</h3>
-            <button class="process-toggle" aria-label="Aç/Kapat">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path class="toggle-icon" d="M12 5v14M5 12h14" stroke="#191A23" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-            </button>
-          </div>
-          <div class="process-body">
-            Sektördeki şirketler ve mezunlarımızla bağlantı kur. Kariyer günlerimize katıl, staj fırsatlarından haberdar ol ve MINT alumni ağı sayesinde ilk işine daha kolay adım at.
+          <div class="about-photo-badge">
+            <span>📸</span>
+            <span>YTU MINT Ailesi</span>
           </div>
         </div>
       </div>
@@ -262,133 +175,1008 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- =============================================
-       TESTIMONIALS
+       TOPLULUKLARIMIZ
        ============================================= -->
-  <section class="testimonials">
+  <section class="communities-home-section" id="topluluklarimiz">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-label">Üyelerimiz Ne Diyor</h2>
-        <p class="section-description">
-          MINT topluluğunun hayatlarına kattığı değerleri kendi ağızlarından dinleyin.
-        </p>
+      <div class="section-header-row">
+        <div>
+          <span class="section-chip">Alt Topluluklarımız</span>
+          <h2 class="section-title-lg">Topluluklarımız</h2>
+        </div>
+        <a href="/communities" class="btn btn-outline see-more-btn">
+          Daha Fazla
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
-      <div class="testimonials-track-container">
-        <div class="testimonials-slider" id="testimonialSlider">
-          <div class="testimonial-card">
-            <div class="testimonial-text">
-              "MINT'e katıldıktan sonra hem teknik bilgim hem de iletişim becerilerim inanılmaz derecede gelişti. Burada edindiğim bağlantılar sayesinde 3. sınıfta Google'da staj yaptım."
-            </div>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">🚀</div>
-              <div>
-                <div class="testimonial-name">Burak Yıldız</div>
-                <div class="testimonial-role">Bilgisayar Mühendisliği Mezunu</div>
-              </div>
-            </div>
-          </div>
+      <div class="communities-home-grid">
 
-          <div class="testimonial-card">
-            <div class="testimonial-text">
-              "Algoritma atölyelerinde öğrendiklerim sayesinde LeetCode'da top %5'e girdim. MINT'in yapılandırılmış öğrenme yolu gerçekten işe yarıyor. Herkese tavsiye ederim."
-            </div>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">💡</div>
-              <div>
-                <div class="testimonial-name">Deniz Çelik</div>
-                <div class="testimonial-role">Matematik Mühendisliği 3. Sınıf</div>
-              </div>
-            </div>
+        <!-- Yapay Zeka -->
+        <div class="community-home-card community-home-card--dark">
+          <div class="community-home-icon">
+            <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="12" fill="none" stroke="#B9FF66" stroke-width="2"/>
+              <circle cx="30" cy="10" r="5" fill="#B9FF66"/>
+              <circle cx="48" cy="22" r="5" fill="#B9FF66"/>
+              <circle cx="48" cy="42" r="5" fill="#B9FF66"/>
+              <circle cx="30" cy="50" r="5" fill="#B9FF66"/>
+              <circle cx="12" cy="42" r="5" fill="#B9FF66"/>
+              <circle cx="12" cy="22" r="5" fill="#B9FF66"/>
+            </svg>
           </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-text">
-              "Veri Bilimi çalışma grubunda Python ve makine öğrenmesi öğrendim. Ardından MINT hackathonunda ekibimle birincilik kazandık. Bu deneyim CV'min en parlak kısmı oldu."
-            </div>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">📊</div>
-              <div>
-                <div class="testimonial-name">Merve Koç</div>
-                <div class="testimonial-role">Endüstri Mühendisliği Mezunu</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-text">
-              "1. sınıfta hiçbir şey bilmiyordum. MINT sayesinde 2. sınıfta açık kaynak projelere katkıda bulunmaya başladım ve şimdi kendi projemi yönetiyorum. Topluluk olağanüstü."
-            </div>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">⭐</div>
-              <div>
-                <div class="testimonial-name">Emre Aktaş</div>
-                <div class="testimonial-role">Bilgisayar Mühendisliği 3. Sınıf</div>
-              </div>
-            </div>
+          <h3 class="community-home-name">Yapay Zeka & ML</h3>
+          <p class="community-home-desc">Derin öğrenme, NLP ve bilgisayarla görme üzerine projeler</p>
+          <div class="community-home-links">
+            <a href="#" class="community-link-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+              </svg>
+              Instagram
+            </a>
           </div>
         </div>
 
-        <div class="testimonials-nav">
-          <button class="nav-btn" id="prevBtn" aria-label="Önceki">
+        <!-- Veri Bilimi -->
+        <div class="community-home-card community-home-card--green">
+          <div class="community-home-icon">
+            <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+              <rect x="8" y="38" width="10" height="14" rx="2" fill="#191A23" opacity="0.8"/>
+              <rect x="25" y="28" width="10" height="24" rx="2" fill="#191A23" opacity="0.8"/>
+              <rect x="42" y="18" width="10" height="34" rx="2" fill="#191A23" opacity="0.8"/>
+              <polyline points="13,38 30,28 47,18" stroke="#191A23" stroke-width="2" stroke-dasharray="4,2" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="community-home-name">Veri Bilimi</h3>
+          <p class="community-home-desc">İstatistik, analitik ve tahmine dayalı modelleme</p>
+          <div class="community-home-links">
+            <a href="#" class="community-link-btn community-link-btn--dark" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Web & Mobil -->
+        <div class="community-home-card community-home-card--light">
+          <div class="community-home-icon">
+            <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+              <rect x="5" y="10" width="50" height="32" rx="5" fill="none" stroke="#191A23" stroke-width="2"/>
+              <line x1="5" y1="22" x2="55" y2="22" stroke="#191A23" stroke-width="2"/>
+              <circle cx="13" cy="16" r="3" fill="#191A23"/>
+              <circle cx="22" cy="16" r="3" fill="#191A23"/>
+              <circle cx="31" cy="16" r="3" fill="#191A23"/>
+              <path d="M18 36L24 28L30 32L38 24" stroke="#191A23" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="community-home-name">Web & Mobil</h3>
+          <p class="community-home-desc">Frontend, backend ve mobil uygulama geliştirme</p>
+          <div class="community-home-links">
+            <a href="#" class="community-link-btn community-link-btn--outline" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Algoritma -->
+        <div class="community-home-card community-home-card--light">
+          <div class="community-home-icon">
+            <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="24" fill="none" stroke="#191A23" stroke-width="2" opacity="0.3"/>
+              <text x="30" y="42" text-anchor="middle" font-size="36" font-family="Space Grotesk" font-weight="700" fill="#191A23" opacity="0.8">⌥</text>
+            </svg>
+          </div>
+          <h3 class="community-home-name">Algoritma Atölyeleri</h3>
+          <p class="community-home-desc">Rekabetçi programlama ve olimpiyat hazırlık</p>
+          <div class="community-home-links">
+            <a href="#" class="community-link-btn community-link-btn--outline" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       ETKİNLİKLER
+       ============================================= -->
+  <section class="events-home-section" id="etkinlikler">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="section-chip">Neler Yapıyoruz?</span>
+          <h2 class="section-title-lg">Etkinlikler</h2>
+        </div>
+        <a href="/events" class="btn btn-outline see-more-btn">
+          Tümünü Gör
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Tabs -->
+      <div class="events-tabs">
+        <button class="events-tab active" id="tabUpcoming" data-tab="upcoming">Yaklaşan Etkinlikler</button>
+        <button class="events-tab" id="tabPast" data-tab="past">Geçmiş Etkinlikler</button>
+      </div>
+
+      <!-- Upcoming Events Slider -->
+      <div class="events-slider-wrapper" id="panelUpcoming">
+        <div class="events-slider-container">
+          <div class="events-slider" id="eventsSlider">
+
+            <div class="event-home-card event-home-card--featured">
+              <div class="event-home-date">
+                <span class="event-home-day">14</span>
+                <span class="event-home-month">Eyl</span>
+              </div>
+              <div class="event-home-tag">Hackathon</div>
+              <h3 class="event-home-title">MINT Hackathon 2024</h3>
+              <p class="event-home-desc">48 saatlik kodlama maratonu — tema: "Sürdürülebilir Teknoloji". 30.000 TL ödül havuzu.</p>
+              <div class="event-home-meta">📍 YTU Davutpaşa Kampüsü</div>
+              <a href="/events" class="btn btn-green event-home-cta">Kayıt Ol →</a>
+            </div>
+
+            <div class="event-home-card">
+              <div class="event-home-date">
+                <span class="event-home-day">21</span>
+                <span class="event-home-month">Eyl</span>
+              </div>
+              <div class="event-home-tag event-home-tag--light">Atölye</div>
+              <h3 class="event-home-title">Python ile Makine Öğrenmesi</h3>
+              <p class="event-home-desc">Sıfırdan makine öğrenmesi: veri ön işleme, model eğitimi ve değerlendirme.</p>
+              <div class="event-home-meta">📍 Online (Zoom)</div>
+              <a href="/events" class="btn btn-outline event-home-cta">Detaylar →</a>
+            </div>
+
+            <div class="event-home-card">
+              <div class="event-home-date">
+                <span class="event-home-day">28</span>
+                <span class="event-home-month">Eyl</span>
+              </div>
+              <div class="event-home-tag event-home-tag--light">Seminer</div>
+              <h3 class="event-home-title">Kariyer Günleri 2024</h3>
+              <p class="event-home-desc">Sektörden konuşmacılar ve MINT mezunlarıyla buluşma — CV, mülakat, staj ipuçları.</p>
+              <div class="event-home-meta">📍 YTU Konferans Salonu</div>
+              <a href="/events" class="btn btn-outline event-home-cta">Detaylar →</a>
+            </div>
+
+            <div class="event-home-card">
+              <div class="event-home-date">
+                <span class="event-home-day">05</span>
+                <span class="event-home-month">Eki</span>
+              </div>
+              <div class="event-home-tag event-home-tag--light">Olimpiyat</div>
+              <h3 class="event-home-title">Ulusal Matematik Olimpiyatı Seçme Sınavı</h3>
+              <p class="event-home-desc">MINT temsilcilerini belirleyecek seçme sınavı. Kazananlar aylık hazırlık programına dahil edilecek.</p>
+              <div class="event-home-meta">📍 YTU Matematik Mühendisliği</div>
+              <a href="/events" class="btn btn-outline event-home-cta">Detaylar →</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slider-nav">
+          <button class="slider-btn" id="eventPrev" aria-label="Önceki">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="nav-dots" id="navDots">
-            <div class="nav-dot active" data-index="0"></div>
-            <div class="nav-dot" data-index="1"></div>
-            <div class="nav-dot" data-index="2"></div>
-            <div class="nav-dot" data-index="3"></div>
+          <div class="slider-dots" id="eventDots">
+            <button class="slider-dot active" data-index="0" aria-label="1. etkinlik"></button>
+            <button class="slider-dot" data-index="1" aria-label="2. etkinlik"></button>
+            <button class="slider-dot" data-index="2" aria-label="3. etkinlik"></button>
+            <button class="slider-dot" data-index="3" aria-label="4. etkinlik"></button>
           </div>
-          <button class="nav-btn" id="nextBtn" aria-label="Sonraki">
+          <button class="slider-btn" id="eventNext" aria-label="Sonraki">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </div>
       </div>
+
+      <!-- Past Events Slider -->
+      <div class="events-slider-wrapper hidden" id="panelPast">
+        <div class="events-slider-container">
+          <div class="events-slider" id="pastEventsSlider">
+
+            <div class="event-home-card event-home-card--dark">
+              <div class="past-event-badge">🏆 1. Ödül</div>
+              <h3 class="event-home-title">YTU Hackathon 2023</h3>
+              <p class="event-home-desc">"Sağlık için Yapay Zeka" projesiyle birincilik ve 15.000 TL ödül kazandık.</p>
+              <div class="event-home-meta" style="color:rgba(255,255,255,0.5)">Mart 2023 • 48 Saat • 50+ Takım</div>
+            </div>
+
+            <div class="event-home-card event-home-card--green">
+              <div class="past-event-badge past-event-badge--white">🎓 5 Finalist</div>
+              <h3 class="event-home-title">Ulusal Matematik Olimpiyatı 2023</h3>
+              <p class="event-home-desc">5 üyemiz finale kaldı, 2'si birincilik ödülü kazandı.</p>
+              <div class="event-home-meta">Mayıs 2023 • Ankara</div>
+            </div>
+
+            <div class="event-home-card">
+              <div class="past-event-badge past-event-badge--dark">📦 1200+ ⭐</div>
+              <h3 class="event-home-title">Açık Kaynak Proje</h3>
+              <p class="event-home-desc">MINT bünyesinde geliştirilen proje GitHub'da 1200+ yıldız topladı.</p>
+              <div class="event-home-meta">2022–2023 • 50+ Katkıcı</div>
+            </div>
+
+            <div class="event-home-card">
+              <div class="past-event-badge past-event-badge--dark">🎤 200+ Katılımcı</div>
+              <h3 class="event-home-title">MINT Tech Talk Serisi</h3>
+              <p class="event-home-desc">Sektör profesyonelleriyle 6 haftalık seminer serisi.</p>
+              <div class="event-home-meta">Ocak – Şubat 2023</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slider-nav">
+          <button class="slider-btn" id="pastPrev" aria-label="Önceki">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="slider-dots" id="pastDots">
+            <button class="slider-dot active" data-index="0" aria-label="1. etkinlik"></button>
+            <button class="slider-dot" data-index="1" aria-label="2. etkinlik"></button>
+            <button class="slider-dot" data-index="2" aria-label="3. etkinlik"></button>
+            <button class="slider-dot" data-index="3" aria-label="4. etkinlik"></button>
+          </div>
+          <button class="slider-btn" id="pastNext" aria-label="Sonraki">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       EKİBİMİZ
+       ============================================= -->
+  <section class="team-home-section" id="ekibimiz">
+    <div class="container">
+      <div class="team-home-inner">
+        <div class="team-home-left">
+          <span class="section-chip">Arkasındaki İnsanlar</span>
+          <h2 class="section-title-lg">Ekibimiz</h2>
+          <p class="team-home-desc">
+            YTU MINT'i yöneten, etkinlikleri planlayan ve topluluğu büyüten bir ekip var arkasında.
+            Hepsini tanımak ister misin?
+          </p>
+          <a href="/team" class="btn btn-dark team-home-cta">
+            Bizi Tanıyın
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="team-home-grid">
+          <div class="team-home-card team-home-card--featured">
+            <div class="team-home-avatar">👨‍💻</div>
+            <div class="team-home-name">Ahmet Yılmaz</div>
+            <div class="team-home-role">Başkan</div>
+          </div>
+          <div class="team-home-card">
+            <div class="team-home-avatar">👩‍🔬</div>
+            <div class="team-home-name">Zeynep Kara</div>
+            <div class="team-home-role">Teknik Lider</div>
+          </div>
+          <div class="team-home-card">
+            <div class="team-home-avatar">🧑‍🎓</div>
+            <div class="team-home-name">Mert Demir</div>
+            <div class="team-home-role">Etkinlik Koordinatörü</div>
+          </div>
+          <div class="team-home-card">
+            <div class="team-home-avatar">👩‍💻</div>
+            <div class="team-home-name">Elif Şahin</div>
+            <div class="team-home-role">Web Geliştirme Lideri</div>
+          </div>
+          <div class="team-home-card">
+            <div class="team-home-avatar">🧑‍💼</div>
+            <div class="team-home-name">Can Özkan</div>
+            <div class="team-home-role">Kariyer & Sponsorluk</div>
+          </div>
+          <div class="team-home-card">
+            <div class="team-home-avatar">👩‍🏫</div>
+            <div class="team-home-name">Selin Arslan</div>
+            <div class="team-home-role">Matematik Lideri</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       İLETİŞİM FORMU
+       ============================================= -->
+  <section class="contact" id="iletisim">
+    <div class="container">
+      <div class="contact-inner">
+        <div>
+          <h2 class="contact-title">Bize Ulaşın</h2>
+          <p class="contact-desc">
+            Sormak istediğin bir şey mi var? Topluluğumuza katılmak mı istiyorsun?
+            Ya da sadece merhaba demek mi? Mesajını bırak, en kısa sürede geri döneceğiz.
+          </p>
+        </div>
+        <form class="contact-form" id="homeContactForm" novalidate>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="contactType" value="uye" checked />
+              Üyelik
+            </label>
+            <label>
+              <input type="radio" name="contactType" value="etkinlik" />
+              Etkinlik
+            </label>
+            <label>
+              <input type="radio" name="contactType" value="diger" />
+              Diğer
+            </label>
+          </div>
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Adınız Soyadınız"
+            id="homeName"
+            required
+          />
+          <input
+            type="email"
+            class="form-input"
+            placeholder="E-posta adresiniz"
+            id="homeEmail"
+            required
+          />
+          <textarea
+            class="form-input"
+            placeholder="Mesajınız..."
+            id="homeMessage"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="btn btn-dark" id="homeSubmitBtn" style="width:fit-content;">
+            Gönder →
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
   <script>
-    // Process accordion
-    const processItems = document.querySelectorAll('.process-item');
-    processItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        processItems.forEach(el => {
-          el.classList.remove('active');
-          const icon = el.querySelector('.toggle-icon');
-          if (icon) icon.setAttribute('stroke', '#191A23');
+    // ── Events Tab switching ──────────────────────────────────────────────────
+    const tabs = document.querySelectorAll('.events-tab');
+    const panels = { upcoming: document.getElementById('panelUpcoming'), past: document.getElementById('panelPast') };
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const which = (tab as HTMLElement).dataset.tab as 'upcoming' | 'past';
+        Object.entries(panels).forEach(([key, el]) => {
+          el?.classList.toggle('hidden', key !== which);
         });
-        if (!isActive) {
-          item.classList.add('active');
-          const icon = item.querySelector('.toggle-icon');
-          if (icon) icon.setAttribute('stroke', 'white');
-        }
+        // reset sliders on switch
+        upcomingCurrent = 0;
+        pastCurrent = 0;
+        updateSlider(document.getElementById('eventsSlider'), upcomingCurrent, document.querySelectorAll('#eventDots .slider-dot'));
+        updateSlider(document.getElementById('pastEventsSlider'), pastCurrent, document.querySelectorAll('#pastDots .slider-dot'));
       });
     });
-    const firstToggleIcon = document.querySelector('.process-item.active .toggle-icon');
-    if (firstToggleIcon) firstToggleIcon.setAttribute('stroke', 'white');
 
-    // Testimonials slider
-    const slider = document.getElementById('testimonialSlider');
-    const dots = document.querySelectorAll('.nav-dot');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let current = 0;
-    const total = document.querySelectorAll('.testimonial-card').length;
-
-    function goTo(index: number) {
-      current = (index + total) % total;
-      if (slider) slider.style.transform = `translateX(calc(-${current * 100}% - ${current * 60}px))`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    // ── Slider helper ─────────────────────────────────────────────────────────
+    function updateSlider(slider: HTMLElement | null, index: number, dots: NodeListOf<Element>) {
+      if (!slider) return;
+      const cards = slider.querySelectorAll('.event-home-card');
+      const gap = 30;
+      const cardWidth = (slider.parentElement as HTMLElement)?.offsetWidth || 400;
+      slider.style.transform = `translateX(calc(-${index} * (${cardWidth}px + ${gap}px)))`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
 
-    prevBtn?.addEventListener('click', () => goTo(current - 1));
-    nextBtn?.addEventListener('click', () => goTo(current + 1));
-    dots.forEach(d => d.addEventListener('click', () => goTo(parseInt((d as HTMLElement).dataset.index || '0'))));
-    setInterval(() => goTo(current + 1), 5000);
+    // ── Upcoming slider ───────────────────────────────────────────────────────
+    let upcomingCurrent = 0;
+    const upcomingTotal = 4;
+    const upcomingSlider = document.getElementById('eventsSlider');
+    const upcomingDots = document.querySelectorAll('#eventDots .slider-dot');
+
+    function goUpcoming(index: number) {
+      upcomingCurrent = (index + upcomingTotal) % upcomingTotal;
+      updateSlider(upcomingSlider, upcomingCurrent, upcomingDots);
+    }
+
+    document.getElementById('eventPrev')?.addEventListener('click', () => goUpcoming(upcomingCurrent - 1));
+    document.getElementById('eventNext')?.addEventListener('click', () => goUpcoming(upcomingCurrent + 1));
+    upcomingDots.forEach(d => d.addEventListener('click', () => goUpcoming(parseInt((d as HTMLElement).dataset.index || '0'))));
+    const upcomingAuto = setInterval(() => goUpcoming(upcomingCurrent + 1), 5000);
+
+    // ── Past slider ───────────────────────────────────────────────────────────
+    let pastCurrent = 0;
+    const pastTotal = 4;
+    const pastSlider = document.getElementById('pastEventsSlider');
+    const pastDots = document.querySelectorAll('#pastDots .slider-dot');
+
+    function goPast(index: number) {
+      pastCurrent = (index + pastTotal) % pastTotal;
+      updateSlider(pastSlider, pastCurrent, pastDots);
+    }
+
+    document.getElementById('pastPrev')?.addEventListener('click', () => goPast(pastCurrent - 1));
+    document.getElementById('pastNext')?.addEventListener('click', () => goPast(pastCurrent + 1));
+    pastDots.forEach(d => d.addEventListener('click', () => goPast(parseInt((d as HTMLElement).dataset.index || '0'))));
+
+    // ── Contact form ──────────────────────────────────────────────────────────
+    const contactForm = document.getElementById('homeContactForm') as HTMLFormElement;
+    const submitBtn = document.getElementById('homeSubmitBtn') as HTMLButtonElement;
+    contactForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('homeName') as HTMLInputElement)?.value.trim();
+      const email = (document.getElementById('homeEmail') as HTMLInputElement)?.value.trim();
+      const message = (document.getElementById('homeMessage') as HTMLTextAreaElement)?.value.trim();
+      if (!name || !email || !message) return;
+      submitBtn.textContent = '✓ Mesajınız iletildi!';
+      submitBtn.style.background = '#B9FF66';
+      submitBtn.style.color = '#191A23';
+      submitBtn.style.borderColor = '#B9FF66';
+      setTimeout(() => {
+        submitBtn.textContent = 'Gönder →';
+        submitBtn.style.background = '';
+        submitBtn.style.color = '';
+        submitBtn.style.borderColor = '';
+        contactForm.reset();
+      }, 3500);
+    });
   </script>
 
 </Layout>
+
+<style>
+  /* ── Section common ─────────────────────────────────────────── */
+  .section-chip {
+    display: inline-block;
+    background: var(--green);
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    border: 1px solid var(--dark);
+  }
+
+  .section-title-lg {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0;
+    line-height: 1.15;
+  }
+
+  .section-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 44px;
+    flex-wrap: wrap;
+  }
+
+  .see-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* ── Biz Kimiz ──────────────────────────────────────────────── */
+  .about-section {
+    padding: 100px 0;
+    background: var(--white);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-title {
+    font-size: clamp(30px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-bottom: 24px;
+  }
+
+  .about-title-highlight {
+    background: var(--green);
+    padding: 0 8px;
+    border-radius: 6px;
+    display: inline;
+  }
+
+  .about-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 18px;
+  }
+
+  .about-stats {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 36px;
+    padding: 28px 32px;
+    background: var(--gray);
+    border: 1px solid var(--dark);
+    border-radius: 20px;
+    box-shadow: 4px 4px 0 var(--dark);
+  }
+
+  .about-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .about-stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .about-stat-label {
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+  }
+
+  .about-stat-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(25, 26, 35, 0.15);
+  }
+
+  .about-photo {
+    position: relative;
+  }
+
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--gray);
+    border: 2px dashed rgba(25, 26, 35, 0.2);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .photo-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .photo-placeholder-text {
+    font-size: 15px;
+    color: #aaa;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .about-photo-badge {
+    position: absolute;
+    bottom: -16px;
+    left: 24px;
+    background: var(--dark);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--dark);
+    box-shadow: 3px 3px 0 var(--green);
+  }
+
+  /* ── Topluluklarımız (Ana Sayfa) ────────────────────────────── */
+  .communities-home-section {
+    padding: 100px 0;
+    background: var(--gray);
+  }
+
+  .communities-home-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .community-home-card {
+    border: 1px solid var(--dark);
+    border-radius: 28px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 4px 4px 0 var(--dark);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .community-home-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 var(--dark);
+  }
+
+  .community-home-card--dark  { background: var(--dark); }
+  .community-home-card--green { background: var(--green); }
+  .community-home-card--light { background: var(--white); }
+
+  .community-home-icon { margin-bottom: 4px; }
+
+  .community-home-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.25;
+  }
+  .community-home-card--dark .community-home-name { color: var(--white); }
+
+  .community-home-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #666;
+    flex: 1;
+  }
+  .community-home-card--dark  .community-home-desc { color: rgba(255,255,255,0.7); }
+  .community-home-card--green .community-home-desc { color: #333; }
+
+  .community-home-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .community-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    background: var(--green);
+    color: var(--dark);
+    border: 1px solid var(--dark);
+  }
+  .community-link-btn:hover { opacity: 0.75; }
+  .community-link-btn--dark {
+    background: var(--dark);
+    color: var(--white);
+  }
+  .community-link-btn--outline {
+    background: transparent;
+    color: var(--dark);
+    border: 1px solid var(--dark);
+  }
+
+  /* ── Etkinlikler (Ana Sayfa) ───────────────────────────────── */
+  .events-home-section {
+    padding: 100px 0;
+    background: var(--white);
+  }
+
+  .events-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 36px;
+    border-bottom: 2px solid var(--gray);
+    padding-bottom: 0;
+  }
+
+  .events-tab {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    font-family: inherit;
+  }
+
+  .events-tab.active {
+    color: var(--dark);
+    border-bottom-color: var(--dark);
+  }
+
+  .events-tab:hover:not(.active) {
+    color: var(--dark);
+  }
+
+  .events-slider-wrapper {
+    position: relative;
+  }
+
+  .events-slider-wrapper.hidden {
+    display: none;
+  }
+
+  .events-slider-container {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .events-slider {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .event-home-card {
+    flex: 0 0 100%;
+    border: 1px solid var(--dark);
+    border-radius: 24px;
+    padding: 40px 44px;
+    box-shadow: 5px 5px 0 var(--dark);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 280px;
+  }
+
+  .event-home-card--featured { background: var(--dark); }
+  .event-home-card--dark    { background: var(--dark); }
+  .event-home-card--green   { background: var(--green); }
+
+  .event-home-date {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .event-home-day  { font-size: 40px; font-weight: 700; color: var(--green); line-height: 1; }
+  .event-home-month { font-size: 18px; font-weight: 600; color: var(--green); text-transform: uppercase; }
+
+  .event-home-tag {
+    display: inline-block;
+    background: var(--green);
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    width: fit-content;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .event-home-tag--light {
+    background: var(--gray);
+    color: var(--dark);
+  }
+
+  .event-home-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+    margin: 0;
+  }
+  .event-home-card--featured .event-home-title,
+  .event-home-card--dark    .event-home-title { color: var(--white); }
+
+  .event-home-desc {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #555;
+    margin: 0;
+    flex: 1;
+  }
+  .event-home-card--featured .event-home-desc,
+  .event-home-card--dark    .event-home-desc { color: rgba(255,255,255,0.7); }
+
+  .event-home-meta {
+    font-size: 14px;
+    color: #999;
+  }
+
+  .event-home-cta { width: fit-content; }
+
+  .past-event-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    background: var(--green);
+    color: var(--dark);
+    width: fit-content;
+  }
+  .past-event-badge--white { background: var(--white); color: var(--dark); }
+  .past-event-badge--dark  { background: rgba(25,26,35,0.1); color: var(--dark); border: 1px solid rgba(25,26,35,0.15); }
+
+  .slider-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .slider-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--dark);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    color: var(--dark);
+  }
+  .slider-btn:hover { background: var(--dark); color: var(--white); }
+
+  .slider-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--dark);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+  }
+  .slider-dot.active {
+    background: var(--dark);
+    transform: scale(1.25);
+  }
+
+  /* ── Ekibimiz (Ana Sayfa) ───────────────────────────────────── */
+  .team-home-section {
+    padding: 100px 0;
+    background: var(--gray);
+  }
+
+  .team-home-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .team-home-desc {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 32px;
+  }
+
+  .team-home-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .team-home-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .team-home-card {
+    background: var(--white);
+    border: 1px solid var(--dark);
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 3px 3px 0 var(--dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .team-home-card:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--dark); }
+  .team-home-card--featured { background: var(--dark); }
+
+  .team-home-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border: 2px solid var(--dark);
+    margin-bottom: 4px;
+  }
+  .team-home-card--featured .team-home-avatar {
+    background: rgba(185,255,102,0.12);
+    border-color: var(--green);
+  }
+
+  .team-home-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .team-home-card--featured .team-home-name { color: var(--white); }
+
+  .team-home-role {
+    font-size: 13px;
+    color: #888;
+  }
+  .team-home-card--featured .team-home-role { color: var(--green); }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .communities-home-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-home-inner { grid-template-columns: 1fr; gap: 48px; }
+    .team-home-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  @media (max-width: 640px) {
+    .communities-home-grid { grid-template-columns: 1fr; }
+    .team-home-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-stats { flex-direction: column; gap: 16px; }
+    .about-stat-divider { width: 80%; height: 1px; }
+    .event-home-card { padding: 28px 24px; }
+    .section-header-row { flex-direction: column; align-items: flex-start; }
+  }
+</style>
