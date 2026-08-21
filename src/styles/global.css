@@ -11,7 +11,7 @@
 }
 
 :root {
-  --green: #B9FF66;
+  --green: #7fce71;
   --dark: #191A23;
   --white: #FFFFFF;
   --gray: #F3F3F3;
@@ -610,7 +610,7 @@ p { font-size: 18px; line-height: 1.6; }
 }
 .form-input:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(185, 255, 102, 0.3);
+  box-shadow: 0 0 0 3px rgba(127, 206, 113, 0.3);
 }
 .form-input::placeholder { color: #9A9A9A; }
 textarea.form-input { resize: vertical; min-height: 190px; }
@@ -710,7 +710,7 @@ textarea.form-input { resize: vertical; min-height: 190px; }
   color: var(--dark);
   border-color: var(--green);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(185, 255, 102, 0.25);
+  box-shadow: 0 4px 14px rgba(127, 206, 113, 0.25);
 }
 .footer-social-card:hover svg {
   transform: scale(1.1);
