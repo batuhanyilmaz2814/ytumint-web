@@ -107,11 +107,38 @@ p { font-size: 18px; line-height: 1.6; }
    NAVBAR
    ============================================= */
 .navbar {
-  padding: 28px 0;
+  padding: 24px 0;
+  z-index: 200;
+  width: 100%;
+  transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Standart Sayfalarda (Topluluklar, Etkinlikler, Ekibimiz, vb.) */
+.navbar:not(.navbar--home) {
   position: sticky;
   top: 0;
-  z-index: 100;
   background: var(--white);
+  border-bottom: 1px solid rgba(25, 26, 35, 0.08);
+}
+
+/* Ana Sayfada (Video Hero Üzerinde) */
+.navbar.navbar--home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+/* Ana Sayfada Aşağı Kaydırıldığında */
+.navbar.navbar--home.scrolled {
+  padding: 16px 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(25, 26, 35, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 .navbar-inner {
   display: flex;
@@ -138,8 +165,9 @@ p { font-size: 18px; line-height: 1.6; }
 }
 
 /* =============================================
-   HERO
+   HERO — now full-screen video (see index.astro)
    ============================================= */
+/* Legacy hero classes kept for other pages if needed */
 .hero { padding: 70px 0 80px; }
 .hero-inner {
   display: grid;

@@ -10,45 +10,28 @@ import Layout from '../layouts/Layout.astro';
   <!-- =============================================
        HERO
        ============================================= -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Matematiğin Gücüyle<br />Teknolojiyi Şekillendiriyoruz
-          </h1>
-          <p class="hero-desc">
-            YTU MINT, Yıldız Teknik Üniversitesi'nde matematik, bilişim ve yazılım alanlarında öğrencileri bir araya getiren dinamik bir topluluktur. Projeler, etkinlikler ve eğitimlerle kariyer yolculuğuna güçlü bir başlangıç yap.
-          </p>
-          <div style="display:flex;gap:20px;flex-wrap:wrap;">
-            <a href="/events" class="btn btn-dark">Etkinliklerimiz</a>
-            <a href="/communities" class="btn btn-outline">Topluluklarımız</a>
-          </div>
-        </div>
+  <section class="hero-video">
+    <!-- Video background -->
+    <video
+      class="hero-video__bg"
+      src="/mint-video.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+    ></video>
 
-        <div class="hero-image">
-          <div class="hero-illustration">
-            <svg viewBox="0 0 560 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="560" height="400" rx="30" fill="#F3F3F3"/>
-              <g opacity="0.15">
-                {Array.from({length: 8}).map((_, row) =>
-                  Array.from({length: 12}).map((_, col) => (
-                    <circle cx={(col * 50) + 25} cy={(row * 50) + 25} r="2" fill="#191A23"/>
-                  ))
-                )}
-              </g>
-              <rect x="60" y="60" width="120" height="120" rx="20" fill="#B9FF66" opacity="0.9"/>
-              <text x="120" y="135" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="48" font-weight="700" fill="#191A23">∑</text>
-              <circle cx="380" cy="120" r="70" fill="#191A23"/>
-              <text x="380" y="138" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" fill="#B9FF66">π</text>
-              <rect x="200" y="220" width="160" height="80" rx="15" fill="#191A23"/>
-              <text x="280" y="268" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="500" fill="#B9FF66">YTU MINT</text>
-              <circle cx="100" cy="300" r="40" fill="#B9FF66" opacity="0.7"/>
-              <text x="100" y="313" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700" fill="#191A23">∞</text>
-              <polygon points="440,240 480,320 400,320" fill="#B9FF66" opacity="0.8"/>
-            </svg>
-          </div>
-        </div>
+    <!-- Gradient overlay -->
+    <div class="hero-video__overlay"></div>
+
+    <!-- Content -->
+    <div class="hero-video__content">
+      <p class="hero-video__sub">YTÜ Multidisipliner İnovasyon Teknolojileri Kulübü</p>
+      <h1 class="hero-video__title">May Be MİNT<br /><span class="hero-video__title-accent">With You!</span></h1>
+      <div class="hero-video__btns">
+        <a href="/events" class="btn btn-green">Etkinliklerimiz</a>
+        <a href="/communities" class="btn btn-outline-white">Topluluklarımız</a>
       </div>
     </div>
   </section>
@@ -658,6 +641,104 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  /* ── Hero Video ──────────────────────────────────────────────── */
+  .hero-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-video__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-video__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(25, 26, 35, 0.72) 0%,
+      rgba(25, 26, 35, 0.55) 50%,
+      rgba(25, 26, 35, 0.68) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-video__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px 24px 60px;
+    max-width: 960px;
+    animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-video__sub {
+    font-size: clamp(13px, 1.4vw, 16px);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 20px;
+    opacity: 0.92;
+  }
+
+  .hero-video__title {
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 36px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-video__title-accent {
+    color: var(--green);
+    display: inline-block;
+  }
+
+  .hero-video__btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    transition: all 0.22s ease;
+  }
+  .btn-outline-white:hover {
+    background: var(--white);
+    color: var(--dark);
+    border-color: var(--white);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero-video__title {
+      font-size: clamp(42px, 12vw, 72px);
+    }
+  }
+
   /* ── Section common ─────────────────────────────────────────── */
   .section-chip {
     display: inline-block;
