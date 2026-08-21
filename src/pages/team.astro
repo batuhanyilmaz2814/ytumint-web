@@ -8,7 +8,7 @@ const yonetimKurulu = [
     bolum: "İstatistik",
     sinif: "3. Sınıf",
     linkedin: "https://www.linkedin.com/in/zeynep-cemre-çebitürk",
-    emoji: "👩‍💼",
+    foto: "/ekip-cemre.png",
   },
   {
     ad: "Melike Nur Bakırcı",
@@ -16,7 +16,7 @@ const yonetimKurulu = [
     bolum: "İstatistik",
     sinif: "3. Sınıf",
     linkedin: "https://www.linkedin.com/in/melike-bakirci/",
-    emoji: "👩‍💻",
+    foto: "/ekip-melike.png",
   },
   {
     ad: "Ceren Şengüler",
@@ -24,7 +24,7 @@ const yonetimKurulu = [
     bolum: "İstatistik",
     sinif: "2. Sınıf",
     linkedin: "https://www.linkedin.com/in/ceren-şengüler",
-    emoji: "👩‍🏫",
+    foto: "/ekip-ceren.png",
   },
   {
     ad: "Batuhan Yılmaz",
@@ -32,7 +32,7 @@ const yonetimKurulu = [
     bolum: "Bilgisayar Mühendisliği",
     sinif: "2. Sınıf",
     linkedin: "https://www.linkedin.com/in/batuhan-yılmaz-5a4027324/",
-    emoji: "👨‍💻",
+    foto: "/ekip-batuhan.png",
   },
   {
     ad: "Duygu Tunç",
@@ -40,7 +40,7 @@ const yonetimKurulu = [
     bolum: "İstatistik",
     sinif: "2. Sınıf",
     linkedin: "https://www.linkedin.com/in/duygu-tunç-4bb190278",
-    emoji: "👩‍💼",
+    foto: "/ekip-duygu.png",
   },
   {
     ad: "Arda Türk",
@@ -48,7 +48,7 @@ const yonetimKurulu = [
     bolum: "İktisat",
     sinif: "2. Sınıf",
     linkedin: "https://www.linkedin.com/in/arda-türk-32482523a",
-    emoji: "🧑‍🎨",
+    foto: "/ekip-arda.png",
   },
   {
     ad: "Nisa Hamarat",
@@ -56,7 +56,7 @@ const yonetimKurulu = [
     bolum: "İstatistik",
     sinif: "2. Sınıf",
     linkedin: "https://www.linkedin.com/in/nisa-hamarat-246792361",
-    emoji: "👩‍🎨",
+    foto: "/ekip-nisa.png",
   },
 ];
 
@@ -67,7 +67,7 @@ const denetimKurulu = [
     bolum: "İstatistik",
     sinif: "3. Sınıf",
     linkedin: "https://www.linkedin.com/in/sudenazakkaya/",
-    emoji: "👩‍⚖️",
+    foto: "/ekip-sude.png",
   },
   {
     ad: "Nisanur Koçak",
@@ -75,7 +75,7 @@ const denetimKurulu = [
     bolum: "Endüstri Mühendisliği",
     sinif: "",
     linkedin: "https://www.linkedin.com/in/nisanur-koçak-9b0328285/",
-    emoji: "👩‍💼",
+    foto: "/ekip-nisanur.png",
   },
   {
     ad: "Zehra Nur Özmen",
@@ -83,7 +83,7 @@ const denetimKurulu = [
     bolum: "İşletme",
     sinif: "",
     linkedin: "https://www.linkedin.com/in/zehranurozmen/",
-    emoji: "👩‍💼",
+    foto: "/ekip-zehra.png",
   },
 ];
 ---
@@ -137,7 +137,18 @@ const denetimKurulu = [
           yonetimKurulu.map((uye) => (
             <div class="team-card">
               <div class="team-card-header">
-                <div class="team-avatar">{uye.emoji}</div>
+                <div class="team-avatar">
+                  {uye.foto ? (
+                    <img
+                      src={uye.foto}
+                      alt={uye.ad}
+                      class="team-avatar-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    uye.emoji
+                  )}
+                </div>
                 <a
                   href={uye.linkedin}
                   class="team-linkedin"
@@ -229,7 +240,18 @@ const denetimKurulu = [
           denetimKurulu.map((uye) => (
             <div class="team-card">
               <div class="team-card-header">
-                <div class="team-avatar">{uye.emoji}</div>
+                <div class="team-avatar">
+                  {uye.foto ? (
+                    <img
+                      src={uye.foto}
+                      alt={uye.ad}
+                      class="team-avatar-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    uye.emoji
+                  )}
+                </div>
                 <a
                   href={uye.linkedin}
                   class="team-linkedin"
@@ -437,6 +459,16 @@ const denetimKurulu = [
     justify-content: center;
     font-size: 24px;
     flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .team-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    border-radius: 50%;
   }
 
   .team-linkedin {
