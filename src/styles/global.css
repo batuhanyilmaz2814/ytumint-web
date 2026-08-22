@@ -326,7 +326,7 @@ p {
 .logo-text {
   font-family: 'Quicksand', 'Comfortaa', 'Josefin Sans', sans-serif;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
   color: var(--white);
   letter-spacing: 0.02em;
   line-height: 1;
