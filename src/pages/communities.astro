@@ -44,10 +44,11 @@ import Layout from "../layouts/Layout.astro";
                 href="https://www.instagram.com/ytu_blockchain/"
                 class="community-social-btn"
                 aria-label="YTÜ Blockchain Instagram"
+                title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <rect
                     x="2"
                     y="2"
@@ -66,18 +67,18 @@ import Layout from "../layouts/Layout.astro";
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
                   ></circle>
                 </svg>
-                Instagram
               </a>
               <a
                 href="https://ytublockchain.com/tr"
-                class="community-social-btn community-social-btn--outline"
+                class="community-social-btn"
                 aria-label="YTÜ Blockchain Web Sitesi"
+                title="Web Sitesi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <svg
-                  width="14"
-                  height="14"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -89,7 +90,6 @@ import Layout from "../layouts/Layout.astro";
                     d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
                   ></path>
                 </svg>
-                Web Sitesi
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
@@ -123,10 +123,11 @@ import Layout from "../layouts/Layout.astro";
                 href="https://www.instagram.com/yildizsiber/"
                 class="community-social-btn"
                 aria-label="Yıldız Siber Instagram"
+                title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <rect
                     x="2"
                     y="2"
@@ -145,7 +146,6 @@ import Layout from "../layouts/Layout.astro";
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
                   ></circle>
                 </svg>
-                Instagram
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
@@ -185,10 +185,11 @@ import Layout from "../layouts/Layout.astro";
                 href="https://www.instagram.com/hsd.ytu/"
                 class="community-social-btn"
                 aria-label="Huawei Student Developers YTU Instagram"
+                title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <rect
                     x="2"
                     y="2"
@@ -207,7 +208,6 @@ import Layout from "../layouts/Layout.astro";
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
                   ></circle>
                 </svg>
-                Instagram
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
@@ -241,10 +241,11 @@ import Layout from "../layouts/Layout.astro";
                 href="https://www.instagram.com/deptron_robotics/"
                 class="community-social-btn"
                 aria-label="YTÜ Deptron Instagram"
+                title="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <rect
                     x="2"
                     y="2"
@@ -263,18 +264,18 @@ import Layout from "../layouts/Layout.astro";
                   <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
                   ></circle>
                 </svg>
-                Instagram
               </a>
               <a
                 href="https://deptronrobotics.com/"
-                class="community-social-btn community-social-btn--outline"
+                class="community-social-btn"
                 aria-label="YTÜ Deptron Web Sitesi"
+                title="Web Sitesi"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <svg
-                  width="14"
-                  height="14"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -286,7 +287,6 @@ import Layout from "../layouts/Layout.astro";
                     d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
                   ></path>
                 </svg>
-                Web Sitesi
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
@@ -457,33 +457,31 @@ import Layout from "../layouts/Layout.astro";
 
   .community-links {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     align-items: center;
   }
 
   .community-social-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 5px 12px;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-full);
     text-decoration: none;
-    background: var(--bg-main);
-    color: var(--dark);
+    background: var(--bg-subtle);
+    color: var(--dark-muted);
     border: 1px solid var(--border);
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
   }
 
   .community-social-btn:hover {
     background: var(--dark);
     color: var(--white);
     border-color: var(--dark);
-  }
-
-  .community-social-btn--outline {
-    background: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
   }
 
   @media (max-width: 960px) {
