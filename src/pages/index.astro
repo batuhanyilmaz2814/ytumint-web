@@ -34,12 +34,22 @@ function parseEventDate(dateStr: string) {
   <section class="hero-video">
     <video
       class="hero-video__bg"
-      src="/mint-video.mp4"
+      id="heroVideo"
+      data-src="/mint-video.mp4"
       autoplay
       loop
       muted
       playsinline
-      preload="auto"></video>
+      preload="none"></video>
+
+    <script>
+      window.addEventListener("load", () => {
+        const video = document.getElementById("heroVideo") as HTMLVideoElement;
+        if (video && video.dataset.src) {
+          video.src = video.dataset.src;
+        }
+      });
+    </script>
 
     <div class="hero-video__overlay"></div>
 
