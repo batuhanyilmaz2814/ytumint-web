@@ -488,7 +488,7 @@ p {
 .footer {
   background: var(--dark);
   color: #94A3B8;
-  padding: 48px 0 28px;
+  padding: 28px 0 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
 }
@@ -497,16 +497,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
-  padding-bottom: 28px;
+  gap: 24px;
+  padding-bottom: 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-brand {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 380px;
+  align-items: center;
 }
 
 .footer-logos {
@@ -519,9 +517,21 @@ p {
 .footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   width: fit-content;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.footer-mint-img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-logo-divider {
@@ -543,24 +553,10 @@ p {
 }
 
 .footer-ytu-img {
-  height: 22px;
+  height: 26px;
   width: auto;
   object-fit: contain;
   display: block;
-}
-
-.footer-logo .logo-text {
-  color: var(--white);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.footer-tagline {
-  color: #8E9DAE;
-  font-size: 13.5px;
-  line-height: 1.55;
-  margin: 0;
 }
 
 .footer-socials {
@@ -574,8 +570,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -595,16 +591,16 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 22px;
-  font-size: 13px;
+  padding-top: 14px;
+  font-size: 12.5px;
   color: #64748B;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
 }
 
 .footer-copy {
   margin: 0;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #64748B;
   line-height: 1.5;
 }
@@ -613,7 +609,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #64748B;
 }
 
@@ -688,7 +684,7 @@ p {
   }
 
   .footer {
-    padding: 36px 0 24px;
+    padding: 22px 0 16px;
   }
 
   .footer-bottom {
