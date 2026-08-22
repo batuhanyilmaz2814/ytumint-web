@@ -98,10 +98,6 @@ const denetimKurulu = [
       <div class="page-hero-inner">
         <div>
           <h1 class="page-hero-title">Ekibimiz</h1>
-          <p class="page-hero-desc">
-            YTÜ MİNT'i yöneten, projeleri hayata geçiren ve topluluğu büyüten
-            öğrenci liderlerimizle tanışın.
-          </p>
         </div>
         <div class="page-hero-stats">
           <div class="stat-card">
@@ -348,10 +344,17 @@ const denetimKurulu = [
 <style>
   /* ── Page Hero ──────────────────────────────────────────────── */
   .page-hero {
-    padding: 80px 0 60px;
+    min-height: 204px;
+    display: flex;
+    align-items: center;
+    padding: 56px 0;
     background: var(--white);
     position: relative;
     overflow: hidden;
+  }
+
+  .page-hero .container {
+    width: 100%;
   }
 
   .page-hero::before {
@@ -391,16 +394,9 @@ const denetimKurulu = [
   .page-hero-title {
     font-size: clamp(32px, 4vw, 44px);
     font-weight: 700;
-    margin-bottom: 14px;
+    margin: 0;
     color: var(--dark);
     letter-spacing: -0.02em;
-  }
-
-  .page-hero-desc {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-muted);
-    max-width: 540px;
   }
 
   .page-hero-stats {

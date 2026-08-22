@@ -20,10 +20,6 @@ function parseEventDate(dateStr: string) {
     <div class="container">
       <div class="page-hero-inner">
         <h1 class="page-hero-title">Etkinliklerimiz</h1>
-        <p class="page-hero-desc">
-          Şirket gezileri, atölyeler, tematik yarışmalar ve teknik zirveler |
-          her dönem dopdolu bir etkinlik programı ile yanındayız.
-        </p>
       </div>
     </div>
   </section>
@@ -204,10 +200,17 @@ function parseEventDate(dateStr: string) {
 <style>
   /* Page Hero */
   .page-hero {
-    padding: 80px 0 60px;
+    min-height: 204px;
+    display: flex;
+    align-items: center;
+    padding: 56px 0;
     background: var(--white);
     position: relative;
     overflow: hidden;
+  }
+
+  .page-hero .container {
+    width: 100%;
   }
 
   .page-hero::before {
@@ -243,15 +246,9 @@ function parseEventDate(dateStr: string) {
   .page-hero-title {
     font-size: clamp(32px, 4vw, 44px);
     font-weight: 700;
-    margin-bottom: 14px;
+    margin: 0;
     color: var(--dark);
     letter-spacing: -0.02em;
-  }
-
-  .page-hero-desc {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-muted);
   }
 
   /* Upcoming Events */
