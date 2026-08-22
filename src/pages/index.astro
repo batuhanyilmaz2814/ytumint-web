@@ -1342,24 +1342,19 @@ function parseEventDate(dateStr: string) {
     width: 84px;
     height: 84px;
     border-radius: 20px;
-    background: var(--bg-main);
-    border: 1px solid var(--border);
+    background: transparent;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px;
+    padding: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-    transition:
-      transform 0.3s ease,
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: transform 0.3s ease;
   }
 
   .community-home-card:hover .community-home-logo-box {
-    transform: scale(1.06);
-    border-color: var(--green);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15);
+    transform: scale(1.08);
   }
 
   .community-home-logo {
