@@ -255,10 +255,11 @@ p {
 .navbar:not(.navbar--home) {
   position: sticky;
   top: 0;
-  background: rgba(250, 250, 252, 0.92);
+  background: #61a95d;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* Ana Sayfada (Video Hero Üzerinde) */
@@ -274,11 +275,11 @@ p {
 /* Ana Sayfada Aşağı Kaydırıldığında */
 .navbar.navbar--home.scrolled {
   padding: 14px 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: #61a95d;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-inner {
@@ -315,8 +316,8 @@ p {
 .logo-text {
   font-family: 'Quicksand', 'Comfortaa', 'Josefin Sans', sans-serif;
   font-size: 24px;
-  font-weight: 400;
-  color: var(--dark);
+  font-weight: 500;
+  color: var(--white);
   letter-spacing: 0.02em;
   line-height: 1;
   text-transform: lowercase;
@@ -334,7 +335,7 @@ p {
 }
 
 .nav-link {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -344,11 +345,11 @@ p {
 }
 
 .nav-link:hover {
-  color: var(--dark);
+  color: var(--white);
 }
 
 .nav-link--active {
-  color: var(--dark);
+  color: var(--white);
   font-weight: 600;
 }
 
@@ -359,7 +360,7 @@ p {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--green);
+  background: var(--white);
   border-radius: 2px;
 }
 
@@ -497,10 +498,10 @@ p {
    FOOTER
    ============================================= */
 .footer {
-  background: var(--dark);
-  color: #94A3B8;
+  background: #61a95d;
+  color: rgba(255, 255, 255, 0.9);
   padding: 28px 0 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
 }
 
@@ -510,7 +511,7 @@ p {
   justify-content: space-between;
   gap: 24px;
   padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-brand {
@@ -548,13 +549,13 @@ p {
 .footer-logo-divider {
   width: 1px;
   height: 20px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .footer-partner-logo {
   display: inline-flex;
   align-items: center;
-  opacity: 0.85;
+  opacity: 0.92;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -584,17 +585,17 @@ p {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .footer-social-icon:hover {
-  background: rgba(97, 169, 93, 0.15);
-  border-color: rgba(97, 169, 93, 0.4);
-  color: var(--green);
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #61a95d;
   transform: translateY(-2px);
 }
 
@@ -604,7 +605,7 @@ p {
   justify-content: space-between;
   padding-top: 14px;
   font-size: 12.5px;
-  color: #64748B;
+  color: rgba(255, 255, 255, 0.85);
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -612,7 +613,7 @@ p {
 .footer-copy {
   margin: 0;
   font-size: 12.5px;
-  color: #64748B;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }
 
@@ -621,11 +622,11 @@ p {
   align-items: center;
   gap: 5px;
   font-size: 12.5px;
-  color: #64748B;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .footer-heart {
-  color: var(--green);
+  color: #FFFFFF;
   display: inline-block;
   vertical-align: middle;
   transform-origin: center;
@@ -634,7 +635,7 @@ p {
 }
 
 .footer-crafted:hover .footer-heart {
-  color: var(--green-hover);
+  color: #FFFFFF;
   transform: scale(1.3);
 }
 

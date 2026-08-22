@@ -359,6 +359,17 @@ const isHome = currentPath === "/" || currentPath === "";
     padding: 9px 20px;
     font-size: 14px;
     border-radius: var(--radius-full);
+    background: var(--white);
+    color: #488f44;
+    border: 1px solid var(--white);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar-cta:hover {
+    background: rgba(255, 255, 255, 0.92);
+    color: #356b32;
+    border-color: rgba(255, 255, 255, 0.92);
   }
 
   /* Ana Sayfada (Video Hero Üzerinde Şeffafken) */
@@ -372,7 +383,7 @@ const isHome = currentPath === "/" || currentPath === "";
     color: var(--white);
   }
   :global(.navbar.navbar--home:not(.scrolled)) .nav-link--active::after {
-    background: var(--green);
+    background: var(--white);
   }
   :global(.navbar.navbar--home:not(.scrolled)) .logo-text {
     color: var(--white);
@@ -385,7 +396,7 @@ const isHome = currentPath === "/" || currentPath === "";
   }
   :global(.navbar.navbar--home:not(.scrolled)) .navbar-cta:hover {
     background: var(--white);
-    color: var(--dark);
+    color: #488f44;
     border-color: var(--white);
   }
   :global(.navbar.navbar--home:not(.scrolled)) .hamburger span {
@@ -406,7 +417,7 @@ const isHome = currentPath === "/" || currentPath === "";
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--dark);
+    background: var(--white);
     border-radius: 2px;
     transition: all 0.25s ease;
   }
