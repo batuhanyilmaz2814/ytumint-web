@@ -275,10 +275,7 @@ function parseEventDate(dateStr: string) {
               loading="lazy"
             />
           </div>
-          <div class="about-photo-badge">
-            <span class="badge-dot"></span>
-            <span>YTÜ MİNT Ailesi</span>
-          </div>
+
         </div>
       </div>
     </div>
@@ -1638,6 +1635,11 @@ function parseEventDate(dateStr: string) {
     max-height: 420px;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .team-home-photo-wrap:hover .team-home-photo {
+    transform: scale(1.03);
   }
 
   /* ── Sponsorlarımız Section ─────────────────────────────────── */
