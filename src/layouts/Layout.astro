@@ -115,7 +115,9 @@ const isHome = currentPath === "/" || currentPath === "";
       </div>
     </nav>
 
-    <slot />
+    <main class="main-content">
+      <slot />
+    </main>
 
     <footer class="footer">
       <div class="container">
