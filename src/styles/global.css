@@ -476,7 +476,7 @@ p {
   gap: 56px;
   padding-right: 56px;
   align-items: center;
-  animation: marquee 58s linear infinite;
+  animation: marquee 85s linear infinite;
   white-space: nowrap;
   flex-shrink: 0;
   will-change: transform;
@@ -486,7 +486,7 @@ p {
   .partners-track {
     gap: 36px;
     padding-right: 36px;
-    animation-duration: 42s;
+    animation-duration: 58s;
   }
 }
 
