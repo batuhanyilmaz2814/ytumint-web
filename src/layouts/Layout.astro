@@ -32,7 +32,10 @@ const isHome = currentPath === "/" || currentPath === "";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -42,18 +45,16 @@ const isHome = currentPath === "/" || currentPath === "";
     <nav class:list={["navbar", { "navbar--home": isHome }]}>
       <div class="container">
         <div class="navbar-inner">
-          <a href="/" class="logo">
-            <svg
-              class="logo-star"
-              viewBox="0 0 36 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="18" cy="18" r="18" fill="#0F172A"></circle>
-              <path
-                d="M18 6L20.5 15.5L30 18L20.5 20.5L18 30L15.5 20.5L6 18L15.5 15.5L18 6Z"
-                fill="#61a95d"></path>
-            </svg>
+          <a href="/" class="logo" aria-label="YTÜ MİNT Ana Sayfa">
+            <img
+              src="/yaprak.png"
+              alt="YTÜ MİNT"
+              class="logo-img"
+              width="56"
+              height="28"
+              loading="eager"
+              decoding="async"
+            />
             <span class="logo-text">YTÜ MİNT</span>
           </a>
 
