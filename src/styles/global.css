@@ -63,8 +63,8 @@ body {
   font-family: var(--font);
   background-color: var(--bg-main);
   color: var(--text);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 14.5px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -80,13 +80,13 @@ body {
 
 /* Layout */
 .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
 }
 
 section {
-  padding: 80px 0;
+  padding: 48px 0;
 }
 
 /* Typography */
@@ -103,40 +103,40 @@ h5 {
 }
 
 h1 {
-  font-size: clamp(36px, 4.5vw, 56px);
+  font-size: clamp(28px, 3.5vw, 42px);
 }
 
 h2 {
-  font-size: clamp(28px, 3.2vw, 38px);
+  font-size: clamp(22px, 2.5vw, 30px);
 }
 
 h3 {
-  font-size: clamp(20px, 2.2vw, 24px);
+  font-size: clamp(17px, 1.8vw, 20px);
 }
 
 p {
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--text-muted);
 }
 
 /* Minimalist Section Header */
 .section-header {
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
 .section-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: var(--green-light);
   color: var(--green-text);
   border: 1px solid var(--green-border);
-  font-size: 13px;
+  font-size: 11.5px;
   font-weight: 600;
-  padding: 4px 14px;
+  padding: 3px 12px;
   border-radius: var(--radius-full);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: 0.02em;
 }
 
@@ -149,31 +149,31 @@ p {
 .section-label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: var(--green-light);
   color: var(--green-text);
   border: 1px solid var(--green-border);
-  font-size: 13px;
+  font-size: 11.5px;
   font-weight: 600;
-  padding: 4px 14px;
+  padding: 3px 12px;
   border-radius: var(--radius-full);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: 0.02em;
 }
 
 .section-title {
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   line-height: 1.2;
 }
 
 .section-description {
-  font-size: 17px;
+  font-size: 14px;
   color: var(--text-muted);
-  max-width: 600px;
-  line-height: 1.6;
+  max-width: 540px;
+  line-height: 1.55;
 }
 
 /* Minimalist Buttons */
@@ -181,11 +181,11 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 26px;
+  gap: 6px;
+  padding: 8px 18px;
   border-radius: var(--radius-full);
   font-family: var(--font);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
@@ -255,7 +255,7 @@ p {
    NAVBAR
    ============================================= */
 .navbar {
-  padding: 18px 0;
+  padding: 12px 0;
   z-index: 200;
   width: 100%;
   transition: all 0.25s ease;
@@ -284,7 +284,7 @@ p {
 
 /* Ana Sayfada Aşağı Kaydırıldığında */
 .navbar.navbar--home.scrolled {
-  padding: 14px 0;
+  padding: 10px 0;
   background: #61a95d;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -301,7 +301,7 @@ p {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -311,7 +311,7 @@ p {
 }
 
 .logo-img {
-  height: 28px;
+  height: 24px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -325,7 +325,7 @@ p {
 
 .logo-text {
   font-family: 'Quicksand', 'Comfortaa', 'Josefin Sans', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--white);
   letter-spacing: 0.02em;
@@ -340,14 +340,14 @@ p {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 22px;
   list-style: none;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 500;
   transition: color 0.2s ease;
   position: relative;
@@ -398,14 +398,14 @@ p {
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .hamburger span {
   display: block;
-  width: 22px;
+  width: 20px;
   height: 2px;
   background: var(--dark);
   border-radius: 2px;
@@ -419,13 +419,13 @@ p {
 .mobile-nav {
   display: none;
   position: fixed;
-  top: 68px;
+  top: 56px;
   left: 0;
   right: 0;
   background: var(--white);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
-  padding: 24px 32px;
+  padding: 18px 24px;
   z-index: 199;
 }
 
@@ -437,16 +437,16 @@ p {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .mobile-nav-link {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--dark);
   text-decoration: none;
   display: block;
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 .mobile-nav-link--active {
@@ -458,7 +458,7 @@ p {
    PARTNERS / MARQUEE
    ============================================= */
 .partners {
-  padding: 24px 0;
+  padding: 14px 0;
   background: var(--white);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -483,8 +483,8 @@ p {
 
 .partners-track {
   display: flex;
-  gap: 56px;
-  padding-right: 56px;
+  gap: 40px;
+  padding-right: 40px;
   align-items: center;
   animation: marquee 85s linear infinite;
   white-space: nowrap;
@@ -494,8 +494,8 @@ p {
 
 @media (max-width: 768px) {
   .partners-track {
-    gap: 36px;
-    padding-right: 36px;
+    gap: 28px;
+    padding-right: 28px;
     animation-duration: 58s;
   }
 }
@@ -515,12 +515,12 @@ p {
 }
 
 .partner-item {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
   letter-spacing: 0.01em;
 }
@@ -528,6 +528,8 @@ p {
 .partner-item svg {
   color: var(--green);
   opacity: 0.8;
+  width: 16px;
+  height: 16px;
 }
 
 /* =============================================
@@ -537,7 +539,7 @@ p {
   margin-top: auto;
   background: #61a95d;
   color: rgba(255, 255, 255, 0.9);
-  padding: 28px 0 20px;
+  padding: 20px 0 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
   z-index: 10;
@@ -548,8 +550,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 18px;
+  gap: 18px;
+  padding-bottom: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -561,7 +563,7 @@ p {
 .footer-logos {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -579,7 +581,7 @@ p {
 }
 
 .footer-mint-img {
-  height: 26px;
+  height: 22px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -587,7 +589,7 @@ p {
 
 .footer-logo-divider {
   width: 1px;
-  height: 20px;
+  height: 16px;
   background: rgba(255, 255, 255, 0.3);
 }
 
@@ -604,7 +606,7 @@ p {
 }
 
 .footer-ytu-img {
-  height: 26px;
+  height: 22px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -613,7 +615,7 @@ p {
 .footer-socials {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -621,8 +623,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -642,16 +644,16 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
-  font-size: 12.5px;
+  padding-top: 10px;
+  font-size: 11.5px;
   color: rgba(255, 255, 255, 0.85);
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .footer-copy {
   margin: 0;
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }
