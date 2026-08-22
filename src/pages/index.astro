@@ -1177,78 +1177,118 @@ function parseEventDate(dateStr: string) {
 
   /* ── Biz Kimiz ──────────────────────────────────────────────── */
   .about-section {
-    padding: 90px 0;
+    padding: 100px 0 110px;
     background: var(--bg-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle decorative blob */
+  .about-section::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(97,169,93,0.07) 0%, transparent 70%);
+    top: -120px;
+    right: -160px;
+    pointer-events: none;
   }
 
   .about-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    gap: 72px;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
   .about-title {
-    font-size: clamp(28px, 3.2vw, 38px);
-    font-weight: 700;
-    line-height: 1.25;
+    font-size: clamp(28px, 3.2vw, 40px);
+    font-weight: 800;
+    line-height: 1.2;
     color: var(--dark);
     margin-bottom: 20px;
+    letter-spacing: -0.03em;
   }
 
   .about-title-highlight {
     color: var(--green);
+    position: relative;
   }
 
   .about-text {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .about-stats {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-top: 32px;
-    padding: 24px 28px;
+    gap: 0;
+    margin-top: 40px;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 24px -4px rgba(15,23,42,0.08), 0 1px 4px rgba(15,23,42,0.04);
+    overflow: hidden;
   }
 
   .about-stat {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     flex: 1;
+    padding: 24px 20px;
+    position: relative;
+  }
+
+  .about-stat:hover {
+    background: rgba(97,169,93,0.04);
   }
 
   .about-stat-number {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 34px;
+    font-weight: 800;
     color: var(--dark);
     line-height: 1;
+    letter-spacing: -0.03em;
   }
 
   .about-stat-label {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-muted);
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .about-stat-divider {
     width: 1px;
-    height: 36px;
+    height: 48px;
     background: var(--border);
+    flex-shrink: 0;
   }
 
   .about-photo {
     position: relative;
+  }
+
+  /* Decorative offset frame behind photo */
+  .about-photo::before {
+    content: '';
+    position: absolute;
+    inset: 16px -16px -16px 16px;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(97,169,93,0.25);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .about-photo-wrapper {
@@ -1257,8 +1297,10 @@ function parseEventDate(dateStr: string) {
     background: var(--bg-muted);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 20px 60px -12px rgba(15,23,42,0.14), 0 4px 16px -4px rgba(15,23,42,0.07);
     overflow: hidden;
+    position: relative;
+    z-index: 1;
   }
 
   .about-photo-img {
@@ -1266,21 +1308,22 @@ function parseEventDate(dateStr: string) {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .about-photo-wrapper:hover .about-photo-img {
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
 
   .about-photo-badge {
     position: absolute;
-    bottom: 16px;
-    left: 16px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(10px);
+    bottom: 18px;
+    left: 18px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: var(--white);
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: var(--radius-full);
     font-size: 13px;
     font-weight: 600;
@@ -1288,47 +1331,96 @@ function parseEventDate(dateStr: string) {
     align-items: center;
     gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 2;
   }
 
   .badge-dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--green);
+    box-shadow: 0 0 0 3px rgba(97,169,93,0.3);
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(97,169,93,0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(97,169,93,0.1); }
   }
 
   /* ── Topluluklarımız Grid ───────────────────────────────────── */
   .communities-home-section {
-    padding: 90px 0;
-    background: var(--white);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 100px 0 110px;
+    background: var(--bg-subtle);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative top border with gradient */
+  .communities-home-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(97,169,93,0.3), transparent);
+  }
+
+  .communities-home-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(97,169,93,0.3), transparent);
   }
 
   .communities-home-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 22px;
   }
 
   .community-home-card {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg, 18px);
-    padding: 32px 20px 28px;
+    border-radius: 20px;
+    padding: 36px 22px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 16px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 12px rgba(15,23,42,0.04), 0 1px 3px rgba(15,23,42,0.02);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle top accent line */
+  .community-home-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: var(--green);
+    border-radius: 0 0 4px 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .community-home-card:hover::before {
+    opacity: 1;
   }
 
   .community-home-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    border-color: rgba(97, 169, 93, 0.3);
+    box-shadow: 0 20px 48px -8px rgba(15,23,42,0.1), 0 4px 12px -2px rgba(15,23,42,0.04);
   }
 
   .community-card-top {
@@ -1339,22 +1431,23 @@ function parseEventDate(dateStr: string) {
   }
 
   .community-home-logo-box {
-    width: 84px;
-    height: 84px;
-    border-radius: 20px;
-    background: transparent;
-    border: none;
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    padding: 10px;
     overflow: hidden;
-    box-shadow: none;
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   }
 
   .community-home-card:hover .community-home-logo-box {
-    transform: scale(1.08);
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.1);
   }
 
   .community-home-logo {
@@ -1364,11 +1457,12 @@ function parseEventDate(dateStr: string) {
   }
 
   .community-home-name {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--dark);
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
   }
 
   .community-home-links {
@@ -1387,13 +1481,13 @@ function parseEventDate(dateStr: string) {
     gap: 6px;
     font-size: 12.5px;
     font-weight: 600;
-    padding: 7px 14px;
+    padding: 7px 15px;
     border-radius: var(--radius-full);
     text-decoration: none;
     background: var(--green-light);
     color: var(--green-text);
     border: 1px solid var(--green-border);
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .community-link-btn:hover {
@@ -1401,6 +1495,7 @@ function parseEventDate(dateStr: string) {
     color: var(--white);
     border-color: var(--green);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(97,169,93,0.3);
   }
 
   .community-link-btn--outline {
@@ -1413,12 +1508,14 @@ function parseEventDate(dateStr: string) {
     background: var(--dark);
     color: var(--white);
     border-color: var(--dark);
+    box-shadow: 0 4px 12px rgba(15,23,42,0.2);
   }
 
   /* ── Etkinlikler ────────────────────────────────────────────── */
   .events-home-section {
-    padding: 90px 0;
+    padding: 100px 0 110px;
     background: var(--bg-main);
+    position: relative;
   }
 
   .events-tabs-row {
@@ -1503,19 +1600,19 @@ function parseEventDate(dateStr: string) {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 12px rgba(15,23,42,0.04), 0 1px 3px rgba(15,23,42,0.02);
     transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      border-color 0.25s ease;
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
     display: flex;
     flex-direction: column;
   }
 
   .past-event-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(16, 185, 129, 0.35);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    border-color: rgba(97, 169, 93, 0.3);
+    box-shadow: 0 20px 48px -8px rgba(15,23,42,0.1), 0 4px 12px rgba(15,23,42,0.05);
   }
 
   .past-event-img-wrap {
@@ -1664,19 +1761,33 @@ function parseEventDate(dateStr: string) {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 32px 36px;
-    box-shadow: var(--shadow-sm);
+    padding: 36px 40px;
+    box-shadow: 0 4px 24px -4px rgba(15,23,42,0.07), 0 1px 4px rgba(15,23,42,0.03);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Left accent bar */
+  .event-home-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--green), rgba(97,169,93,0.3));
+    border-radius: 0 2px 2px 0;
   }
 
   .event-home-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px -8px rgba(15,23,42,0.1), 0 4px 12px rgba(15,23,42,0.05);
   }
 
   .event-home-header {
@@ -1745,52 +1856,95 @@ function parseEventDate(dateStr: string) {
 
   /* ── Ekibimiz Section ───────────────────────────────────────── */
   .team-home-section {
-    padding: 90px 0;
-    background: var(--white);
+    padding: 100px 0 110px;
+    background: #61a95d;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle accent glow */
+  .team-home-section::before {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 65%);
+    bottom: -200px;
+    right: -100px;
+    pointer-events: none;
+  }
+
+  .team-home-section .section-title {
+    color: var(--white);
   }
 
   .team-home-inner {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 56px;
+    gap: 64px;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
   .team-home-desc {
     font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin-bottom: 28px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 32px;
   }
 
   .team-home-photo-wrap {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
-    background: var(--bg-muted);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.15);
+    position: relative;
   }
 
   .team-home-photo {
     width: 100%;
     height: auto;
-    max-height: 420px;
+    max-height: 440px;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .team-home-photo-wrap:hover .team-home-photo {
-    transform: scale(1.03);
+    transform: scale(1.04);
+  }
+
+  .team-home-section .btn-dark {
+    background: var(--dark);
+    color: var(--white);
+    border-color: var(--dark);
+  }
+
+  .team-home-section .btn-dark:hover {
+    background: #1e293b;
+    border-color: #1e293b;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
   }
 
   /* ── Sponsorlarımız Section ─────────────────────────────────── */
   .sponsors-home-section {
-    padding: 80px 0;
-    background: var(--white);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    padding: 90px 0;
+    background: var(--bg-subtle);
+    position: relative;
     overflow: hidden;
+  }
+
+  .sponsors-home-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
   }
 
   .sponsors-header {
@@ -1858,7 +2012,7 @@ function parseEventDate(dateStr: string) {
     justify-content: center;
     flex-shrink: 0;
     background: transparent;
-    padding: 8px 16px;
+    padding: 10px 20px;
     user-select: none;
   }
 
@@ -1868,11 +2022,15 @@ function parseEventDate(dateStr: string) {
     width: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: grayscale(20%);
+    opacity: 0.85;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .sponsor-item:hover .sponsor-logo {
     transform: scale(1.1);
+    filter: grayscale(0%);
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
@@ -1895,44 +2053,63 @@ function parseEventDate(dateStr: string) {
 
   /* ── İletişim Formu ─────────────────────────────────────────── */
   .contact-home-section {
-    padding: 90px 0;
+    padding: 100px 0 110px;
     background: var(--bg-main);
+    position: relative;
   }
 
   .contact-card {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 48px;
-    box-shadow: var(--shadow-sm);
-    max-width: 800px;
+    border-radius: 24px;
+    padding: 56px 56px 52px;
+    box-shadow: 0 8px 40px -8px rgba(15,23,42,0.09), 0 2px 8px rgba(15,23,42,0.04);
+    max-width: 820px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle top-right decorative glow */
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(97,169,93,0.1) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .contact-card-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   .contact-card-header .section-badge {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .contact-card-header .section-title {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .contact-desc {
     font-size: 15px;
     color: var(--text-muted);
-    max-width: 500px;
+    max-width: 480px;
     margin: 0 auto;
+    line-height: 1.65;
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    position: relative;
+    z-index: 1;
   }
 
   .form-grid {
@@ -1943,33 +2120,51 @@ function parseEventDate(dateStr: string) {
 
   .form-input {
     width: 100%;
-    padding: 13px 18px;
+    padding: 14px 18px;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     font-family: var(--font);
     font-size: 14.5px;
-    background: var(--bg-main);
+    background: var(--bg-subtle);
+    color: var(--text);
     outline: none;
     transition:
-      border-color 0.2s,
-      box-shadow 0.2s,
-      background 0.2s;
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
   }
 
   .form-input:focus {
     background: var(--white);
     border-color: var(--green);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 0 4px rgba(97, 169, 93, 0.12);
+  }
+
+  .form-input:hover:not(:focus) {
+    border-color: rgba(15,23,42,0.18);
   }
 
   .form-input::placeholder {
-    color: #94a3b8;
+    color: var(--text-subtle);
+  }
+
+  textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
   }
 
   .submit-btn {
     align-self: center;
     margin-top: 8px;
-    padding: 12px 32px;
+    padding: 13px 40px;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 16px rgba(97,169,93,0.3);
+  }
+
+  .submit-btn:hover {
+    box-shadow: 0 8px 24px rgba(97,169,93,0.4);
+    transform: translateY(-2px);
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
@@ -1980,6 +2175,9 @@ function parseEventDate(dateStr: string) {
     .team-home-inner {
       grid-template-columns: 1fr;
       gap: 36px;
+    }
+    .about-photo::before {
+      display: none;
     }
   }
 
@@ -2005,11 +2203,15 @@ function parseEventDate(dateStr: string) {
     }
     .about-stats {
       flex-direction: column;
-      gap: 14px;
+      gap: 0;
+    }
+    .about-stat {
+      padding: 18px 20px;
     }
     .about-stat-divider {
       width: 80%;
       height: 1px;
+      align-self: center;
     }
     .event-home-card {
       padding: 24px 20px;
@@ -2017,6 +2219,9 @@ function parseEventDate(dateStr: string) {
     .section-header-row {
       flex-direction: column;
       align-items: flex-start;
+    }
+    .contact-card {
+      padding: 28px 20px;
     }
   }
 </style>
