@@ -3,16 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import { pastEvents } from "../data/events";
 
 const sponsors = [
-  { name: "Arkas Lojistik", logo: "/arkas-lojistik-logo.png" },
-  { name: "Halıcı Elektronik", logo: "/halici-logo.png" },
-  { name: "Kariyer.net", logo: "/kariyernet-logo.webp" },
-  { name: "Techcareer.net", logo: "/techcareer-logo.png" },
-  { name: "Sui Foundation", logo: "/sui-logo.png" },
-  { name: "YTÜ Startup House", logo: "/ytu-startup-house-logo.png" },
-  { name: "Reeder", logo: "/reeder-logo.webp" },
-  { name: "Tatilciniz", logo: "/tatilciniz-logo.jpg" },
-  { name: "Indomie", logo: "/indomie-logo.png" },
-  { name: "Karnaval Müzik", logo: "/karnaval-muzik-logo.jpg" },
+  { name: "Arkas Lojistik", logo: "/sponsors/arkas-lojistik-logo.png" },
+  { name: "Halıcı Elektronik", logo: "/sponsors/halici-logo.png" },
+  { name: "Kariyer.net", logo: "/sponsors/kariyernet-logo.webp" },
+  { name: "Techcareer.net", logo: "/sponsors/techcareer-logo.png" },
+  { name: "Sui Foundation", logo: "/sponsors/sui-logo.png" },
+  { name: "YTÜ Startup House", logo: "/sponsors/ytu-startup-house-logo.png" },
+  { name: "Reeder", logo: "/sponsors/reeder-logo.webp" },
+  { name: "Tatilciniz", logo: "/sponsors/tatilciniz-logo.jpg" },
+  { name: "Indomie", logo: "/sponsors/indomie-logo.png" },
+  { name: "Karnaval Müzik", logo: "/sponsors/karnaval-muzik-logo.jpg" },
 ];
 
 const repeatedSponsors = [...sponsors, ...sponsors];
@@ -55,7 +55,7 @@ function parseEventDate(dateStr: string) {
     <video
       class="hero-video__bg"
       id="heroVideo"
-      data-src="/mint-video.mp4"
+      data-src="/videos/mint-video.mp4"
       autoplay
       loop
       muted
@@ -401,7 +401,7 @@ function parseEventDate(dateStr: string) {
         <div class="about-photo">
           <div class="about-photo-wrapper">
             <img
-              src="/mint-ekip.jpg"
+              src="/team/mint-ekip.jpg"
               alt="YTÜ MİNT Ekibi"
               class="about-photo-img"
               loading="lazy"
@@ -440,7 +440,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/bc-logo.png"
+                src="/communities/bc-logo.png"
                 alt="YTÜ Blockchain"
                 class="community-home-logo"
               />
@@ -506,7 +506,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/yildiz-siber.png"
+                src="/communities/yildiz-siber.png"
                 alt="Yıldız Siber"
                 class="community-home-logo"
               />
@@ -549,7 +549,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/hsd-logo.png"
+                src="/communities/hsd-logo.png"
                 alt="Huawei Student Developers (HSD YTU)"
                 class="community-home-logo"
               />
@@ -594,7 +594,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/deptron-logo.jpg"
+                src="/communities/deptron-logo.jpg"
                 alt="YTÜ Deptron"
                 class="community-home-logo"
               />
@@ -856,7 +856,7 @@ function parseEventDate(dateStr: string) {
 
         <div class="team-home-photo-wrap">
           <img
-            src="/mint-ana-ekip.png"
+            src="/team/mint-ana-ekip.png"
             alt="YTÜ MİNT Ekibi"
             class="team-home-photo"
             loading="lazy"

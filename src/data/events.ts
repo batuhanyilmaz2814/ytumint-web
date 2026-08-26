@@ -27,7 +27,7 @@ export const pastEvents: PastEvent[] = [
     category: "Finans & Teknoloji",
     desc: "Akbank Genel Müdürlüğü ziyareti, operasyon ve teknoloji ekipleriyle buluşma.",
     theme: "dark",
-    image: "/akbank-gezi.png",
+    image: "/events/akbank-gezi.png",
   },
   {
     title: "Muhteşem Yüzyıl Quiz Night",
@@ -37,7 +37,7 @@ export const pastEvents: PastEvent[] = [
     category: "Eğlence & Yarışma",
     desc: "Muhteşem Yüzyıl temalı kıyasıya rekabet ve eğlence dolu bilgi yarışması.",
     theme: "green",
-    image: "/muhtesem-yuzyıl-quiznight.png",
+    image: "/events/muhtesem-yuzyil-quiznight.png",
   },
   {
     title: "Harry Potter Quiz Night",
@@ -47,7 +47,7 @@ export const pastEvents: PastEvent[] = [
     category: "Eğlence & Yarışma",
     desc: "Büyücülük dünyasının en iyilerinin yarıştığı tematik quiz gecesi.",
     theme: "light",
-    image: "/harry-potter-quiznight.png",
+    image: "/events/harry-potter-quiznight.png",
   },
   {
     title: "Borusan Burada",
@@ -57,7 +57,7 @@ export const pastEvents: PastEvent[] = [
     category: "Sektör Buluşması",
     desc: "Borusan yöneticileri ve mühendisleriyle kariyer fırsatları ve deneyim paylaşımı.",
     theme: "dark",
-    image: "/borusan-burada.png",
+    image: "/events/borusan-burada.png",
   },
   {
     title: "Bilişim Vadisi Şirket Gezisi",
@@ -67,7 +67,7 @@ export const pastEvents: PastEvent[] = [
     category: "İnovasyon & Ar-Ge",
     desc: "Türkiye'nin teknoloji üssü Bilişim Vadisi ekosistemi ve teknoloji merkezleri gezisi.",
     theme: "green",
-    image: "/bilisim-vadisi-gezi.png",
+    image: "/events/bilisim-vadisi-gezi.png",
   },
   {
     title: "YTÜ MİNT İftar",
@@ -77,7 +77,7 @@ export const pastEvents: PastEvent[] = [
     category: "Topluluk Buluşması",
     desc: "MİNT ailesiyle Ramazan ayında geleneksel iftar yemeği buluşması.",
     theme: "light",
-    image: "/mint-iftar.png",
+    image: "/events/mint-iftar.png",
   },
   {
     title: "Vodafone Şirket Gezisi",
@@ -87,7 +87,7 @@ export const pastEvents: PastEvent[] = [
     category: "Telekomünikasyon & BT",
     desc: "Vodafone Türkiye genel merkez ziyareti ve yeni nesil iletişim teknolojileri paneli.",
     theme: "dark",
-    image: "/vodafone-gezi.png",
+    image: "/events/vodafone-gezi.png",
   },
   {
     title: "Home Alone Quiz Night",
@@ -97,7 +97,7 @@ export const pastEvents: PastEvent[] = [
     category: "Yılbaşı Özel",
     desc: "Yılbaşı öncesi film klasiği Home Alone temalı eğlenceli quiz gecesi.",
     theme: "green",
-    image: "/home-alone-quiznight.png",
+    image: "/events/home-alone-quiznight.png",
   },
   {
     title: "Siber Güvenlik Eğitimi",
@@ -107,7 +107,7 @@ export const pastEvents: PastEvent[] = [
     category: "Yıldız Siber",
     desc: "Yıldız Siber liderliğinde temel ve ileri seviye siber güvenlik atölyesi.",
     theme: "light",
-    image: "/siber-guvenlik-egitim.png",
+    image: "/events/siber-guvenlik-egitim.png",
   },
   {
     title: "Multidijitalleşme Zirvesi",
@@ -117,7 +117,7 @@ export const pastEvents: PastEvent[] = [
     category: "Dijital Dönüşüm",
     desc: "Sektör liderleri eşliğinde yapay zeka, veri ve dijitalleşmenin geleceği.",
     theme: "dark",
-    image: "/multidijitallesme-zirve.png",
+    image: "/events/multidijitallesme-zirve.png",
   },
   {
     title: "HSBC Şirket Gezisi",
@@ -127,7 +127,7 @@ export const pastEvents: PastEvent[] = [
     category: "Fintech & Bankacılık",
     desc: "HSBC Genel Müdürlüğü'nde küresel bankacılık vizyonu ve mühendislik sunumları.",
     theme: "green",
-    image: "/hsbc-gezi.png",
+    image: "/events/hsbc-gezi.png",
   },
   {
     title: "Clash Royale Quiz Night",
@@ -137,7 +137,7 @@ export const pastEvents: PastEvent[] = [
     category: "Oyun & Topluluk",
     desc: "Clash Royale tutkunlarının buluştuğu çekişmeli bilgi yarışması ve turnuva.",
     theme: "light",
-    image: "/clash-royale-quiznight.png",
+    image: "/events/clash-royale-quiznight.png",
   },
   {
     title: "Halıcı Holding Şirket Gezisi",
@@ -147,7 +147,7 @@ export const pastEvents: PastEvent[] = [
     category: "Endüstri & Otomasyon",
     desc: "Halıcı Holding tesislerinde endüstriyel otomasyon sistemleri ve IoT sunumları.",
     theme: "dark",
-    image: "/halici-gezi.png",
+    image: "/events/halici-gezi.png",
   },
   {
     title: "MİNT Quiz Night",
@@ -157,7 +157,7 @@ export const pastEvents: PastEvent[] = [
     category: "Genel Kültür & Bilim",
     desc: "Matematik, bilişim ve popüler kültür sorularıyla geniş katılımlı quiz akşamı.",
     theme: "green",
-    image: "/mint-quiznight.png",
+    image: "/events/mint-quiznight.png",
   },
   {
     title: "DeepMİNT Web Sitesi Eğitimi",
@@ -167,7 +167,7 @@ export const pastEvents: PastEvent[] = [
     category: "DeepMİNT",
     desc: "Modern web teknolojileri, frontend geliştirme ve yazılım mimarisi eğitimi.",
     theme: "light",
-    image: "/web-egitim.png",
+    image: "/events/web-egitim.png",
   },
   {
     title: "MİNT Tanışma Kahvaltısı",
