@@ -1143,8 +1143,16 @@ function parseEventDate(dateStr: string) {
     letter-spacing: -0.03em;
   }
 
+  :global([data-theme="dark"]) .hero-video__title {
+    -webkit-text-stroke: 0.8px var(--green);
+  }
+
   .hero-video__title-accent {
     color: var(--green);
+  }
+
+  :global([data-theme="dark"]) .hero-video__title-accent {
+    -webkit-text-stroke: 0;
   }
 
   .hero-video__btns {
