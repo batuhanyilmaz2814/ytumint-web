@@ -613,6 +613,19 @@ const denetimKurulu = [
     gap: 28px;
     box-shadow: var(--shadow-md);
   }
+
+  :global([data-theme="dark"]) .join-inner {
+    background: var(--green);
+  }
+
+  :global([data-theme="dark"]) .join-title {
+    color: #F8FAFC;
+  }
+  
+  :global([data-theme="dark"]) .join-desc {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
   .join-title {
     font-size: clamp(18px, 2vw, 22px);
     font-weight: 700;
