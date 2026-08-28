@@ -335,7 +335,7 @@ const denetimKurulu = [
             istiyorsan aramıza katıl.
           </p>
         </div>
-        <a href="/contact" class="btn btn-green join-btn">Başvur →</a>
+        <a href="/contact" class="btn btn-dark join-btn">Başvur →</a>
       </div>
     </div>
   </section>
@@ -603,7 +603,7 @@ const denetimKurulu = [
     background: var(--bg-main);
   }
   .join-inner {
-    background: var(--dark);
+    background: var(--green);
     color: var(--white);
     border-radius: var(--radius-md);
     padding: 36px 44px;
@@ -614,18 +614,6 @@ const denetimKurulu = [
     box-shadow: var(--shadow-md);
   }
 
-  :global([data-theme="dark"]) .join-inner {
-    background: var(--green);
-  }
-
-  :global([data-theme="dark"]) .join-title {
-    color: #F8FAFC;
-  }
-  
-  :global([data-theme="dark"]) .join-desc {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
   .join-title {
     font-size: clamp(18px, 2vw, 22px);
     font-weight: 700;
@@ -634,7 +622,7 @@ const denetimKurulu = [
   }
   .join-desc {
     font-size: 14px;
-    color: #94a3b8;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.55;
     max-width: 480px;
   }
