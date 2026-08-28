@@ -289,8 +289,9 @@ import Layout from "../layouts/Layout.astro";
             <button
               type="submit"
               class="btn btn-green contact-submit-btn"
+              id="contactSubmitBtn"
             >
-              Mesajı Gönder →
+              <span class="btn-text">Mesajı Gönder →</span>
             </button>
           </form>
         </div>
@@ -298,22 +299,118 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
+  <!-- Floating Toast Notification -->
+  <div
+    class="toast-notification"
+    id="contactToast"
+    role="alert"
+    aria-live="polite"
+  >
+    <div class="toast-icon">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">Mesajınız Başarıyla İletildi!</div>
+      <div class="toast-desc">
+        En kısa sürede e-posta adresiniz üzerinden geri dönüş yapacağız.
+      </div>
+    </div>
+    <button class="toast-close" id="toastCloseBtn" aria-label="Bildirimi Kapat">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="6"></line>
+      </svg>
+    </button>
+    <div class="toast-progress" id="toastProgress"></div>
+  </div>
+
   <script>
-    const contactForm = document.getElementById("contactForm");
+    const contactForm = document.getElementById("contactForm") as HTMLFormElement;
+    const submitBtn = document.getElementById("contactSubmitBtn") as HTMLButtonElement;
+    const toast = document.getElementById("contactToast");
+    const toastCloseBtn = document.getElementById("toastCloseBtn");
+    let toastTimeout: NodeJS.Timeout | number;
+
+    // URL subject query pre-filling
+    const urlParams = new URLSearchParams(window.location.search);
+    const subjectParam = urlParams.get("subject") || urlParams.get("konu");
+    if (subjectParam) {
+      const subjectInput = document.getElementById("contactSubject") as HTMLInputElement;
+      if (subjectInput) {
+        subjectInput.value = decodeURIComponent(subjectParam);
+      }
+    }
+
+    function showToast() {
+      if (!toast) return;
+      clearTimeout(toastTimeout);
+      toast.classList.remove("show");
+      void toast.offsetWidth; // Trigger reflow for re-animation
+      toast.classList.add("show");
+
+      toastTimeout = setTimeout(() => {
+        hideToast();
+      }, 5000);
+    }
+
+    function hideToast() {
+      if (!toast) return;
+      toast.classList.remove("show");
+      clearTimeout(toastTimeout);
+    }
+
+    toastCloseBtn?.addEventListener("click", hideToast);
+
     contactForm?.addEventListener("submit", (e) => {
       e.preventDefault();
-      const btn = contactForm.querySelector(
-        'button[type="submit"]',
-      ) as HTMLButtonElement;
-      if (btn) {
-        btn.textContent = "✓ Gönderildi!";
-        btn.style.background = "#61a95d";
+      if (!submitBtn) return;
+
+      // 1. Loading State
+      submitBtn.disabled = true;
+      submitBtn.classList.add("is-loading");
+      submitBtn.innerHTML = `
+        <span class="btn-spinner"></span>
+        <span>Gönderiliyor...</span>
+      `;
+
+      // 2. Simulated Async Network Dispatch
+      setTimeout(() => {
+        // Success State
+        submitBtn.classList.remove("is-loading");
+        submitBtn.classList.add("is-success");
+        submitBtn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Mesajınız İletildi!</span>
+        `;
+
+        showToast();
+        contactForm.reset();
+
+        // 3. Reset Button after 3.5 seconds
         setTimeout(() => {
-          btn.textContent = "Mesajı Gönder →";
-          btn.style.background = "";
-          contactForm.reset();
-        }, 3000);
-      }
+          submitBtn.classList.remove("is-success");
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span class="btn-text">Mesajı Gönder →</span>`;
+        }, 3500);
+      }, 950);
     });
   </script>
 </Layout>
@@ -585,12 +682,165 @@ import Layout from "../layouts/Layout.astro";
 
   .contact-submit-btn {
     width: 100%;
-    padding: 10px 20px;
-    font-size: 13.5px;
+    padding: 12px 20px;
+    font-size: 14px;
     font-weight: 600;
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .contact-submit-btn.is-loading {
+    cursor: wait;
+    opacity: 0.9;
+  }
+
+  .contact-submit-btn.is-success {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Spinner */
+  .btn-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    animation: btnSpin 0.7s linear infinite;
+  }
+
+  @keyframes btnSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ── Toast Notification ───────────────────────────────────────── */
+  .toast-notification {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    max-width: 440px;
+    width: calc(100vw - 40px);
+    background: var(--white);
+    border: 1px solid rgba(97, 169, 93, 0.35);
+    border-radius: 16px;
+    box-shadow:
+      0 20px 45px -10px rgba(15, 23, 42, 0.16),
+      0 4px 16px rgba(97, 169, 93, 0.12);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    transform: translateY(120%) scale(0.95);
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .toast-notification.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  :global([data-theme="dark"]) .toast-notification {
+    background: #131b26;
+    border-color: rgba(97, 169, 93, 0.4);
+    box-shadow:
+      0 24px 50px -10px rgba(0, 0, 0, 0.6),
+      0 4px 20px rgba(97, 169, 93, 0.2);
+  }
+
+  .toast-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(97, 169, 93, 0.15);
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     margin-top: 2px;
   }
 
+  .toast-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .toast-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .toast-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .toast-close {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .toast-close:hover {
+    color: var(--dark);
+    background: var(--bg-muted);
+  }
+
+  .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--green), #10b981);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  .toast-notification.show .toast-progress {
+    animation: toastProgress 5s linear forwards;
+  }
+
+  @keyframes toastProgress {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .contact-inner {
       grid-template-columns: 1fr;
@@ -604,6 +854,12 @@ import Layout from "../layouts/Layout.astro";
     }
     .form-row {
       grid-template-columns: 1fr;
+    }
+    .toast-notification {
+      bottom: 16px;
+      right: 16px;
+      left: 16px;
+      width: auto;
     }
   }
 </style>
