@@ -243,7 +243,7 @@ import Layout from "../layouts/Layout.astro";
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="contactName"
-                  >Adınız Soyadınız</label
+                  >Adınız Soyadınız <span class="form-required">*</span></label
                 >
                 <input
                   type="text"
@@ -254,7 +254,9 @@ import Layout from "../layouts/Layout.astro";
                 />
               </div>
               <div class="form-group">
-                <label class="form-label" for="contactEmail">E-posta</label>
+                <label class="form-label" for="contactEmail"
+                  >E-posta <span class="form-required">*</span></label
+                >
                 <input
                   type="email"
                   class="form-input"
@@ -266,7 +268,9 @@ import Layout from "../layouts/Layout.astro";
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="contactSubject">Konu</label>
+              <label class="form-label" for="contactSubject"
+                >Konu <span class="form-required">*</span></label
+              >
               <select
                 class="form-input form-select"
                 id="contactSubject"
@@ -280,7 +284,9 @@ import Layout from "../layouts/Layout.astro";
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="contactMessage">Mesajınız</label>
+              <label class="form-label" for="contactMessage"
+                >Mesajınız <span class="form-required">*</span></label
+              >
               <textarea
                 class="form-input"
                 placeholder="Mesajınızı buraya yazabilirsiniz..."
@@ -350,22 +356,35 @@ import Layout from "../layouts/Layout.astro";
     const toastCloseBtn = document.getElementById("toastCloseBtn");
     let toastTimeout: NodeJS.Timeout | number;
 
-    // URL subject query pre-filling
-    const urlParams = new URLSearchParams(window.location.search);
-    const subjectParam = urlParams.get("subject") || urlParams.get("konu");
-    if (subjectParam) {
-      const subjectSelect = document.getElementById("contactSubject") as HTMLSelectElement;
+    const subjectSelect = document.getElementById("contactSubject") as HTMLSelectElement;
+
+    function updateSubjectColor() {
       if (subjectSelect) {
-        const decoded = decodeURIComponent(subjectParam).toLowerCase();
-        for (let i = 0; i < subjectSelect.options.length; i++) {
-          const optVal = subjectSelect.options[i].value.toLowerCase();
-          if (optVal && (optVal.includes(decoded) || decoded.includes(optVal))) {
-            subjectSelect.selectedIndex = i;
-            break;
-          }
+        if (!subjectSelect.value) {
+          subjectSelect.classList.add("is-placeholder");
+        } else {
+          subjectSelect.classList.remove("is-placeholder");
         }
       }
     }
+
+    subjectSelect?.addEventListener("change", updateSubjectColor);
+
+    // URL subject query pre-filling
+    const urlParams = new URLSearchParams(window.location.search);
+    const subjectParam = urlParams.get("subject") || urlParams.get("konu");
+    if (subjectParam && subjectSelect) {
+      const decoded = decodeURIComponent(subjectParam).toLowerCase();
+      for (let i = 0; i < subjectSelect.options.length; i++) {
+        const optVal = subjectSelect.options[i].value.toLowerCase();
+        if (optVal && (optVal.includes(decoded) || decoded.includes(optVal))) {
+          subjectSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    updateSubjectColor();
 
     function showToast() {
       if (!toast) return;
@@ -653,6 +672,16 @@ import Layout from "../layouts/Layout.astro";
     font-size: 12.5px;
     font-weight: 600;
     color: var(--dark);
+    display: flex;
+    align-items: center;
+  }
+
+  .form-required {
+    color: #ef4444;
+    font-weight: 700;
+    margin-left: 3px;
+    font-size: 13px;
+    line-height: 1;
   }
 
   .form-input {
@@ -690,6 +719,11 @@ import Layout from "../layouts/Layout.astro";
     padding-right: 36px;
   }
 
+  select.form-input.is-placeholder,
+  select.form-input:invalid {
+    color: #94a3b8;
+  }
+
   select.form-input option {
     background: var(--white);
     color: var(--dark);
@@ -700,8 +734,17 @@ import Layout from "../layouts/Layout.astro";
     color: #f1f5f9;
   }
 
+  :global([data-theme="dark"]) select.form-input.is-placeholder,
+  :global([data-theme="dark"]) select.form-input:invalid {
+    color: #64748b;
+  }
+
   .form-input::placeholder {
     color: #94a3b8;
+  }
+
+  :global([data-theme="dark"]) .form-input::placeholder {
+    color: #64748b;
   }
 
   textarea.form-input {
