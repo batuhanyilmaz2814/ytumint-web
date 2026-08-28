@@ -9,6 +9,15 @@ function parseEventDate(dateStr: string) {
   }
   return { day: "", month: dateStr };
 }
+
+const categories = [
+  { id: "all", label: "Tümü" },
+  { id: "Şirket Gezisi", label: "Şirket Gezisi" },
+  { id: "Quiz Night", label: "Quiz Night" },
+  { id: "Zirve", label: "Zirve" },
+  { id: "Eğitim", label: "Eğitim" },
+  { id: "Sosyal Etkinlik", label: "Sosyal Etkinlik" },
+];
 ---
 
 <Layout
@@ -111,12 +120,28 @@ function parseEventDate(dateStr: string) {
         </div>
       </div>
 
+      <!-- Past Events Category Filter -->
+      <div class="events-filter-bar" role="tablist" aria-label="Etkinlik Kategorileri">
+        {
+          categories.map((cat, index) => (
+            <button
+              class:list={["filter-btn", { active: index === 0 }]}
+              data-category={cat.id}
+              role="tab"
+              aria-selected={index === 0 ? "true" : "false"}
+            >
+              {cat.label}
+            </button>
+          ))
+        }
+      </div>
+
       <div class="past-events-slider-track" id="pastEventsSlider">
         {
           pastEvents.map((event) => {
             const { day, month } = parseEventDate(event.date);
             return (
-              <div class="past-event-card">
+              <div class="past-event-card" data-category={event.category}>
                 <div class="past-event-img-wrap">
                   {event.image ? (
                     <img
@@ -137,6 +162,7 @@ function parseEventDate(dateStr: string) {
                       <span class="past-event-day">{day}</span>
                       <span class="past-event-month">{month}</span>
                     </div>
+                    <span class="past-event-category-badge">{event.category}</span>
                   </div>
                   <h3 class="past-event-title">{event.title}</h3>
                   <div class="past-event-footer">
@@ -161,6 +187,10 @@ function parseEventDate(dateStr: string) {
           })
         }
       </div>
+
+      <div class="events-empty-state" id="eventsEmptyState" style="display: none;">
+        <p>Bu kategoride henüz listelenen etkinlik bulunmuyor.</p>
+      </div>
     </div>
   </section>
 
@@ -168,9 +198,18 @@ function parseEventDate(dateStr: string) {
     const slider = document.getElementById("pastEventsSlider");
     const prevBtn = document.getElementById("pastEventsPrev") as HTMLButtonElement;
     const nextBtn = document.getElementById("pastEventsNext") as HTMLButtonElement;
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const eventCards = document.querySelectorAll<HTMLElement>(".past-event-card");
+    const emptyState = document.getElementById("eventsEmptyState");
 
     function updateButtons() {
       if (!slider || !prevBtn || !nextBtn) return;
+      const isScrollable = slider.scrollWidth > slider.clientWidth + 5;
+      if (!isScrollable) {
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        return;
+      }
       prevBtn.disabled = slider.scrollLeft <= 10;
       nextBtn.disabled =
         slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10;
@@ -188,6 +227,41 @@ function parseEventDate(dateStr: string) {
 
     slider?.addEventListener("scroll", updateButtons, { passive: true });
     window.addEventListener("resize", updateButtons);
+
+    // Filtering logic
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
+        const selectedCategory = btn.getAttribute("data-category");
+        let visibleCount = 0;
+
+        eventCards.forEach((card) => {
+          const cardCategory = card.getAttribute("data-category");
+          if (selectedCategory === "all" || cardCategory === selectedCategory) {
+            card.classList.remove("is-hidden");
+            visibleCount++;
+          } else {
+            card.classList.add("is-hidden");
+          }
+        });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? "block" : "none";
+        }
+
+        if (slider) {
+          slider.scrollTo({ left: 0, behavior: "smooth" });
+          setTimeout(updateButtons, 120);
+        }
+      });
+    });
+
     updateButtons();
   </script>
 </Layout>
@@ -409,7 +483,7 @@ function parseEventDate(dateStr: string) {
 
   .slider-nav-btn:hover:not(:disabled) {
     background: var(--green);
-    color: var(--white);
+    color: #ffffff;
     border-color: var(--green);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -418,6 +492,51 @@ function parseEventDate(dateStr: string) {
   .slider-nav-btn:disabled {
     opacity: 0.35;
     cursor: not-allowed;
+  }
+
+  /* Filter Bar */
+  .events-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .filter-btn {
+    appearance: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 8px 18px;
+    font-family: var(--font);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.02);
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .filter-btn:hover {
+    background: var(--bg-muted);
+    color: var(--dark);
+    border-color: rgba(97, 169, 93, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .filter-btn.active {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(97, 169, 93, 0.28);
+    transform: translateY(-1px);
   }
 
   .past-events-slider-track {
@@ -452,10 +571,15 @@ function parseEventDate(dateStr: string) {
     display: flex;
     flex-direction: column;
   }
+
   .past-event-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(16, 185, 129, 0.35);
+    border-color: rgba(97, 169, 93, 0.35);
     box-shadow: var(--shadow-hover);
+  }
+
+  .past-event-card.is-hidden {
+    display: none !important;
   }
 
   .past-event-img-wrap {
@@ -510,6 +634,7 @@ function parseEventDate(dateStr: string) {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 8px;
   }
 
   .past-event-date {
@@ -531,18 +656,22 @@ function parseEventDate(dateStr: string) {
     color: var(--dark);
   }
 
+  .past-event-category-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green-text);
+    background: var(--green-light);
+    border: 1px solid var(--green-border);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
   .past-event-title {
     font-size: 15.5px;
     font-weight: 700;
     margin: 0;
     color: var(--dark);
-  }
-  .past-event-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
-    flex-grow: 1;
   }
 
   .past-event-footer {
@@ -557,6 +686,18 @@ function parseEventDate(dateStr: string) {
     display: flex;
     align-items: center;
     gap: 6px;
+  }
+
+  .events-empty-state {
+    padding: 48px 24px;
+    text-align: center;
+    background: var(--white);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    font-size: 14px;
+    width: 100%;
+    margin-top: 8px;
   }
 
   @media (max-width: 1024px) {
@@ -574,6 +715,7 @@ function parseEventDate(dateStr: string) {
       text-align: center;
     }
   }
+
   @media (max-width: 640px) {
     .past-event-card {
       flex: 0 0 100%;
@@ -583,6 +725,13 @@ function parseEventDate(dateStr: string) {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
+    }
+    .events-filter-bar {
+      gap: 6px;
+    }
+    .filter-btn {
+      padding: 7px 14px;
+      font-size: 12.5px;
     }
     .event-item {
       padding: 24px 20px;

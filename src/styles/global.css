@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Questrial&family=Quicksand:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* =============================================
    MINIMALIST DESIGN SYSTEM | YTÜ MİNT
@@ -358,9 +358,9 @@ p {
 }
 
 .logo-text {
-  font-family: 'Quicksand', 'Comfortaa', 'Josefin Sans', sans-serif;
+  font-family: var(--font);
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--white);
   letter-spacing: 0.02em;
   line-height: 1;
