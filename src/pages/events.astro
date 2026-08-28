@@ -70,39 +70,41 @@ const categories = [
             ve topluluk buluşmaları.
           </p>
         </div>
-        <div class="slider-nav">
-          <button
-            class="slider-nav-btn prev"
-            id="pastEventsPrev"
-            aria-label="Önceki etkinlikler"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+
+        <div class="past-events-controls">
+          <!-- View Switcher Toggle (Icons only: Grid & List) -->
+          <div class="view-mode-toggle" role="group" aria-label="Görünüm Modu">
+            <button
+              class="view-toggle-btn active"
+              id="viewGridBtn"
+              data-view="grid"
+              title="Izgara Görünümü"
+              aria-label="Izgara Görünümü"
             >
-              <path d="M15 18l-6-6 6-6"></path>
-            </svg>
-          </button>
-          <button
-            class="slider-nav-btn next"
-            id="pastEventsNext"
-            aria-label="Sonraki etkinlikler"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+              </svg>
+            </button>
+            <button
+              class="view-toggle-btn"
+              id="viewListBtn"
+              data-view="list"
+              title="Liste Görünümü"
+              aria-label="Liste Görünümü"
             >
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </button>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <circle cx="3.5" cy="6" r="1.5" fill="currentColor"></circle>
+                <circle cx="3.5" cy="12" r="1.5" fill="currentColor"></circle>
+                <circle cx="3.5" cy="18" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -126,7 +128,8 @@ const categories = [
         }
       </div>
 
-      <div class="past-events-slider-track" id="pastEventsSlider">
+      <!-- Events Track / Grid / List Container -->
+      <div class="past-events-container view-grid" id="pastEventsContainer">
         {
           pastEvents.map((event) => {
             const { day, month } = parseEventDate(event.date);
@@ -163,6 +166,24 @@ const categories = [
         }
       </div>
 
+      <!-- Load More Button (For Grid & List modes) -->
+      <div class="load-more-wrapper" id="loadMoreWrapper">
+        <button class="btn btn-outline load-more-btn" id="loadMoreBtn">
+          <span>Daha Fazla Etkinlik Göster</span>
+          <span class="load-more-counter" id="loadMoreCounter"></span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </button>
+      </div>
+
       <div
         class="events-empty-state"
         id="eventsEmptyState"
@@ -174,46 +195,86 @@ const categories = [
   </section>
 
   <script>
-    const slider = document.getElementById("pastEventsSlider");
-    const prevBtn = document.getElementById(
-      "pastEventsPrev",
-    ) as HTMLButtonElement;
-    const nextBtn = document.getElementById(
-      "pastEventsNext",
-    ) as HTMLButtonElement;
+    const container = document.getElementById("pastEventsContainer");
+    const viewToggleBtns =
+      document.querySelectorAll<HTMLButtonElement>(".view-toggle-btn");
     const filterBtns =
       document.querySelectorAll<HTMLButtonElement>(".filter-btn");
     const eventCards =
       document.querySelectorAll<HTMLElement>(".past-event-card");
     const emptyState = document.getElementById("eventsEmptyState");
+    const loadMoreWrapper = document.getElementById("loadMoreWrapper");
+    const loadMoreBtn = document.getElementById(
+      "loadMoreBtn",
+    ) as HTMLButtonElement;
+    const loadMoreCounter = document.getElementById("loadMoreCounter");
 
-    function updateButtons() {
-      if (!slider || !prevBtn || !nextBtn) return;
-      const isScrollable = slider.scrollWidth > slider.clientWidth + 5;
-      if (!isScrollable) {
-        prevBtn.disabled = true;
-        nextBtn.disabled = true;
-        return;
+    let currentView: "grid" | "list" = "grid";
+    let selectedCategory = "all";
+    const PAGE_SIZE = 12;
+    let visibleLimit = PAGE_SIZE;
+
+    function renderEvents() {
+      if (!container) return;
+
+      let matchingCount = 0;
+      const matchingCards: HTMLElement[] = [];
+
+      // Determine matching cards for the selected category
+      eventCards.forEach((card) => {
+        const cardCategory = card.getAttribute("data-category");
+        if (selectedCategory === "all" || cardCategory === selectedCategory) {
+          card.classList.remove("is-category-hidden");
+          matchingCards.push(card);
+          matchingCount++;
+        } else {
+          card.classList.add("is-category-hidden");
+          card.classList.remove("is-paginated-hidden");
+        }
+      });
+
+      // Handle empty state
+      if (emptyState) {
+        emptyState.style.display = matchingCount === 0 ? "block" : "none";
       }
-      prevBtn.disabled = slider.scrollLeft <= 10;
-      nextBtn.disabled =
-        slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10;
+
+      // Grid or List mode with Load More pagination
+      matchingCards.forEach((card, index) => {
+        if (index < visibleLimit) {
+          card.classList.remove("is-paginated-hidden");
+        } else {
+          card.classList.add("is-paginated-hidden");
+        }
+      });
+
+      if (loadMoreWrapper) {
+        if (matchingCount > visibleLimit) {
+          loadMoreWrapper.style.display = "flex";
+          if (loadMoreCounter) {
+            loadMoreCounter.textContent = `${Math.min(visibleLimit, matchingCount)} / ${matchingCount}`;
+          }
+        } else {
+          loadMoreWrapper.style.display = "none";
+        }
+      }
     }
 
-    prevBtn?.addEventListener("click", () => {
-      if (!slider) return;
-      slider.scrollBy({ left: -slider.clientWidth, behavior: "smooth" });
+    // View switcher handler (Grid & List)
+    viewToggleBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const view = btn.getAttribute("data-view") as "grid" | "list";
+        if (!view || view === currentView || !container) return;
+
+        viewToggleBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        currentView = view;
+        container.className = `past-events-container view-${view}`;
+        renderEvents();
+      });
     });
 
-    nextBtn?.addEventListener("click", () => {
-      if (!slider) return;
-      slider.scrollBy({ left: slider.clientWidth, behavior: "smooth" });
-    });
-
-    slider?.addEventListener("scroll", updateButtons, { passive: true });
-    window.addEventListener("resize", updateButtons);
-
-    // Filtering logic
+    // Category filter handler
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         filterBtns.forEach((b) => {
@@ -223,31 +284,20 @@ const categories = [
         btn.classList.add("active");
         btn.setAttribute("aria-selected", "true");
 
-        const selectedCategory = btn.getAttribute("data-category");
-        let visibleCount = 0;
-
-        eventCards.forEach((card) => {
-          const cardCategory = card.getAttribute("data-category");
-          if (selectedCategory === "all" || cardCategory === selectedCategory) {
-            card.classList.remove("is-hidden");
-            visibleCount++;
-          } else {
-            card.classList.add("is-hidden");
-          }
-        });
-
-        if (emptyState) {
-          emptyState.style.display = visibleCount === 0 ? "block" : "none";
-        }
-
-        if (slider) {
-          slider.scrollTo({ left: 0, behavior: "smooth" });
-          setTimeout(updateButtons, 120);
-        }
+        selectedCategory = btn.getAttribute("data-category") || "all";
+        visibleLimit = PAGE_SIZE; // reset pagination limit on filter change
+        renderEvents();
       });
     });
 
-    updateButtons();
+    // Load more handler
+    loadMoreBtn?.addEventListener("click", () => {
+      visibleLimit += PAGE_SIZE;
+      renderEvents();
+    });
+
+    // Initial render
+    renderEvents();
   </script>
 </Layout>
 
@@ -460,41 +510,56 @@ const categories = [
     justify-content: space-between;
     margin-bottom: 20px;
     gap: 16px;
+    flex-wrap: wrap;
   }
 
-  .slider-nav {
+  .past-events-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
+    gap: 12px;
   }
 
-  .slider-nav-btn {
-    width: 36px;
-    height: 36px;
+  /* View Mode Toggle (Icons Only) */
+  .view-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--bg-muted);
+    padding: 3px;
     border-radius: var(--radius-full);
-    border: 1px solid var(--border);
-    background: var(--white);
-    color: var(--dark);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .view-toggle-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: var(--radius-full);
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
   }
 
-  .slider-nav-btn:hover:not(:disabled) {
-    background: var(--green);
+  .view-toggle-btn:hover {
+    color: var(--dark);
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  .view-toggle-btn.active {
+    background: var(--white);
+    color: var(--dark);
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+  }
+
+  :global([data-theme="dark"]) .view-toggle-btn.active {
+    background: rgba(255, 255, 255, 0.14);
     color: #ffffff;
-    border-color: var(--green);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .slider-nav-btn:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
   }
 
   /* Filter Bar */
@@ -542,26 +607,10 @@ const categories = [
     transform: translateY(-1px);
   }
 
-  .past-events-slider-track {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 4px 2px 16px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
+  /* ── Past Events Container Modes (Grid & List) ───────────── */
 
-  .past-events-slider-track::-webkit-scrollbar {
-    display: none;
-  }
-
+  /* Base Card */
   .past-event-card {
-    flex: 0 0 calc(25% - 12px);
-    min-width: 230px;
-    max-width: 290px;
-    scroll-snap-align: start;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
@@ -583,7 +632,8 @@ const categories = [
     box-shadow: var(--shadow-hover);
   }
 
-  .past-event-card.is-hidden {
+  .past-event-card.is-category-hidden,
+  .past-event-card.is-paginated-hidden {
     display: none !important;
   }
 
@@ -679,6 +729,113 @@ const categories = [
     overflow: hidden;
   }
 
+  /* 1. GRID VIEW */
+  .past-events-container.view-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 4px 0 16px;
+  }
+
+  .past-events-container.view-grid .past-event-card {
+    flex: none;
+    max-width: 100%;
+    min-width: 0;
+    animation: fadeInCard 0.3s ease;
+  }
+
+  /* 2. LIST VIEW */
+  .past-events-container.view-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 4px 0 16px;
+  }
+
+  .past-events-container.view-list .past-event-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 18px;
+    gap: 18px;
+    animation: fadeInCard 0.3s ease;
+  }
+
+  .past-events-container.view-list .past-event-img-wrap {
+    width: 110px;
+    height: 75px;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    aspect-ratio: auto;
+  }
+
+  .past-events-container.view-list .past-event-body {
+    padding: 0;
+    min-height: auto;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .past-events-container.view-list .past-event-title {
+    min-height: auto;
+    font-size: 16px;
+    -webkit-line-clamp: 1;
+  }
+
+  @keyframes fadeInCard {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Load More Pagination */
+  .load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  .load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    background: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--border);
+    transition: all 0.25s ease;
+  }
+
+  .load-more-btn:hover {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(97, 169, 93, 0.28);
+  }
+
+  .load-more-counter {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    background: var(--bg-muted);
+    color: var(--text-muted);
+  }
+
+  .load-more-btn:hover .load-more-counter {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
+
   .events-empty-state {
     padding: 48px 24px;
     text-align: center;
@@ -691,10 +848,11 @@ const categories = [
     margin-top: 8px;
   }
 
+  /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
-    .past-event-card {
-      flex: 0 0 calc(33.333% - 11px);
-      min-width: 220px;
+    .past-events-container.view-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
     .event-item {
       flex-direction: column;
@@ -707,25 +865,48 @@ const categories = [
     }
   }
 
-  @media (max-width: 640px) {
-    .past-event-card {
-      flex: 0 0 240px;
-      min-width: 240px;
+  @media (max-width: 768px) {
+    .past-events-container.view-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
+    .past-events-container.view-list .past-event-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px;
+    }
+    .past-events-container.view-list .past-event-img-wrap {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  @media (max-width: 640px) {
     .section-header-row {
       flex-direction: column;
       align-items: flex-start;
-      gap: 16px;
+      gap: 14px;
+    }
+    .past-events-controls {
+      width: 100%;
+      justify-content: flex-end;
     }
     .events-filter-bar {
       gap: 6px;
     }
     .filter-btn {
-      padding: 7px 14px;
-      font-size: 12.5px;
+      padding: 6px 12px;
+      font-size: 12px;
     }
     .event-item {
       padding: 24px 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .past-events-container.view-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
