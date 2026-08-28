@@ -24,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/communities/bc-logo.png"
+                src="/communities/bc-logo.webp"
                 alt="YTÜ Blockchain"
                 class="community-card-logo"
               />
@@ -103,7 +103,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/communities/yildiz-siber.png"
+                src="/communities/yildiz-siber.webp"
                 alt="Yıldız Siber"
                 class="community-card-logo"
               />
@@ -159,7 +159,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/communities/hsd-logo.png"
+                src="/communities/hsd-logo.webp"
                 alt="Huawei Student Developers (HSD YTU)"
                 class="community-card-logo"
               />
@@ -221,7 +221,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/communities/deptron-logo.jpg"
+                src="/communities/deptron-logo.webp"
                 alt="YTÜ Deptron"
                 class="community-card-logo"
               />
@@ -321,7 +321,7 @@ import Layout from "../layouts/Layout.astro";
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("/brand/mint-pattern.png");
+    background-image: url('/brand/mint-pattern.webp');
     background-size: 260px 260px;
     background-repeat: repeat;
     background-position: center;
@@ -403,32 +403,38 @@ import Layout from "../layouts/Layout.astro";
   .community-card-header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
   }
 
   .community-card-logo-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: transparent;
+    width: 68px;
+    height: 68px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;
+    padding: 8px;
     overflow: hidden;
     flex-shrink: 0;
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   }
 
   .community-card:hover .community-card-logo-box {
     transform: scale(1.06);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
   }
 
   .community-card-logo {
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    border-radius: 8px;
+    object-position: center;
+    display: block;
   }
 
   .community-name {

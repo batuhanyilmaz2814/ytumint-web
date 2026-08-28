@@ -3,16 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import { pastEvents } from "../data/events";
 
 const sponsors = [
-  { name: "Arkas Lojistik", logo: "/sponsors/arkas-lojistik-logo.png" },
-  { name: "Halıcı Elektronik", logo: "/sponsors/halici-logo.png" },
+  { name: "Arkas Lojistik", logo: "/sponsors/arkas-lojistik-logo.webp" },
+  { name: "Halıcı Elektronik", logo: "/sponsors/halici-logo.webp" },
   { name: "Kariyer.net", logo: "/sponsors/kariyernet-logo.webp" },
-  { name: "Techcareer.net", logo: "/sponsors/techcareer-logo.png" },
-  { name: "Sui Foundation", logo: "/sponsors/sui-logo.png" },
-  { name: "YTÜ Startup House", logo: "/sponsors/ytu-startup-house-logo.png" },
+  { name: "Techcareer.net", logo: "/sponsors/techcareer-logo.webp" },
+  { name: "Sui Foundation", logo: "/sponsors/sui-logo.webp" },
+  { name: "YTÜ Startup House", logo: "/sponsors/ytu-startup-house-logo.webp" },
   { name: "Reeder", logo: "/sponsors/reeder-logo.webp" },
-  { name: "Tatilciniz", logo: "/sponsors/tatilciniz-logo.jpg" },
-  { name: "Indomie", logo: "/sponsors/indomie-logo.png" },
-  { name: "Karnaval Müzik", logo: "/sponsors/karnaval-muzik-logo.jpg" },
+  { name: "Tatilciniz", logo: "/sponsors/tatilciniz-logo.webp" },
+  { name: "Indomie", logo: "/sponsors/indomie-logo.webp" },
+  { name: "Karnaval Müzik", logo: "/sponsors/karnaval-muzik-logo.webp" },
 ];
 
 const repeatedSponsors = [...sponsors, ...sponsors];
@@ -401,7 +401,7 @@ function parseEventDate(dateStr: string) {
         <div class="about-photo">
           <div class="about-photo-wrapper">
             <img
-              src="/team/mint-ekip.jpg"
+              src="/team/mint-ekip.webp"
               alt="YTÜ MİNT Ekibi"
               class="about-photo-img"
               loading="lazy"
@@ -440,7 +440,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/communities/bc-logo.png"
+                src="/communities/bc-logo.webp"
                 alt="YTÜ Blockchain"
                 class="community-home-logo"
               />
@@ -506,7 +506,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/communities/yildiz-siber.png"
+                src="/communities/yildiz-siber.webp"
                 alt="Yıldız Siber"
                 class="community-home-logo"
               />
@@ -549,7 +549,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/communities/hsd-logo.png"
+                src="/communities/hsd-logo.webp"
                 alt="Huawei Student Developers (HSD YTU)"
                 class="community-home-logo"
               />
@@ -594,7 +594,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/communities/deptron-logo.jpg"
+                src="/communities/deptron-logo.webp"
                 alt="YTÜ Deptron"
                 class="community-home-logo"
               />
@@ -855,7 +855,7 @@ function parseEventDate(dateStr: string) {
 
         <div class="team-home-photo-wrap">
           <img
-            src="/team/mint-ana-ekip.png"
+            src="/team/mint-ana-ekip.webp"
             alt="YTÜ MİNT Ekibi"
             class="team-home-photo"
             loading="lazy"
@@ -1408,14 +1408,14 @@ function parseEventDate(dateStr: string) {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
 
   .community-home-logo-box {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    background: var(--white);
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: #ffffff;
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -1429,14 +1429,18 @@ function parseEventDate(dateStr: string) {
   }
 
   .community-home-card:hover .community-home-logo-box {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.07);
+    transform: scale(1.06);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
   }
 
   .community-home-logo {
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    object-position: center;
+    display: block;
   }
 
   .community-home-name {
