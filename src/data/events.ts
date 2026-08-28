@@ -1,7 +1,6 @@
 export interface PastEvent {
   title: string;
   date: string;
-  location: string;
   badge: string;
   category: 'Şirket Gezisi' | 'Quiz Night' | 'Zirve' | 'Eğitim' | 'Sosyal Etkinlik' | string;
   desc: string;
@@ -13,7 +12,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "YKS Tanıtım Günleri",
     date: "25-28 Temmuz",
-    location: "YTÜ Davutpaşa",
     badge: "🎓 Tanıtım",
     category: "Sosyal Etkinlik",
     desc: "YKS sonrası üniversite tercihi yapacak aday öğrencilere YTÜ ve MİNT tanıtıldı.",
@@ -22,7 +20,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Akbank Şirket Gezisi",
     date: "28 Nisan 2026",
-    location: "Sabancı Akbank Genel Müdürlük",
     badge: "🏢 Şirket Gezisi",
     category: "Şirket Gezisi",
     desc: "Akbank Genel Müdürlüğü ziyareti, operasyon ve teknoloji ekipleriyle buluşma.",
@@ -32,7 +29,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Muhteşem Yüzyıl Quiz Night",
     date: "27 Nisan 2026",
-    location: "YTÜ Davutpaşa Yıldız Kafe",
     badge: "🎯 Quiz Night",
     category: "Quiz Night",
     desc: "Muhteşem Yüzyıl temalı kıyasıya rekabet ve eğlence dolu bilgi yarışması.",
@@ -42,7 +38,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Harry Potter Quiz Night",
     date: "3 Nisan 2026",
-    location: "YTÜ Davutpaşa Yıldız Kafe",
     badge: "⚡ Quiz Night",
     category: "Quiz Night",
     desc: "Büyücülük dünyasının en iyilerinin yarıştığı tematik quiz gecesi.",
@@ -52,7 +47,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Borusan Burada",
     date: "30 Mart 2026",
-    location: "YTÜ Davutpaşa EEF Konferans Salonu",
     badge: "💼 Kariyer & Zirve",
     category: "Zirve",
     desc: "Borusan yöneticileri ve mühendisleriyle kariyer fırsatları ve deneyim paylaşımı.",
@@ -62,7 +56,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Bilişim Vadisi Şirket Gezisi",
     date: "25 Mart 2026",
-    location: "Vadi İstanbul",
     badge: "🏢 Şirket Gezisi",
     category: "Şirket Gezisi",
     desc: "Türkiye'nin teknoloji üssü Bilişim Vadisi ekosistemi ve teknoloji merkezleri gezisi.",
@@ -72,7 +65,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "YTÜ MİNT İftar",
     date: "17 Mart 2026",
-    location: "YTÜ Davutpaşa Kulüpler Vadisi",
     badge: "🌙 Sosyal Etkinlik",
     category: "Sosyal Etkinlik",
     desc: "MİNT ailesiyle Ramazan ayında geleneksel iftar yemeği buluşması.",
@@ -82,7 +74,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Vodafone Şirket Gezisi",
     date: "25 Şubat 2026",
-    location: "Vodafone İstanbul",
     badge: "🏢 Şirket Gezisi",
     category: "Şirket Gezisi",
     desc: "Vodafone Türkiye genel merkez ziyareti ve yeni nesil iletişim teknolojileri paneli.",
@@ -92,7 +83,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Home Alone Quiz Night",
     date: "29 Aralık 2025",
-    location: "YTÜ Davutpaşa Yıldız Kafe",
     badge: "🎄 Quiz Night",
     category: "Quiz Night",
     desc: "Yılbaşı öncesi film klasiği Home Alone temalı eğlenceli quiz gecesi.",
@@ -102,7 +92,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Siber Güvenlik Eğitimi",
     date: "13 Aralık 2025",
-    location: "YTÜ Yıldız Teknopark",
     badge: "🛡️ Eğitim & Atölye",
     category: "Eğitim",
     desc: "Yıldız Siber liderliğinde temel ve ileri seviye siber güvenlik atölyesi.",
@@ -112,7 +101,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Multidijitalleşme Zirvesi",
     date: "3 Aralık 2025",
-    location: "YTÜ Davutpaşa EEF Konferans Salonu",
     badge: "🚀 Zirve & Konferans",
     category: "Zirve",
     desc: "Sektör liderleri eşliğinde yapay zeka, veri ve dijitalleşmenin geleceği.",
@@ -122,7 +110,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "HSBC Şirket Gezisi",
     date: "27 Kasım 2025",
-    location: "HSBC İstanbul",
     badge: "🏢 Şirket Gezisi",
     category: "Şirket Gezisi",
     desc: "HSBC Genel Müdürlüğü'nde küresel bankacılık vizyonu ve mühendislik sunumları.",
@@ -132,7 +119,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Clash Royale Quiz Night",
     date: "7 Kasım 2025",
-    location: "Yıldız Davutpaşa Coffy",
     badge: "👑 Quiz & Turnuva",
     category: "Quiz Night",
     desc: "Clash Royale tutkunlarının buluştuğu çekişmeli bilgi yarışması ve turnuva.",
@@ -142,7 +128,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "Halıcı Holding Şirket Gezisi",
     date: "31 Ekim 2025",
-    location: "Halıcı İstanbul",
     badge: "🏢 Şirket Gezisi",
     category: "Şirket Gezisi",
     desc: "Halıcı Holding tesislerinde endüstriyel otomasyon sistemleri ve IoT sunumları.",
@@ -152,7 +137,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "MİNT Quiz Night",
     date: "23 Ekim 2025",
-    location: "YTÜ Davutpaşa EEF Amfi",
     badge: "🧠 Quiz Night",
     category: "Quiz Night",
     desc: "Matematik, bilişim ve popüler kültür sorularıyla geniş katılımlı quiz akşamı.",
@@ -162,7 +146,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "DeepMİNT Web Sitesi Eğitimi",
     date: "23 Ekim 2025",
-    location: "YTÜ Davutpaşa EEF Amfi",
     badge: "💻 Web Geliştirme",
     category: "Eğitim",
     desc: "Modern web teknolojileri, frontend geliştirme ve yazılım mimarisi eğitimi.",
@@ -172,7 +155,6 @@ export const pastEvents: PastEvent[] = [
   {
     title: "MİNT Tanışma Kahvaltısı",
     date: "11 Ekim 2025",
-    location: "İstanbul",
     badge: "☕ Sosyal Etkinlik",
     category: "Sosyal Etkinlik",
     desc: "Yeni dönem başlangıcında üyelerimizin kaynaştığı keyifli tanışma kahvaltısı.",

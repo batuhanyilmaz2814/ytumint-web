@@ -165,22 +165,6 @@ const categories = [
                     <span class="past-event-category-badge">{event.category}</span>
                   </div>
                   <h3 class="past-event-title">{event.title}</h3>
-                  <div class="past-event-footer">
-                    <div class="past-event-meta">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                      {event.location}
-                    </div>
-                  </div>
                 </div>
               </div>
             );
@@ -555,9 +539,9 @@ const categories = [
   }
 
   .past-event-card {
-    flex: 0 0 calc(33.333% - 11px);
-    min-width: 270px;
-    max-width: 340px;
+    flex: 0 0 calc(25% - 12px);
+    min-width: 230px;
+    max-width: 290px;
     scroll-snap-align: start;
     background: var(--white);
     border: 1px solid var(--border);
@@ -584,7 +568,7 @@ const categories = [
 
   .past-event-img-wrap {
     width: 100%;
-    height: 150px;
+    aspect-ratio: 4 / 3;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
@@ -674,20 +658,6 @@ const categories = [
     color: var(--dark);
   }
 
-  .past-event-footer {
-    padding-top: 10px;
-    border-top: 1px solid var(--border-subtle);
-    margin-top: auto;
-  }
-
-  .past-event-meta {
-    font-size: 13px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
   .events-empty-state {
     padding: 48px 24px;
     text-align: center;
@@ -702,8 +672,8 @@ const categories = [
 
   @media (max-width: 1024px) {
     .past-event-card {
-      flex: 0 0 calc(50% - 10px);
-      min-width: 280px;
+      flex: 0 0 calc(33.333% - 11px);
+      min-width: 220px;
     }
     .event-item {
       flex-direction: column;
@@ -718,8 +688,8 @@ const categories = [
 
   @media (max-width: 640px) {
     .past-event-card {
-      flex: 0 0 100%;
-      min-width: 260px;
+      flex: 0 0 240px;
+      min-width: 240px;
     }
     .section-header-row {
       flex-direction: column;
