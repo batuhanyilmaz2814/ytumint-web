@@ -272,5 +272,26 @@ export const pastEvents: PastEvent[] = [
   },
 ];
 
+export interface UpcomingEvent {
+  title: string;
+  date: string;
+  badge?: string;
+  category?: string;
+  desc?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+export const upcomingEvents: UpcomingEvent[] = [
+  {
+    title: "Akbank Case Study",
+    date: "23 Ekim 2026",
+    badge: "🏢 Şirket Gezisi",
+    category: "Şirket Gezisi",
+    ctaText: "Kayıt Ol →",
+    ctaLink: "/contact",
+  },
+];
+
 
 

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { pastEvents } from "../data/events";
+import { pastEvents, upcomingEvents } from "../data/events";
 
 const sponsors = [
   { name: "Arkas Lojistik", logo: "/sponsors/arkas-lojistik-logo.webp" },
@@ -779,22 +779,31 @@ function parseEventDate(dateStr: string) {
       <div class="events-slider-wrapper hidden" id="panelUpcoming">
         <div class="events-slider-container">
           <div class="past-events-home-track">
-            <div class="past-event-card past-slider-card">
-              <div class="past-event-img-wrap">
-                <div class="past-event-img-placeholder">
-                  <span class="placeholder-tag">🏢 Şirket Gezisi</span>
-                </div>
-              </div>
-              <div class="past-event-body">
-                <div class="past-event-header">
-                  <div class="past-event-date">
-                    <span class="past-event-day">23</span>
-                    <span class="past-event-month">Ekim 2026</span>
+            {
+              upcomingEvents.map((event) => {
+                const { day, month } = parseEventDate(event.date);
+                return (
+                  <div class="past-event-card past-slider-card">
+                    <div class="past-event-img-wrap">
+                      <div class="past-event-img-placeholder">
+                        <span class="placeholder-tag">
+                          {event.badge || "YTÜ MİNT"}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="past-event-body">
+                      <div class="past-event-header">
+                        <div class="past-event-date">
+                          <span class="past-event-day">{day}</span>
+                          <span class="past-event-month">{month}</span>
+                        </div>
+                      </div>
+                      <h3 class="past-event-title">{event.title}</h3>
+                    </div>
                   </div>
-                </div>
-                <h3 class="past-event-title">Akbank Case Study</h3>
-              </div>
-            </div>
+                );
+              })
+            }
           </div>
         </div>
       </div>

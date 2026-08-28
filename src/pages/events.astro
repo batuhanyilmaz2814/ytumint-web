@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { pastEvents } from "../data/events";
+import { pastEvents, upcomingEvents } from "../data/events";
 
 function parseEventDate(dateStr: string) {
   const parts = dateStr.trim().split(" ");
@@ -45,16 +45,29 @@ const categories = [
       </div>
 
       <div class="events-list">
-        <div class="event-item">
-          <div class="event-date-badge">
-            <span class="event-day">23</span>
-            <span class="event-month">Ekim 2026</span>
-          </div>
-          <div class="event-info">
-            <h3 class="event-title">Akbank Case Study</h3>
-          </div>
-          <a href="/contact" class="btn btn-green event-cta">Kayıt Ol →</a>
-        </div>
+        {
+          upcomingEvents.map((event) => {
+            const { day, month } = parseEventDate(event.date);
+            return (
+              <div class="event-item">
+                <div class="event-date-badge">
+                  <span class="event-day">{day}</span>
+                  <span class="event-month">{month}</span>
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">{event.title}</h3>
+                  {event.desc && <p class="event-desc">{event.desc}</p>}
+                </div>
+                <a
+                  href={event.ctaLink || "/contact"}
+                  class="btn btn-green event-cta"
+                >
+                  {event.ctaText || "Kayıt Ol →"}
+                </a>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   </section>
