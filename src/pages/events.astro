@@ -48,7 +48,7 @@ const categories = [
         <div class="event-item">
           <div class="event-date-badge">
             <span class="event-day">23</span>
-            <span class="event-month">Ekim</span>
+            <span class="event-month">Ekim 2026</span>
           </div>
           <div class="event-info">
             <h3 class="event-title">Akbank Case Study</h3>
@@ -64,7 +64,7 @@ const categories = [
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              Sabancı Center Akbank Genel Müdürlük
+              Sabancı Center Akbank
             </div>
           </div>
           <a href="/contact" class="btn btn-green event-cta">Kayıt Ol →</a>
@@ -80,8 +80,8 @@ const categories = [
         <div class="section-header">
           <h2 class="section-title">Geçmiş Etkinlikler</h2>
           <p class="section-description">
-            Daha önce gerçekleştirdiğimiz şirket gezileri, atölyeler, zirveler ve
-            topluluk buluşmaları.
+            Daha önce gerçekleştirdiğimiz şirket gezileri, atölyeler, zirveler
+            ve topluluk buluşmaları.
           </p>
         </div>
         <div class="slider-nav">
@@ -121,7 +121,11 @@ const categories = [
       </div>
 
       <!-- Past Events Category Filter -->
-      <div class="events-filter-bar" role="tablist" aria-label="Etkinlik Kategorileri">
+      <div
+        class="events-filter-bar"
+        role="tablist"
+        aria-label="Etkinlik Kategorileri"
+      >
         {
           categories.map((cat, index) => (
             <button
@@ -152,7 +156,9 @@ const categories = [
                     />
                   ) : (
                     <div class="past-event-img-placeholder">
-                      <span class="placeholder-tag">{event.badge || "YTÜ MİNT"}</span>
+                      <span class="placeholder-tag">
+                        {event.badge || "YTÜ MİNT"}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -171,7 +177,11 @@ const categories = [
         }
       </div>
 
-      <div class="events-empty-state" id="eventsEmptyState" style="display: none;">
+      <div
+        class="events-empty-state"
+        id="eventsEmptyState"
+        style="display: none;"
+      >
         <p>Bu kategoride henüz listelenen etkinlik bulunmuyor.</p>
       </div>
     </div>
@@ -179,10 +189,16 @@ const categories = [
 
   <script>
     const slider = document.getElementById("pastEventsSlider");
-    const prevBtn = document.getElementById("pastEventsPrev") as HTMLButtonElement;
-    const nextBtn = document.getElementById("pastEventsNext") as HTMLButtonElement;
-    const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-    const eventCards = document.querySelectorAll<HTMLElement>(".past-event-card");
+    const prevBtn = document.getElementById(
+      "pastEventsPrev",
+    ) as HTMLButtonElement;
+    const nextBtn = document.getElementById(
+      "pastEventsNext",
+    ) as HTMLButtonElement;
+    const filterBtns =
+      document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const eventCards =
+      document.querySelectorAll<HTMLElement>(".past-event-card");
     const emptyState = document.getElementById("eventsEmptyState");
 
     function updateButtons() {
@@ -266,10 +282,10 @@ const categories = [
   }
 
   .page-hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-image: url('/brand/mint-pattern.webp');
+    background-image: url("/brand/mint-pattern.webp");
     background-size: 260px 260px;
     background-repeat: repeat;
     background-position: center;
@@ -279,13 +295,18 @@ const categories = [
   }
 
   .page-hero::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(97, 169, 93, 0.25), transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(97, 169, 93, 0.25),
+      transparent
+    );
     z-index: 1;
   }
 
@@ -325,7 +346,9 @@ const categories = [
     display: flex;
     align-items: center;
     gap: 20px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(15, 23, 42, 0.02);
+    box-shadow:
+      0 2px 10px rgba(15, 23, 42, 0.03),
+      0 1px 2px rgba(15, 23, 42, 0.02);
     position: relative;
     overflow: hidden;
     transition:
@@ -335,20 +358,26 @@ const categories = [
   }
 
   .event-item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, var(--green), rgba(97, 169, 93, 0.3));
+    background: linear-gradient(
+      to bottom,
+      var(--green),
+      rgba(97, 169, 93, 0.3)
+    );
     border-radius: 0 2px 2px 0;
   }
 
   .event-item:hover {
     transform: translateY(-3px);
     border-color: rgba(97, 169, 93, 0.3);
-    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.06), 0 3px 8px rgba(15, 23, 42, 0.03);
+    box-shadow:
+      0 12px 28px -6px rgba(15, 23, 42, 0.06),
+      0 3px 8px rgba(15, 23, 42, 0.03);
   }
 
   .event-date-badge {
@@ -425,13 +454,18 @@ const categories = [
   }
 
   .past-events-section::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(97, 169, 93, 0.25), transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(97, 169, 93, 0.25),
+      transparent
+    );
   }
 
   .section-header-row {
@@ -546,7 +580,9 @@ const categories = [
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(15, 23, 42, 0.02);
+    box-shadow:
+      0 2px 10px rgba(15, 23, 42, 0.03),
+      0 1px 2px rgba(15, 23, 42, 0.02);
     transition:
       transform 0.25s ease,
       box-shadow 0.25s ease,
@@ -589,7 +625,11 @@ const categories = [
   .past-event-img-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(97, 169, 93, 0.12) 0%, rgba(15, 23, 42, 0.05) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(97, 169, 93, 0.12) 0%,
+      rgba(15, 23, 42, 0.05) 100%
+    );
     display: flex;
     align-items: center;
     justify-content: center;

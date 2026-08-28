@@ -382,17 +382,23 @@ function parseEventDate(dateStr: string) {
           </p>
           <div class="about-stats" id="aboutStats">
             <div class="about-stat">
-              <span class="about-stat-number" data-target="4000" data-suffix="+">4000+</span>
+              <span class="about-stat-number" data-target="4000" data-suffix="+"
+                >4000+</span
+              >
               <span class="about-stat-label">Aktif Üye</span>
             </div>
             <div class="about-stat-divider"></div>
             <div class="about-stat">
-              <span class="about-stat-number" data-target="4" data-suffix="">4</span>
+              <span class="about-stat-number" data-target="4" data-suffix=""
+                >4</span
+              >
               <span class="about-stat-label">Topluluk</span>
             </div>
             <div class="about-stat-divider"></div>
             <div class="about-stat">
-              <span class="about-stat-number" data-target="200" data-suffix="+">200+</span>
+              <span class="about-stat-number" data-target="200" data-suffix="+"
+                >200+</span
+              >
               <span class="about-stat-label">Etkinlik</span>
             </div>
           </div>
@@ -683,19 +689,15 @@ function parseEventDate(dateStr: string) {
       <!-- Tabs & Slider Navigation -->
       <div class="events-tabs-row">
         <div class="events-tabs">
-          <button
-            class="events-tab active"
-            id="tabUpcoming"
-            data-tab="upcoming"
-          >
-            Yaklaşan Etkinlikler
-          </button>
-          <button class="events-tab" id="tabPast" data-tab="past">
+          <button class="events-tab active" id="tabPast" data-tab="past">
             Geçmiş Etkinlikler
+          </button>
+          <button class="events-tab" id="tabUpcoming" data-tab="upcoming">
+            Yaklaşan Etkinlikler
           </button>
         </div>
 
-        <div class="events-slider-nav hidden" id="homePastNav">
+        <div class="events-slider-nav" id="homePastNav">
           <button
             class="slider-nav-btn prev"
             id="homePastPrev"
@@ -731,45 +733,8 @@ function parseEventDate(dateStr: string) {
         </div>
       </div>
 
-      <!-- Upcoming Events Slider -->
-      <div class="events-slider-wrapper" id="panelUpcoming">
-        <div class="events-slider-container">
-          <div class="events-slider" id="eventsSlider">
-            <div class="event-home-card">
-              <div class="event-home-header">
-                <div class="event-home-date">
-                  <span class="event-home-day">23</span>
-                  <span class="event-home-month">Ekim</span>
-                </div>
-              </div>
-              <h3 class="event-home-title">Akbank Case Study</h3>
-              <div class="event-home-footer">
-                <div class="event-home-meta">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                    ></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  Sabancı Center Akbank Genel Müdürlük
-                </div>
-                <a href="/events" class="btn btn-green event-home-cta"
-                  >Kayıt Ol →</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Past Events Slider -->
-      <div class="events-slider-wrapper hidden" id="panelPast">
+      <!-- Past Events Slider (Default Active) -->
+      <div class="events-slider-wrapper" id="panelPast">
         <div class="events-slider-container">
           <div class="past-events-home-track" id="homePastTrack">
             {
@@ -806,6 +771,45 @@ function parseEventDate(dateStr: string) {
                 );
               })
             }
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Events Slider -->
+      <div class="events-slider-wrapper hidden" id="panelUpcoming">
+        <div class="events-slider-container">
+          <div class="past-events-home-track">
+            <div class="past-event-card past-slider-card">
+              <div class="past-event-img-wrap">
+                <div class="past-event-img-placeholder">
+                  <span class="placeholder-tag">🏢 Şirket Gezisi</span>
+                </div>
+              </div>
+              <div class="past-event-body">
+                <div class="past-event-header">
+                  <div class="past-event-date">
+                    <span class="past-event-day">23</span>
+                    <span class="past-event-month">Ekim 2026</span>
+                  </div>
+                </div>
+                <h3 class="past-event-title">Akbank Case Study</h3>
+                <div class="upcoming-location-info">
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Sabancı Center Akbank</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -956,11 +960,12 @@ function parseEventDate(dateStr: string) {
       passive: true,
     });
     window.addEventListener("resize", updateHomePastButtons);
+    updateHomePastButtons();
 
     // Count-up animation for About Section stats
     const statsContainer = document.getElementById("aboutStats");
     const statElements = document.querySelectorAll<HTMLElement>(
-      ".about-stat-number[data-target]"
+      ".about-stat-number[data-target]",
     );
 
     if (statsContainer && statElements.length > 0) {
@@ -986,7 +991,7 @@ function parseEventDate(dateStr: string) {
               // Küçük rakamlar (Topluluk: 4) için takılmayı önleyen dengeli adımlama
               current = Math.min(
                 target,
-                Math.round(Math.pow(progress, 0.75) * target)
+                Math.round(Math.pow(progress, 0.75) * target),
               );
             } else {
               // Büyük rakamlar (4000+, 200+) için yumuşak cubic yavaşlama
@@ -1021,7 +1026,7 @@ function parseEventDate(dateStr: string) {
               }
             });
           },
-          { threshold: 0.25, rootMargin: "0px 0px -30px 0px" }
+          { threshold: 0.25, rootMargin: "0px 0px -30px 0px" },
         );
         observer.observe(statsContainer);
       } else {
@@ -1692,109 +1697,22 @@ function parseEventDate(dateStr: string) {
     display: none;
   }
 
-  .event-home-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 22px 26px;
-    box-shadow:
-      0 2px 12px rgba(15, 23, 42, 0.04),
-      0 1px 3px rgba(15, 23, 42, 0.02);
+  .upcoming-location-info {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition:
-      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-      box-shadow 0.3s ease;
-    position: relative;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.3;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
   }
 
-  /* Left accent bar */
-  .event-home-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(
-      to bottom,
-      var(--green),
-      rgba(97, 169, 93, 0.3)
-    );
-    border-radius: 0 2px 2px 0;
-  }
-
-  .event-home-card:hover {
-    transform: translateY(-3px);
-    box-shadow:
-      0 12px 30px -6px rgba(15, 23, 42, 0.08),
-      0 3px 8px rgba(15, 23, 42, 0.03);
-  }
-
-  .event-home-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .event-home-date {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-  }
-
-  .event-home-day {
-    font-size: 24px;
-    font-weight: 700;
+  .upcoming-location-info svg {
     color: var(--green);
-    line-height: 1;
-  }
-
-  .event-home-month {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--dark);
-  }
-
-  .event-home-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-    margin: 0;
-  }
-
-  .event-home-desc {
-    font-size: 13.5px;
-    color: var(--text-muted);
-    line-height: 1.55;
-    margin: 0;
-    flex-grow: 1;
-  }
-
-  .event-home-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border-subtle);
-    flex-wrap: wrap;
-  }
-
-  .event-home-meta {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12.5px;
-    color: var(--text-muted);
-  }
-
-  .past-events-home-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    flex-shrink: 0;
   }
 
   /* ── Ekibimiz Section ───────────────────────────────────────── */
