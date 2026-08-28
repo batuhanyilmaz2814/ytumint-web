@@ -10,12 +10,13 @@ export interface PastEvent {
 
 export const pastEvents: PastEvent[] = [
   {
-    title: "YKS Tanıtım Günleri",
+    title: "YKS Tercih Günleri",
     date: "25-28 Temmuz",
     badge: "🎓 Tanıtım",
     category: "Sosyal Etkinlik",
     desc: "YKS sonrası üniversite tercihi yapacak aday öğrencilere YTÜ ve MİNT tanıtıldı.",
     theme: "light",
+    image: "/events/yks-tercih.webp",
   },
   {
     title: "Akbank Şirket Gezisi",
@@ -90,6 +91,15 @@ export const pastEvents: PastEvent[] = [
     image: "/events/home-alone-quiznight.webp",
   },
   {
+    title: "Future Talent Summit",
+    date: "16 Aralık 2025",
+    badge: "🚀 Zirve & Kariyer",
+    category: "Zirve",
+    desc: "Geleceğin yetenekleri, kariyer fırsatları ve teknoloji vizyonunun konuşulduğu zirve.",
+    theme: "dark",
+    image: "/events/future-talent.webp",
+  },
+  {
     title: "Siber Güvenlik Eğitimi",
     date: "13 Aralık 2025",
     badge: "🛡️ Eğitim & Atölye",
@@ -109,7 +119,7 @@ export const pastEvents: PastEvent[] = [
   },
   {
     title: "HSBC Şirket Gezisi",
-    date: "27 Kasım 2025",
+    date: "26 Kasım 2025",
     badge: "🏢 Şirket Gezisi",
     category: "Şirket Gezisi",
     desc: "HSBC Genel Müdürlüğü'nde küresel bankacılık vizyonu ve mühendislik sunumları.",
@@ -159,5 +169,15 @@ export const pastEvents: PastEvent[] = [
     category: "Sosyal Etkinlik",
     desc: "Yeni dönem başlangıcında üyelerimizin kaynaştığı keyifli tanışma kahvaltısı.",
     theme: "dark",
+    image: "/events/kahvalti.webp",
+  },
+  {
+    title: "MİNT Stant Haftası",
+    date: "30 Eylül - 3 Ekim 2025",
+    badge: "🎪 Tanıtım & Stant",
+    category: "Sosyal Etkinlik",
+    desc: "YTÜ yerleşkesinde yeni dönem kulüp tanıtımları ve yeni üyelerimizle stant buluşması.",
+    theme: "green",
+    image: "/events/stant.webp",
   },
 ];
