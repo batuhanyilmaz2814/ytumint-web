@@ -79,16 +79,23 @@
   --text-muted: #94A3B8;
   --text-subtle: #64748B;
 
-  /* Borders */
-  --border: rgba(255, 255, 255, 0.1);
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-dark: rgba(255, 255, 255, 0.12);
+  /* Borders & Separation (Enhanced Contrast) */
+  --border: rgba(255, 255, 255, 0.14);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.2);
+  --border-glow: rgba(97, 169, 93, 0.4);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-  --shadow-hover: 0 14px 36px -4px rgba(97, 168, 92, 0.2), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  /* Card Gradients & Glassmorphic Surfaces */
+  --card-gradient: linear-gradient(155deg, #162238 0%, #0f182c 100%);
+  --card-gradient-subtle: linear-gradient(155deg, rgba(24, 37, 62, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 24px -2px rgba(0, 0, 0, 0.5), 0 2px 8px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 14px 38px -4px rgba(0, 0, 0, 0.65), 0 6px 16px -2px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 16px 40px -4px rgba(97, 169, 93, 0.25), 0 4px 16px -2px rgba(0, 0, 0, 0.5);
+  --card-glow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 6px 24px -2px rgba(0, 0, 0, 0.5);
+  --card-glow-hover: 0 0 0 1px rgba(97, 169, 93, 0.4), 0 12px 36px -4px rgba(0, 0, 0, 0.65), 0 0 20px -2px rgba(97, 169, 93, 0.2);
 }
 
 html {
@@ -822,4 +829,36 @@ p {
   .logo-text {
     font-size: 22px;
   }
+}
+
+/* =============================================
+   DARK THEME CARD DEPTH & GLASSMORPHISM
+   ============================================= */
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .contact-card,
+:root[data-theme="dark"] .team-card,
+:root[data-theme="dark"] .community-card,
+:root[data-theme="dark"] .event-card,
+:root[data-theme="dark"] .event-card--past,
+:root[data-theme="dark"] .focus-card,
+:root[data-theme="dark"] .stat-card,
+:root[data-theme="dark"] .board-member-card,
+:root[data-theme="dark"] .modal-content {
+  background: var(--card-gradient) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+:root[data-theme="dark"] .card:hover,
+:root[data-theme="dark"] .contact-card:hover,
+:root[data-theme="dark"] .team-card:hover,
+:root[data-theme="dark"] .community-card:hover,
+:root[data-theme="dark"] .event-card:hover,
+:root[data-theme="dark"] .event-card--past:hover,
+:root[data-theme="dark"] .focus-card:hover,
+:root[data-theme="dark"] .board-member-card:hover {
+  border-color: rgba(97, 169, 93, 0.45) !important;
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.65), 0 0 20px -2px rgba(97, 169, 93, 0.2) !important;
 }
