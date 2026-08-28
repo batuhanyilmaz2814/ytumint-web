@@ -52,20 +52,6 @@ const categories = [
           </div>
           <div class="event-info">
             <h3 class="event-title">Akbank Case Study</h3>
-            <div class="event-meta">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              Sabancı Center Akbank
-            </div>
           </div>
           <a href="/contact" class="btn btn-green event-cta">Kayıt Ol →</a>
         </div>
@@ -651,6 +637,7 @@ const categories = [
     flex-direction: column;
     gap: 8px;
     flex-grow: 1;
+    min-height: 88px;
   }
 
   .past-event-header {
@@ -684,6 +671,12 @@ const categories = [
     font-weight: 700;
     margin: 0;
     color: var(--dark);
+    line-height: 1.35;
+    min-height: 42px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .events-empty-state {
