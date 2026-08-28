@@ -380,19 +380,19 @@ function parseEventDate(dateStr: string) {
             düzenlenmektedir. Alt toplulukları arasında Blockchain, Deptron,
             Huawei Student Developers ve Yıldız Siber yer almaktadır.
           </p>
-          <div class="about-stats">
+          <div class="about-stats" id="aboutStats">
             <div class="about-stat">
-              <span class="about-stat-number">4000+</span>
+              <span class="about-stat-number" data-target="4000" data-suffix="+">4000+</span>
               <span class="about-stat-label">Aktif Üye</span>
             </div>
             <div class="about-stat-divider"></div>
             <div class="about-stat">
-              <span class="about-stat-number">4</span>
+              <span class="about-stat-number" data-target="4" data-suffix="">4</span>
               <span class="about-stat-label">Topluluk</span>
             </div>
             <div class="about-stat-divider"></div>
             <div class="about-stat">
-              <span class="about-stat-number">200+</span>
+              <span class="about-stat-number" data-target="200" data-suffix="+">200+</span>
               <span class="about-stat-label">Etkinlik</span>
             </div>
           </div>
@@ -956,6 +956,78 @@ function parseEventDate(dateStr: string) {
       passive: true,
     });
     window.addEventListener("resize", updateHomePastButtons);
+
+    // Count-up animation for About Section stats
+    const statsContainer = document.getElementById("aboutStats");
+    const statElements = document.querySelectorAll<HTMLElement>(
+      ".about-stat-number[data-target]"
+    );
+
+    if (statsContainer && statElements.length > 0) {
+      let animated = false;
+
+      const animateStats = () => {
+        if (animated) return;
+        animated = true;
+
+        const duration = 1500; // 1.5 saniye
+        const startTime = performance.now();
+
+        const updateCount = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          statElements.forEach((el) => {
+            const target = parseInt(el.dataset.target || "0", 10);
+            const suffix = el.dataset.suffix || "";
+            let current: number;
+
+            if (target <= 10) {
+              // Küçük rakamlar (Topluluk: 4) için takılmayı önleyen dengeli adımlama
+              current = Math.min(
+                target,
+                Math.round(Math.pow(progress, 0.75) * target)
+              );
+            } else {
+              // Büyük rakamlar (4000+, 200+) için yumuşak cubic yavaşlama
+              const easeProgress = 1 - Math.pow(1 - progress, 3);
+              current = Math.min(target, Math.floor(easeProgress * target));
+            }
+
+            el.textContent = `${current.toLocaleString("tr-TR")}${suffix}`;
+          });
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            statElements.forEach((el) => {
+              const target = parseInt(el.dataset.target || "0", 10);
+              const suffix = el.dataset.suffix || "";
+              el.textContent = `${target.toLocaleString("tr-TR")}${suffix}`;
+            });
+          }
+        };
+
+        requestAnimationFrame(updateCount);
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateStats();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25, rootMargin: "0px 0px -30px 0px" }
+        );
+        observer.observe(statsContainer);
+      } else {
+        animateStats();
+      }
+    }
   </script>
 </Layout>
 
