@@ -227,6 +227,89 @@ const categories = [
     const PAGE_SIZE = 12;
     let visibleLimit = PAGE_SIZE;
 
+    function normalizeText(text: string) {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/ı/g, "i")
+        .replace(/ğ/g, "g")
+        .replace(/ü/g, "u")
+        .replace(/ş/g, "s")
+        .replace(/ö/g, "o")
+        .replace(/ç/g, "c")
+        .replace(/\s+/g, "-");
+    }
+
+    function updateUrlParams() {
+      const url = new URL(window.location.href);
+      if (selectedCategory && selectedCategory !== "all") {
+        url.searchParams.set("category", selectedCategory);
+      } else {
+        url.searchParams.delete("category");
+      }
+
+      if (currentView && currentView !== "grid") {
+        url.searchParams.set("view", currentView);
+      } else {
+        url.searchParams.delete("view");
+      }
+
+      window.history.replaceState({}, "", url.toString());
+    }
+
+    function setCategory(category: string, updateUrl = true) {
+      let matchedBtn: HTMLButtonElement | null = null;
+
+      filterBtns.forEach((btn) => {
+        const cat = btn.getAttribute("data-category") || "";
+        const isMatch =
+          cat.toLowerCase() === category.toLowerCase() ||
+          normalizeText(cat) === normalizeText(category);
+        if (isMatch) {
+          matchedBtn = btn;
+        }
+      });
+
+      if (!matchedBtn && category !== "all") {
+        matchedBtn = document.querySelector('.filter-btn[data-category="all"]');
+      }
+
+      const targetCategory = matchedBtn
+        ? matchedBtn.getAttribute("data-category") || "all"
+        : "all";
+
+      selectedCategory = targetCategory;
+      visibleLimit = PAGE_SIZE;
+
+      filterBtns.forEach((b) => {
+        const isActive =
+          (b.getAttribute("data-category") || "all") === selectedCategory;
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      if (updateUrl) {
+        updateUrlParams();
+      }
+
+      renderEvents();
+    }
+
+    function setView(view: "grid" | "list", updateUrl = true) {
+      if (!container || (view !== "grid" && view !== "list")) return;
+      currentView = view;
+      container.className = `past-events-container view-${view}`;
+
+      viewToggleBtns.forEach((b) => {
+        const isActive = b.getAttribute("data-view") === view;
+        b.classList.toggle("active", isActive);
+      });
+
+      if (updateUrl) {
+        updateUrlParams();
+      }
+    }
+
     function renderEvents() {
       if (!container) return;
 
@@ -276,30 +359,15 @@ const categories = [
     viewToggleBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const view = btn.getAttribute("data-view") as "grid" | "list";
-        if (!view || view === currentView || !container) return;
-
-        viewToggleBtns.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        currentView = view;
-        container.className = `past-events-container view-${view}`;
-        renderEvents();
+        if (view) setView(view);
       });
     });
 
     // Category filter handler
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        filterBtns.forEach((b) => {
-          b.classList.remove("active");
-          b.setAttribute("aria-selected", "false");
-        });
-        btn.classList.add("active");
-        btn.setAttribute("aria-selected", "true");
-
-        selectedCategory = btn.getAttribute("data-category") || "all";
-        visibleLimit = PAGE_SIZE; // reset pagination limit on filter change
-        renderEvents();
+        const cat = btn.getAttribute("data-category") || "all";
+        setCategory(cat);
       });
     });
 
@@ -309,8 +377,28 @@ const categories = [
       renderEvents();
     });
 
-    // Initial render
-    renderEvents();
+    // Initialize state from URL params
+    function initFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get("category");
+      const viewParam = urlParams.get("view") as "grid" | "list" | null;
+
+      if (viewParam === "list" || viewParam === "grid") {
+        setView(viewParam, false);
+      }
+
+      if (catParam) {
+        setCategory(catParam, false);
+      } else {
+        renderEvents();
+      }
+    }
+
+    window.addEventListener("popstate", () => {
+      initFromUrl();
+    });
+
+    initFromUrl();
   </script>
 </Layout>
 
