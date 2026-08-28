@@ -910,65 +910,6 @@ function parseEventDate(dateStr: string) {
     </div>
   </section>
 
-  <!-- =============================================
-       İLETİŞİM FORMU
-       ============================================= -->
-  <section class="contact-home-section" id="iletisim">
-    <div class="container">
-      <div class="contact-card">
-        <div class="contact-card-header">
-          <h2 class="section-title">Bize Ulaşın</h2>
-          <p class="contact-desc">
-            Topluluğumuza katılmak, projelerimiz hakkında bilgi almak ya da iş
-            birliği için mesaj bırakın.
-          </p>
-        </div>
-
-        <form class="contact-form" id="homeContactForm" novalidate>
-          <div class="form-grid">
-            <input
-              type="text"
-              class="form-input"
-              placeholder="Adınız Soyadınız"
-              id="homeName"
-              required
-            />
-            <input
-              type="email"
-              class="form-input"
-              placeholder="E-posta adresiniz"
-              id="homeEmail"
-              required
-            />
-          </div>
-
-          <input
-            type="text"
-            class="form-input"
-            placeholder="Konu"
-            id="homeSubject"
-            required
-          />
-
-          <textarea
-            class="form-input"
-            placeholder="Mesajınız..."
-            id="homeMessage"
-            rows="4"
-            required></textarea>
-
-          <button
-            type="submit"
-            class="btn btn-green submit-btn"
-            id="homeSubmitBtn"
-          >
-            Mesajı Gönder →
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
   <script>
     // Tab switching & Slider
     const tabs = document.querySelectorAll(".events-tab");
@@ -1031,37 +972,6 @@ function parseEventDate(dateStr: string) {
       passive: true,
     });
     window.addEventListener("resize", updateHomePastButtons);
-
-    // Contact form feedback
-    const contactForm = document.getElementById(
-      "homeContactForm",
-    ) as HTMLFormElement;
-    const submitBtn = document.getElementById(
-      "homeSubmitBtn",
-    ) as HTMLButtonElement;
-    contactForm?.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = (
-        document.getElementById("homeName") as HTMLInputElement
-      )?.value.trim();
-      const email = (
-        document.getElementById("homeEmail") as HTMLInputElement
-      )?.value.trim();
-      const subject = (
-        document.getElementById("homeSubject") as HTMLInputElement
-      )?.value.trim();
-      const message = (
-        document.getElementById("homeMessage") as HTMLTextAreaElement
-      )?.value.trim();
-      if (!name || !email || !subject || !message) return;
-      submitBtn.textContent = "✓ Mesajınız iletildi!";
-      submitBtn.style.background = "#61a95d";
-      setTimeout(() => {
-        submitBtn.textContent = "Mesajı Gönder →";
-        submitBtn.style.background = "";
-        contactForm.reset();
-      }, 3500);
-    });
   </script>
 </Layout>
 
@@ -2053,129 +1963,6 @@ function parseEventDate(dateStr: string) {
     }
   }
 
-  /* ── İletişim Formu ─────────────────────────────────────────── */
-  .contact-home-section {
-    padding: 70px 0 80px;
-    background: var(--bg-main);
-    position: relative;
-  }
-
-  .contact-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 32px 30px;
-    box-shadow:
-      0 4px 20px -2px rgba(15, 23, 42, 0.06),
-      0 2px 6px rgba(15, 23, 42, 0.02);
-    max-width: 680px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Subtle top-right decorative glow */
-  .contact-card::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle,
-      rgba(97, 169, 93, 0.1) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-
-  .contact-card-header {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  .contact-card-header .section-badge {
-    margin-bottom: 8px;
-  }
-
-  .contact-card-header .section-title {
-    margin-bottom: 8px;
-    font-size: clamp(18px, 2.2vw, 23px);
-  }
-
-  .contact-desc {
-    font-size: 14px;
-    color: var(--text-muted);
-    max-width: 440px;
-    margin: 0 auto;
-    line-height: 1.55;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .form-input {
-    width: 100%;
-    padding: 11px 15px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    font-family: var(--font);
-    font-size: 13.5px;
-    background: var(--bg-subtle);
-    color: var(--text);
-    outline: none;
-    transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      background 0.2s ease;
-  }
-
-  .form-input:focus {
-    background: var(--white);
-    border-color: var(--green);
-    box-shadow: 0 0 0 3px rgba(97, 169, 93, 0.12);
-  }
-
-  .form-input:hover:not(:focus) {
-    border-color: rgba(15, 23, 42, 0.18);
-  }
-
-  .form-input::placeholder {
-    color: var(--text-subtle);
-  }
-
-  textarea.form-input {
-    resize: vertical;
-    min-height: 95px;
-  }
-
-  .submit-btn {
-    align-self: center;
-    margin-top: 4px;
-    padding: 10px 32px;
-    font-size: 14px;
-    letter-spacing: 0.01em;
-    box-shadow: 0 3px 12px rgba(97, 169, 93, 0.25);
-  }
-
-  .submit-btn:hover {
-    box-shadow: 0 6px 18px rgba(97, 169, 93, 0.35);
-    transform: translateY(-1px);
-  }
-
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .communities-home-grid {
@@ -2196,12 +1983,6 @@ function parseEventDate(dateStr: string) {
       gap: 32px;
     }
     .past-events-home-grid {
-      grid-template-columns: 1fr;
-    }
-    .contact-card {
-      padding: 24px 18px;
-    }
-    .form-grid {
       grid-template-columns: 1fr;
     }
   }
@@ -2228,9 +2009,6 @@ function parseEventDate(dateStr: string) {
     .section-header-row {
       flex-direction: column;
       align-items: flex-start;
-    }
-    .contact-card {
-      padding: 20px 16px;
     }
   }
 </style>
