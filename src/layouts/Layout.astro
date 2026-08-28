@@ -32,8 +32,18 @@ const isHome = currentPath === "/" || currentPath === "";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-    <link rel="icon" type="image/webp" sizes="32x32" href="/favicons/favicon-32x32.webp" />
-    <link rel="icon" type="image/webp" sizes="512x512" href="/favicons/favicon.webp" />
+    <link
+      rel="icon"
+      type="image/webp"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.webp"
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      sizes="512x512"
+      href="/favicons/favicon.webp"
+    />
     <link rel="shortcut icon" href="/favicons/favicon.webp" />
     <link rel="apple-touch-icon" href="/favicons/favicon.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,20 +52,23 @@ const isHome = currentPath === "/" || currentPath === "";
     <title>{title}</title>
     <script is:inline>
       const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
         }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
         }
-        return 'light';
+        return "light";
       })();
-      if (theme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+      if (theme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
       } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute("data-theme", "dark");
       }
-      window.localStorage.setItem('theme', theme);
+      window.localStorage.setItem("theme", theme);
     </script>
   </head>
   <body>
@@ -94,9 +107,51 @@ const isHome = currentPath === "/" || currentPath === "";
           </ul>
 
           <div class="nav-actions">
-            <button id="themeToggle" class="theme-toggle" aria-label="Temayı değiştir">
-              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              aria-label="Temayı değiştir"
+            >
+              <svg
+                class="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><circle cx="12" cy="12" r="5"></circle><line
+                  x1="12"
+                  y1="1"
+                  x2="12"
+                  y2="3"></line><line x1="12" y1="21" x2="12" y2="23"
+                ></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"
+                ></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"
+                ></line><line x1="1" y1="12" x2="3" y2="12"></line><line
+                  x1="21"
+                  y1="12"
+                  x2="23"
+                  y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"
+                ></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"
+                ></line></svg
+              >
+              <svg
+                class="moon-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path></svg
+              >
             </button>
             <a href="/contact" class="btn btn-dark navbar-cta">Bize Ulaşın</a>
             <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
@@ -323,7 +378,7 @@ const isHome = currentPath === "/" || currentPath === "";
             © 2018–{new Date().getFullYear()} YTÜ MİNT. Tüm hakları saklıdır.
           </p>
           <div class="footer-crafted">
-            <span>26-27 YK Ekibi tarafından</span>
+            <span>MİNT 26-27 YK Ekibi tarafından</span>
             <svg
               class="footer-heart"
               viewBox="0 0 24 24"
@@ -357,7 +412,7 @@ const isHome = currentPath === "/" || currentPath === "";
         const element = document.documentElement;
         const currentTheme = element.getAttribute("data-theme");
         const newTheme = currentTheme === "dark" ? "light" : "dark";
-        
+
         element.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
       });
@@ -401,19 +456,19 @@ const isHome = currentPath === "/" || currentPath === "";
     border-radius: 50%;
     transition: background 0.2s;
   }
-  
+
   .theme-toggle:hover {
     background: rgba(255, 255, 255, 0.15);
   }
-  
+
   .theme-toggle .sun-icon {
     display: none;
   }
-  
+
   :global([data-theme="dark"]) .theme-toggle .moon-icon {
     display: none;
   }
-  
+
   :global([data-theme="dark"]) .theme-toggle .sun-icon {
     display: block;
   }
