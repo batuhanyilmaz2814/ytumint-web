@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const yonetimKurulu = [
+const rawYonetimKurulu = [
   {
     ad: "Zeynep Cemre Çebitürk",
     unvan: "Başkan",
@@ -60,7 +60,7 @@ const yonetimKurulu = [
   },
 ];
 
-const denetimKurulu = [
+const rawDenetimKurulu = [
   {
     ad: "Sude Naz Akkaya",
     unvan: "Denetim Kurulu Başkanı",
@@ -86,6 +86,13 @@ const denetimKurulu = [
     foto: "/team/ekip-zehra.webp",
   },
 ];
+const yonetimKurulu = rawYonetimKurulu.filter(
+  (uye) => uye.foto && uye.foto.trim() !== "",
+);
+
+const denetimKurulu = rawDenetimKurulu.filter(
+  (uye) => uye.foto && uye.foto.trim() !== "",
+);
 ---
 
 <Layout
@@ -101,11 +108,11 @@ const denetimKurulu = [
         </div>
         <div class="page-hero-stats">
           <div class="stat-card">
-            <div class="stat-number">7</div>
+            <div class="stat-number">{yonetimKurulu.length}</div>
             <div class="stat-label">Yönetim Kurulu</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">3</div>
+            <div class="stat-number">{denetimKurulu.length}</div>
             <div class="stat-label">Denetim Kurulu</div>
           </div>
         </div>
@@ -150,16 +157,12 @@ const denetimKurulu = [
                 </a>
               )}
               <div class="team-avatar">
-                {uye.foto ? (
-                  <img
-                    src={uye.foto}
-                    alt={uye.ad}
-                    class="team-avatar-img"
-                    loading="lazy"
-                  />
-                ) : (
-                  "👤"
-                )}
+                <img
+                  src={uye.foto}
+                  alt={uye.ad}
+                  class="team-avatar-img"
+                  loading="lazy"
+                />
               </div>
               <div class="team-info-block">
                 <h3 class="team-name">{uye.ad}</h3>
@@ -254,16 +257,12 @@ const denetimKurulu = [
                 </a>
               )}
               <div class="team-avatar">
-                {uye.foto ? (
-                  <img
-                    src={uye.foto}
-                    alt={uye.ad}
-                    class="team-avatar-img"
-                    loading="lazy"
-                  />
-                ) : (
-                  "👤"
-                )}
+                <img
+                  src={uye.foto}
+                  alt={uye.ad}
+                  class="team-avatar-img"
+                  loading="lazy"
+                />
               </div>
               <div class="team-info-block">
                 <h3 class="team-name">{uye.ad}</h3>
