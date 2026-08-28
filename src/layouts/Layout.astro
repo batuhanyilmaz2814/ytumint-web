@@ -4,14 +4,20 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: string;
 }
 
 const {
-  title = "YTÜ MİNT | Multisipliner İnovasyon Teknolojileri Kulübü",
+  title = "YTÜ MİNT | Multidisipliner İnovasyon Teknolojileri Kulübü",
   description = "YTÜ MİNT | Yıldız Teknik Üniversitesi. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk.",
+  image = "/brand/mint-logo.webp",
+  type = "website",
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const canonicalURL = new URL(Astro.url.pathname, Astro.url);
+const ogImageURL = new URL(image, Astro.url).href;
 
 const navLinks = [
   { href: "/", label: "Ana Sayfa" },
@@ -48,8 +54,31 @@ const isHome = currentPath === "/" || currentPath === "";
     <link rel="apple-touch-icon" href="/favicons/favicon.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#61a95d" />
+
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="YTÜ MİNT" />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageURL} />
+    <meta name="twitter:site" content="@ytumint" />
+    <meta name="twitter:creator" content="@ytumint" />
     <script is:inline>
       const theme = (() => {
         if (
