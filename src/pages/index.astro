@@ -837,9 +837,8 @@ function parseEventDate(dateStr: string) {
         <div class="team-home-left">
           <h2 class="section-title">Kulübümüzün Arkasındaki Ekip</h2>
           <p class="team-home-desc">
-            YTÜ MİNT'i yöneten, yenilikçi projeleri hayata geçiren ve
-            etkinlikleri planlayan tutkulu öğrenci liderlerimizi daha yakından
-            tanıyın.
+            MİNT'in düzenlediği etkinlikleri, topluluk faaliyetlerini ve
+            projeleri hayata geçiren yönetim kurulu üyelerimizi tanıyın.
           </p>
           <a href="/team" class="btn btn-dark team-home-cta">
             Bizi Tanıyın
@@ -874,8 +873,7 @@ function parseEventDate(dateStr: string) {
       <div class="sponsors-header">
         <h2 class="section-title">Değerli Sponsorlarımız</h2>
         <p class="sponsors-desc">
-          Topluluğumuza, etkinliklerimize ve projelerimize güç katan değerli
-          sponsorlarımız ve iş ortaklarımız.
+          Kulübümüze ve etkinliklerimize katkıda bulunan sponsorlarımız.
         </p>
       </div>
     </div>
@@ -1190,12 +1188,16 @@ function parseEventDate(dateStr: string) {
 
   /* Subtle decorative blob */
   .about-section::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 450px;
     height: 450px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(97,169,93,0.07) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(97, 169, 93, 0.07) 0%,
+      transparent 70%
+    );
     top: -80px;
     right: -100px;
     pointer-events: none;
@@ -1239,7 +1241,9 @@ function parseEventDate(dateStr: string) {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    box-shadow: 0 2px 14px rgba(15,23,42,0.05), 0 1px 3px rgba(15,23,42,0.02);
+    box-shadow:
+      0 2px 14px rgba(15, 23, 42, 0.05),
+      0 1px 3px rgba(15, 23, 42, 0.02);
     overflow: hidden;
   }
 
@@ -1254,7 +1258,7 @@ function parseEventDate(dateStr: string) {
   }
 
   .about-stat:hover {
-    background: rgba(97,169,93,0.04);
+    background: rgba(97, 169, 93, 0.04);
   }
 
   .about-stat-number {
@@ -1287,11 +1291,11 @@ function parseEventDate(dateStr: string) {
 
   /* Decorative offset frame behind photo */
   .about-photo::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 10px -10px -10px 10px;
     border-radius: var(--radius-md);
-    border: 2px solid rgba(97,169,93,0.25);
+    border: 2px solid rgba(97, 169, 93, 0.25);
     pointer-events: none;
     z-index: 0;
   }
@@ -1302,7 +1306,9 @@ function parseEventDate(dateStr: string) {
     background: var(--bg-muted);
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
-    box-shadow: 0 14px 40px -8px rgba(15,23,42,0.1), 0 3px 12px -2px rgba(15,23,42,0.05);
+    box-shadow:
+      0 14px 40px -8px rgba(15, 23, 42, 0.1),
+      0 3px 12px -2px rgba(15, 23, 42, 0.05);
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -1344,13 +1350,18 @@ function parseEventDate(dateStr: string) {
     height: 6px;
     border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 0 2px rgba(97,169,93,0.3);
+    box-shadow: 0 0 0 2px rgba(97, 169, 93, 0.3);
     animation: pulseDot 2s ease-in-out infinite;
   }
 
   @keyframes pulseDot {
-    0%, 100% { box-shadow: 0 0 0 2px rgba(97,169,93,0.3); }
-    50% { box-shadow: 0 0 0 5px rgba(97,169,93,0.1); }
+    0%,
+    100% {
+      box-shadow: 0 0 0 2px rgba(97, 169, 93, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 5px rgba(97, 169, 93, 0.1);
+    }
   }
 
   /* ── Topluluklarımız Grid ───────────────────────────────────── */
@@ -1378,14 +1389,18 @@ function parseEventDate(dateStr: string) {
     align-items: center;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(15, 23, 42, 0.02);
+    box-shadow:
+      0 2px 8px rgba(15, 23, 42, 0.03),
+      0 1px 2px rgba(15, 23, 42, 0.02);
     position: relative;
   }
 
   .community-home-card:hover {
     transform: translateY(-4px);
     border-color: rgba(97, 169, 93, 0.35);
-    box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+    box-shadow:
+      0 12px 28px -4px rgba(15, 23, 42, 0.08),
+      0 4px 10px -2px rgba(15, 23, 42, 0.03);
   }
 
   .community-card-top {
@@ -1408,7 +1423,9 @@ function parseEventDate(dateStr: string) {
     padding: 8px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    transition:
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease;
   }
 
   .community-home-card:hover .community-home-logo-box {
@@ -1557,7 +1574,9 @@ function parseEventDate(dateStr: string) {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(15,23,42,0.03), 0 1px 2px rgba(15,23,42,0.02);
+    box-shadow:
+      0 2px 10px rgba(15, 23, 42, 0.03),
+      0 1px 2px rgba(15, 23, 42, 0.02);
     transition:
       transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
       box-shadow 0.3s ease,
@@ -1569,7 +1588,9 @@ function parseEventDate(dateStr: string) {
   .past-event-card:hover {
     transform: translateY(-4px);
     border-color: rgba(97, 169, 93, 0.3);
-    box-shadow: 0 14px 32px -6px rgba(15,23,42,0.08), 0 3px 8px rgba(15,23,42,0.03);
+    box-shadow:
+      0 14px 32px -6px rgba(15, 23, 42, 0.08),
+      0 3px 8px rgba(15, 23, 42, 0.03);
   }
 
   .past-event-img-wrap {
@@ -1720,7 +1741,9 @@ function parseEventDate(dateStr: string) {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 22px 26px;
-    box-shadow: 0 2px 12px rgba(15,23,42,0.04), 0 1px 3px rgba(15,23,42,0.02);
+    box-shadow:
+      0 2px 12px rgba(15, 23, 42, 0.04),
+      0 1px 3px rgba(15, 23, 42, 0.02);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1733,19 +1756,25 @@ function parseEventDate(dateStr: string) {
 
   /* Left accent bar */
   .event-home-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, var(--green), rgba(97,169,93,0.3));
+    background: linear-gradient(
+      to bottom,
+      var(--green),
+      rgba(97, 169, 93, 0.3)
+    );
     border-radius: 0 2px 2px 0;
   }
 
   .event-home-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px -6px rgba(15,23,42,0.08), 0 3px 8px rgba(15,23,42,0.03);
+    box-shadow:
+      0 12px 30px -6px rgba(15, 23, 42, 0.08),
+      0 3px 8px rgba(15, 23, 42, 0.03);
   }
 
   .event-home-header {
@@ -1822,12 +1851,16 @@ function parseEventDate(dateStr: string) {
 
   /* Subtle accent glow */
   .team-home-section::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 65%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 65%
+    );
     bottom: -200px;
     right: -100px;
     pointer-events: none;
@@ -1857,7 +1890,9 @@ function parseEventDate(dateStr: string) {
     border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 16px 40px -8px rgba(0, 0, 0, 0.12),
+      0 4px 16px rgba(0, 0, 0, 0.06);
     background: rgba(255, 255, 255, 0.15);
     position: relative;
   }
@@ -1896,13 +1931,18 @@ function parseEventDate(dateStr: string) {
   }
 
   .sponsors-home-section::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--border), transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--border),
+      transparent
+    );
   }
 
   .sponsors-header {
@@ -2021,7 +2061,9 @@ function parseEventDate(dateStr: string) {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 32px 30px;
-    box-shadow: 0 4px 20px -2px rgba(15,23,42,0.06), 0 2px 6px rgba(15,23,42,0.02);
+    box-shadow:
+      0 4px 20px -2px rgba(15, 23, 42, 0.06),
+      0 2px 6px rgba(15, 23, 42, 0.02);
     max-width: 680px;
     margin: 0 auto;
     position: relative;
@@ -2030,14 +2072,18 @@ function parseEventDate(dateStr: string) {
 
   /* Subtle top-right decorative glow */
   .contact-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -50px;
     right: -50px;
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(97,169,93,0.1) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(97, 169, 93, 0.1) 0%,
+      transparent 70%
+    );
     pointer-events: none;
   }
 
@@ -2100,7 +2146,7 @@ function parseEventDate(dateStr: string) {
   }
 
   .form-input:hover:not(:focus) {
-    border-color: rgba(15,23,42,0.18);
+    border-color: rgba(15, 23, 42, 0.18);
   }
 
   .form-input::placeholder {
@@ -2118,11 +2164,11 @@ function parseEventDate(dateStr: string) {
     padding: 10px 32px;
     font-size: 14px;
     letter-spacing: 0.01em;
-    box-shadow: 0 3px 12px rgba(97,169,93,0.25);
+    box-shadow: 0 3px 12px rgba(97, 169, 93, 0.25);
   }
 
   .submit-btn:hover {
-    box-shadow: 0 6px 18px rgba(97,169,93,0.35);
+    box-shadow: 0 6px 18px rgba(97, 169, 93, 0.35);
     transform: translateY(-1px);
   }
 
