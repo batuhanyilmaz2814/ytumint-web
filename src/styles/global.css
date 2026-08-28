@@ -54,6 +54,40 @@
   --font: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+:root[data-theme="dark"] {
+  --bg-main: #0B1120;
+  --bg-card: #141E33;
+  --bg-muted: #1E293B;
+  --bg-subtle: #0F172A;
+
+  --dark: #F8FAFC;
+  --dark-surface: #F1F5F9;
+  --white: #0B1120;
+
+  /* Brand Accent: Sophisticated Mint - Dark Mode */
+  --green: #2d6a4f;
+  --green-hover: #2d6a4f;
+  --green-light: rgba(45, 106, 79, 0.15);
+  --green-border: rgba(45, 106, 79, 0.3);
+  --green-text: #52b788;
+
+  /* Typography */
+  --text: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-dark: rgba(255, 255, 255, 0.12);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 32px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 14px 36px -4px rgba(97, 168, 92, 0.2), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -265,7 +299,7 @@ p {
 .navbar:not(.navbar--home) {
   position: sticky;
   top: 0;
-  background: #61a95d;
+  background: var(--green);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -285,7 +319,7 @@ p {
 /* Ana Sayfada Aşağı Kaydırıldığında */
 .navbar.navbar--home.scrolled {
   padding: 10px 0;
-  background: #61a95d;
+  background: var(--green);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -301,7 +335,7 @@ p {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -311,7 +345,7 @@ p {
 }
 
 .logo-img {
-  height: 24px;
+  height: 36px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -325,8 +359,8 @@ p {
 
 .logo-text {
   font-family: 'Quicksand', 'Comfortaa', 'Josefin Sans', sans-serif;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 28px;
+  font-weight: 400;
   color: var(--white);
   letter-spacing: 0.02em;
   line-height: 1;
@@ -465,20 +499,16 @@ p {
   overflow: hidden;
   display: flex;
   user-select: none;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 6%,
-    rgba(0, 0, 0, 1) 94%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 6%,
-    rgba(0, 0, 0, 1) 94%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  -webkit-mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 6%,
+      rgba(0, 0, 0, 1) 94%,
+      rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 6%,
+      rgba(0, 0, 0, 1) 94%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .partners-track {
@@ -537,7 +567,7 @@ p {
    ============================================= */
 .footer {
   margin-top: auto;
-  background: #61a95d;
+  background: var(--green);
   color: rgba(255, 255, 255, 0.9);
   padding: 20px 0 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
@@ -563,51 +593,55 @@ p {
 .footer-logos {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-.footer-logo {
+.footer-logo,
+.footer-partner-logo {
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
-  width: fit-content;
+  justify-content: center;
+  line-height: 0;
+  flex-shrink: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.footer-logo:hover {
+.footer-logo {
+  text-decoration: none;
+  width: fit-content;
+}
+
+.footer-logo:hover,
+.footer-partner-logo:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
 
 .footer-mint-img {
-  height: 22px;
+  height: 28px;
   width: auto;
+  max-width: 140px;
   object-fit: contain;
   display: block;
 }
 
 .footer-logo-divider {
   width: 1px;
-  height: 16px;
+  height: 20px;
   background: rgba(255, 255, 255, 0.3);
+  align-self: center;
 }
 
 .footer-partner-logo {
-  display: inline-flex;
-  align-items: center;
   opacity: 0.92;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.footer-partner-logo:hover {
-  opacity: 1;
-  transform: translateY(-1px);
 }
 
 .footer-ytu-img {
-  height: 22px;
+  height: 28px;
   width: auto;
+  max-width: 120px;
   object-fit: contain;
   display: block;
 }
@@ -636,7 +670,7 @@ p {
 .footer-social-icon:hover {
   background: #FFFFFF;
   border-color: #FFFFFF;
-  color: #61a95d;
+  color: var(--green);
   transform: translateY(-2px);
 }
 
@@ -681,6 +715,7 @@ p {
 }
 
 @keyframes footerHeartBeat {
+
   0%,
   100% {
     transform: scale(1);
@@ -741,11 +776,11 @@ p {
   }
 
   .logo-img {
-    height: 25px;
+    height: 30px;
   }
 
   .logo-text {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .footer {
@@ -761,10 +796,10 @@ p {
 
 @media (max-width: 480px) {
   .logo-img {
-    height: 23px;
+    height: 28px;
   }
 
   .logo-text {
-    font-size: 17px;
+    font-size: 22px;
   }
 }

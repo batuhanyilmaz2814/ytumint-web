@@ -24,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/bc-logo.webp"
+                src="/communities/bc-logo.webp"
                 alt="YTÜ Blockchain"
                 class="community-card-logo"
               />
@@ -93,7 +93,7 @@ import Layout from "../layouts/Layout.astro";
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
-              >Gruba Katıl →</a
+              >Ekibe Katıl →</a
             >
           </div>
         </div>
@@ -103,7 +103,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/yildiz-siber.webp"
+                src="/communities/yildiz-siber.webp"
                 alt="Yıldız Siber"
                 class="community-card-logo"
               />
@@ -149,24 +149,24 @@ import Layout from "../layouts/Layout.astro";
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
-              >Gruba Katıl →</a
+              >Ekibe Katıl →</a
             >
           </div>
         </div>
 
-        <!-- Huawei Student Developers (HSD YTÜ) -->
+        <!-- Huawei Student Developers (HSD YTU) -->
         <div class="community-card">
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/hsd-logo.webp"
-                alt="Huawei Student Developers (HSD YTÜ)"
+                src="/communities/hsd-logo.webp"
+                alt="Huawei Student Developers (HSD YTU)"
                 class="community-card-logo"
               />
             </div>
             <div>
               <h2 class="community-name">
-                Huawei Student Developers (HSD YTÜ)
+                Huawei Student Developers (HSD YTU)
               </h2>
             </div>
           </div>
@@ -211,7 +211,7 @@ import Layout from "../layouts/Layout.astro";
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
-              >Gruba Katıl →</a
+              >Ekibe Katıl →</a
             >
           </div>
         </div>
@@ -221,7 +221,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="community-card-header">
             <div class="community-card-logo-box">
               <img
-                src="/deptron-logo.webp"
+                src="/communities/deptron-logo.webp"
                 alt="YTÜ Deptron"
                 class="community-card-logo"
               />
@@ -231,9 +231,11 @@ import Layout from "../layouts/Layout.astro";
             </div>
           </div>
           <p class="community-card-desc">
-            Robotik sistemler, otonom insansız kara ve hava araçları, gömülü
-            sistemler ve donanım tasarımı üzerine AR-GE çalışmaları ve yarışma
-            projeleri yürütüyoruz.
+            Deptron Robotics, depo lojistiğinde devrim yaratmak için yola çıkmış
+            bir teknoloji girişimidir. Depo ve üretim tesislerinde sesli asistan
+            destekli yapay zeka teknolojileri geliştiriyoruz. Hedefimiz iş
+            güvenliğini artıran, operasyonel hataları minimize eden ve karbon
+            ayak izini azaltan sürdürülebilir çözümler geliştirmek.
           </p>
           <div class="community-card-footer">
             <div class="community-links">
@@ -290,12 +292,11 @@ import Layout from "../layouts/Layout.astro";
               </a>
             </div>
             <a href="/contact" class="btn btn-green community-btn"
-              >Gruba Katıl →</a
+              >Ekibe Katıl →</a
             >
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </Layout>
@@ -317,10 +318,10 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .page-hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-image: url('/mint-pattern.webp');
+    background-image: url('/brand/mint-pattern.webp');
     background-size: 260px 260px;
     background-repeat: repeat;
     background-position: center;
@@ -330,13 +331,18 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .page-hero::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(97, 169, 93, 0.25), transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(97, 169, 93, 0.25),
+      transparent
+    );
     z-index: 1;
   }
 
@@ -375,7 +381,9 @@ import Layout from "../layouts/Layout.astro";
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 20px 22px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(15, 23, 42, 0.02);
+    box-shadow:
+      0 2px 10px rgba(15, 23, 42, 0.03),
+      0 1px 2px rgba(15, 23, 42, 0.02);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -387,7 +395,9 @@ import Layout from "../layouts/Layout.astro";
   .community-card:hover {
     transform: translateY(-3px);
     border-color: rgba(97, 169, 93, 0.3);
-    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.06), 0 3px 8px rgba(15, 23, 42, 0.03);
+    box-shadow:
+      0 12px 28px -6px rgba(15, 23, 42, 0.06),
+      0 3px 8px rgba(15, 23, 42, 0.03);
   }
 
   .community-card-header {

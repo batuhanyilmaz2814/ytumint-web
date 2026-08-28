@@ -3,16 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import { pastEvents } from "../data/events";
 
 const sponsors = [
-  { name: "Arkas Lojistik", logo: "/arkas-lojistik-logo.webp" },
-  { name: "Halıcı Elektronik", logo: "/halici-logo.webp" },
-  { name: "Kariyer.net", logo: "/kariyernet-logo.webp" },
-  { name: "Techcareer.net", logo: "/techcareer-logo.webp" },
-  { name: "Sui Foundation", logo: "/sui-logo.webp" },
-  { name: "YTÜ Startup House", logo: "/ytu-startup-house-logo.webp" },
-  { name: "Reeder", logo: "/reeder-logo.webp" },
-  { name: "Tatilciniz", logo: "/tatilciniz-logo.webp" },
-  { name: "Indomie", logo: "/indomie-logo.webp" },
-  { name: "Karnaval Müzik", logo: "/karnaval-muzik-logo.webp" },
+  { name: "Arkas Lojistik", logo: "/sponsors/arkas-lojistik-logo.webp" },
+  { name: "Halıcı Elektronik", logo: "/sponsors/halici-logo.webp" },
+  { name: "Kariyer.net", logo: "/sponsors/kariyernet-logo.webp" },
+  { name: "Techcareer.net", logo: "/sponsors/techcareer-logo.webp" },
+  { name: "Sui Foundation", logo: "/sponsors/sui-logo.webp" },
+  { name: "YTÜ Startup House", logo: "/sponsors/ytu-startup-house-logo.webp" },
+  { name: "Reeder", logo: "/sponsors/reeder-logo.webp" },
+  { name: "Tatilciniz", logo: "/sponsors/tatilciniz-logo.webp" },
+  { name: "Indomie", logo: "/sponsors/indomie-logo.webp" },
+  { name: "Karnaval Müzik", logo: "/sponsors/karnaval-muzik-logo.webp" },
 ];
 
 const repeatedSponsors = [...sponsors, ...sponsors];
@@ -55,7 +55,7 @@ function parseEventDate(dateStr: string) {
     <video
       class="hero-video__bg"
       id="heroVideo"
-      data-src="/mint-video.mp4"
+      data-src="/videos/mint-video.mp4"
       autoplay
       loop
       muted
@@ -401,7 +401,7 @@ function parseEventDate(dateStr: string) {
         <div class="about-photo">
           <div class="about-photo-wrapper">
             <img
-              src="/mint-ekip.webp"
+              src="/team/mint-ekip.webp"
               alt="YTÜ MİNT Ekibi"
               class="about-photo-img"
               loading="lazy"
@@ -440,7 +440,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/bc-logo.webp"
+                src="/communities/bc-logo.webp"
                 alt="YTÜ Blockchain"
                 class="community-home-logo"
               />
@@ -506,7 +506,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/yildiz-siber.webp"
+                src="/communities/yildiz-siber.webp"
                 alt="Yıldız Siber"
                 class="community-home-logo"
               />
@@ -549,7 +549,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/hsd-logo.webp"
+                src="/communities/hsd-logo.webp"
                 alt="Huawei Student Developers (HSD YTU)"
                 class="community-home-logo"
               />
@@ -594,7 +594,7 @@ function parseEventDate(dateStr: string) {
           <div class="community-card-top">
             <div class="community-home-logo-box">
               <img
-                src="/deptron-logo.webp"
+                src="/communities/deptron-logo.webp"
                 alt="YTÜ Deptron"
                 class="community-home-logo"
               />
@@ -856,7 +856,7 @@ function parseEventDate(dateStr: string) {
 
         <div class="team-home-photo-wrap">
           <img
-            src="/mint-ana-ekip.webp"
+            src="/team/mint-ana-ekip.webp"
             alt="YTÜ MİNT Ekibi"
             class="team-home-photo"
             loading="lazy"
@@ -1143,8 +1143,16 @@ function parseEventDate(dateStr: string) {
     letter-spacing: -0.03em;
   }
 
+  :global([data-theme="dark"]) .hero-video__title {
+    -webkit-text-stroke: 0.8px var(--green);
+  }
+
   .hero-video__title-accent {
     color: var(--green);
+  }
+
+  :global([data-theme="dark"]) .hero-video__title-accent {
+    -webkit-text-stroke: 0;
   }
 
   .hero-video__btns {
@@ -1807,7 +1815,7 @@ function parseEventDate(dateStr: string) {
   /* ── Ekibimiz Section ───────────────────────────────────────── */
   .team-home-section {
     padding: 70px 0 80px;
-    background: #61a95d;
+    background: var(--green);
     position: relative;
     overflow: hidden;
   }
