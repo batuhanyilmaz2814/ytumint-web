@@ -128,38 +128,37 @@ const denetimKurulu = [
         {
           yonetimKurulu.map((uye) => (
             <div class="team-card">
-              <div class="team-card-header">
-                <div class="team-avatar">
-                  {uye.foto ? (
-                    <img
-                      src={uye.foto}
-                      alt={uye.ad}
-                      class="team-avatar-img"
-                      loading="lazy"
-                    />
-                  ) : (
-                    "👤"
-                  )}
-                </div>
-                {uye.linkedin && (
-                  <a
-                    href={uye.linkedin}
-                    class="team-linkedin"
-                    aria-label={`${uye.ad} LinkedIn Profili`}
-                    target="_blank"
-                    rel="noopener"
+              {uye.linkedin && (
+                <a
+                  href={uye.linkedin}
+                  class="team-linkedin"
+                  aria-label={`${uye.ad} LinkedIn Profili`}
+                  target="_blank"
+                  rel="noopener"
+                  title="LinkedIn"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect x="2" y="9" width="4" height="12" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
-                  </a>
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              )}
+              <div class="team-avatar">
+                {uye.foto ? (
+                  <img
+                    src={uye.foto}
+                    alt={uye.ad}
+                    class="team-avatar-img"
+                    loading="lazy"
+                  />
+                ) : (
+                  "👤"
                 )}
               </div>
               <div class="team-info-block">
@@ -171,8 +170,8 @@ const denetimKurulu = [
                   {uye.bolum && (
                     <span class="team-meta-item">
                       <svg
-                        width="13"
-                        height="13"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -187,8 +186,8 @@ const denetimKurulu = [
                   {uye.sinif && (
                     <span class="team-meta-item">
                       <svg
-                        width="13"
-                        height="13"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -233,38 +232,37 @@ const denetimKurulu = [
         {
           denetimKurulu.map((uye) => (
             <div class="team-card">
-              <div class="team-card-header">
-                <div class="team-avatar">
-                  {uye.foto ? (
-                    <img
-                      src={uye.foto}
-                      alt={uye.ad}
-                      class="team-avatar-img"
-                      loading="lazy"
-                    />
-                  ) : (
-                    "👤"
-                  )}
-                </div>
-                {uye.linkedin && (
-                  <a
-                    href={uye.linkedin}
-                    class="team-linkedin"
-                    aria-label={`${uye.ad} LinkedIn Profili`}
-                    target="_blank"
-                    rel="noopener"
+              {uye.linkedin && (
+                <a
+                  href={uye.linkedin}
+                  class="team-linkedin"
+                  aria-label={`${uye.ad} LinkedIn Profili`}
+                  target="_blank"
+                  rel="noopener"
+                  title="LinkedIn"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect x="2" y="9" width="4" height="12" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
-                  </a>
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              )}
+              <div class="team-avatar">
+                {uye.foto ? (
+                  <img
+                    src={uye.foto}
+                    alt={uye.ad}
+                    class="team-avatar-img"
+                    loading="lazy"
+                  />
+                ) : (
+                  "👤"
                 )}
               </div>
               <div class="team-info-block">
@@ -276,8 +274,8 @@ const denetimKurulu = [
                   {uye.bolum && (
                     <span class="team-meta-item">
                       <svg
-                        width="13"
-                        height="13"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -292,8 +290,8 @@ const denetimKurulu = [
                   {uye.sinif && (
                     <span class="team-meta-item">
                       <svg
-                        width="13"
-                        height="13"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -467,68 +465,119 @@ const denetimKurulu = [
   /* ── Team Grid ──────────────────────────────────────────────── */
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
   .team-grid--audit {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   /* ── Team Card ──────────────────────────────────────────────── */
   .team-card {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 18px 18px;
+    border-radius: 20px;
+    padding: 26px 18px 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     height: 100%;
     gap: 12px;
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+      0 2px 8px rgba(15, 23, 42, 0.03),
+      0 1px 2px rgba(15, 23, 42, 0.02);
+    position: relative;
+    overflow: hidden;
     transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      border-color 0.25s ease;
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.3s ease;
   }
+
+  /* Subtle ambient header background highlight */
+  .team-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    background: linear-gradient(180deg, rgba(97, 169, 93, 0.08) 0%, transparent 100%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .team-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
   .team-section--audit .team-card {
     background: var(--bg-main);
   }
+
   .team-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(97, 169, 93, 0.35);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    border-color: rgba(97, 169, 93, 0.45);
+    box-shadow:
+      0 18px 38px -8px rgba(15, 23, 42, 0.08),
+      0 6px 16px rgba(97, 169, 93, 0.1);
   }
 
-  .team-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
+  .team-card:hover::after {
+    opacity: 1;
+  }
+
+  :global([data-theme="dark"]) .team-card:hover {
+    box-shadow:
+      0 18px 38px -8px rgba(0, 0, 0, 0.5),
+      0 6px 18px rgba(97, 169, 93, 0.2);
   }
 
   .team-avatar {
-    width: 68px;
-    height: 68px;
+    width: 116px;
+    height: 116px;
     border-radius: 50%;
     background: var(--bg-muted);
-    border: 2px solid rgba(97, 169, 93, 0.2);
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+    padding: 4px;
+    border: 2.5px solid rgba(97, 169, 93, 0.3);
+    box-shadow:
+      0 6px 20px rgba(15, 23, 42, 0.07),
+      0 0 0 0 rgba(97, 169, 93, 0);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 44px;
     flex-shrink: 0;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
     transition:
-      border-color 0.3s ease,
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+      border-color 0.35s ease,
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .team-card:hover .team-avatar {
     border-color: var(--green);
-    transform: scale(1.04);
-    box-shadow: 0 4px 14px rgba(97, 169, 93, 0.2);
+    transform: scale(1.03);
+    box-shadow:
+      0 0 0 5px rgba(97, 169, 93, 0.22),
+      0 14px 32px rgba(97, 169, 93, 0.35);
+  }
+
+  :global([data-theme="dark"]) .team-card:hover .team-avatar {
+    box-shadow:
+      0 0 0 5px rgba(97, 169, 93, 0.35),
+      0 14px 36px rgba(97, 169, 93, 0.55);
   }
 
   .team-avatar-img {
@@ -538,11 +587,22 @@ const denetimKurulu = [
     object-position: center 20%;
     display: block;
     border-radius: 50%;
+    transition:
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.35s ease;
+  }
+
+  .team-card:hover .team-avatar-img {
+    transform: scale(1.1);
+    filter: brightness(1.04);
   }
 
   .team-linkedin {
-    width: 30px;
-    height: 30px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
     background: var(--bg-muted);
     border: 1px solid var(--border);
     border-radius: 50%;
@@ -551,21 +611,28 @@ const denetimKurulu = [
     justify-content: center;
     color: var(--text-muted);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
+    z-index: 2;
   }
+
   .team-linkedin:hover {
     background: #0077b5;
-    color: var(--white);
+    color: #ffffff;
     border-color: #0077b5;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 119, 181, 0.25);
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.35);
   }
 
   .team-info-block {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
 
   .team-name {
@@ -574,11 +641,12 @@ const denetimKurulu = [
     color: var(--dark);
     margin: 0;
     line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 
   .team-role {
-    font-size: 12.5px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
     color: var(--green-text);
     line-height: 1.35;
   }
@@ -586,23 +654,31 @@ const denetimKurulu = [
   .team-meta {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
     padding-top: 10px;
     margin-top: auto;
     border-top: 1px solid var(--border-subtle);
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
 
   .team-meta-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--text-muted);
+    line-height: 1.4;
   }
 
   .team-meta-item svg {
     flex-shrink: 0;
-    color: var(--text-subtle);
+    color: var(--green);
+    opacity: 0.85;
   }
 
   /* ── Join CTA ───────────────────────────────────────────────── */
@@ -639,10 +715,19 @@ const denetimKurulu = [
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
-  @media (max-width: 1024px) {
+  @media (max-width: 1180px) {
+    .team-grid,
+    .team-grid--audit {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
     .team-grid,
     .team-grid--audit {
       grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
     .join-inner {
       flex-direction: column;
@@ -653,7 +738,8 @@ const denetimKurulu = [
       gap: 12px;
     }
   }
-  @media (max-width: 640px) {
+
+  @media (max-width: 480px) {
     .team-grid,
     .team-grid--audit {
       grid-template-columns: 1fr;
