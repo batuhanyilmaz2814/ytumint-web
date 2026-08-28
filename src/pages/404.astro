@@ -23,9 +23,9 @@ import Layout from "../layouts/Layout.astro";
         <!-- Headings & Text -->
         <h1 class="not-found-title">Aradığınız Sayfa Bulunamadı</h1>
         <p class="not-found-desc">
-          Ulaşmaya çalıştığınız adres değişmiş, silinmiş veya geçici olarak
-          kullanım dışı olabilir. Aşağıdaki butonlardan ana sayfaya dönebilir veya
-          aradığınız içeriği diğer sayfalarımızda bulabilirsiniz.
+          Ulaşmaya çalıştığınız sayfa bulunamadı. Aşağıdaki butonlardan ana
+          sayfaya dönebilir veya aradığınız içeriği diğer sayfalarımızda
+          bulabilirsiniz.
         </p>
 
         <!-- Main Action Buttons -->
@@ -336,7 +336,9 @@ import Layout from "../layouts/Layout.astro";
     background: var(--green-light);
     color: var(--green);
     flex-shrink: 0;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
   }
 
   .quick-link-card:hover .quick-link-icon-box {
@@ -354,7 +356,9 @@ import Layout from "../layouts/Layout.astro";
   .quick-link-arrow {
     color: var(--text-subtle);
     font-size: 15px;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      color 0.2s ease;
   }
 
   .quick-link-card:hover .quick-link-arrow {
