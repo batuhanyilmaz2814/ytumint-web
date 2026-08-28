@@ -153,7 +153,18 @@ const isHome = currentPath === "/" || currentPath === "";
                 ></path></svg
               >
             </button>
-            <a href="/contact" class="btn btn-dark navbar-cta">Bize Ulaşın</a>
+            <a
+              href="/contact"
+              class:list={[
+                "btn",
+                "btn-dark",
+                "navbar-cta",
+                { "navbar-cta--active": isActive("/contact") },
+              ]}
+              aria-current={isActive("/contact") ? "page" : undefined}
+            >
+              Bize Ulaşın
+            </a>
             <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
               <span></span><span></span><span></span>
             </button>
@@ -171,6 +182,7 @@ const isHome = currentPath === "/" || currentPath === "";
                       "mobile-nav-link",
                       { "mobile-nav-link--active": isActive(link.href) },
                     ]}
+                    aria-current={isActive(link.href) ? "page" : undefined}
                   >
                     {link.label}
                   </a>
@@ -180,8 +192,13 @@ const isHome = currentPath === "/" || currentPath === "";
             <li>
               <a
                 href="/contact"
-                class="btn btn-dark"
-                style="margin-top: 10px; width: 100%; text-align: center; justify-content: center; padding: 12px 20px; font-size: 15px;"
+                class:list={[
+                  "btn",
+                  "btn-dark",
+                  "mobile-contact-cta",
+                  { "mobile-contact-cta--active": isActive("/contact") },
+                ]}
+                aria-current={isActive("/contact") ? "page" : undefined}
               >
                 Bize Ulaşın
               </a>
@@ -511,12 +528,32 @@ const isHome = currentPath === "/" || currentPath === "";
     border: 1px solid var(--white);
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
   }
 
   .navbar-cta:hover {
     background: rgba(255, 255, 255, 0.92);
     color: #356b32;
     border-color: rgba(255, 255, 255, 0.92);
+  }
+
+  .navbar-cta.navbar-cta--active {
+    background: var(--white);
+    color: #488f44;
+    border-color: var(--white);
+    font-weight: 700;
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar-cta.navbar-cta--active:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #356b32;
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.6), 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  :global([data-theme="dark"]) .navbar-cta.navbar-cta--active {
+    box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   /* Ana Sayfada (Video Hero Üzerinde Şeffafken) */
@@ -619,6 +656,21 @@ const isHome = currentPath === "/" || currentPath === "";
     font-weight: 600;
     background: var(--green-light);
     color: var(--green-text);
+  }
+
+  .mobile-contact-cta {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .mobile-contact-cta--active {
+    font-weight: 700;
+    box-shadow: 0 0 0 1.5px var(--green-text), 0 2px 8px rgba(6, 95, 70, 0.15);
   }
 
   @media (max-width: 768px) {
