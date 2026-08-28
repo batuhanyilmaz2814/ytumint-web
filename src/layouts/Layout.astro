@@ -445,32 +445,61 @@ const isHome = currentPath === "/" || currentPath === "";
   }
 
   .theme-toggle {
+    position: relative;
     background: transparent;
     border: none;
     cursor: pointer;
     color: var(--white);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
     border-radius: 50%;
-    transition: background 0.2s;
+    transition: background-color 0.25s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
   }
 
   .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(1.08);
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.92);
+  }
+
+  .theme-toggle .sun-icon,
+  .theme-toggle .moon-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  /* Light theme: Moon visible, Sun hidden */
+  .theme-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
   }
 
   .theme-toggle .sun-icon {
-    display: none;
+    opacity: 0;
+    transform: rotate(90deg) scale(0.25);
   }
 
+  /* Dark theme: Sun visible, Moon hidden */
   :global([data-theme="dark"]) .theme-toggle .moon-icon {
-    display: none;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.25);
   }
 
   :global([data-theme="dark"]) .theme-toggle .sun-icon {
-    display: block;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
   }
 
   .navbar-cta {
