@@ -686,8 +686,19 @@ import Layout from "../layouts/Layout.astro";
     border: 0;
   }
 
+  :global([data-theme="dark"]) .contact-map-wrapper {
+    background: #0b1329;
+  }
+
   :global([data-theme="dark"]) .contact-map-iframe {
-    filter: invert(90%) hue-rotate(180deg) contrast(90%);
+    filter: invert(90%) hue-rotate(180deg) saturate(220%) brightness(85%) contrast(100%);
+    opacity: 0.92;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .contact-detail-item--map:hover .contact-map-iframe {
+    opacity: 1;
+    filter: invert(90%) hue-rotate(180deg) saturate(250%) brightness(92%) contrast(105%);
   }
 
   /* Form (Right Column) */
