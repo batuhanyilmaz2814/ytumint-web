@@ -1141,7 +1141,7 @@ function parseEventDate(dateStr: string) {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(1);
+    filter: brightness(0.85);
     z-index: 0;
     transition: filter 0.3s ease;
   }
@@ -1153,7 +1153,7 @@ function parseEventDate(dateStr: string) {
   .hero-video__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
     transition: background 0.3s ease;
   }
@@ -1428,7 +1428,7 @@ function parseEventDate(dateStr: string) {
 
   .communities-home-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
@@ -2128,14 +2128,17 @@ function parseEventDate(dateStr: string) {
     }
 
     .hero-video__btns {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .hero-video__btns .btn {
-      width: 100%;
-      max-width: 280px;
+      width: auto;
+      max-width: 170px;
+      padding: 7px 14px;
+      font-size: 12.5px;
       justify-content: center;
     }
 
@@ -2246,8 +2249,15 @@ function parseEventDate(dateStr: string) {
 
   /* Küçük mobil: 480px ve altı */
   @media (max-width: 480px) {
+    .hero-video__btns {
+      gap: 6px;
+    }
+
     .hero-video__btns .btn {
-      max-width: 100%;
+      min-width: 125px;
+      max-width: 150px;
+      padding: 6px 12px;
+      font-size: 12px;
     }
 
     .about-section {
@@ -2297,7 +2307,11 @@ function parseEventDate(dateStr: string) {
       min-height: auto;
     }
 
-    .communities-home-grid,
+    .communities-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
     .departments-home-grid {
       grid-template-columns: 1fr;
       gap: 16px;
