@@ -1141,19 +1141,29 @@ function parseEventDate(dateStr: string) {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.75);
+    filter: brightness(1);
     z-index: 0;
+    transition: filter 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .hero-video__bg {
+    filter: brightness(0.75);
   }
 
   .hero-video__overlay {
     position: absolute;
     inset: 0;
+    background: rgba(0, 0, 0, 0.12);
+    z-index: 1;
+    transition: background 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .hero-video__overlay {
     background: linear-gradient(
       180deg,
       rgba(15, 23, 42, 0.7) 0%,
       rgba(15, 23, 42, 0.85) 100%
     );
-    z-index: 1;
   }
 
   .hero-video__content {
@@ -1184,28 +1194,21 @@ function parseEventDate(dateStr: string) {
     color: var(--green);
     margin-bottom: 12px;
     opacity: 0.95;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
   }
 
   .hero-video__title {
     font-size: clamp(32px, 4.8vw, 56px);
     font-weight: 700;
     line-height: 1.1;
-    color: var(--white);
+    color: #ffffff;
     margin-bottom: 24px;
     letter-spacing: -0.03em;
-  }
-
-  :global([data-theme="dark"]) .hero-video__title {
-    -webkit-text-stroke: 2px var(--green);
-    paint-order: stroke fill;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
   }
 
   .hero-video__title-accent {
     color: var(--green);
-  }
-
-  :global([data-theme="dark"]) .hero-video__title-accent {
-    -webkit-text-stroke: 0;
   }
 
   .hero-video__btns {
