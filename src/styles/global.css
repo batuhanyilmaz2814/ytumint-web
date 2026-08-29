@@ -44,6 +44,16 @@
   --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.06);
   --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.08);
 
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+
   /* Radii */
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -139,11 +149,11 @@ body {
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--space-lg);
 }
 
 section {
-  padding: 48px 0;
+  padding: var(--space-2xl) 0;
 }
 
 /* Typography */
@@ -210,7 +220,7 @@ p {
   font-weight: 600;
   padding: 3px 12px;
   border-radius: var(--radius-full);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-sm);
   letter-spacing: 0.02em;
 }
 
@@ -231,7 +241,7 @@ p {
   font-weight: 600;
   padding: 3px 12px;
   border-radius: var(--radius-full);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-sm);
   letter-spacing: 0.02em;
 }
 
@@ -239,7 +249,7 @@ p {
   font-size: clamp(18px, 2.2vw, 23px);
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-sm);
   line-height: 1.25;
 }
 
@@ -637,7 +647,7 @@ p {
   margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .footer-col-title::after {
@@ -777,13 +787,13 @@ p {
 .footer-contact-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: var(--space-sm);
   font-size: 12.5px;
   color: #94A3B8;
   line-height: 1.45;
@@ -864,18 +874,18 @@ a.footer-contact-item:hover {
    ============================================= */
 @media (max-width: 1024px) {
   .container {
-    padding: 0 24px;
+    padding: 0 var(--space-lg);
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: var(--space-xl);
   }
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 60px 0;
+    padding: var(--space-3xl) 0;
   }
 
   .nav-links,
@@ -888,7 +898,7 @@ a.footer-contact-item:hover {
   }
 
   .logo {
-    gap: 8px;
+    gap: var(--space-sm);
   }
 
   .logo-img {
@@ -960,3 +970,8 @@ a.footer-contact-item:hover {
   border-color: rgba(255, 255, 255, 0.2) !important;
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.7) !important;
 }
+/* Oran Orantı Sabitlemeleri (Aspect Ratios) */
+.past-event-img-wrap, .event-card-img-wrap, .focus-img-wrap { aspect-ratio: 16/9; overflow: hidden; }
+.past-event-img, .event-card-img, .focus-img { width: 100%; height: 100%; object-fit: cover; }
+.community-home-logo-box, .team-photo-wrap { aspect-ratio: 1/1; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.community-home-logo, .team-photo { width: 100%; height: 100%; object-fit: cover; }
