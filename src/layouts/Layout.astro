@@ -60,7 +60,30 @@ const isHome = currentPath === "/" || currentPath === "";
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="keywords" content="YTÜ, MİNT, Yıldız Teknik Üniversitesi, Multidisipliner İnovasyon Teknolojileri, yazılım, teknoloji, öğrenci kulübü, yapay zeka, blockchain, siber güvenlik, inovasyon" />
+    <meta name="author" content="YTÜ MİNT" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#61a95d" />
+    <link rel="alternate" hreflang="tr" href={canonicalURL} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "YTÜ MİNT",
+        "alternateName": "Multidisipliner İnovasyon Teknolojileri Kulübü",
+        "url": "https://ytumint.org/",
+        "logo": "https://ytumint.org/brand/mint-logo.webp",
+        "sameAs": [
+          "https://www.instagram.com/ytumint",
+          "https://www.linkedin.com/company/ytumint",
+          "https://x.com/ytumint",
+          "https://www.tiktok.com/@ytumint",
+          "https://www.youtube.com/@mintkulubu"
+        ]
+      }
+    </script>
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content={type} />
