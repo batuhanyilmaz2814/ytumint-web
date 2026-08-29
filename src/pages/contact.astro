@@ -57,34 +57,6 @@ import Layout from "../layouts/Layout.astro";
               </div>
             </div>
 
-            <div class="contact-detail-item">
-              <div class="contact-detail-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
-                  ></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <div class="contact-detail-text">
-                <div class="contact-detail-label">Adres</div>
-                <a
-                  href="https://maps.app.goo.gl/ctJrb4M7FvAwWyZj8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="contact-detail-value"
-                >
-                  Yıldız Teknik Üniversitesi<br />Davutpaşa Kulüpler Vadisi
-                </a>
-              </div>
-            </div>
-
             <div class="contact-detail-item contact-detail-item--socials">
               <div class="contact-detail-icon">
                 <svg
@@ -225,6 +197,43 @@ import Layout from "../layouts/Layout.astro";
                     </svg>
                   </a>
                 </div>
+              </div>
+            </div>
+
+            <!-- Mini Map -->
+            <div class="contact-map-container">
+              <a
+                href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14cabb4ddcbe4005:0x5cecf456e28d1cd1?sa=X&ved=1t:8290&ictx=111&cshid=1787959465848511"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-map-label"
+                title="Google Haritalar'da Aç"
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Yıldız Teknik Üniversitesi Davutpaşa Kampüsü</span>
+              </a>
+              <div class="contact-map-wrapper">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.9723528256565!2d28.889396176527584!3d41.02584141834241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb4ddcbe4005%3A0x5cecf456e28d1cd1!2zWcSxbGTEsXogVGVrbmlrIMOcbml2ZXJzaXRlc2kgRGF2dXRwYcWfYSBLYW1ww7xzw7w!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"
+                  width="100%"
+                  height="100%"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Yıldız Teknik Üniversitesi Davutpaşa Kampüsü Konumu"
+                  class="contact-map-iframe"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -646,6 +655,63 @@ import Layout from "../layouts/Layout.astro";
     border-color: var(--dark);
     transform: translateY(-2px);
     box-shadow: 0 3px 8px rgba(15, 23, 42, 0.15);
+  }
+
+  /* Contact Mini Map */
+  .contact-map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-map-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    width: fit-content;
+    line-height: 1.3;
+  }
+
+  .contact-map-label svg {
+    color: var(--green);
+    flex-shrink: 0;
+  }
+
+  .contact-map-label:hover {
+    color: var(--green);
+  }
+
+  .contact-map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-subtle);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    transition: all 0.2s ease;
+  }
+
+  .contact-map-wrapper:hover {
+    border-color: rgba(97, 169, 93, 0.35);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  }
+
+  .contact-map-iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+  }
+
+  :global([data-theme="dark"]) .contact-map-iframe {
+    filter: invert(90%) hue-rotate(180deg) contrast(90%);
   }
 
   /* Form (Right Column) */
