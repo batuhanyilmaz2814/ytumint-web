@@ -21,47 +21,32 @@ import Layout from "../layouts/Layout.astro";
       <div class="contact-inner">
         <!-- Left: Info Column (Independent Cards) -->
         <div class="contact-info-col">
+          <!-- 1. E-posta Card -->
           <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                ></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
             <div class="contact-detail-text">
               <div class="contact-detail-label">E-posta</div>
-              <a
-                href="mailto:mintunity@gmail.com"
-                class="contact-detail-value">mintunity@gmail.com</a
-              >
+              <a href="mailto:mintunity@gmail.com" class="contact-detail-value">
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="contact-inline-icon"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>mintunity@gmail.com</span>
+              </a>
             </div>
           </div>
 
+          <!-- 2. Sosyal Medya Card -->
           <div class="contact-detail-item contact-detail-item--socials">
-            <div class="contact-detail-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
             <div class="contact-detail-text">
               <div class="contact-detail-label">Sosyal Medya</div>
               <div class="contact-social-links">
@@ -189,28 +174,34 @@ import Layout from "../layouts/Layout.astro";
             </div>
           </div>
 
-          <!-- Mini Map -->
-          <div class="contact-map-container">
-            <a
-              href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14cabb4ddcbe4005:0x5cecf456e28d1cd1?sa=X&ved=1t:8290&ictx=111&cshid=1787959465848511"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-map-label"
-              title="Google Haritalar'da Aç"
-            >
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
+          <!-- 3. Address & Map Card -->
+          <div class="contact-detail-item contact-detail-item--map">
+            <div class="contact-detail-text">
+              <div class="contact-detail-label">Adres</div>
+              <a
+                href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14cabb4ddcbe4005:0x5cecf456e28d1cd1?sa=X&ved=1t:8290&ictx=111&cshid=1787959465848511"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-detail-value"
+                title="Google Haritalar'da Aç"
               >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Yıldız Teknik Üniversitesi Davutpaşa Kampüsü</span>
-            </a>
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="contact-inline-icon"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Yıldız Teknik Üniversitesi Davutpaşa Kampüsü</span>
+              </a>
+            </div>
+
             <div class="contact-map-wrapper">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.9723528256565!2d28.889396176527584!3d41.02584141834241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb4ddcbe4005%3A0x5cecf456e28d1cd1!2zWcSxbGTEsXogVGVrbmlrIMOcbml2ZXJzaXRlc2kgRGF2dXRwYcWfYSBLYW1ww7xzw7w!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"
@@ -221,8 +212,7 @@ import Layout from "../layouts/Layout.astro";
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 title="Yıldız Teknik Üniversitesi Davutpaşa Kampüsü Konumu"
-                class="contact-map-iframe"
-              ></iframe>
+                class="contact-map-iframe"></iframe>
             </div>
           </div>
         </div>
@@ -237,12 +227,12 @@ import Layout from "../layouts/Layout.astro";
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="contactName"
-                  >Adınız Soyadınız <span class="form-required">*</span></label
+                  >Ad Soyad <span class="form-required">*</span></label
                 >
                 <input
                   type="text"
                   class="form-input"
-                  placeholder="Adınız Soyadınız"
+                  placeholder="Adınızı Soyadınızı giriniz"
                   id="contactName"
                   required
                 />
@@ -273,7 +263,9 @@ import Layout from "../layouts/Layout.astro";
                 <option value="" disabled selected>Konu seçiniz...</option>
                 <option value="Genel Bilgi">Genel Bilgi</option>
                 <option value="Topluluklar">Topluluklar</option>
-                <option value="Sponsorluk & İş Birliği">Sponsorluk & İş Birliği</option>
+                <option value="Sponsorluk & İş Birliği"
+                  >Sponsorluk & İş Birliği</option
+                >
               </select>
             </div>
 
@@ -294,7 +286,7 @@ import Layout from "../layouts/Layout.astro";
               class="btn btn-green contact-submit-btn"
               id="contactSubmitBtn"
             >
-              <span class="btn-text">Mesajı Gönder →</span>
+              <span class="btn-text">Gönder</span>
             </button>
           </form>
         </div>
@@ -344,13 +336,19 @@ import Layout from "../layouts/Layout.astro";
   </div>
 
   <script>
-    const contactForm = document.getElementById("contactForm") as HTMLFormElement;
-    const submitBtn = document.getElementById("contactSubmitBtn") as HTMLButtonElement;
+    const contactForm = document.getElementById(
+      "contactForm",
+    ) as HTMLFormElement;
+    const submitBtn = document.getElementById(
+      "contactSubmitBtn",
+    ) as HTMLButtonElement;
     const toast = document.getElementById("contactToast");
     const toastCloseBtn = document.getElementById("toastCloseBtn");
     let toastTimeout: NodeJS.Timeout | number;
 
-    const subjectSelect = document.getElementById("contactSubject") as HTMLSelectElement;
+    const subjectSelect = document.getElementById(
+      "contactSubject",
+    ) as HTMLSelectElement;
 
     function updateSubjectColor() {
       if (subjectSelect) {
@@ -431,7 +429,7 @@ import Layout from "../layouts/Layout.astro";
         setTimeout(() => {
           submitBtn.classList.remove("is-success");
           submitBtn.disabled = false;
-          submitBtn.innerHTML = `<span class="btn-text">Mesajı Gönder →</span>`;
+          submitBtn.innerHTML = `<span class="btn-text">Gönder</span>`;
         }, 3500);
       }, 950);
     });
@@ -455,10 +453,10 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .page-hero::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background-image: url('/brand/mint-pattern.webp');
+    background-image: url("/brand/mint-pattern.webp");
     background-size: 260px 260px;
     background-repeat: repeat;
     background-position: center;
@@ -468,13 +466,18 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .page-hero::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(97, 169, 93, 0.25), transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(97, 169, 93, 0.25),
+      transparent
+    );
     z-index: 1;
   }
 
@@ -516,15 +519,17 @@ import Layout from "../layouts/Layout.astro";
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 24px 26px;
-    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+    padding: 28px 30px;
+    box-shadow:
+      0 2px 12px rgba(15, 23, 42, 0.04),
+      0 1px 3px rgba(15, 23, 42, 0.02);
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
   .contact-card-header {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   .contact-form-title {
@@ -540,19 +545,21 @@ import Layout from "../layouts/Layout.astro";
   .contact-info-col {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     height: 100%;
   }
 
   .contact-detail-item {
     display: flex;
-    gap: 14px;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 16px 20px;
-    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+    padding: 22px 24px;
+    box-shadow:
+      0 2px 12px rgba(15, 23, 42, 0.04),
+      0 1px 3px rgba(15, 23, 42, 0.02);
     transition: all 0.2s ease;
   }
 
@@ -562,43 +569,34 @@ import Layout from "../layouts/Layout.astro";
     transform: translateY(-2px);
   }
 
-  .contact-detail-item--socials {
-    align-items: flex-start;
-  }
-
-  .contact-detail-icon {
-    width: 38px;
-    height: 38px;
-    background: var(--green-light);
-    color: var(--green-text);
-    border: 1px solid var(--green-border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
   .contact-detail-text {
-    flex: 1;
+    width: 100%;
   }
 
   .contact-detail-label {
-    font-size: 11px;
-    color: var(--text-muted);
+    font-size: 13px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 2px;
+    color: var(--dark);
+    line-height: 1.4;
+    text-transform: none;
+    margin-bottom: 8px;
   }
 
   .contact-detail-value {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--dark);
     line-height: 1.45;
     text-decoration: none;
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     transition: color 0.2s ease;
+  }
+
+  .contact-inline-icon {
+    color: var(--green);
+    flex-shrink: 0;
   }
 
   a.contact-detail-value:hover {
@@ -607,81 +605,56 @@ import Layout from "../layouts/Layout.astro";
 
   .contact-social-links {
     display: flex;
-    gap: 6px;
+    gap: 16px;
     flex-wrap: wrap;
-    margin-top: 4px;
+    margin-top: 6px;
+    align-items: center;
   }
 
   .contact-social-link {
-    width: 32px;
-    height: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: var(--text-muted);
     text-decoration: none;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    padding: 4px;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .contact-social-link:hover {
-    background: var(--dark);
-    color: var(--white);
-    border-color: var(--dark);
+    color: var(--green);
     transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.15);
+    background: transparent;
+    box-shadow: none;
   }
 
-  /* Contact Mini Map */
-  .contact-map-container {
-    display: flex;
+  /* Contact Address & Mini Map Card */
+  .contact-detail-item--map {
     flex-direction: column;
-    gap: 8px;
+    align-items: stretch;
+    gap: 14px;
     flex: 1;
-    min-height: 190px;
-  }
-
-  .contact-map-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--dark);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    width: fit-content;
-    line-height: 1.3;
-    padding-left: 2px;
-  }
-
-  .contact-map-label svg {
-    color: var(--green);
-    flex-shrink: 0;
-  }
-
-  .contact-map-label:hover {
-    color: var(--green);
+    min-height: 230px;
   }
 
   .contact-map-wrapper {
     position: relative;
     width: 100%;
     flex: 1;
-    min-height: 160px;
-    border-radius: var(--radius-md);
+    min-height: 155px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--white);
-    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
-    transition: all 0.2s ease;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-subtle);
+    transition: border-color 0.2s ease;
   }
 
-  .contact-map-wrapper:hover {
+  .contact-detail-item--map:hover .contact-map-wrapper {
     border-color: rgba(97, 169, 93, 0.35);
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
   }
 
   .contact-map-iframe {
@@ -699,20 +672,20 @@ import Layout from "../layouts/Layout.astro";
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
     margin-top: auto;
   }
 
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 14px;
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
   }
 
   .form-label {
@@ -733,7 +706,7 @@ import Layout from "../layouts/Layout.astro";
 
   .form-input {
     width: 100%;
-    padding: 10px 13px;
+    padding: 12px 15px;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     font-family: var(--font);
@@ -796,15 +769,15 @@ import Layout from "../layouts/Layout.astro";
 
   textarea.form-input {
     resize: vertical;
-    min-height: 90px;
+    min-height: 95px;
   }
 
   .contact-submit-btn {
     width: 100%;
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 14px 24px;
+    font-size: 14.5px;
     font-weight: 600;
-    margin-top: 4px;
+    margin-top: 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
