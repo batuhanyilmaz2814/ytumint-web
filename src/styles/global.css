@@ -500,43 +500,6 @@ p {
   background: #FFFFFF;
 }
 
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 56px;
-  left: 0;
-  right: 0;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  padding: 18px 24px;
-  z-index: 199;
-}
-
-.mobile-nav.open {
-  display: block;
-}
-
-.mobile-nav-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.mobile-nav-link {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--dark);
-  text-decoration: none;
-  display: block;
-  padding: 6px 0;
-}
-
-.mobile-nav-link--active {
-  color: var(--green);
-  font-weight: 600;
-}
 
 /* =============================================
    PARTNERS / MARQUEE

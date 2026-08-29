@@ -353,43 +353,68 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
             </button>
           </div>
         </div>
-
-        <div class="mobile-nav" id="mobileNav">
-          <ul class="mobile-nav-links">
-            {
-              navLinks.map((link) => (
-                <li>
-                  <a
-                    href={link.href}
-                    class:list={[
-                      "mobile-nav-link",
-                      { "mobile-nav-link--active": isActive(link.href) },
-                    ]}
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))
-            }
-            <li>
-              <a
-                href="/contact"
-                class:list={[
-                  "btn",
-                  "btn-dark",
-                  "mobile-contact-cta",
-                  { "mobile-contact-cta--active": isActive("/contact") },
-                ]}
-                aria-current={isActive("/contact") ? "page" : undefined}
-              >
-                Bize Ulaşın
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
+
+    <!-- Mobile Drawer Backdrop -->
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+
+    <!-- Mobile Drawer Panel (Slides from right) -->
+    <aside class="mobile-nav" id="mobileNav" aria-label="Mobil Menü">
+      <div class="mobile-nav-header">
+        <div class="mobile-nav-header-left">
+          <img
+            src="/brand/yaprak.webp"
+            alt="YTÜ MİNT"
+            class="mobile-nav-logo"
+            width="40"
+            height="20"
+          />
+          <span class="mobile-nav-title">mint</span>
+        </div>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Menüyü kapat">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  "mobile-nav-link",
+                  { "mobile-nav-link--active": isActive(link.href) },
+                ]}
+                aria-current={isActive(link.href) ? "page" : undefined}
+              >
+                <span>{link.label}</span>
+                <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mobile-nav-footer">
+        <a
+          href="/contact"
+          class:list={[
+            "btn",
+            "btn-dark",
+            "mobile-contact-cta",
+            { "mobile-contact-cta--active": isActive("/contact") },
+          ]}
+          aria-current={isActive("/contact") ? "page" : undefined}
+        >
+          Bize Ulaşın
+        </a>
+      </div>
+    </aside>
 
     <main class="main-content">
       <slot />
@@ -681,12 +706,45 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     </footer>
 
     <script>
-      // Hamburger menu
+      // Hamburger & Mobile drawer logic
       const hamburger = document.getElementById("hamburger");
       const mobileNav = document.getElementById("mobileNav");
+      const mobileNavBackdrop = document.getElementById("mobileNavBackdrop");
+      const mobileNavClose = document.getElementById("mobileNavClose");
+
+      function openMenu() {
+        hamburger?.classList.add("open");
+        mobileNav?.classList.add("open");
+        mobileNavBackdrop?.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMenu() {
+        hamburger?.classList.remove("open");
+        mobileNav?.classList.remove("open");
+        mobileNavBackdrop?.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
       hamburger?.addEventListener("click", () => {
-        hamburger.classList.toggle("open");
-        mobileNav?.classList.toggle("open");
+        if (mobileNav?.classList.contains("open")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      mobileNavClose?.addEventListener("click", closeMenu);
+      mobileNavBackdrop?.addEventListener("click", closeMenu);
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobileNav?.classList.contains("open")) {
+          closeMenu();
+        }
+      });
+
+      document.querySelectorAll(".mobile-nav-link, .mobile-contact-cta").forEach((link) => {
+        link.addEventListener("click", closeMenu);
       });
 
       // Theme toggle logic
@@ -890,56 +948,214 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Mobile Menü */
+  /* Mobile Backdrop */
+  .mobile-nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9998;
+  }
+
+  .mobile-nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Mobile Drawer Panel (Slides in from Right) */
   .mobile-nav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 290px;
+    max-width: 84vw;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--white);
+    border-left: 1px solid var(--border);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 20px 24px;
+    transform: translateX(105%);
+    visibility: hidden;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
+
+  :global([data-theme="dark"]) .mobile-nav {
+    background: #111827;
+    border-left-color: rgba(255, 255, 255, 0.12);
+    box-shadow: -8px 0 36px rgba(0, 0, 0, 0.7);
+  }
+
   .mobile-nav.open {
-    max-height: 400px;
+    transform: translateX(0);
+    visibility: visible;
   }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  :global([data-theme="dark"]) .mobile-nav-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-nav-logo {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .mobile-nav-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+  }
+
+  :global([data-theme="dark"]) .mobile-nav-title {
+    color: #ffffff;
+  }
+
+  .mobile-nav-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .mobile-nav-close:hover {
+    background: var(--bg-muted);
+    color: var(--dark);
+    transform: scale(1.05);
+  }
+
+  :global([data-theme="dark"]) .mobile-nav-close {
+    color: #94A3B8;
+  }
+
+  :global([data-theme="dark"]) .mobile-nav-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+
   .mobile-nav-links {
     list-style: none;
-    padding: 16px 20px;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 6px;
-    border-top: 1px solid var(--border);
-    margin-top: 12px;
-    background: var(--white);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
+    flex: 1;
   }
+
   .mobile-nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
-    padding: 10px 12px;
+    padding: 12px 14px;
     border-radius: var(--radius-sm);
-    transition:
-      background 0.2s,
-      color 0.2s;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  .mobile-nav-arrow {
+    opacity: 0.4;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
   .mobile-nav-link:hover {
     background: var(--bg-muted);
     color: var(--dark);
   }
+
+  :global([data-theme="dark"]) .mobile-nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+  }
+
+  .mobile-nav-link:hover .mobile-nav-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+    color: var(--green);
+  }
+
   .mobile-nav-link--active {
     font-weight: 600;
     background: var(--green-light);
     color: var(--green-text);
   }
 
+  :global([data-theme="dark"]) .mobile-nav-link--active {
+    background: rgba(72, 143, 68, 0.2);
+    color: #86efac;
+  }
+
+  .mobile-nav-link--active .mobile-nav-arrow {
+    opacity: 0.9;
+    color: var(--green-text);
+  }
+
+  :global([data-theme="dark"]) .mobile-nav-link--active .mobile-nav-arrow {
+    color: #86efac;
+  }
+
+  .mobile-nav-footer {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  :global([data-theme="dark"]) .mobile-nav-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
   .mobile-contact-cta {
-    margin-top: 10px;
     width: 100%;
     text-align: center;
     justify-content: center;
-    padding: 12px 20px;
-    font-size: 15px;
+    padding: 12px 18px;
+    font-size: 14px;
     font-weight: 600;
   }
 
@@ -948,6 +1164,13 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     box-shadow:
       0 0 0 1.5px var(--green-text),
       0 2px 8px rgba(6, 95, 70, 0.15);
+  }
+
+  @media (min-width: 769px) {
+    .mobile-nav-backdrop,
+    .mobile-nav {
+      display: none !important;
+    }
   }
 
   @media (max-width: 768px) {
