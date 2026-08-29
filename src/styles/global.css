@@ -57,45 +57,45 @@
 }
 
 :root[data-theme="dark"] {
-  /* Minimalist Dark Palette (Softer) */
-  --bg-main: #111827;
-  --bg-card: #1F2937;
-  --bg-muted: #374151;
-  --bg-subtle: #1F2937;
+  /* Minimalist Dark Palette (Deeper & Sleeker) */
+  --bg-main: #0a0e17;
+  --bg-card: #111827;
+  --bg-muted: #1e293b;
+  --bg-subtle: #060910;
 
-  --dark: #FAFAFA;
-  --dark-surface: #F3F4F6;
-  --white: #111827;
+  --dark: #F8FAFC;
+  --dark-surface: #0F172A;
+  --white: #0a0e17;
 
   /* Brand Accent: Darker Mint - Dark Mode */
-  --green: #22573f;
-  --green-hover: #1b4532;
-  --green-light: rgba(34, 87, 63, 0.15);
-  --green-border: rgba(34, 87, 63, 0.3);
+  --green: #2d704f;
+  --green-hover: #22573f;
+  --green-light: rgba(45, 112, 79, 0.18);
+  --green-border: rgba(45, 112, 79, 0.35);
   --green-text: #52b788;
 
   /* Typography */
-  --text: #F9FAFB;
-  --text-muted: #9CA3AF;
-  --text-subtle: #6B7280;
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
 
   /* Borders & Separation */
-  --border: #374151;
-  --border-subtle: #1F2937;
-  --border-dark: rgba(255, 255, 255, 0.1);
-  --border-glow: rgba(34, 87, 63, 0.3);
+  --border: #1e293b;
+  --border-subtle: #0f172a;
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(45, 112, 79, 0.25);
 
   /* Card Gradients & Glassmorphic Surfaces - Minimalized */
-  --card-gradient: none;
-  --card-gradient-subtle: none;
+  --card-gradient: #111827;
+  --card-gradient-subtle: #0d1320;
 
   /* Shadows & Glows - Minimalized */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.6);
-  --shadow-hover: 0 8px 24px rgba(34, 87, 63, 0.2);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.7);
+  --shadow-hover: 0 8px 24px rgba(45, 112, 79, 0.25);
   --card-glow: none;
-  --card-glow-hover: 0 0 0 1px rgba(34, 87, 63, 0.25);
+  --card-glow-hover: 0 0 0 1px rgba(45, 112, 79, 0.35);
 }
 
 html {

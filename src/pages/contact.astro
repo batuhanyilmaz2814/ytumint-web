@@ -58,13 +58,13 @@ const contactJsonLd = {
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-inner">
-        <h1 class="page-hero-title">Bize Ulaşın</h1>
+        <div>
+          <h1 class="page-hero-title">Bize Ulaşın</h1>
+          <Breadcrumb currentPage="Bize Ulaşın" />
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Breadcrumbs -->
-  <Breadcrumb currentPage="Bize Ulaşın" />
 
   <!-- Contact Section -->
   <section class="contact-section">
@@ -516,7 +516,8 @@ const contactJsonLd = {
     display: flex;
     align-items: center;
     padding: 48px 0;
-    background: var(--bg-main);
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border);
     position: relative;
     overflow: hidden;
   }
@@ -536,22 +537,6 @@ const contactJsonLd = {
     opacity: 0.035;
     pointer-events: none;
     z-index: 0;
-  }
-
-  .page-hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(97, 169, 93, 0.25),
-      transparent
-    );
-    z-index: 1;
   }
 
   .page-hero-inner {
