@@ -286,10 +286,8 @@ export const upcomingEvents: UpcomingEvent[] = [
   {
     title: "Akbank Case Study",
     date: "23 Ekim 2026",
-    badge: "🏢 Şirket Gezisi",
-    category: "Şirket Gezisi",
-    ctaText: "Kayıt Ol →",
-    ctaLink: "/contact",
+    badge: "📚 Eğitim",
+    category: "Eğitim",
   },
 ];
 
