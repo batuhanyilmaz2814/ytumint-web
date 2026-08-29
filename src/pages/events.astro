@@ -409,7 +409,7 @@ const categories = [
     display: flex;
     align-items: center;
     padding: 48px 0;
-    background: var(--white);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
   }
@@ -585,24 +585,9 @@ const categories = [
   /* Past events */
   .past-events-section {
     padding: 48px 0 72px;
-    background: var(--bg-subtle);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
-  }
-
-  .past-events-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(97, 169, 93, 0.25),
-      transparent
-    );
   }
 
   .section-header-row {

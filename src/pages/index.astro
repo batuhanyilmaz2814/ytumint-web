@@ -1332,7 +1332,7 @@ function parseEventDate(dateStr: string) {
   /* ── Topluluklarımız Grid ───────────────────────────────────── */
   .communities-home-section {
     padding: 70px 0 80px;
-    background: var(--bg-subtle);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
   }
@@ -1693,7 +1693,7 @@ function parseEventDate(dateStr: string) {
   /* ── Ekibimiz Section ───────────────────────────────────────── */
   .team-home-section {
     padding: 70px 0 80px;
-    background: var(--green);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
   }
@@ -1702,21 +1702,17 @@ function parseEventDate(dateStr: string) {
   .team-home-section::before {
     content: "";
     position: absolute;
-    width: 700px;
-    height: 700px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     background: radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.2) 0%,
-      transparent 65%
+      rgba(97, 169, 93, 0.07) 0%,
+      transparent 70%
     );
-    bottom: -200px;
-    right: -100px;
+    bottom: -120px;
+    right: -80px;
     pointer-events: none;
-  }
-
-  .team-home-section .section-title {
-    color: var(--white);
   }
 
   .team-home-inner {
@@ -1731,18 +1727,18 @@ function parseEventDate(dateStr: string) {
   .team-home-desc {
     font-size: 15px;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--text-muted);
     margin-bottom: 24px;
   }
 
   .team-home-photo-wrap {
     border-radius: var(--radius-md);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid var(--border);
     box-shadow:
-      0 16px 40px -8px rgba(0, 0, 0, 0.12),
-      0 4px 16px rgba(0, 0, 0, 0.06);
-    background: rgba(255, 255, 255, 0.15);
+      0 14px 40px -8px rgba(15, 23, 42, 0.08),
+      0 4px 16px rgba(15, 23, 42, 0.03);
+    background: var(--white);
     position: relative;
   }
 
@@ -1766,15 +1762,15 @@ function parseEventDate(dateStr: string) {
   }
 
   .team-home-section .btn-dark:hover {
-    background: #1e293b;
-    border-color: #1e293b;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.25);
+    background: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 4px 16px rgba(97, 169, 93, 0.25);
   }
 
   /* ── Sponsorlarımız Section ─────────────────────────────────── */
   .sponsors-home-section {
     padding: 60px 0;
-    background: var(--bg-subtle);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
   }

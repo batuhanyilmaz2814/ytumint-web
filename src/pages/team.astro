@@ -393,7 +393,7 @@ const denetimKurulu = rawDenetimKurulu.filter(
     display: flex;
     align-items: center;
     padding: 48px 0;
-    background: var(--white);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
   }
@@ -456,7 +456,7 @@ const denetimKurulu = rawDenetimKurulu.filter(
   }
 
   .stat-card {
-    background: var(--bg-subtle);
+    background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 12px 18px;
@@ -491,24 +491,9 @@ const denetimKurulu = rawDenetimKurulu.filter(
 
   .team-section--audit {
     padding: 48px 0 64px;
-    background: var(--bg-subtle);
+    background: var(--bg-main);
     position: relative;
     overflow: hidden;
-  }
-
-  .team-section--audit::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(97, 169, 93, 0.25),
-      transparent
-    );
   }
 
   /* ── Team Grid ──────────────────────────────────────────────── */
@@ -569,9 +554,7 @@ const denetimKurulu = rawDenetimKurulu.filter(
     transition: opacity 0.35s ease;
   }
 
-  .team-section--audit .team-card {
-    background: var(--bg-main);
-  }
+
 
   .team-card:hover {
     transform: translateY(-5px);
