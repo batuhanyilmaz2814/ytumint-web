@@ -6,48 +6,76 @@ const siteUrl = Astro.site
   ? Astro.site.toString().replace(/\/$/, "")
   : "https://ytumint.org";
 
-const communitiesData = [
+const communities = [
   {
     name: "YTÜ Deptron",
     alternateName: "Deptron Robotics",
     description:
-      "Deptron Robotics, depo lojistiğinde sesli asistan destekli yapay zeka teknolojileri ve otonom çözümler geliştiren teknoloji girişimidir.",
-    logo: `${siteUrl}/communities/deptron-logo.webp`,
-    url: "https://deptronrobotics.com/",
-    sameAs: [
-      "https://www.instagram.com/deptron_robotics/",
-      "https://deptronrobotics.com/",
+      "Deptron Robotics, depo lojistiğinde devrim yaratmak için yola çıkmış bir teknoloji girişimidir. Depo ve üretim tesislerinde sesli asistan destekli yapay zeka teknolojileri geliştiriyoruz. Hedefimiz iş güvenliğini artıran, operasyonel hataları minimize eden ve karbon ayak izini azaltan sürdürülebilir çözümler geliştirmek.",
+    logo: "/communities/deptron-logo.webp",
+    logoAlt: "YTÜ Deptron Robotik Topluluğu Logosu - YTÜ MİNT",
+    links: [
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/deptron_robotics/",
+        type: "instagram",
+      },
+      {
+        name: "Web Sitesi",
+        url: "https://deptronrobotics.com/",
+        type: "website",
+      },
     ],
   },
   {
     name: "Huawei Student Developers (HSD YTU)",
     alternateName: "HSD YTÜ",
     description:
-      "Huawei Student Developers (HSD), teknoloji ve yazılım ekosisteminde eğitimler, etkinlikler ve projeler sunan küresel öğrenci geliştirici topluluğudur.",
-    logo: `${siteUrl}/communities/hsd-logo.webp`,
-    url: "https://www.instagram.com/hsd.ytu/",
-    sameAs: ["https://www.instagram.com/hsd.ytu/"],
+      "Huawei Student Developers (HSD), teknoloji ve yazılım tutkusunu paylaşan üniversite öğrencilerine; eğitimler, etkinlikler ile birlikte öğrenme ortamı sağlayarak bilgi ve deneyimlerini geliştirme fırsatı sunan küresel bir programdır. HSD, teknoloji, yazılım, liderlik, kariyer gibi konularda ekosistemindeki üyelere eğitimler verir ve etkinlikler düzenler ve bunlarla ilgili proje geliştirme imkanı sunar.",
+    logo: "/communities/hsd-logo.webp",
+    logoAlt: "Huawei Student Developers (HSD YTU) Topluluk Logosu - YTÜ MİNT",
+    links: [
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/hsd.ytu/",
+        type: "instagram",
+      },
+    ],
   },
   {
     name: "YTÜ Blockchain",
     alternateName: "Yıldız Blockchain",
     description:
-      "Blockchain mimarisi, Web3 ekosistemi, akıllı sözleşmeler ve DeFi protokolleri üzerine araştırmalar ve projeler yürüten teknoloji topluluğu.",
-    logo: `${siteUrl}/communities/bc-logo.webp`,
-    url: "https://ytublockchain.com/tr",
-    sameAs: [
-      "https://www.instagram.com/ytu_blockchain/",
-      "https://ytublockchain.com/tr",
+      "Blockchain mimarisi, Web3 ekosistemi, akıllı sözleşmeler (Smart Contracts), DeFi protokolleri ve dağıtık sistem mimarileri üzerine araştırmalar, atölyeler ve projeler yürütüyoruz.",
+    logo: "/communities/bc-logo.webp",
+    logoAlt: "YTÜ Blockchain Topluluğu Logosu - YTÜ MİNT",
+    links: [
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/ytu_blockchain/",
+        type: "instagram",
+      },
+      {
+        name: "Web Sitesi",
+        url: "https://ytublockchain.com/tr",
+        type: "website",
+      },
     ],
   },
   {
     name: "Yıldız Siber",
     alternateName: "YTÜ Siber Güvenlik Topluluğu",
     description:
-      "Siber güvenlik, sızma testleri (pentest), CTF yarışmaları ve web uygulama güvenliği alanlarında eğitimler ve atölyeler düzenleyen topluluk.",
-    logo: `${siteUrl}/communities/yildiz-siber.webp`,
-    url: "https://www.instagram.com/yildizsiber/",
-    sameAs: ["https://www.instagram.com/yildizsiber/"],
+      "Siber güvenlik, sızma testleri (pentest), CTF yarışmaları, web uygulama güvenliği ve zararlı yazılım analizi alanlarında teorik ve uygulamalı eğitimler düzenliyoruz.",
+    logo: "/communities/yildiz-siber.webp",
+    logoAlt: "Yıldız Siber Güvenlik Topluluğu Logosu - YTÜ MİNT",
+    links: [
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/yildizsiber/",
+        type: "instagram",
+      },
+    ],
   },
 ];
 
@@ -57,7 +85,7 @@ const communitiesJsonLd = {
   name: "YTÜ MİNT Alt Toplulukları",
   description:
     "YTÜ MİNT bünyesinde faaliyet gösteren robotik, yapay zeka, Web3 ve siber güvenlik toplulukları.",
-  itemListElement: communitiesData.map((comm, index) => ({
+  itemListElement: communities.map((comm, index) => ({
     "@type": "ListItem",
     position: index + 1,
     item: {
@@ -65,10 +93,13 @@ const communitiesJsonLd = {
       name: comm.name,
       alternateName: comm.alternateName,
       description: comm.description,
-      logo: comm.logo,
-      image: comm.logo,
-      url: comm.url,
-      sameAs: comm.sameAs,
+      logo: `${siteUrl}${comm.logo}`,
+      image: `${siteUrl}${comm.logo}`,
+      url:
+        comm.links.find((l) => l.type === "website")?.url ||
+        comm.links[0]?.url ||
+        siteUrl,
+      sameAs: comm.links.map((l) => l.url),
       parentOrganization: {
         "@type": "Organization",
         name: "YTÜ MİNT",
@@ -101,310 +132,126 @@ const communitiesJsonLd = {
   <section class="communities-section">
     <div class="container">
       <div class="communities-grid">
-        <!-- YTÜ Deptron -->
-        <div class="community-card">
-          <div class="community-card-header">
-            <div class="community-card-logo-box">
-              <img
-                src="/communities/deptron-logo.webp"
-                alt="YTÜ Deptron Robotik Topluluğu Logosu - YTÜ MİNT"
-                class="community-card-logo"
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div>
-              <h2 class="community-name">YTÜ Deptron</h2>
-            </div>
-          </div>
-          <p class="community-card-desc">
-            Deptron Robotics, depo lojistiğinde devrim yaratmak için yola çıkmış
-            bir teknoloji girişimidir. Depo ve üretim tesislerinde sesli asistan
-            destekli yapay zeka teknolojileri geliştiriyoruz. Hedefimiz iş
-            güvenliğini artıran, operasyonel hataları minimize eden ve karbon
-            ayak izini azaltan sürdürülebilir çözümler geliştirmek.
-          </p>
-          <div class="community-card-footer">
-            <div class="community-links">
-              <a
-                href="https://www.instagram.com/deptron_robotics/"
-                class="community-social-btn"
-                aria-label="YTÜ Deptron Instagram"
-                title="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    stroke="currentColor"
-                    stroke-width="2"></rect>
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4"
-                    stroke="currentColor"
-                    stroke-width="2"></circle>
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
-                  ></circle>
-                </svg>
-              </a>
-              <a
-                href="https://deptronrobotics.com/"
-                class="community-social-btn"
-                aria-label="YTÜ Deptron Web Sitesi"
-                title="Web Sitesi"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path
-                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-            <a
-              href="/contact"
-              class="btn btn-green community-btn"
-              aria-label="YTÜ Deptron ekibine katılmak için iletişim sayfasına git"
-              >Ekibe Katıl →</a
-            >
-          </div>
-        </div>
+        {
+          communities.map((community) => (
+            <div class="community-card">
+              <div class="community-card-header">
+                <div class="community-card-logo-box">
+                  <img
+                    src={community.logo}
+                    alt={community.logoAlt}
+                    class="community-card-logo"
+                    width="68"
+                    height="68"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div>
+                  <h2 class="community-name">{community.name}</h2>
+                </div>
+              </div>
 
-        <!-- Huawei Student Developers (HSD YTU) -->
-        <div class="community-card">
-          <div class="community-card-header">
-            <div class="community-card-logo-box">
-              <img
-                src="/communities/hsd-logo.webp"
-                alt="Huawei Student Developers (HSD YTU) Topluluk Logosu - YTÜ MİNT"
-                class="community-card-logo"
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div>
-              <h2 class="community-name">
-                Huawei Student Developers (HSD YTU)
-              </h2>
-            </div>
-          </div>
-          <p class="community-card-desc">
-            Huawei Student Developers (HSD), teknoloji ve yazılım tutkusunu
-            paylaşan üniversite öğrencilerine; eğitimler, etkinlikler ile
-            birlikte öğrenme ortamı sağlayarak bilgi ve deneyimlerini geliştirme
-            fırsatı sunan küresel bir programdır. HSD, teknoloji, yazılım,
-            liderlik, kariyer gibi konularda ekosistemindeki üyelere eğitimler
-            verir ve etkinlikler düzenler ve bunlarla ilgili proje geliştirme
-            imkanı sunar.
-          </p>
-          <div class="community-card-footer">
-            <div class="community-links">
-              <a
-                href="https://www.instagram.com/hsd.ytu/"
-                class="community-social-btn"
-                aria-label="Huawei Student Developers YTU Instagram"
-                title="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    stroke="currentColor"
-                    stroke-width="2"></rect>
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4"
-                    stroke="currentColor"
-                    stroke-width="2"></circle>
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
-                  ></circle>
-                </svg>
-              </a>
-            </div>
-            <a
-              href="/contact"
-              class="btn btn-green community-btn"
-              aria-label="Huawei Student Developers (HSD YTU) ekibine katılmak için iletişim sayfasına git"
-              >Ekibe Katıl →</a
-            >
-          </div>
-        </div>
+              <p class="community-card-desc">{community.description}</p>
 
-        <!-- YTÜ Blockchain -->
-        <div class="community-card">
-          <div class="community-card-header">
-            <div class="community-card-logo-box">
-              <img
-                src="/communities/bc-logo.webp"
-                alt="YTÜ Blockchain Topluluğu Logosu - YTÜ MİNT"
-                class="community-card-logo"
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="community-card-footer">
+                <div class="community-links">
+                  {community.links.map((link) => (
+                    <a
+                      href={link.url}
+                      class="community-social-btn"
+                      aria-label={`${community.name} ${link.name}`}
+                      title={link.name}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.type === "instagram" ? (
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <rect
+                            x="2"
+                            y="2"
+                            width="20"
+                            height="20"
+                            rx="5"
+                            ry="5"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          />
+                          <circle
+                            cx="17.5"
+                            cy="6.5"
+                            r="1.5"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="2" y1="12" x2="22" y2="12" />
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div>
-              <h2 class="community-name">YTÜ Blockchain</h2>
-            </div>
-          </div>
-          <p class="community-card-desc">
-            Blockchain mimarisi, Web3 ekosistemi, akıllı sözleşmeler (Smart
-            Contracts), DeFi protokolleri ve dağıtık sistem mimarileri üzerine
-            araştırmalar, atölyeler ve projeler yürütüyoruz.
-          </p>
-          <div class="community-card-footer">
-            <div class="community-links">
-              <a
-                href="https://www.instagram.com/ytu_blockchain/"
-                class="community-social-btn"
-                aria-label="YTÜ Blockchain Instagram"
-                title="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    stroke="currentColor"
-                    stroke-width="2"></rect>
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4"
-                    stroke="currentColor"
-                    stroke-width="2"></circle>
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
-                  ></circle>
-                </svg>
-              </a>
-              <a
-                href="https://ytublockchain.com/tr"
-                class="community-social-btn"
-                aria-label="YTÜ Blockchain Web Sitesi"
-                title="Web Sitesi"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path
-                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-            <a
-              href="/contact"
-              class="btn btn-green community-btn"
-              aria-label="YTÜ Blockchain ekibine katılmak için iletişim sayfasına git"
-              >Ekibe Katıl →</a
-            >
-          </div>
-        </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-        <!-- Yıldız Siber -->
-        <div class="community-card">
-          <div class="community-card-header">
-            <div class="community-card-logo-box">
-              <img
-                src="/communities/yildiz-siber.webp"
-                alt="Yıldız Siber Güvenlik Topluluğu Logosu - YTÜ MİNT"
-                class="community-card-logo"
-                width="68"
-                height="68"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div>
-              <h2 class="community-name">Yıldız Siber</h2>
-            </div>
-          </div>
-          <p class="community-card-desc">
-            Siber güvenlik, sızma testleri (pentest), CTF yarışmaları, web
-            uygulama güvenliği ve zararlı yazılım analizi alanlarında teorik ve
-            uygulamalı eğitimler düzenliyoruz.
+  <!-- Minimalist Join CTA -->
+  <section class="join-cta-section">
+    <div class="container">
+      <div class="join-cta-card">
+        <div class="join-cta-content">
+          <h2 class="join-cta-title">Ekibimizin Bir Parçası Olun</h2>
+          <p class="join-cta-desc">
+            Projelerimizde yer almak, teknik ekiplerimize katılmak veya alt topluluklarımızda aktif rol almak için bizimle iletişime geçebilirsiniz.
           </p>
-          <div class="community-card-footer">
-            <div class="community-links">
-              <a
-                href="https://www.instagram.com/yildizsiber/"
-                class="community-social-btn"
-                aria-label="Yıldız Siber Instagram"
-                title="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="5"
-                    ry="5"
-                    stroke="currentColor"
-                    stroke-width="2"></rect>
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4"
-                    stroke="currentColor"
-                    stroke-width="2"></circle>
-                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"
-                  ></circle>
-                </svg>
-              </a>
-            </div>
-            <a
-              href="/contact"
-              class="btn btn-green community-btn"
-              aria-label="Yıldız Siber ekibine katılmak için iletişim sayfasına git"
-              >Ekibe Katıl →</a
+        </div>
+        <div class="join-cta-action">
+          <a
+            href="/contact"
+            class="btn btn-green join-cta-btn"
+            aria-label="Bizimle iletişime geçin"
+          >
+            <span>İletişime Geç</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-          </div>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -432,7 +279,7 @@ const communitiesJsonLd = {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('/brand/mint-pattern.webp');
+    background-image: url("/brand/mint-pattern.webp");
     background-size: 260px 260px;
     background-repeat: repeat;
     background-position: center;
@@ -457,7 +304,7 @@ const communitiesJsonLd = {
 
   /* Communities */
   .communities-section {
-    padding: 48px 0 72px;
+    padding: 48px 0 32px;
     background: var(--bg-main);
     position: relative;
     overflow: hidden;
@@ -466,7 +313,7 @@ const communitiesJsonLd = {
   .communities-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: 20px;
     max-width: 1060px;
     margin: 0 auto;
   }
@@ -475,24 +322,28 @@ const communitiesJsonLd = {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 20px 22px;
-    box-shadow:
-      0 2px 10px rgba(15, 23, 42, 0.03),
-      0 1px 2px rgba(15, 23, 42, 0.02);
+    padding: 24px 24px 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 12px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 16px;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
   }
 
+  :global([data-theme="dark"]) .community-card {
+    background: var(--bg-card);
+  }
+
   .community-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(97, 169, 93, 0.3);
-    box-shadow:
-      0 12px 28px -6px rgba(15, 23, 42, 0.06),
-      0 3px 8px rgba(15, 23, 42, 0.03);
+    transform: translateY(-2px);
+    border-color: rgba(97, 169, 93, 0.35);
+    box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.04);
+  }
+
+  :global([data-theme="dark"]) .community-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4);
   }
 
   .community-card-header {
@@ -514,12 +365,12 @@ const communitiesJsonLd = {
     overflow: hidden;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .community-card:hover .community-card-logo-box {
-    transform: scale(1.06);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    transform: scale(1.04);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
   }
 
   .community-card-logo {
@@ -537,12 +388,13 @@ const communitiesJsonLd = {
     font-weight: 700;
     color: var(--dark);
     margin: 0;
+    line-height: 1.3;
     letter-spacing: -0.01em;
   }
 
   .community-card-desc {
     font-size: 13.5px;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--text-muted);
     flex: 1;
     margin: 0;
@@ -551,19 +403,15 @@ const communitiesJsonLd = {
   .community-card-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
     margin-top: auto;
-    padding-top: 12px;
+    padding-top: 14px;
     border-top: 1px solid var(--border-subtle);
   }
 
-  .community-btn {
-    padding: 6px 14px;
-    font-size: 12.5px;
-    font-weight: 600;
-    border-radius: var(--radius-full);
+  :global([data-theme="dark"]) .community-card-footer {
+    border-top-color: rgba(255, 255, 255, 0.05);
   }
 
   .community-links {
@@ -576,14 +424,14 @@ const communitiesJsonLd = {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border-radius: var(--radius-full);
     text-decoration: none;
-    background: var(--bg-subtle);
-    color: var(--dark-muted);
+    background: var(--bg-muted);
+    color: var(--text-muted);
     border: 1px solid var(--border);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease;
     flex-shrink: 0;
   }
 
@@ -592,27 +440,113 @@ const communitiesJsonLd = {
     color: var(--white);
     border-color: var(--dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
   }
 
+  :global([data-theme="dark"]) .community-social-btn:hover {
+    background: var(--white);
+    color: #0f172a;
+    border-color: var(--white);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  /* ── Minimalist Join CTA ──────────────────────────────────── */
+  .join-cta-section {
+    padding: 16px 0 64px;
+    background: var(--bg-main);
+  }
+
+  .join-cta-card {
+    max-width: 1060px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  :global([data-theme="dark"]) .join-cta-card {
+    background: var(--bg-card);
+  }
+
+  .join-cta-content {
+    flex: 1;
+    max-width: 680px;
+  }
+
+  .join-cta-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .join-cta-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .join-cta-action {
+    flex-shrink: 0;
+  }
+
+  .join-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .join-cta-btn svg {
+    transition: transform 0.2s ease;
+  }
+
+  .join-cta-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 960px) {
     .communities-grid {
       grid-template-columns: 1fr;
+    }
+
+    .join-cta-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 24px;
+      gap: 20px;
+    }
+
+    .join-cta-action {
+      width: 100%;
+    }
+
+    .join-cta-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 
   @media (max-width: 640px) {
     .community-card {
-      padding: 16px 16px;
-    }
-    .community-card-footer {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .community-btn {
-      width: 100%;
-      text-align: center;
+      padding: 18px 18px 16px;
     }
   }
 </style>
+
