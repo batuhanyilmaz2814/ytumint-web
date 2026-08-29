@@ -6,6 +6,8 @@ interface Props {
   description?: string;
   image?: string;
   type?: string;
+  keywords?: string;
+  robots?: string;
 }
 
 const {
@@ -13,6 +15,8 @@ const {
   description = "YTÜ MİNT | Yıldız Teknik Üniversitesi. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk.",
   image = "/brand/mint-logo.webp",
   type = "website",
+  keywords = "YTÜ, MİNT, Yıldız Teknik Üniversitesi, Multidisipliner İnovasyon Teknolojileri, yazılım, teknoloji, öğrenci kulübü, yapay zeka, blockchain, siber güvenlik, inovasyon",
+  robots = "index, follow",
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -60,9 +64,9 @@ const isHome = currentPath === "/" || currentPath === "";
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="YTÜ, MİNT, Yıldız Teknik Üniversitesi, Multidisipliner İnovasyon Teknolojileri, yazılım, teknoloji, öğrenci kulübü, yapay zeka, blockchain, siber güvenlik, inovasyon" />
+    <meta name="keywords" content={keywords} />
     <meta name="author" content="YTÜ MİNT" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="theme-color" content="#61a95d" />
     <meta name="google-site-verification" content="BZDIF04wGa3fyBWdB8vZEfkYpqachvnTdz7z2kU3MAw" />
     <link rel="alternate" hreflang="tr" href={canonicalURL} />
