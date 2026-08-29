@@ -710,7 +710,7 @@ p {
 .footer-socials {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   flex-wrap: wrap;
   margin-top: 18px;
 }
@@ -719,20 +719,17 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #CBD5E1;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
   text-decoration: none;
-  transition: all 0.2s ease;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-social-icon:hover {
-  background: #488f44;
-  border-color: #488f44;
-  color: #FFFFFF;
+  background: transparent;
+  color: #488f44;
   transform: translateY(-2px);
 }
 
