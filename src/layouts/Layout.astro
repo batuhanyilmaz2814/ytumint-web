@@ -13,15 +13,21 @@ interface Props {
 const {
   title = "YTÜ MİNT | Multidisipliner İnovasyon Teknolojileri Kulübü",
   description = "YTÜ MİNT | Yıldız Teknik Üniversitesi. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk.",
-  image = "/brand/mint-logo.webp",
+  image = "/brand/mint-wh.jpg",
   type = "website",
   keywords = "YTÜ, MİNT, Yıldız Teknik Üniversitesi, Multidisipliner İnovasyon Teknolojileri, yazılım, teknoloji, öğrenci kulübü, yapay zeka, blockchain, siber güvenlik, inovasyon",
   robots = "index, follow",
 } = Astro.props;
 
-const currentPath = Astro.url.pathname;
-const canonicalURL = new URL(Astro.url.pathname, Astro.url);
-const ogImageURL = new URL(image, Astro.url).href;
+const cleanPathname =
+  Astro.url.pathname.length > 1 && Astro.url.pathname.endsWith("/")
+    ? Astro.url.pathname.slice(0, -1)
+    : Astro.url.pathname;
+
+const siteBase = Astro.site ?? "https://ytumint.org";
+const canonicalURL = new URL(cleanPathname, siteBase);
+const ogImageURL = new URL(image, siteBase).href;
+const currentPath = cleanPathname;
 
 const navLinks = [
   { href: "/", label: "Ana Sayfa" },
@@ -96,15 +102,18 @@ const isHome = currentPath === "/" || currentPath === "";
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:secure_url" content={ogImageURL} />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content="YTÜ MİNT" />
     <meta property="og:locale" content="tr_TR" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content={title} />
     <meta name="twitter:site" content="@ytumint" />
     <meta name="twitter:creator" content="@ytumint" />
     <script is:inline>
