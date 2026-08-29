@@ -231,6 +231,7 @@ import Layout from "../layouts/Layout.astro";
                 >
                 <input
                   type="text"
+                  name="entry.1023753477"
                   class="form-input"
                   placeholder="Adınızı Soyadınızı giriniz"
                   id="contactName"
@@ -243,6 +244,7 @@ import Layout from "../layouts/Layout.astro";
                 >
                 <input
                   type="email"
+                  name="entry.2075415478"
                   class="form-input"
                   placeholder="ornek@mail.com"
                   id="contactEmail"
@@ -257,6 +259,7 @@ import Layout from "../layouts/Layout.astro";
               >
               <select
                 class="form-input form-select"
+                name="entry.2011797487"
                 id="contactSubject"
                 required
               >
@@ -274,6 +277,7 @@ import Layout from "../layouts/Layout.astro";
                 >Mesajınız <span class="form-required">*</span></label
               >
               <textarea
+                name="entry.760565081"
                 class="form-input"
                 placeholder="Mesajınızı buraya yazabilirsiniz..."
                 id="contactMessage"
@@ -336,6 +340,10 @@ import Layout from "../layouts/Layout.astro";
   </div>
 
   <script>
+    // Google Form Action URL
+    const GOOGLE_FORM_ACTION_URL =
+      "https://docs.google.com/forms/d/e/1FAIpQLSdi5i54ppRhgQair9T_vauGmTvS0lnJlOm1jNrUA63qHPa9Zg/formResponse";
+
     const contactForm = document.getElementById(
       "contactForm",
     ) as HTMLFormElement;
@@ -398,7 +406,7 @@ import Layout from "../layouts/Layout.astro";
 
     toastCloseBtn?.addEventListener("click", hideToast);
 
-    contactForm?.addEventListener("submit", (e) => {
+    contactForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!submitBtn) return;
 
@@ -410,8 +418,16 @@ import Layout from "../layouts/Layout.astro";
         <span>Gönderiliyor...</span>
       `;
 
-      // 2. Simulated Async Network Dispatch
-      setTimeout(() => {
+      try {
+        const formData = new FormData(contactForm);
+
+        // Google Form'a POST isteği gönder (CORS engeline takılmamak için no-cors modu kullanılır)
+        await fetch(GOOGLE_FORM_ACTION_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        });
+
         // Success State
         submitBtn.classList.remove("is-loading");
         submitBtn.classList.add("is-success");
@@ -424,6 +440,7 @@ import Layout from "../layouts/Layout.astro";
 
         showToast();
         contactForm.reset();
+        updateSubjectColor();
 
         // 3. Reset Button after 3.5 seconds
         setTimeout(() => {
@@ -431,7 +448,12 @@ import Layout from "../layouts/Layout.astro";
           submitBtn.disabled = false;
           submitBtn.innerHTML = `<span class="btn-text">Gönder</span>`;
         }, 3500);
-      }, 950);
+      } catch (error) {
+        console.error("Form gönderim hatası:", error);
+        submitBtn.classList.remove("is-loading");
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span class="btn-text">Tekrar Deneyin</span>`;
+      }
     });
   </script>
 </Layout>
