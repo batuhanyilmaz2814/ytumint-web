@@ -1590,18 +1590,7 @@ function parseEventDate(dateStr: string) {
     margin-top: 28px;
   }
 
-  @media (max-width: 1024px) {
-    .events-home-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
 
-  @media (max-width: 640px) {
-    .events-home-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-  }
 
   .past-event-card {
     background: var(--white);
@@ -1806,17 +1795,7 @@ function parseEventDate(dateStr: string) {
     margin: 0;
   }
 
-  @media (max-width: 900px) {
-    .departments-home-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
 
-  @media (max-width: 500px) {
-    .departments-home-grid {
-      grid-template-columns: 1fr;
-    }
-  }
 
   /* ── Ekibimiz Section ───────────────────────────────────────── */
   .team-home-section {
@@ -2006,51 +1985,274 @@ function parseEventDate(dateStr: string) {
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
+
+  /* Büyük tablet: 1024px ve altı */
   @media (max-width: 1024px) {
+    .hero-video__content {
+      padding: 60px 24px 40px;
+      max-width: 640px;
+    }
+
     .communities-home-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
+
+    .events-home-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .departments-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .team-home-inner {
       grid-template-columns: 1fr;
       gap: 32px;
     }
+
     .about-photo::before {
       display: none;
     }
+
+    .about-section {
+      padding: 48px 0 56px;
+    }
+
+    .communities-home-section,
+    .events-home-section,
+    .departments-home-section,
+    .team-home-section,
+    .sponsors-home-section {
+      padding: 56px 0 64px;
+    }
   }
 
+  /* Tablet: 768px ve altı */
   @media (max-width: 768px) {
+    .hero-video__content {
+      padding: 48px 20px 32px;
+      max-width: 100%;
+    }
+
+    .hero-video__btns {
+      gap: 8px;
+    }
+
     .about-inner {
       grid-template-columns: 1fr;
       gap: 32px;
     }
-    .past-events-home-grid {
-      grid-template-columns: 1fr;
+
+    .about-section {
+      padding: 40px 0 48px;
+    }
+
+    .about-title {
+      font-size: 20px;
+    }
+
+    .about-stats {
+      margin-top: 20px;
+    }
+
+    .communities-home-section,
+    .events-home-section,
+    .departments-home-section,
+    .team-home-section {
+      padding: 48px 0 56px;
+    }
+
+    .section-header-row {
+      margin-bottom: 18px;
+    }
+
+    .events-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .communities-home-grid {
+      gap: 14px;
+    }
+
+    .team-home-desc {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .sponsors-home-section {
+      padding: 40px 0 48px;
+    }
+
+    .sponsors-header {
+      margin-bottom: 20px;
+    }
+
+    .sponsors-track {
+      gap: 30px;
+      padding-right: 30px;
+      animation-duration: 40s;
+    }
+
+    .sponsor-logo {
+      height: 32px;
+      max-width: 100px;
     }
   }
 
+  /* Mobil: 640px ve altı */
   @media (max-width: 640px) {
-    .communities-home-grid {
-      grid-template-columns: 1fr;
+    .hero-video__content {
+      padding: 40px 16px 28px;
     }
+
+    .hero-video__btns {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-video__btns .btn {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+
+    .about-section {
+      padding: 36px 0 40px;
+    }
+
     .about-stats {
       flex-direction: column;
       gap: 0;
     }
+
     .about-stat {
       padding: 14px 16px;
     }
+
     .about-stat-divider {
       width: 80%;
       height: 1px;
       align-self: center;
     }
+
+    .communities-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .communities-home-section,
+    .events-home-section,
+    .departments-home-section,
+    .team-home-section {
+      padding: 36px 0 44px;
+    }
+
+    .events-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .departments-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
     .event-home-card {
       padding: 18px 16px;
     }
+
     .section-header-row {
-      flex-direction: column;
-      align-items: flex-start;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .past-event-body {
+      padding: 12px 14px 14px;
+    }
+
+    .past-event-day {
+      font-size: 18px;
+    }
+
+    .past-event-title {
+      font-size: 14px;
+    }
+
+    .dept-name {
+      font-size: 14px;
+    }
+
+    .dept-desc {
+      font-size: 12.5px;
+    }
+
+    .dept-icon-box {
+      width: 38px;
+      height: 38px;
+    }
+
+    .sponsors-home-section {
+      padding: 32px 0 40px;
+    }
+
+    .sponsor-logo {
+      height: 28px;
+      max-width: 90px;
+    }
+
+    .sponsors-track {
+      gap: 24px;
+      padding-right: 24px;
+      animation-duration: 35s;
+    }
+  }
+
+  /* Küçük mobil: 480px ve altı */
+  @media (max-width: 480px) {
+    .hero-video__btns .btn {
+      max-width: 100%;
+    }
+
+    .about-section {
+      padding: 28px 0 32px;
+    }
+
+    .events-home-grid {
+      gap: 10px;
+    }
+
+    .departments-home-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .communities-home-section,
+    .events-home-section,
+    .departments-home-section,
+    .team-home-section {
+      padding: 28px 0 36px;
+    }
+
+    .past-event-body {
+      padding: 10px 12px 12px;
+    }
+
+    .past-event-title {
+      font-size: 13px;
+      min-height: auto;
+    }
+
+    .community-home-card {
+      padding: 16px 14px 14px;
+    }
+
+    .sponsor-logo {
+      height: 24px;
+      max-width: 80px;
     }
   }
 </style>
