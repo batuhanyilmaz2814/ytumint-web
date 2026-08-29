@@ -42,7 +42,7 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 14px 28px rgba(72, 143, 68, 0.15);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.08);
 
   /* Radii */
   --radius-sm: 8px;
@@ -83,7 +83,7 @@
   --border: #1e293b;
   --border-subtle: #0f172a;
   --border-dark: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(45, 112, 79, 0.25);
+  --border-glow: rgba(255, 255, 255, 0.05);
 
   /* Card Gradients & Glassmorphic Surfaces - Minimalized */
   --card-gradient: #111827;
@@ -93,9 +93,9 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.7);
-  --shadow-hover: 0 8px 24px rgba(45, 112, 79, 0.25);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.7);
   --card-glow: none;
-  --card-glow-hover: 0 0 0 1px rgba(45, 112, 79, 0.35);
+  --card-glow-hover: none;
 }
 
 html {
@@ -281,7 +281,7 @@ p {
 .btn-dark:hover {
   background-color: #1E293B;
   border-color: #1E293B;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
   color: var(--white);
 }
 
@@ -294,7 +294,7 @@ p {
 .btn-green:hover {
   background-color: var(--green-hover);
   border-color: var(--green-hover);
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
   color: #ffffff;
 }
 
@@ -960,6 +960,6 @@ a.footer-contact-item:hover {
 :root[data-theme="dark"] .event-card--past:hover,
 :root[data-theme="dark"] .focus-card:hover,
 :root[data-theme="dark"] .board-member-card:hover {
-  border-color: rgba(97, 169, 93, 0.45) !important;
-  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.65), 0 0 20px -2px rgba(97, 169, 93, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.7) !important;
 }
