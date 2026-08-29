@@ -422,9 +422,12 @@ function parseEventDate(dateStr: string) {
           <div class="about-photo-wrapper">
             <img
               src="/team/mint-ekip.webp"
-              alt="YTÜ MİNT Ekibi"
+              alt="YTÜ MİNT Kulübü Ekibi - Yıldız Teknik Üniversitesi"
               class="about-photo-img"
+              width="600"
+              height="400"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -461,8 +464,12 @@ function parseEventDate(dateStr: string) {
             <div class="community-home-logo-box">
               <img
                 src="/communities/deptron-logo.webp"
-                alt="YTÜ Deptron"
+                alt="YTÜ Deptron Robotik Topluluğu Logosu - YTÜ MİNT"
                 class="community-home-logo"
+                width="64"
+                height="64"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -527,8 +534,12 @@ function parseEventDate(dateStr: string) {
             <div class="community-home-logo-box">
               <img
                 src="/communities/hsd-logo.webp"
-                alt="Huawei Student Developers (HSD YTU)"
+                alt="Huawei Student Developers (HSD YTU) Topluluk Logosu - YTÜ MİNT"
                 class="community-home-logo"
+                width="64"
+                height="64"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -572,8 +583,12 @@ function parseEventDate(dateStr: string) {
             <div class="community-home-logo-box">
               <img
                 src="/communities/bc-logo.webp"
-                alt="YTÜ Blockchain"
+                alt="YTÜ Blockchain Topluluğu Logosu - YTÜ MİNT"
                 class="community-home-logo"
+                width="64"
+                height="64"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -638,8 +653,12 @@ function parseEventDate(dateStr: string) {
             <div class="community-home-logo-box">
               <img
                 src="/communities/yildiz-siber.webp"
-                alt="Yıldız Siber"
+                alt="Yıldız Siber Güvenlik Topluluğu Logosu - YTÜ MİNT"
                 class="community-home-logo"
+                width="64"
+                height="64"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -717,7 +736,15 @@ function parseEventDate(dateStr: string) {
               <div class="past-event-card">
                 <div class="past-event-img-wrap">
                   {event.image ? (
-                    <img src={event.image} alt={event.title} class="past-event-img" loading="lazy" />
+                    <img
+                      src={event.image}
+                      alt={`${event.title} - YTÜ MİNT ${event.category || "Etkinliği"}`}
+                      class="past-event-img"
+                      width="400"
+                      height="250"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   ) : (
                     <div class="past-event-img-placeholder">
                       <span class="placeholder-tag">{event.badge || "YTÜ MİNT"}</span>
@@ -795,9 +822,12 @@ function parseEventDate(dateStr: string) {
         <div class="team-home-photo-wrap">
           <img
             src="/team/mint-ana-ekip.webp"
-            alt="YTÜ MİNT Ekibi"
+            alt="YTÜ MİNT Yönetim Kurulu ve Lider Ekibi - Yıldız Teknik Üniversitesi"
             class="team-home-photo"
+            width="540"
+            height="380"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -824,9 +854,12 @@ function parseEventDate(dateStr: string) {
             <div class="sponsor-item" title={sponsor.name}>
               <img
                 src={sponsor.logo}
-                alt={sponsor.name}
+                alt={`${sponsor.name} Sponsorluk Logosu - YTÜ MİNT`}
                 class="sponsor-logo"
+                width="160"
+                height="60"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           ))
@@ -838,9 +871,12 @@ function parseEventDate(dateStr: string) {
             <div class="sponsor-item" title={sponsor.name}>
               <img
                 src={sponsor.logo}
-                alt={sponsor.name}
+                alt={`${sponsor.name} Sponsorluk Logosu - YTÜ MİNT`}
                 class="sponsor-logo"
+                width="160"
+                height="60"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           ))

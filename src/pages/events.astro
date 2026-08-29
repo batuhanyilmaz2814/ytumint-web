@@ -227,9 +227,12 @@ const eventsJsonLd = {
                   {event.image ? (
                     <img
                       src={event.image}
-                      alt={event.title}
+                      alt={`${event.title} - YTÜ MİNT ${event.category || "Etkinliği"}`}
                       class="past-event-img"
+                      width="400"
+                      height="250"
                       loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div class="past-event-img-placeholder"></div>
