@@ -3,14 +3,24 @@ import Layout from "../layouts/Layout.astro";
 import { pastEvents, upcomingEvents } from "../data/events";
 
 const TR_MONTHS: Record<string, number> = {
-  ocak: 0, şubat: 1, mart: 2, nisan: 3,
-  mayıs: 4, haziran: 5, temmuz: 6, ağustos: 7,
-  eylül: 8, ekim: 9, kasım: 10, aralık: 11,
+  ocak: 0,
+  şubat: 1,
+  mart: 2,
+  nisan: 3,
+  mayıs: 4,
+  haziran: 5,
+  temmuz: 6,
+  ağustos: 7,
+  eylül: 8,
+  ekim: 9,
+  kasım: 10,
+  aralık: 11,
 };
 const parseTRDate = (d: string) => {
   const lower = d.toLowerCase().replace(/\d+-\d+\s+/, "");
   const day = parseInt(d.match(/\d+/)?.[0] || "1");
-  const monthStr = lower.split(" ").find((p) => TR_MONTHS[p] !== undefined) || "";
+  const monthStr =
+    lower.split(" ").find((p) => TR_MONTHS[p] !== undefined) || "";
   const year = parseInt(d.match(/\d{4}/)?.[0] || "2024");
   return new Date(year, TR_MONTHS[monthStr] ?? 0, day);
 };
@@ -97,12 +107,21 @@ function parseEventDate(dateStr: string) {
         May the <span class="hero-video__title-accent">MİNT</span><br />be with
         you!
         <span class="sr-only">
-          - YTÜ MİNT | Yıldız Teknik Üniversitesi Multidisipliner İnovasyon Teknolojileri Kulübü
+          - YTÜ MİNT | Yıldız Teknik Üniversitesi Multidisipliner İnovasyon
+          Teknolojileri Kulübü
         </span>
       </h1>
       <div class="hero-video__btns">
-        <a href="/events" class="btn btn-green" aria-label="MİNT etkinliklerini keşfet">Etkinliklerimiz</a>
-        <a href="/communities" class="btn btn-outline-white" aria-label="MİNT alt topluluklarını keşfet">Topluluklarımız</a>
+        <a
+          href="/events"
+          class="btn btn-green"
+          aria-label="MİNT etkinliklerini keşfet">Etkinliklerimiz</a
+        >
+        <a
+          href="/communities"
+          class="btn btn-outline-white"
+          aria-label="MİNT alt topluluklarını keşfet">Topluluklarımız</a
+        >
       </div>
     </div>
   </section>
@@ -447,8 +466,12 @@ function parseEventDate(dateStr: string) {
         <div>
           <h2 class="section-title">Topluluklarımız</h2>
         </div>
-        <a href="/communities" class="btn btn-outline see-more-btn" aria-label="Tüm YTÜ MİNT topluluklarını inceleyin">
-          Tümünü Gör<span class="sr-only"> - YTÜ MİNT Alt Toplulukları</span>
+        <a
+          href="/communities"
+          class="btn btn-outline see-more-btn"
+          aria-label="Tüm YTÜ MİNT topluluklarını inceleyin"
+        >
+          Tümü<span class="sr-only"> - YTÜ MİNT Alt Toplulukları</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path
               d="M5 12H19M19 12L13 6M19 12L13 18"
@@ -709,8 +732,12 @@ function parseEventDate(dateStr: string) {
         <div>
           <h2 class="section-title">Etkinliklerimiz</h2>
         </div>
-        <a href="/events" class="btn btn-outline see-more-btn" aria-label="Tüm MİNT etkinliklerini görüntüleyin">
-          Tümünü Gör<span class="sr-only"> - Tüm YTÜ MİNT Etkinlikleri</span>
+        <a
+          href="/events"
+          class="btn btn-outline see-more-btn"
+          aria-label="Tüm MİNT etkinliklerini görüntüleyin"
+        >
+          Tümü<span class="sr-only"> - Tüm YTÜ MİNT Etkinlikleri</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path
               d="M5 12H19M19 12L13 6M19 12L13 18"
@@ -725,8 +752,12 @@ function parseEventDate(dateStr: string) {
       <!-- Tabs -->
       <div class="events-tabs-row">
         <div class="events-tabs">
-          <button class="events-tab active" id="tabPast" data-tab="past">Geçmiş</button>
-          <button class="events-tab" id="tabUpcoming" data-tab="upcoming">Yaklaşan</button>
+          <button class="events-tab active" id="tabPast" data-tab="past"
+            >Geçmiş</button
+          >
+          <button class="events-tab" id="tabUpcoming" data-tab="upcoming"
+            >Yaklaşan</button
+          >
         </div>
       </div>
 
@@ -750,7 +781,9 @@ function parseEventDate(dateStr: string) {
                     />
                   ) : (
                     <div class="past-event-img-placeholder">
-                      <span class="placeholder-tag">{event.badge || "YTÜ MİNT"}</span>
+                      <span class="placeholder-tag">
+                        {event.badge || "YTÜ MİNT"}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -798,6 +831,107 @@ function parseEventDate(dateStr: string) {
   </section>
 
   <!-- =============================================
+       BİRİMLERİMİZ
+       ============================================= -->
+  <section class="departments-home-section" id="birimler">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-title">Birimlerimiz</h2>
+        </div>
+        <a
+          href="/departments"
+          class="btn btn-outline see-more-btn"
+          aria-label="Tüm MİNT birimlerini inceleyin"
+        >
+          Tümü<span class="sr-only"> - YTÜ MİNT Birimleri</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 12H19M19 12L13 6M19 12L13 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="departments-home-grid">
+        <div class="department-home-card">
+          <div class="dept-icon-box">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+              ></rect><line x1="16" y1="2" x2="16" y2="6"></line><line
+                x1="8"
+                y1="2"
+                x2="8"
+                y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg
+            >
+          </div>
+          <h3 class="dept-name">Organizasyon</h3>
+          <p class="dept-desc">
+            Etkinliklerimizin planlanması ve kusursuzca hayata geçirilmesinden
+            sorumludur.
+          </p>
+        </div>
+        <div class="department-home-card">
+          <div class="dept-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="dept-name">Sponsorluk</h3>
+          <p class="dept-desc">
+            Etkinlikler için destek bulur, iş birlikleri ve kurumsal ilişkiler
+            geliştirir.
+          </p>
+        </div>
+        <div class="department-home-card">
+          <div class="dept-icon-box">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24"><title>Canva</title><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></svg>
+          </div>
+          <h3 class="dept-name">Sosyal Medya</h3>
+          <p class="dept-desc">
+            İçerik üretimi ve görsel tasarım ile kulübümüzün dijital varlığını
+            yönetir.
+          </p>
+        </div>
+        <div class="department-home-card">
+          <div class="dept-icon-box">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><rect x="2" y="3" width="20" height="14" rx="2" ry="2"
+              ></rect><line x1="8" y1="21" x2="16" y2="21"></line><line
+                x1="12"
+                y1="17"
+                x2="12"
+                y2="21"></line></svg
+            >
+          </div>
+          <h3 class="dept-name">Yarışma-Proje</h3>
+          <p class="dept-desc">
+            Teknoloji odaklı projeler geliştirir, inovatif yarışmalara katılım
+            sağlar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
        EKİBİMİZ
        ============================================= -->
   <section class="team-home-section" id="ekibimiz">
@@ -821,7 +955,11 @@ function parseEventDate(dateStr: string) {
             MİNT'in düzenlediği etkinlikleri, topluluk faaliyetlerini ve
             projeleri hayata geçiren yönetim kurulu üyelerimizi tanıyın.
           </p>
-          <a href="/team" class="btn btn-dark team-home-cta" aria-label="YTÜ MİNT yönetim kurulu ekibini tanıyın">
+          <a
+            href="/team"
+            class="btn btn-dark team-home-cta"
+            aria-label="YTÜ MİNT yönetim kurulu ekibini tanıyın"
+          >
             Ekibimizi Tanıyın
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path
@@ -1594,6 +1732,92 @@ function parseEventDate(dateStr: string) {
     overflow: hidden;
   }
 
+  /* ── Birimlerimiz Section ──────────────────────────────────────── */
+  .departments-home-section {
+    padding: 70px 0 10px;
+    background: var(--bg-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .departments-home-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .department-home-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  }
+
+  :global([data-theme="dark"]) .department-home-card {
+    background: var(--bg-card);
+  }
+
+  .department-home-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(97, 169, 93, 0.35);
+    box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+  }
+
+  .dept-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--bg-muted);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  :global([data-theme="dark"]) .dept-icon-box {
+    color: var(--white);
+  }
+
+  .department-home-card:hover .dept-icon-box {
+    transform: scale(1.08);
+    color: var(--green);
+  }
+
+  .dept-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .dept-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .departments-home-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .departments-home-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* ── Ekibimiz Section ───────────────────────────────────────── */
   .team-home-section {
     padding: 70px 0 80px;
@@ -1601,8 +1825,6 @@ function parseEventDate(dateStr: string) {
     position: relative;
     overflow: hidden;
   }
-
-
 
   .team-home-inner {
     display: grid;
