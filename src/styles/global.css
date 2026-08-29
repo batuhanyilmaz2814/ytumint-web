@@ -274,7 +274,7 @@ p {
 
 .btn-green {
   background-color: var(--green);
-  color: var(--white);
+  color: #ffffff;
   border-color: var(--green);
 }
 
@@ -282,7 +282,7 @@ p {
   background-color: var(--green-hover);
   border-color: var(--green-hover);
   box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
-  color: var(--white);
+  color: #ffffff;
 }
 
 .btn-outline {
@@ -301,15 +301,15 @@ p {
 
 .btn-outline-white {
   background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow: none;
 }
 
 .btn-outline-white:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.6);
-  color: var(--white);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
 }
 
 /* =============================================
