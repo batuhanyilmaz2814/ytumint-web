@@ -8,6 +8,7 @@ interface Props {
   type?: string;
   keywords?: string;
   robots?: string;
+  jsonLd?: Record<string, any> | Record<string, any>[];
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   type = "website",
   keywords = "YTÜ, MİNT, Yıldız Teknik Üniversitesi, Multidisipliner İnovasyon Teknolojileri, yazılım, teknoloji, öğrenci kulübü, yapay zeka, blockchain, siber güvenlik, inovasyon",
   robots = "index, follow",
+  jsonLd,
 } = Astro.props;
 
 const cleanPathname =
@@ -126,6 +128,7 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
       hasBreadcrumb && (
         <script
           type="application/ld+json"
+          is:inline
           set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -146,6 +149,26 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
           })}
         />
       )
+    }
+
+    <!-- Custom Page Structured Data (JSON-LD) -->
+    {
+      jsonLd &&
+        (Array.isArray(jsonLd) ? (
+          jsonLd.map((schema) => (
+            <script
+              type="application/ld+json"
+              is:inline
+              set:html={JSON.stringify(schema)}
+            />
+          ))
+        ) : (
+          <script
+            type="application/ld+json"
+            is:inline
+            set:html={JSON.stringify(jsonLd)}
+          />
+        ))
     }
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->

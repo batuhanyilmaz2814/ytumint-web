@@ -1,12 +1,58 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+
+const siteUrl = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : "https://ytumint.org";
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Bize Ulaşın | YTÜ MİNT",
+  description:
+    "YTÜ MİNT ile iletişime geçin. Üyelik başvurusu, sponsorluk veya sorularınız için bize ulaşın.",
+  url: `${siteUrl}/contact`,
+  mainEntity: {
+    "@type": "Organization",
+    name: "YTÜ MİNT",
+    alternateName: "Multidisipliner İnovasyon Teknolojileri Kulübü",
+    url: `${siteUrl}/`,
+    logo: `${siteUrl}/brand/mint-logo.webp`,
+    email: "mintunity@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Yıldız Teknik Üniversitesi Davutpaşa Kampüsü",
+      addressLocality: "Esenler",
+      addressRegion: "İstanbul",
+      postalCode: "34220",
+      addressCountry: "TR",
+    },
+    sameAs: [
+      "https://www.instagram.com/ytumint",
+      "https://www.linkedin.com/company/ytumint",
+      "https://x.com/ytumint",
+      "https://www.tiktok.com/@ytumint",
+      "https://www.youtube.com/@mintkulubu",
+      "https://open.spotify.com/show/0gkaJ9ud28clkg5zWmdnF6?si=eeae0988421348dc&nd=1&dlsi=791e8d082db246da",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "general inquiries",
+        email: "mintunity@gmail.com",
+        availableLanguage: ["Turkish", "English"],
+      },
+    ],
+  },
+};
 ---
 
 <Layout
   title="Bize Ulaşın | YTÜ MİNT"
   description="YTÜ MİNT ile iletişime geçin. Üyelik başvurusu, sponsorluk veya sorularınız için bize ulaşın."
   keywords="YTÜ MİNT iletişim, kulüp üyelik başvurusu, sponsorluk, YTÜ öğrenci kulübü iletişim, Yıldız Teknik Üniversitesi kulüp kayıt"
+  jsonLd={contactJsonLd}
 >
   <!-- Page Header -->
   <section class="page-hero">

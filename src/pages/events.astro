@@ -32,12 +32,95 @@ const categories = [
   { id: "Eğitim", label: "Eğitim" },
   { id: "Sosyal Etkinlik", label: "Sosyal Etkinlik" },
 ];
+const TR_MONTHS_MAP: Record<string, string> = {
+  ocak: "01",
+  şubat: "02",
+  mart: "03",
+  nisan: "04",
+  mayıs: "05",
+  haziran: "06",
+  temmuz: "07",
+  ağustos: "08",
+  eylül: "09",
+  ekim: "10",
+  kasım: "11",
+  aralık: "12",
+};
+
+function formatIsoDate(dateStr: string): string {
+  const clean = dateStr.trim().toLowerCase();
+  const parts = clean.split(" ");
+  const yearMatch = dateStr.match(/\d{4}/);
+  const year = yearMatch ? yearMatch[0] : "2026";
+  const monthWord = parts.find((p) => TR_MONTHS_MAP[p]);
+  const month = monthWord ? TR_MONTHS_MAP[monthWord] : "01";
+  const dayMatch = parts[0].match(/\d+/);
+  const day = dayMatch ? dayMatch[0].padStart(2, "0") : "01";
+  return `${year}-${month}-${day}`;
+}
+
+const siteUrl = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : "https://ytumint.org";
+
+const eventsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: allEvents.map((event, index) => {
+    const isoDate = formatIsoDate(event.date);
+    const imageUrl = event.image
+      ? event.image.startsWith("http")
+        ? event.image
+        : `${siteUrl}${event.image}`
+      : `${siteUrl}/brand/mint-wh.jpg`;
+
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Event",
+        name: event.title,
+        description:
+          event.desc ||
+          `${event.title} - YTÜ MİNT ${event.category || "Etkinliği"}`,
+        startDate: isoDate,
+        endDate: isoDate,
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        location: {
+          "@type": "Place",
+          name: "Yıldız Teknik Üniversitesi Davutpaşa Kampüsü",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Esenler",
+            addressRegion: "İstanbul",
+            addressCountry: "TR",
+          },
+        },
+        image: imageUrl,
+        organizer: {
+          "@type": "Organization",
+          name: "YTÜ MİNT",
+          url: "https://ytumint.org/",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "TRY",
+          availability: "https://schema.org/InStock",
+          url: "https://ytumint.org/events",
+        },
+      },
+    };
+  }),
+};
 ---
 
 <Layout
   title="Etkinliklerimiz | YTÜ MİNT"
   description="YTÜ MİNT etkinlikleri: hackathonlar, şirket gezileri, atölyeler, quiz geceleri ve zirveler. Topluluğumuzla birlikte öğren, geliştir ve büyü."
   keywords="YTÜ etkinlikleri, hackathon, şirket gezisi, teknoloji zirvesi, yazılım eğitimi, quiz night, YTÜ MİNT etkinlikleri, workshop, atölye, teknoloji etkinlikleri"
+  jsonLd={eventsJsonLd}
 >
   <!-- Page Header -->
   <section class="page-hero">

@@ -98,12 +98,55 @@ const yonetimKurulu = rawYonetimKurulu.filter(
 const denetimKurulu = rawDenetimKurulu.filter(
   (uye) => uye.foto && uye.foto.trim() !== "",
 );
+
+const siteUrl = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : "https://ytumint.org";
+
+const allMembers = [...yonetimKurulu, ...denetimKurulu];
+
+const teamJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "Ekibimiz | YTÜ MİNT",
+  description:
+    "YTÜ MİNT ekibini tanıyın | yönetim kurulu ve denetim kurulu olarak topluluğumuzu yöneten öğrenci liderler.",
+  url: `${siteUrl}/team`,
+  mainEntity: {
+    "@type": "ItemList",
+    name: "YTÜ MİNT Yönetim ve Denetim Kurulu Üyeleri",
+    itemListElement: allMembers.map((uye, index) => {
+      const sameAs = [uye.linkedin, uye.github].filter(Boolean) as string[];
+      const fotoUrl = uye.foto.startsWith("http")
+        ? uye.foto
+        : `${siteUrl}${uye.foto}`;
+
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Person",
+          name: uye.ad,
+          jobTitle: uye.unvan,
+          image: fotoUrl,
+          worksFor: {
+            "@type": "Organization",
+            name: "YTÜ MİNT",
+            url: `${siteUrl}/`,
+          },
+          ...(sameAs.length > 0 ? { sameAs } : {}),
+        },
+      };
+    }),
+  },
+};
 ---
 
 <Layout
   title="Ekibimiz | YTÜ MİNT"
   description="YTÜ MİNT ekibini tanıyın | yönetim kurulu ve denetim kurulu olarak topluluğumuzu yöneten öğrenci liderler."
   keywords="YTÜ MİNT ekibi, yönetim kurulu, denetim kurulu, öğrenci liderleri, YTÜ kulüp yönetimi, multidisipliner inovasyon teknolojileri ekibi"
+  jsonLd={teamJsonLd}
 >
   <!-- Page Header -->
   <section class="page-hero">
