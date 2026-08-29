@@ -1,0 +1,27 @@
+{
+  "name": "YTÜ MİNT | Multidisipliner İnovasyon Teknolojileri Kulübü",
+  "short_name": "YTÜ MİNT",
+  "description": "Yıldız Teknik Üniversitesi teknoloji, inovasyon ve yazılım ekosistemini geleceğe taşıyan multidisipliner öğrenci kulübü.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#61a95d",
+  "icons": [
+    {
+      "src": "/favicons/favicon-32x32.webp",
+      "sizes": "32x32",
+      "type": "image/webp"
+    },
+    {
+      "src": "/favicons/favicon.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

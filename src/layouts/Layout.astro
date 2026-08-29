@@ -74,6 +74,7 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     />
     <link rel="shortcut icon" href="/favicons/favicon.webp" />
     <link rel="apple-touch-icon" href="/favicons/favicon.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
@@ -96,7 +97,6 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     <meta name="theme-color" content="#61a95d" />
     <meta name="google-site-verification" content="BZDIF04wGa3fyBWdB8vZEfkYpqachvnTdz7z2kU3MAw" />
     <link rel="alternate" hreflang="tr" href={canonicalURL} />
-    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
     <!-- Structured Data: Organization (JSON-LD) -->
     <script type="application/ld+json" is:inline>
