@@ -42,6 +42,16 @@ function isActive(href: string) {
 }
 
 const isHome = currentPath === "/" || currentPath === "";
+
+const pageLabels: Record<string, string> = {
+  "/communities": "Topluluklarımız",
+  "/events": "Etkinliklerimiz",
+  "/team": "Ekibimiz",
+  "/contact": "Bize Ulaşın",
+};
+
+const currentPageLabel = pageLabels[cleanPathname] || title.split("|")[0].trim();
+const hasBreadcrumb = !isHome && cleanPathname !== "/404";
 ---
 
 <html lang="tr">
@@ -77,7 +87,7 @@ const isHome = currentPath === "/" || currentPath === "";
     <meta name="google-site-verification" content="BZDIF04wGa3fyBWdB8vZEfkYpqachvnTdz7z2kU3MAw" />
     <link rel="alternate" hreflang="tr" href={canonicalURL} />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data: Organization (JSON-LD) -->
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
@@ -95,6 +105,48 @@ const isHome = currentPath === "/" || currentPath === "";
         ]
       }
     </script>
+
+    <!-- Structured Data: WebSite (JSON-LD) -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "YTÜ MİNT",
+        "alternateName": [
+          "Yıldız Teknik Üniversitesi MİNT",
+          "Multidisipliner İnovasyon Teknolojileri Kulübü"
+        ],
+        "url": "https://ytumint.org/",
+        "inLanguage": "tr"
+      }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList (JSON-LD) -->
+    {
+      hasBreadcrumb && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://ytumint.org/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": currentPageLabel,
+                "item": canonicalURL.href
+              }
+            ]
+          })}
+        />
+      )
+    }
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content={type} />

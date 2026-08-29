@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import { pastEvents, upcomingEvents } from "../data/events";
 
 function parseEventDate(dateStr: string) {
@@ -46,6 +47,9 @@ const categories = [
       </div>
     </div>
   </section>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumb currentPage="Etkinliklerimiz" />
 
   <!-- Events Main Section -->
   <section class="events-main-section">

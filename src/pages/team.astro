@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 
 const rawYonetimKurulu = [
   {
@@ -124,6 +125,9 @@ const denetimKurulu = rawDenetimKurulu.filter(
       </div>
     </div>
   </section>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumb currentPage="Ekibimiz" />
 
   <!-- Yönetim Kurulu -->
   <section class="team-section">
