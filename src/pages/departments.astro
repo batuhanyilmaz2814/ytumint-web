@@ -309,6 +309,8 @@ const departments = [
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
+
+  /* Tablet: 960px ve altı — tek kolon */
   @media (max-width: 960px) {
     .communities-grid {
       grid-template-columns: 1fr;
@@ -331,9 +333,159 @@ const departments = [
     }
   }
 
-  @media (max-width: 640px) {
+  /* Küçük tablet: 768px ve altı */
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 120px;
+      padding: 32px 0;
+    }
+
+    .page-hero-title {
+      font-size: 26px;
+    }
+
+    .communities-section {
+      padding: 36px 0 24px;
+    }
+
+    .communities-grid {
+      gap: 16px;
+    }
+
     .community-card {
-      padding: 20px;
+      padding: 22px 18px;
+      gap: 14px;
+    }
+
+    .community-name {
+      font-size: 16px;
+    }
+
+    .community-card-desc {
+      font-size: 13.5px;
+    }
+
+    .join-cta-section {
+      padding: 12px 0 48px;
+    }
+
+    .join-cta-title {
+      font-size: 18px;
+    }
+
+    .join-cta-desc {
+      font-size: 13.5px;
+    }
+  }
+
+  /* Mobil: 640px ve altı */
+  @media (max-width: 640px) {
+    .page-hero {
+      min-height: 100px;
+      padding: 24px 0;
+    }
+
+    .page-hero-title {
+      font-size: 22px;
+    }
+
+    .communities-section {
+      padding: 28px 0 20px;
+    }
+
+    .communities-grid {
+      gap: 12px;
+    }
+
+    .community-card {
+      padding: 18px 16px;
+      gap: 12px;
+    }
+
+    .community-card-header {
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .community-card-logo-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .community-name {
+      font-size: 15px;
+    }
+
+    .community-card-desc {
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .join-cta-section {
+      padding: 10px 0 40px;
+    }
+
+    .join-cta-card {
+      padding: 22px 18px;
+      gap: 16px;
+    }
+
+    .join-cta-title {
+      font-size: 17px;
+    }
+
+    .join-cta-desc {
+      font-size: 13px;
+    }
+  }
+
+  /* Ekstra küçük mobil: 480px ve altı */
+  @media (max-width: 480px) {
+    .page-hero-title {
+      font-size: 20px;
+    }
+
+    .community-card {
+      padding: 16px 14px;
+      gap: 10px;
+    }
+
+    .community-card-header {
+      gap: 10px;
+    }
+
+    .community-card-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+    }
+
+    .community-name {
+      font-size: 14.5px;
+    }
+
+    .community-card-desc {
+      font-size: 12.5px;
+    }
+
+    .join-cta-card {
+      padding: 18px 14px;
+      gap: 14px;
+    }
+
+    .join-cta-title {
+      font-size: 16px;
+    }
+
+    .join-cta-desc {
+      font-size: 12.5px;
+    }
+
+    .join-cta-btn {
+      padding: 10px 16px;
+      font-size: 13px;
     }
   }
 </style>
