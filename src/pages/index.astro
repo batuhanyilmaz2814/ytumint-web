@@ -397,25 +397,27 @@ function parseEventDate(dateStr: string) {
     <div class="container">
       <div class="about-inner">
         <div class="about-content">
-          <div class="section-badge">Biz Kimiz?</div>
-          <h2 class="about-title">
-            YTÜ'de <span class="about-title-highlight">inovasyonun kalbi</span>
-          </h2>
-          <p class="about-text">
-            Multidisipliner İnovasyon Teknolojileri Kulübü (MİNT), 2018'den bu
-            yana Yıldız Teknik Üniversitesi Davutpaşa Kampüsü bünyesinde
-            faaliyet gösteren, disiplinler arası teknoloji ve inovasyon odaklı
-            bir öğrenci kulübüdür.
-          </p>
-          <p class="about-text">
-            MİNT’in amacı; farklı bölümlerde eğitim gören öğrencileri bir araya
-            getirerek ekip çalışması kültürünü geliştirmek, yenilikçi projeler
-            üretmelerine destek olmak ve öğrencilerin teknik&sosyal
-            yetkinliklerini artırmaktır. Bu kapsamda yazılım, tasarım ve çeşitli
-            teknoloji alanlarında eğitimler, seminerler ve etkinlikler
-            düzenlenmektedir. Alt toplulukları arasında Blockchain, Deptron,
-            Huawei Student Developers ve Yıldız Siber yer almaktadır.
-          </p>
+          <div class="about-text-block">
+            <div class="section-badge">Biz Kimiz?</div>
+            <h2 class="about-title">
+              YTÜ'de <span class="about-title-highlight">inovasyonun kalbi</span>
+            </h2>
+            <p class="about-text">
+              Multidisipliner İnovasyon Teknolojileri Kulübü (MİNT), 2018'den bu
+              yana Yıldız Teknik Üniversitesi Davutpaşa Kampüsü bünyesinde
+              faaliyet gösteren, disiplinler arası teknoloji ve inovasyon odaklı
+              bir öğrenci kulübüdür.
+            </p>
+            <p class="about-text">
+              MİNT’in amacı; farklı bölümlerde eğitim gören öğrencileri bir araya
+              getirerek ekip çalışması kültürünü geliştirmek, yenilikçi projeler
+              üretmelerine destek olmak ve öğrencilerin teknik&sosyal
+              yetkinliklerini artırmaktır. Bu kapsamda yazılım, tasarım ve çeşitli
+              teknoloji alanlarında eğitimler, seminerler ve etkinlikler
+              düzenlenmektedir. Alt toplulukları arasında Blockchain, Deptron,
+              Huawei Student Developers ve Yıldız Siber yer almaktadır.
+            </p>
+          </div>
           <div class="about-stats" id="aboutStats">
             <div class="about-stat">
               <span class="about-stat-number" data-target="4000" data-suffix="+"
@@ -1693,7 +1695,9 @@ function parseEventDate(dateStr: string) {
   .past-event-date {
     display: flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 6px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
   }
 
   .past-event-day {
@@ -1701,12 +1705,16 @@ function parseEventDate(dateStr: string) {
     font-weight: 700;
     color: var(--green);
     line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .past-event-month {
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--dark);
+    white-space: nowrap;
+    line-height: 1.2;
   }
 
   .past-event-title {
@@ -2041,20 +2049,28 @@ function parseEventDate(dateStr: string) {
     }
 
     .about-inner {
-      grid-template-columns: 1fr;
-      gap: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
 
-    .about-section {
-      padding: 40px 0 48px;
+    .about-content {
+      display: contents;
     }
 
-    .about-title {
-      font-size: 20px;
+    .about-text-block {
+      order: 1;
+    }
+
+    .about-photo {
+      order: 2;
+      width: 100%;
     }
 
     .about-stats {
-      margin-top: 20px;
+      order: 3;
+      margin-top: 0;
+      width: 100%;
     }
 
     .communities-home-section,
@@ -2125,17 +2141,25 @@ function parseEventDate(dateStr: string) {
     }
 
     .about-stats {
-      flex-direction: column;
-      gap: 0;
+      flex-direction: row;
+      width: 100%;
     }
 
     .about-stat {
-      padding: 14px 16px;
+      padding: 12px 8px;
+    }
+
+    .about-stat-number {
+      font-size: 20px;
+    }
+
+    .about-stat-label {
+      font-size: 10px;
     }
 
     .about-stat-divider {
-      width: 80%;
-      height: 1px;
+      width: 1px;
+      height: 28px;
       align-self: center;
     }
 
@@ -2152,22 +2176,28 @@ function parseEventDate(dateStr: string) {
     }
 
     .events-home-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 14px;
+      padding: 4px 0 16px;
+      margin-top: 18px;
     }
 
-    .departments-home-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .events-home-grid::-webkit-scrollbar {
+      display: none;
     }
 
-    .event-home-card {
-      padding: 18px 16px;
-    }
-
-    .section-header-row {
-      margin-bottom: 14px;
-      align-items: center;
+    .events-home-grid .past-event-card {
+      flex: 0 0 200px;
+      width: 200px;
+      min-width: 200px;
+      max-width: 200px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
     }
 
     .past-event-body {
@@ -2221,8 +2251,47 @@ function parseEventDate(dateStr: string) {
       padding: 28px 0 32px;
     }
 
+    .about-stat {
+      padding: 10px 4px;
+    }
+
+    .about-stat-number {
+      font-size: 18px;
+    }
+
+    .about-stat-label {
+      font-size: 9.5px;
+      letter-spacing: 0.02em;
+    }
+
     .events-home-grid {
-      gap: 10px;
+      gap: 12px;
+      padding: 4px 0 14px;
+      margin-top: 14px;
+    }
+
+    .events-home-grid .past-event-card {
+      flex: 0 0 190px;
+      width: 190px;
+      min-width: 190px;
+      max-width: 190px;
+    }
+
+    .past-event-body {
+      padding: 10px 12px 12px;
+    }
+
+    .past-event-day {
+      font-size: 17px;
+    }
+
+    .past-event-month {
+      font-size: 11px;
+    }
+
+    .past-event-title {
+      font-size: 13px;
+      min-height: auto;
     }
 
     .departments-home-grid {
@@ -2235,15 +2304,6 @@ function parseEventDate(dateStr: string) {
     .departments-home-section,
     .team-home-section {
       padding: 28px 0 36px;
-    }
-
-    .past-event-body {
-      padding: 10px 12px 12px;
-    }
-
-    .past-event-title {
-      font-size: 13px;
-      min-height: auto;
     }
 
     .community-home-card {
