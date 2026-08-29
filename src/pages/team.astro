@@ -129,10 +129,6 @@ const denetimKurulu = rawDenetimKurulu.filter(
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Yönetim Kurulu</h2>
-        <p class="section-description">
-          Kulübümüzün faaliyetlerini yürütmek ve geliştirmek için çalışan
-          yönetim kurulu üyelerimiz.
-        </p>
       </div>
 
       <div class="team-grid">
@@ -252,10 +248,6 @@ const denetimKurulu = rawDenetimKurulu.filter(
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Denetim Kurulu</h2>
-        <p class="section-description">
-          Topluluğumuzun faaliyetlerini ve mali şeffaflığını denetleyen bağımsız
-          kurul üyelerimiz.
-        </p>
       </div>
 
       <div class="team-grid team-grid--audit">
@@ -370,20 +362,6 @@ const denetimKurulu = rawDenetimKurulu.filter(
     </div>
   </section>
 
-  <!-- Join CTA -->
-  <section class="join-section">
-    <div class="container">
-      <div class="join-inner">
-        <div>
-          <h2 class="join-title">Sen de Ekibe Katıl</h2>
-          <p class="join-desc">
-            Sen de MİNTgillere katılmak istiyorsan iletişim formumuzu doldur.
-          </p>
-        </div>
-        <a href="/contact" class="btn btn-dark join-btn">Başvur →</a>
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <style>
@@ -482,6 +460,10 @@ const denetimKurulu = rawDenetimKurulu.filter(
   }
 
   /* ── Team Sections ──────────────────────────────────────────── */
+  .section-header {
+    margin-bottom: 24px;
+  }
+
   .team-section {
     padding: 48px 0 40px;
     background: var(--bg-main);
@@ -490,7 +472,7 @@ const denetimKurulu = rawDenetimKurulu.filter(
   }
 
   .team-section--audit {
-    padding: 48px 0 64px;
+    padding: 48px 0 80px;
     background: var(--bg-main);
     position: relative;
     overflow: hidden;
@@ -733,39 +715,6 @@ const denetimKurulu = rawDenetimKurulu.filter(
     opacity: 0.85;
   }
 
-  /* ── Join CTA ───────────────────────────────────────────────── */
-  .join-section {
-    padding: 30px 0 60px;
-    background: var(--bg-main);
-  }
-  .join-inner {
-    background: var(--green);
-    color: var(--white);
-    border-radius: var(--radius-md);
-    padding: 36px 44px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-    box-shadow: var(--shadow-md);
-  }
-
-  .join-title {
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--white);
-  }
-  .join-desc {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.55;
-    max-width: 480px;
-  }
-  .join-btn {
-    flex-shrink: 0;
-  }
-
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1180px) {
     .team-grid,
@@ -780,11 +729,6 @@ const denetimKurulu = rawDenetimKurulu.filter(
     .team-grid--audit {
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
-    }
-    .join-inner {
-      flex-direction: column;
-      padding: 32px 24px;
-      text-align: center;
     }
     .page-hero-stats {
       gap: 12px;
@@ -802,9 +746,6 @@ const denetimKurulu = rawDenetimKurulu.filter(
     .page-hero-stats {
       width: 100%;
       justify-content: space-between;
-    }
-    .join-inner {
-      padding: 24px 18px;
     }
   }
 </style>
