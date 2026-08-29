@@ -1,12 +1,89 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+
+const siteUrl = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : "https://ytumint.org";
+
+const communitiesData = [
+  {
+    name: "YTÜ Deptron",
+    alternateName: "Deptron Robotics",
+    description:
+      "Deptron Robotics, depo lojistiğinde sesli asistan destekli yapay zeka teknolojileri ve otonom çözümler geliştiren teknoloji girişimidir.",
+    logo: `${siteUrl}/communities/deptron-logo.webp`,
+    url: "https://deptronrobotics.com/",
+    sameAs: [
+      "https://www.instagram.com/deptron_robotics/",
+      "https://deptronrobotics.com/",
+    ],
+  },
+  {
+    name: "Huawei Student Developers (HSD YTU)",
+    alternateName: "HSD YTÜ",
+    description:
+      "Huawei Student Developers (HSD), teknoloji ve yazılım ekosisteminde eğitimler, etkinlikler ve projeler sunan küresel öğrenci geliştirici topluluğudur.",
+    logo: `${siteUrl}/communities/hsd-logo.webp`,
+    url: "https://www.instagram.com/hsd.ytu/",
+    sameAs: ["https://www.instagram.com/hsd.ytu/"],
+  },
+  {
+    name: "YTÜ Blockchain",
+    alternateName: "Yıldız Blockchain",
+    description:
+      "Blockchain mimarisi, Web3 ekosistemi, akıllı sözleşmeler ve DeFi protokolleri üzerine araştırmalar ve projeler yürüten teknoloji topluluğu.",
+    logo: `${siteUrl}/communities/bc-logo.webp`,
+    url: "https://ytublockchain.com/tr",
+    sameAs: [
+      "https://www.instagram.com/ytu_blockchain/",
+      "https://ytublockchain.com/tr",
+    ],
+  },
+  {
+    name: "Yıldız Siber",
+    alternateName: "YTÜ Siber Güvenlik Topluluğu",
+    description:
+      "Siber güvenlik, sızma testleri (pentest), CTF yarışmaları ve web uygulama güvenliği alanlarında eğitimler ve atölyeler düzenleyen topluluk.",
+    logo: `${siteUrl}/communities/yildiz-siber.webp`,
+    url: "https://www.instagram.com/yildizsiber/",
+    sameAs: ["https://www.instagram.com/yildizsiber/"],
+  },
+];
+
+const communitiesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "YTÜ MİNT Alt Toplulukları",
+  description:
+    "YTÜ MİNT bünyesinde faaliyet gösteren robotik, yapay zeka, Web3 ve siber güvenlik toplulukları.",
+  itemListElement: communitiesData.map((comm, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Organization",
+      name: comm.name,
+      alternateName: comm.alternateName,
+      description: comm.description,
+      logo: comm.logo,
+      image: comm.logo,
+      url: comm.url,
+      sameAs: comm.sameAs,
+      parentOrganization: {
+        "@type": "Organization",
+        name: "YTÜ MİNT",
+        url: `${siteUrl}/`,
+      },
+    },
+  })),
+};
 ---
 
 <Layout
   title="Topluluklarımız | YTÜ MİNT"
   description="YTÜ MİNT bünyesindeki topluluklar: YTÜ Deptron, Huawei Student Developers (HSD YTU), YTÜ Blockchain ve Yıldız Siber topluluklarını keşfedin."
   keywords="YTÜ toplulukları, YTÜ Deptron, Deptron Robotics, Huawei Student Developers, HSD YTU, YTÜ Blockchain, Yıldız Siber, siber güvenlik kulübü, yapay zeka kulübü, Web3, öğrenci toplulukları, YTÜ MİNT"
+  jsonLd={communitiesJsonLd}
 >
   <!-- Page Header -->
   <section class="page-hero">

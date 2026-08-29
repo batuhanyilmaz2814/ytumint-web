@@ -78,6 +78,14 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -88,6 +96,7 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     <meta name="theme-color" content="#61a95d" />
     <meta name="google-site-verification" content="BZDIF04wGa3fyBWdB8vZEfkYpqachvnTdz7z2kU3MAw" />
     <link rel="alternate" hreflang="tr" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
     <!-- Structured Data: Organization (JSON-LD) -->
     <script type="application/ld+json" is:inline>
@@ -95,15 +104,30 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "YTÜ MİNT",
-        "alternateName": "Multidisipliner İnovasyon Teknolojileri Kulübü",
+        "alternateName": [
+          "Yıldız Teknik Üniversitesi MİNT",
+          "Multidisipliner İnovasyon Teknolojileri Kulübü"
+        ],
+        "description": "Yıldız Teknik Üniversitesi teknoloji, inovasyon ve yazılım ekosistemini geleceğe taşıyan multidisipliner öğrenci kulübü.",
         "url": "https://ytumint.org/",
         "logo": "https://ytumint.org/brand/mint-logo.webp",
+        "image": "https://ytumint.org/brand/mint-wh.jpg",
+        "email": "mintunity@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Yıldız Teknik Üniversitesi Davutpaşa Kampüsü",
+          "addressLocality": "Esenler",
+          "addressRegion": "İstanbul",
+          "postalCode": "34220",
+          "addressCountry": "TR"
+        },
         "sameAs": [
           "https://www.instagram.com/ytumint",
           "https://www.linkedin.com/company/ytumint",
           "https://x.com/ytumint",
           "https://www.tiktok.com/@ytumint",
-          "https://www.youtube.com/@mintkulubu"
+          "https://www.youtube.com/@mintkulubu",
+          "https://open.spotify.com/show/0gkaJ9ud28clkg5zWmdnF6?si=eeae0988421348dc&nd=1&dlsi=791e8d082db246da"
         ]
       }
     </script>
@@ -178,6 +202,9 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:secure_url" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content={image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/jpeg'} />
     <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content="YTÜ MİNT" />
     <meta property="og:locale" content="tr_TR" />
