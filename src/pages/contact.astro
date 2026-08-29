@@ -1005,25 +1005,200 @@ const contactJsonLd = {
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
+
+  /* Tablet: 1024px ve altı — tek kolon düzeni */
   @media (max-width: 1024px) {
     .contact-inner {
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 20px;
+    }
+
+    .contact-info-col {
+      height: auto;
+    }
+
+    .contact-detail-item--map {
+      min-height: 200px;
+    }
+
+    .contact-map-wrapper {
+      min-height: 180px;
     }
   }
 
-  @media (max-width: 640px) {
-    .contact-card {
-      padding: 20px 16px;
+  /* Küçük tablet: 768px ve altı */
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 36px 0 56px;
     }
+
+    .page-hero {
+      min-height: 120px;
+      padding: 32px 0;
+    }
+
+    .contact-inner {
+      gap: 16px;
+    }
+
+    .contact-card {
+      padding: 24px 22px;
+    }
+
+    .contact-detail-item {
+      padding: 18px 20px;
+    }
+
+    .contact-form-title {
+      font-size: 18px;
+    }
+
+    .contact-detail-item--map {
+      min-height: 180px;
+    }
+
+    .contact-map-wrapper {
+      min-height: 160px;
+    }
+  }
+
+  /* Mobil: 640px ve altı */
+  @media (max-width: 640px) {
+    .contact-section {
+      padding: 28px 0 48px;
+    }
+
+    .page-hero {
+      min-height: 100px;
+      padding: 24px 0;
+    }
+
+    .page-hero-title {
+      font-size: 22px;
+    }
+
+    .contact-inner {
+      gap: 14px;
+    }
+
+    .contact-card {
+      padding: 20px 18px;
+    }
+
+    .contact-card-header {
+      margin-bottom: 16px;
+    }
+
+    .contact-detail-item {
+      padding: 16px 18px;
+    }
+
+    .contact-detail-item--socials {
+      padding: 16px 18px;
+    }
+
+    .contact-social-links {
+      gap: 12px;
+    }
+
     .form-row {
       grid-template-columns: 1fr;
+      gap: 0;
     }
+
+    .contact-form {
+      gap: 13px;
+    }
+
+    .form-input {
+      padding: 11px 13px;
+      font-size: 14px;
+    }
+
+    .contact-submit-btn {
+      padding: 13px 20px;
+      font-size: 14px;
+    }
+
+    .contact-detail-item--map {
+      min-height: 160px;
+    }
+
+    .contact-map-wrapper {
+      min-height: 140px;
+    }
+
     .toast-notification {
       bottom: 16px;
-      right: 16px;
-      left: 16px;
+      right: 12px;
+      left: 12px;
       width: auto;
+      max-width: none;
+      border-radius: 12px;
+      padding: 14px 15px;
+      gap: 10px;
+    }
+
+    .toast-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .toast-title {
+      font-size: 13px;
+    }
+
+    .toast-desc {
+      font-size: 12px;
+    }
+  }
+
+  /* Ekstra küçük mobil: 480px ve altı */
+  @media (max-width: 480px) {
+    .contact-section {
+      padding: 20px 0 40px;
+    }
+
+    .contact-card {
+      padding: 18px 15px;
+    }
+
+    .contact-detail-item {
+      padding: 14px 15px;
+    }
+
+    .contact-detail-label {
+      font-size: 12px;
+    }
+
+    .contact-detail-value {
+      font-size: 13px;
+    }
+
+    .contact-social-links {
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-form-title {
+      font-size: 17px;
+    }
+
+    .form-label {
+      font-size: 12px;
+    }
+
+    .form-input {
+      padding: 10px 12px;
+      font-size: 13.5px;
+    }
+
+    .contact-detail-item--map {
+      min-height: 140px;
+    }
+
+    .contact-map-wrapper {
+      min-height: 120px;
     }
   }
 </style>

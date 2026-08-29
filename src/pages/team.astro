@@ -653,6 +653,8 @@ const teamJsonLd = {
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
+
+  /* Geniş tablet: 1180px ve altı — 3 kolon */
   @media (max-width: 1180px) {
     .team-grid,
     .team-grid--audit {
@@ -661,28 +663,224 @@ const teamJsonLd = {
     }
   }
 
+  /* Tablet: 1024px ve altı */
+  @media (max-width: 1024px) {
+    .team-section {
+      padding: 40px 0 32px;
+    }
+
+    .team-section--audit {
+      padding: 40px 0 64px;
+    }
+  }
+
+  /* Küçük tablet: 768px ve altı — 2 kolon */
   @media (max-width: 768px) {
+    .page-hero {
+      min-height: 120px;
+      padding: 32px 0;
+    }
+
+    .page-hero-inner {
+      gap: 20px;
+    }
+
+    .page-hero-title {
+      font-size: 26px;
+    }
+
+    .page-hero-stats {
+      gap: 10px;
+    }
+
+    .stat-card {
+      padding: 10px 16px;
+    }
+
+    .stat-number {
+      font-size: 20px;
+    }
+
+    .stat-label {
+      font-size: 11.5px;
+    }
+
+    .team-section {
+      padding: 32px 0 24px;
+    }
+
+    .team-section--audit {
+      padding: 32px 0 56px;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
     .team-grid,
     .team-grid--audit {
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
-    .page-hero-stats {
-      gap: 12px;
+
+    .team-card {
+      padding: 18px 14px 14px;
+    }
+
+    .team-avatar {
+      width: 84px;
+      height: 84px;
+    }
+
+    .team-name {
+      font-size: 14px;
+    }
+
+    .team-role {
+      font-size: 11px;
     }
   }
 
-  @media (max-width: 480px) {
+  /* Mobil: 640px ve altı */
+  @media (max-width: 640px) {
+    .page-hero {
+      min-height: 100px;
+      padding: 24px 0;
+    }
+
+    .page-hero-title {
+      font-size: 22px;
+    }
+
+    .page-hero-inner {
+      gap: 16px;
+    }
+
+    .team-section {
+      padding: 28px 0 20px;
+    }
+
+    .team-section--audit {
+      padding: 28px 0 48px;
+    }
+
     .team-grid,
     .team-grid--audit {
-      grid-template-columns: 1fr;
+      gap: 12px;
     }
+
+    .team-card {
+      padding: 16px 12px 12px;
+      gap: 8px;
+    }
+
+    .team-avatar {
+      width: 76px;
+      height: 76px;
+    }
+
+    .team-name {
+      font-size: 13.5px;
+    }
+
+    .team-role {
+      font-size: 10.5px;
+    }
+
+    .team-meta-item {
+      font-size: 11px;
+    }
+  }
+
+  /* Küçük mobil: 480px ve altı — 1 kolon */
+  @media (max-width: 480px) {
     .page-hero-inner {
       flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
     }
+
     .page-hero-stats {
       width: 100%;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
+    .stat-card {
+      flex: 1;
+      padding: 10px 12px;
+    }
+
+    .team-grid,
+    .team-grid--audit {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .team-card {
+      padding: 16px 12px 12px;
+    }
+
+    .team-avatar {
+      width: 72px;
+      height: 72px;
+    }
+
+    .team-name {
+      font-size: 13px;
+    }
+
+    .team-role {
+      font-size: 10.5px;
+      max-width: 160px;
+    }
+
+    .team-socials {
+      margin-top: 6px;
+    }
+  }
+
+  /* Ekstra küçük mobil: 380px ve altı */
+  @media (max-width: 380px) {
+    .page-hero-title {
+      font-size: 20px;
+    }
+
+    .team-grid,
+    .team-grid--audit {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .team-card {
+      padding: 14px 10px 10px;
+      gap: 7px;
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+    }
+
+    .team-name {
+      font-size: 12.5px;
+    }
+
+    .team-role {
+      font-size: 10px;
+      max-width: 140px;
+    }
+
+    .team-meta-item {
+      font-size: 10px;
+    }
+
+    .stat-number {
+      font-size: 18px;
+    }
+
+    .stat-label {
+      font-size: 10.5px;
     }
   }
 </style>
