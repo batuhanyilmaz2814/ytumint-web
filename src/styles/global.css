@@ -736,24 +736,30 @@ p {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   transition: all 0.2s ease;
 }
 
 .footer-link-arrow {
+  display: inline-block;
+  max-width: 0;
   opacity: 0;
+  overflow: hidden;
   transform: translateX(-4px);
   color: #52B788;
   font-size: 12px;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .footer-link:hover {
   color: #FFFFFF;
+  gap: 6px;
   transform: translateX(4px);
 }
 
 .footer-link:hover .footer-link-arrow {
+  max-width: 16px;
   opacity: 1;
   transform: translateX(0);
 }
