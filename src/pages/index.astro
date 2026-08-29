@@ -803,7 +803,19 @@ function parseEventDate(dateStr: string) {
   <section class="team-home-section" id="ekibimiz">
     <div class="container">
       <div class="team-home-inner">
-        <div class="team-home-left">
+        <div class="team-home-photo-wrap">
+          <img
+            src="/team/mint-ana-ekip.webp"
+            alt="YTÜ MİNT Yönetim Kurulu ve Lider Ekibi - Yıldız Teknik Üniversitesi"
+            class="team-home-photo"
+            width="540"
+            height="380"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="team-home-content">
           <h2 class="section-title">Kulübümüzün Arkasındaki Ekip</h2>
           <p class="team-home-desc">
             MİNT'in düzenlediği etkinlikleri, topluluk faaliyetlerini ve
@@ -820,18 +832,6 @@ function parseEventDate(dateStr: string) {
                 stroke-linejoin="round"></path>
             </svg>
           </a>
-        </div>
-
-        <div class="team-home-photo-wrap">
-          <img
-            src="/team/mint-ana-ekip.webp"
-            alt="YTÜ MİNT Yönetim Kurulu ve Lider Ekibi - Yıldız Teknik Üniversitesi"
-            class="team-home-photo"
-            width="540"
-            height="380"
-            loading="lazy"
-            decoding="async"
-          />
         </div>
       </div>
     </div>
@@ -1606,7 +1606,7 @@ function parseEventDate(dateStr: string) {
 
   .team-home-inner {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 48px;
     align-items: center;
     position: relative;

@@ -1,0 +1,339 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+
+const departments = [
+  {
+    name: "Organizasyon Birimi",
+    description: "Etkinliklerimizin planlanması, koordine edilmesi ve kusursuz bir şekilde hayata geçirilmesinden sorumludur. Ekip içi iletişimi güçlü tutar ve tüm süreçlerin sorunsuz ilerlemesini sağlar.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`
+  },
+  {
+    name: "Sponsorluk Birimi",
+    description: "Kulübümüzün projeleri ve etkinlikleri için maddi destek bulur, şirketlerle kurumsal ilişkiler kurar ve sürdürülebilir iş birlikleri geliştirir.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`
+  },
+  {
+    name: "Sosyal Medya Birimi",
+    description: "Kulübümüzün dijital varlığını yönetir. İçerik üretimi, görsel tasarım ve sosyal medya hesaplarımızın aktif olarak kullanılmasıyla kulübümüzün sesini daha geniş kitlelere duyurur.",
+    icon: `<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24"><title>Canva</title><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></svg>`
+  },
+  {
+    name: "Yarışma-Proje Birimi",
+    description: "Teknoloji ve inovasyon odaklı projeler geliştirir, ulusal ve uluslararası yarışmalara katılım sağlar ve üyelerimizin teknik yetkinliklerini artırmayı hedefler.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`
+  },
+];
+---
+
+<Layout
+  title="Birimlerimiz | YTÜ MİNT"
+  description="YTÜ MİNT bünyesindeki birimler: Organizasyon, Sponsorluk, Sosyal Medya ve Yarışma-Proje birimlerimiz."
+  keywords="YTÜ birimler, Organizasyon Birimi, Sponsorluk Birimi, Sosyal Medya Birimi, Yarışma-Proje Birimi, öğrenci toplulukları, YTÜ MİNT"
+>
+  <!-- Page Header -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div>
+          <h1 class="page-hero-title">Birimlerimiz</h1>
+          <Breadcrumb currentPage="Birimlerimiz" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Departments Grid -->
+  <section class="communities-section">
+    <div class="container">
+      <div class="communities-grid">
+        {
+          departments.map((dept) => (
+            <div class="community-card">
+              <div class="community-card-header">
+                <div class="community-card-logo-box" set:html={dept.icon}>
+                </div>
+                <div>
+                  <h2 class="community-name">{dept.name}</h2>
+                </div>
+              </div>
+
+              <p class="community-card-desc">{dept.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimalist Join CTA -->
+  <section class="join-cta-section">
+    <div class="container">
+      <div class="join-cta-card">
+        <div class="join-cta-content">
+          <h2 class="join-cta-title">Ekibimizin Bir Parçası Olun</h2>
+          <p class="join-cta-desc">
+            Projelerimizde yer almak, teknik ekiplerimize katılmak veya alt topluluklarımızda aktif rol almak için bizimle iletişime geçebilirsiniz.
+          </p>
+        </div>
+        <div class="join-cta-action">
+          <a
+            href="/contact"
+            class="btn btn-green join-cta-btn"
+            aria-label="Bizimle iletişime geçin"
+          >
+            <span>İletişime Geç</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Hero */
+  .page-hero {
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    padding: 48px 0;
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero .container {
+    width: 100%;
+  }
+
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/brand/mint-pattern.webp");
+    background-size: 260px 260px;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-hero-inner {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-hero-title {
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 700;
+    margin: 0;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+  }
+
+  /* Communities */
+  .communities-section {
+    padding: 48px 0 32px;
+    background: var(--bg-main);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .communities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .community-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 16px;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+  }
+
+  :global([data-theme="dark"]) .community-card {
+    background: var(--bg-card);
+  }
+
+  .community-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(97, 169, 93, 0.35);
+    box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.04);
+  }
+
+  :global([data-theme="dark"]) .community-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4);
+  }
+
+  .community-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .community-card-logo-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--bg-muted);
+    color: var(--dark);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  :global([data-theme="dark"]) .community-card-logo-box {
+    color: var(--white);
+  }
+
+  .community-card:hover .community-card-logo-box {
+    transform: scale(1.04);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  }
+
+  .community-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .community-card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    flex: 1;
+    margin: 0;
+  }
+
+  /* ── Minimalist Join CTA ──────────────────────────────────── */
+  .join-cta-section {
+    padding: 16px 0 64px;
+    background: var(--bg-main);
+  }
+
+  .join-cta-card {
+    max-width: 1060px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  :global([data-theme="dark"]) .join-cta-card {
+    background: var(--bg-card);
+  }
+
+  .join-cta-content {
+    flex: 1;
+    max-width: 680px;
+  }
+
+  .join-cta-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .join-cta-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .join-cta-action {
+    flex-shrink: 0;
+  }
+
+  .join-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .join-cta-btn svg {
+    transition: transform 0.2s ease;
+  }
+
+  .join-cta-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    .communities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .join-cta-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 24px;
+      gap: 20px;
+    }
+
+    .join-cta-action {
+      width: 100%;
+    }
+
+    .join-cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .community-card {
+      padding: 20px;
+    }
+  }
+</style>
