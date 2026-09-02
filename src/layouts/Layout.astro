@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title = "YTÜ MİNT | Multidisipliner İnovasyon Teknolojileri Kulübü",
-  description = "YTÜ MİNT | Yıldız Teknik Üniversitesi. Teknoloji, matematik ve yazılım alanlarında öğrencileri buluşturan topluluk.",
+  description = "Yıldız Teknik Üniversitesi Multidisipliner İnovasyon Teknolojileri Kulübü (MİNT); yazılım, robotik, yapay zeka, blockchain ve siber güvenlik alanlarında proje üreten disiplinler arası bir öğrenci kulubüdür. Sen de aramıza katıl, geleceği birlikte inşa edelim!.",
   image = "/brand/mint-wh.jpg",
   type = "website",
   keywords = "YTÜ, MİNT, Yıldız Teknik Üniversitesi, Multidisipliner İnovasyon Teknolojileri, yazılım, teknoloji, öğrenci kulübü, yapay zeka, blockchain, siber güvenlik, inovasyon",
@@ -54,7 +54,8 @@ const pageLabels: Record<string, string> = {
   "/contact": "Bize Ulaşın",
 };
 
-const currentPageLabel = pageLabels[cleanPathname] || title.split("|")[0].trim();
+const currentPageLabel =
+  pageLabels[cleanPathname] || title.split("|")[0].trim();
 const hasBreadcrumb = !isHome && cleanPathname !== "/404";
 ---
 
@@ -97,7 +98,10 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     <meta name="author" content="YTÜ MİNT" />
     <meta name="robots" content={robots} />
     <meta name="theme-color" content="#488f44" />
-    <meta name="google-site-verification" content="BZDIF04wGa3fyBWdB8vZEfkYpqachvnTdz7z2kU3MAw" />
+    <meta
+      name="google-site-verification"
+      content="BZDIF04wGa3fyBWdB8vZEfkYpqachvnTdz7z2kU3MAw"
+    />
     <link rel="alternate" hreflang="tr" href={canonicalURL} />
 
     <!-- Structured Data: Organization (JSON-LD) -->
@@ -171,20 +175,20 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
           set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
+            itemListElement: [
               {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "Ana Sayfa",
-                "item": "https://ytumint.org/"
+                position: 1,
+                name: "Ana Sayfa",
+                item: "https://ytumint.org/",
               },
               {
                 "@type": "ListItem",
-                "position": 2,
-                "name": currentPageLabel,
-                "item": canonicalURL.href
-              }
-            ]
+                position: 2,
+                name: currentPageLabel,
+                item: canonicalURL.href,
+              },
+            ],
           })}
         />
       )
@@ -219,7 +223,14 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     <meta property="og:image:secure_url" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content={image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/jpeg'} />
+    <meta
+      property="og:image:type"
+      content={image.endsWith(".png")
+        ? "image/png"
+        : image.endsWith(".webp")
+          ? "image/webp"
+          : "image/jpeg"}
+    />
     <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content="YTÜ MİNT" />
     <meta property="og:locale" content="tr_TR" />
@@ -357,7 +368,8 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     </nav>
 
     <!-- Mobile Drawer Backdrop -->
-    <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true">
+    </div>
 
     <!-- Mobile Drawer Panel (Slides from right) -->
     <aside class="mobile-nav" id="mobileNav" aria-label="Mobil Menü">
@@ -372,8 +384,21 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
           />
           <span class="mobile-nav-title">mint</span>
         </div>
-        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Menüyü kapat">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <button
+          class="mobile-nav-close"
+          id="mobileNavClose"
+          aria-label="Menüyü kapat"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
@@ -392,8 +417,18 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
                 aria-current={isActive(link.href) ? "page" : undefined}
               >
                 <span>{link.label}</span>
-                <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
+                <svg
+                  class="mobile-nav-arrow"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
                 </svg>
               </a>
             </li>
@@ -743,9 +778,11 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
         }
       });
 
-      document.querySelectorAll(".mobile-nav-link, .mobile-contact-cta").forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
+      document
+        .querySelectorAll(".mobile-nav-link, .mobile-contact-cta")
+        .forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
 
       // Theme toggle logic
       const themeToggle = document.getElementById("themeToggle");
@@ -894,20 +931,20 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     color: rgba(255, 255, 255, 0.8);
   }
   :global(.navbar.navbar--home:not(.scrolled)) .nav-link:hover {
-    color: #FFFFFF;
+    color: #ffffff;
   }
   :global(.navbar.navbar--home:not(.scrolled)) .nav-link--active {
-    color: #FFFFFF;
+    color: #ffffff;
   }
   :global(.navbar.navbar--home:not(.scrolled)) .nav-link--active::after {
-    background: #FFFFFF;
+    background: #ffffff;
   }
   :global(.navbar.navbar--home:not(.scrolled)) .logo-text {
-    color: #FFFFFF;
+    color: #ffffff;
   }
   :global(.navbar.navbar--home:not(.scrolled)) .navbar-cta {
     background: rgba(255, 255, 255, 0.12);
-    color: #FFFFFF;
+    color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(8px);
   }
@@ -964,7 +1001,9 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
     z-index: 9998;
   }
 
@@ -993,7 +1032,9 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
     padding: 22px 20px 24px;
     transform: translateX(105%);
     visibility: hidden;
-    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
+    transition:
+      transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0.32s ease;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -1070,7 +1111,7 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
   }
 
   :global([data-theme="dark"]) .mobile-nav-close {
-    color: #94A3B8;
+    color: #94a3b8;
   }
 
   :global([data-theme="dark"]) .mobile-nav-close:hover {
@@ -1103,7 +1144,9 @@ const hasBreadcrumb = !isHome && cleanPathname !== "/404";
 
   .mobile-nav-arrow {
     opacity: 0.4;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
   }
 
   .mobile-nav-link:hover {

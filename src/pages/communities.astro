@@ -89,7 +89,7 @@ const communitiesJsonLd = {
   "@type": "ItemList",
   name: "YTÜ MİNT Alt Toplulukları",
   description:
-    "YTÜ MİNT bünyesinde faaliyet gösteren robotik, yapay zeka, Web3 ve siber güvenlik toplulukları.",
+    "YTÜ MİNT çatısı altında robotik, yapay zeka, blockchain ve siber güvenlik alanlarındaki topluluklarımızı inceleyin ve projelere katılın.",
   itemListElement: communities.map((comm, index) => ({
     "@type": "ListItem",
     position: index + 1,
@@ -117,7 +117,7 @@ const communitiesJsonLd = {
 
 <Layout
   title="Topluluklarımız | YTÜ MİNT"
-  description="YTÜ MİNT bünyesindeki topluluklar: YTÜ Deptron, Huawei Student Developers (HSD YTU), YTÜ Blockchain ve Yıldız Siber topluluklarını keşfedin."
+  description="YTÜ MİNT bünyesindeki YTÜ Deptron, HSD YTU, YTÜ Blockchain ve Yıldız Siber topluluklarını keşfedin; robotik, yapay zeka ve Web3 projelerine hemen dahil olun."
   keywords="YTÜ toplulukları, YTÜ Deptron, Deptron Robotics, Huawei Student Developers, HSD YTU, YTÜ Blockchain, Yıldız Siber, siber güvenlik kulübü, yapay zeka kulübü, Web3, öğrenci toplulukları, YTÜ MİNT"
   jsonLd={communitiesJsonLd}
 >
@@ -233,7 +233,9 @@ const communitiesJsonLd = {
         <div class="join-cta-content">
           <h2 class="join-cta-title">Ekibimizin Bir Parçası Olun</h2>
           <p class="join-cta-desc">
-            Projelerimizde yer almak, teknik ekiplerimize katılmak veya alt topluluklarımızda aktif rol almak için bizimle iletişime geçebilirsiniz.
+            Projelerimizde yer almak, teknik ekiplerimize katılmak veya alt
+            topluluklarımızda aktif rol almak için bizimle iletişime
+            geçebilirsiniz.
           </p>
         </div>
         <div class="join-cta-action">
@@ -332,7 +334,10 @@ const communitiesJsonLd = {
     flex-direction: column;
     height: 100%;
     gap: 10px;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     position: relative;
   }
 
@@ -370,7 +375,9 @@ const communitiesJsonLd = {
     overflow: hidden;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   .community-card:hover .community-card-logo-box {
@@ -704,4 +711,3 @@ const communitiesJsonLd = {
     }
   }
 </style>
-

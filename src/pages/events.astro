@@ -118,7 +118,7 @@ const eventsJsonLd = {
 
 <Layout
   title="Etkinliklerimiz | YTÜ MİNT"
-  description="YTÜ MİNT etkinlikleri: hackathonlar, şirket gezileri, atölyeler, quiz geceleri ve zirveler. Topluluğumuzla birlikte öğren, geliştir ve büyü."
+  description="YTÜ MİNT tarafından düzenlenen hackathonlar, teknoloji zirveleri, eğitimler, şirket gezileri ve sosyal etkinliklerle kendinizi geliştirin, ağınızı genişletin."
   keywords="YTÜ etkinlikleri, hackathon, şirket gezisi, teknoloji zirvesi, yazılım eğitimi, quiz night, YTÜ MİNT etkinlikleri, workshop, atölye, teknoloji etkinlikleri"
   jsonLd={eventsJsonLd}
 >
@@ -235,7 +235,7 @@ const eventsJsonLd = {
                       decoding="async"
                     />
                   ) : (
-                    <div class="past-event-img-placeholder"></div>
+                    <div class="past-event-img-placeholder" />
                   )}
                   {event.isUpcoming && (
                     <span class="upcoming-badge">Yakında</span>
